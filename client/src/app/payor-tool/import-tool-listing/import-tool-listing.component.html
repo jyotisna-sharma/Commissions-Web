@@ -1,0 +1,73 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showloading ">
+    <mat-spinner></mat-spinner>
+</div>
+<div class="main-content">
+    <div class="filter-outerbox filterContianer">
+        <div class="example-header data-filterSec padding-none full-widthForm">
+            <div class="divRow">
+                <div class="full-rowOuter">
+                    <h4 class="page-title">Import Tool</h4>
+                    <span> </span>
+                    <div class="create-newDelegate">
+                        <button class="loader-svg create-button small-size" mat-flat-button (click)='AddUpdateTemplateDialog("")'>
+                                Create Template
+                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="divRow">
+            <div class="tabs-container">
+                <app-payor-tool-left-navigation></app-payor-tool-left-navigation>
+                <div class="tabs-contentDiv">
+                    <div class="filter-outerbox filterContianer">
+                        <div class="example-header data-filterSec padding-none full-widthForm">
+                            <div class="divRow">
+                                <div class="full-rowOuter border-none space-between less-height">
+                                    <div class="left-div">
+                                        <div class="select-boxouter select-client">
+                                            <label class="label">Payor:</label>
+                                            <form [formGroup]="payor" class="formfield-less-h">
+                                                <mat-form-field appearance="outline">
+                                                    <mat-select [formControl]='payor' (selectionChange)='OnChangePayor($event)'>
+                                                        <mat-option *ngFor="let payor of payorList" [value]="payor.PayorID">
+                                                            {{payor.PayorName}}</mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="left-div">
+                                        <div class="search-div">
+                                            <mat-form-field appearance="outline">
+                                                <input matInput placeholder="Search: Template Name" [(ngModel)]="searchData" (keydown.enter)="doSearch()">
+                                            </mat-form-field>
+                                            <div class="btn-outerDiv align-withsearchBox search-cancel-btn">
+                                                <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="searchData='';HandleSearchClear($event);" class="icon-cross" *ngIf="searchData">
+                                                    <mat-icon>close</mat-icon>
+                                                    </button>
+                                                <button mat-raised-button class="loader-svg pull-left icon-button" mat-button mat-stroked-button>
+                                                    <i class="img-icons search-icn"></i>
+                                                    <label>Search</label>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="normal-box tableData tablediv listing-table" *ngIf="this.payorList && this.payorList.length > 0">
+                        <div class="mat-elevation-z8 tableStyle">
+                            <div class="table-outerScroller" style="cursor:pointer;">
+                                <app-mi-list [MiListProperties]=MiListProperties (onMenuItemClick)="OnMenuItemClick($event)" (onPageChange)='OnPaginationChange($event)'></app-mi-list>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

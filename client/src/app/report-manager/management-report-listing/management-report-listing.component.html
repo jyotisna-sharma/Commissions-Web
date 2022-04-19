@@ -1,0 +1,352 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showLoader">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="main-content">
+  <div class="filter-outerbox filterContianer">
+    <div class="example-header data-filterSec padding-none full-widthForm">
+      <div class="divRow">
+        <div class="full-rowOuter space-between">
+          <h4 class="page-title">Report Manager</h4>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="divRow">
+    <div class="tabs-container">
+      <app-report-manager-left-navigation></app-report-manager-left-navigation>
+      <div class="tabs-contentDiv">
+        <div class="normal-box tableData tablediv listing-table">
+          <div class="custom-row margin-right-none">
+            <div class="col-3-lg col-12-md">
+              <div class="report-manager batch-report">
+                <div class="left-col">
+                  <h4 class="page-title">Payors ({{PayorCount}})</h4>
+                </div>
+              </div>
+              <div class="tableStyle table-scroll-data">
+                <app-mi-list [MiListProperties]=PayorsListProperties
+                  (OnCheckBoxClick)='OnPayorListChkBoxClicked($event)'
+                  (onSortChange)='OnSortChange($event)'
+                  (SelectAllCheckBoxes)='OnPayorListSlctAllCheckBoxes($event)' 
+                  [isFieldSelected]=PayorAllCheckBoxSelect
+                  (AfterLoadingData)='AfterPayorDataLoading()'></app-mi-list>
+              </div>
+            </div>
+            <div class="col-3-lg col-12-md" *ngIf="isPayorListfound">
+              <div class="report-manager">
+                <h4 class="page-title">Carriers ({{carrierCount}})</h4>
+              </div>
+              <div class="tableStyle table-scroll-data">
+                <app-mi-list [MiListProperties]=CarrierListProperties [isFieldSelected]=carriersAllCheckBoxSelect
+                  (AfterLoadingData)='AfterCarrierDataLoading()'
+                  (onSortChange)='OnSortChange($event)'
+                  (SelectAllCheckBoxes)='OnCarrierListSlctAllCheckBoxes($event)'
+                  (OnCheckBoxClick)='OnCarrierListChkBoxClicked($event)'></app-mi-list>
+              </div>
+            </div>
+            <div class="col-3-lg col-12-md" *ngIf="isCarrierListfound">
+              <div class="report-manager">
+                <h4 class="page-title">Products ({{productCount}})</h4>
+              </div>
+              <div class="tableStyle table-scroll-data">
+                <app-mi-list [MiListProperties]=ProductListProperties [isFieldSelected]=productAllCheckBoxSelect
+                  (AfterLoadingData)='AfterProductDataLoading()'
+                  (onSortChange)='OnSortChange($event)'
+                  (SelectAllCheckBoxes)='OnProductListSlctAllCheckBoxes($event)'
+                  (OnCheckBoxClick)='OnProductListChkBoxClicked($event)'></app-mi-list>
+              </div>
+            </div>
+            <div class="col-3-lg col-12-md" *ngIf="isProductListfound">
+              <div class="report-manager">
+                <h4 class="page-title">Primary brokers ({{PayeeCount}})</h4>
+              </div>
+              <div class="tableStyle table-scroll-data">
+                <app-mi-list [MiListProperties]=PayeeListProperties (OnCheckBoxClick)='OnPayeeListChkBoxClicked($event)'
+                  (SelectAllCheckBoxes)='OnPayeeListSlctAllCheckBoxes($event)'
+                  (onSortChange)='OnSortChange($event)' [isFieldSelected]=payeeAllCheckBoxSelect
+                  (AfterLoadingData)='AfterPayeeDataLoading()'></app-mi-list>
+              </div>
+            </div>
+          </div>
+          <div class="custom-row margin-right-none mr-top10" *ngIf="isPayeeListfound">
+            
+            <div class="col-3-lg col-12-md">
+              <div class="report-manager">
+                <h4 class="page-title">Segments ({{SegmentCount}})</h4>
+              </div>
+              <div class="tableStyle table-scroll-data">
+                <app-mi-list [MiListProperties]=SegmentListProperties (OnCheckBoxClick)='OnSegmentListChkBoxClicked($event)'
+                  (SelectAllCheckBoxes)='OnSegmentListSlctAllCheckBoxes($event)'
+                   [isFieldSelected]=segmentAllCheckBoxSelect
+                  (AfterLoadingData)='AfterSegmentDataLoading()'></app-mi-list>
+              </div>
+            </div>
+            
+            <div class="col-9-lg col-12-md">
+              <div class="report-manager">
+                <h4 class="page-title">Reports ({{ReportCount}})</h4>
+              </div>
+
+              <!-- <div class="tableStyle table-scroll-data"> -->
+                  
+                <!-- //IsArison check of radiobutton to uncomment -->
+                 <ng-template [ngIf] = "isArison === false">
+                  <!-- //IsArison check of radiobutton to uncomment -->
+                    
+                  <div class="tableStyle table-scroll-data">
+                    <app-mi-list [MiListProperties]=ReportNameProperties
+                      (OnCheckBoxClick)='OnReportNameChkBoxClicked($event)'
+                      (SelectAllCheckBoxes)='OnReportListSlctAllCheckBoxes($event)'
+                      [isFieldSelected]=reportAllCheckBoxSelect (AfterLoadingData)='AfterReportDataLoading()'></app-mi-list>
+                  </div>
+
+                <!-- //IsArison check of radiobutton to uncomment -->
+                  </ng-template> 
+                <!-- //IsArison check of radiobutton to uncomment -->
+
+                <!-- //IsArison check of radiobutton to uncomment -->
+                  <ng-template [ngIf] = "isArison === true">
+                  <div class="tableStyle table-scroll-data">
+                      <app-mi-list [MiListProperties]=ReportNameProperties
+                      (onMenuItemClick)='OnReportNameRbtnClicked($event)'></app-mi-list>
+                  </div>
+              </ng-template> 
+                    <!-- //IsArison check of radiobutton to uncomment -->
+
+            </div>
+          </div>
+        </div>
+
+        <form [formGroup]='reportFilters'>
+          <p class='error-section mg-b30' *ngIf="isValidationShown">{{ValidationMessage}} </p>
+          <div class="filter-full-container">
+            <div class="custom-row margin-right24 deafult-visible-filter">
+              <div class="col-11-lg  col-12-md">
+                <div class="audit-report">
+                  <div class="left-col">
+                    <label class="label">Policy type:</label>
+                    <mat-form-field appearance="outline">
+                      <mat-select formControlName="Type">
+                        <mat-option *ngFor="let type of filters.policyTypeFilters" [value]="type.value">
+                          {{type.value}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="left-col">
+                    <label class="label">Mode:</label>
+                    <mat-form-field appearance="outline">
+                      <mat-select formControlName="Mode">
+                        <mat-option *ngFor="let mode of filters.Mode" [value]="mode.value">
+                          {{mode.value}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="left-col">
+                    <label class="label">Track payment:</label>
+                    <mat-form-field appearance="outline">
+                      <mat-select formControlName="TrackPayment">
+                        <mat-option *ngFor="let trackPay of filters.TrackPayment" [value]="trackPay.value">
+                          {{trackPay.value}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="left-col">
+                    <label class="label">Effective month: </label>
+                    <mat-form-field appearance="outline">
+                      <mat-select formControlName="EffectiveMonth">
+                        <mat-option *ngFor="let months of filters.EffectiveMonth" [value]="months.key">
+                          {{months.value}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="full-width-col">
+                    <button class="toggle-link-button" (click)='OnMoreFilterShown()'
+                      *ngIf="this.filterText === '+ More filters'">{{filterText}}</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-1-lg btn-full-width margin-top35">
+                <div class="btn-section pull-right" [matTooltip]=this.toolTipMessage
+                  [matTooltipDisabled]="isformValid">
+                  <span matTooltip="This action is disabled as it requires 'Write' access for this module."
+                  [matTooltipDisabled]="userdetails?.Permissions[6].Permission === 2">
+                    <button class="loader-svg pull-left coloured-primary-button export small-size" mat-flat-button
+                      [matMenuTriggerFor]="menu2"
+                      [disabled]='!isReportSelected  || !isPayorSelected || !isPayeeSelected||!isSegmentSelected||!isCarrierSelected ||!isProductSelected ||!isformValid ||userdetails?.Permissions[6].Permission === 1'
+                      [ngClass]="{'btn-disable':!isReportSelected || !isPayorSelected || !isPayeeSelected||!isSegmentSelected||!isCarrierSelected||!isProductSelected || !isformValid||userdetails?.Permissions[6].Permission === 1}" 
+                      (click)='OnExportButtonClick()'>Export</button>
+                    <mat-menu #menu2="matMenu" class="user-menu">
+                      <button mat-menu-item (click)='PrintReport("PDF")' [disabled]='isEcrReportSelected || isArison'
+                        class="pdf-icon icon-button">
+                        PDF
+                      </button>
+                      <button mat-menu-item (click)='PrintReport("Excel")' class="excel-icon icon-button">
+                        Excel
+                      </button>
+                    </mat-menu>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="custom-row hidden-filter audit-report" *ngIf="this.filterText === '- Less filters'">
+              <div class="hidden-container">
+                <div class="custom-row margin-none">
+                  <div class="col-4-lg col-6-md">
+                    <label class="label">Invoice from:</label>
+                    <div class="inline-fields">
+                      <mat-form-field appearance="outline">
+                        <input matInput [matDatepicker]="picker14" tabindex="1" placeholder="MM/DD/YYYY" formControlName='InvoiceFrom' (dateChange)='OnValidateDate(reportFilters?.controls?.InvoiceFrom?.value,reportFilters?.controls?.InvoiceTo?.value,"Invoice From:")'
+                          (focus)="picker14.open()">
+                        <mat-datepicker-toggle matSuffix [for]="picker14"></mat-datepicker-toggle>
+                        <mat-datepicker #picker14></mat-datepicker>
+                      </mat-form-field>
+                      <label class="label to-label">To</label>
+                      <mat-form-field appearance="outline">
+                        <input matInput [matDatepicker]="picker15" tabindex="2" placeholder="MM/DD/YYYY" formControlName='InvoiceTo' [min]='reportFilters?.controls?.InvoiceFrom?.value'
+                          (dateChange)='OnValidateDate(reportFilters?.controls?.InvoiceFrom?.value,reportFilters?.controls?.InvoiceTo?.value,"Invoice To")'
+                          (focus)="picker15.open()">
+                        <mat-datepicker-toggle matSuffix [for]="picker15"></mat-datepicker-toggle>
+                        <mat-datepicker #picker15></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="col-4-lg col-6-md">
+                    <label class="label">Effective date:
+                    </label>
+                    <div class="inline-fields">
+                      <mat-form-field appearance="outline">
+                        <input matInput [matDatepicker]="picker2" tabindex="3" placeholder="MM/DD/YYYY"
+                          formControlName='EffectiveFrom' (focus)="picker2.open()" (dateChange)='OnValidateDate(reportFilters?.controls?.EffectiveFrom?.value,reportFilters?.controls?.EffectiveTo?.value,"Effective From")'>
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                      </mat-form-field>
+                      <label class="label to-label">To</label>
+                      <mat-form-field appearance="outline">
+                        <input matInput [matDatepicker]="picker3" tabindex="4" placeholder="MM/DD/YYYY"
+                          formControlName='EffectiveTo' [min]='reportFilters?.controls?.EffectiveFrom?.value'
+                          (dateChange)='OnValidateDate(reportFilters?.controls?.EffectiveFrom?.value,reportFilters?.controls?.EffectiveTo?.value,"Effective To")' (focus)="picker3.open()">
+                        <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                        <mat-datepicker #picker3></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="col-4-lg col-6-md">
+                    <label class="label">Track date:</label>
+                    <div class="inline-fields">
+                      <mat-form-field appearance="outline">
+                        <input matInput [matDatepicker]="picker4" tabindex="5" placeholder="MM/DD/YYYY"
+                          formControlName='TrackDateFrom' (focus)="picker4.open()" (dateChange)='OnValidateDate(reportFilters?.controls?.TrackDateFrom?.value,reportFilters?.controls?.TrackDateTo?.value,"Track Date")'>
+                        <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+                        <mat-datepicker #picker4></mat-datepicker>
+                      </mat-form-field>
+                      <label class="label to-label">To</label>
+                      <mat-form-field appearance="outline">
+                        <input matInput [matDatepicker]="picker5" tabindex="6" placeholder="MM/DD/YYYY"
+                          formControlName='TrackDateTo' [min]='reportFilters?.controls?.TrackDateFrom?.value'
+                          (dateChange)='OnValidateDate(reportFilters?.controls?.TrackDateFrom?.value,reportFilters?.controls?.TrackDateTo?.value,"Track To")' (focus)="picker5.open()">
+                        <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
+                        <mat-datepicker #picker5></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div class="custom-row margin-none">
+                  <div class="col-4-lg col-6-md">
+                    <label class="label">Term date: </label>
+                    <div class="inline-fields">
+                      <mat-form-field appearance="outline">
+                        <input matInput [matDatepicker]="picker6" tabindex="7" placeholder="MM/DD/YYYY"
+                          formControlName='TermDateFrom' (focus)="picker6.open()" (dateChange)='OnValidateDate(reportFilters?.controls?.TermDateFrom?.value,reportFilters?.controls?.TermDateTo?.value,"Term Date From")'>
+                        <mat-datepicker-toggle matSuffix [for]="picker6"></mat-datepicker-toggle>
+                        <mat-datepicker #picker6></mat-datepicker>
+                      </mat-form-field>
+                      <label class="label to-label">To</label>
+                      <mat-form-field appearance="outline">
+                        <input matInput [matDatepicker]="picker7" tabindex="8" placeholder="MM/DD/YYYY"
+                          formControlName='TermDateTo' [min]='reportFilters?.controls?.TermDateFrom?.value'
+                          (dateChange)='OnValidateDate(reportFilters?.controls?.TermDateFrom?.value,reportFilters?.controls?.TermDateTo?.value,"Term Date To")' (focus)="picker7.open()">
+                        <mat-datepicker-toggle matSuffix [for]="picker7"></mat-datepicker-toggle>
+                        <mat-datepicker #picker7></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="col-4-lg col-6-md">
+                    <div class="inline-fields">
+                      <div class="display-inline">
+                        <label class="label full-width">Term reason: </label>
+                        <mat-form-field appearance="outline">
+                          <mat-select formControlName="TermReason" tabindex="9">
+                            <mat-option *ngFor="let termReason of filters.TermReason" [value]="termReason.value">
+                              {{termReason.value}}</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <label class="label to-label" style="visibility: hidden;">To</label>
+                      <div class="display-inline">
+                        <label class="label full-width">Order by:</label>
+                        <mat-form-field appearance="outline">
+                          <mat-select formControlName="OrderBy" tabindex="10">
+                            <mat-option *ngFor="let orderby of filters.OrderBy" [value]="orderby.value">
+                              {{orderby.value}}</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-4-lg col-6-md">
+                    <label class="label">Premium:</label>
+                    <div class="inline-fields">
+                      <mat-form-field appearance="outline">
+                        <input matInput formControlName="PremiumFrom" numbers maxlength="20" tabindex="11">
+                      </mat-form-field>
+                      <label class="label to-label">To</label>
+                      <mat-form-field appearance="outline">
+                        <input matInput formControlName="PremiumTo" numbers maxlength="20" tabindex="12">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div class="custom-row margin-none">
+                  <div class="col-4-lg col-6-md">
+                    <label class="label to-label">Enrolled:</label>
+                    <div class="inline-fields">
+
+                      <mat-form-field appearance="outline">
+                        <input matInput formControlName="EnrolleFrom" numbers maxlength="20" tabindex="13">
+                      </mat-form-field>
+                      <label class="label to-label">To</label>
+                      <mat-form-field appearance="outline">
+                        <input matInput formControlName="EnrolleTo" numbers maxlength="20" tabindex="14">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="col-4-lg col-6-md">
+                    <label class="label">Eligible:</label>
+                    <div class="inline-fields">
+
+                      <mat-form-field appearance="outline">
+                        <input matInput formControlName="EligibleFrom" numbers maxlength="20" tabindex="15">
+                      </mat-form-field>
+                      <label class="label to-label">To</label>
+                      <mat-form-field appearance="outline">
+                        <input matInput formControlName="EligibleTo" numbers maxlength="20" tabindex="16">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div class="custom-row margin-none">
+                  <div class="col-12-lg col-12-md">
+
+                    <button class="toggle-link-button  pull-right" (click)='OnMoreFilterShown()'>{{filterText}}</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>

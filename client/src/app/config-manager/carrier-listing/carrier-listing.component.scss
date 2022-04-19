@@ -1,0 +1,59 @@
+@import'../../../assets/css/variable.scss';
+@import'../../../assets/css/sprite-image-bg.scss';
+.batch-manager .page-title {
+    font-size:14px;
+    font-weight:500;
+    color:$secondary-color;
+    text-transform: capitalize;
+    margin-top:10px;
+    }
+
+    :host ::ng-deep .tableStyle.table-scroll-data .normal-box.tableData .tableStyle .table-outerScroller {
+      max-height: 206px !important;
+  }
+    .table-scroll-data {
+        overflow: auto;
+        height:210px;   
+  }
+  .mr-top10{
+    margin-top:10px;
+  }
+  .batch-manager .left-col{
+    float:left;     padding-right: 24px;  
+  }
+
+
+
+.batch-manager .left-col {
+  padding-top: 8px;
+}
+//  .mat-select-trigger{
+//     font-size:12px;
+//   } 
+//   .mat-select-arrow {
+//     background-position: -112px -597px;
+    
+//    }
+    
+//     }  
+    
+    // :host ::ng-deep{  
+     
+    //  div.tabs-contentDiv .listing-table .normal-box.tableData {
+    //   margin-right:0px;
+    // }
+    
+    // }  
+
+
+// @media screen and (max-width: 768px) {  
+//   .margin-right-none {
+//     margin-right: -24px!important;
+//   }
+//   }
+
+// @media screen and (max-width : 1024px) {
+//     .margin-right-none { margin-right:-15px; }
+    
+//     }
+  

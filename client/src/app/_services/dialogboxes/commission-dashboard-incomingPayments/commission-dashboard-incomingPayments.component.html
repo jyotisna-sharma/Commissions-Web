@@ -1,0 +1,89 @@
+<div class="popup-header">
+    <h4 matDialogTitle>{{data.headingTitle}}</h4>
+    <a class="close_icon" (click)='OnClosePopup()'></a>
+
+</div>
+<p class="error-section" *ngIf="showValidationMessage"> Invoice date must be greater than or equal to the Original effective date {{effectiveDateShown}}.
+    <a class="close_icon" (click)='OnCloseValidationPopup()'></a>
+</p>
+<form [formGroup]='AddNewPayment'>
+    <div class="custom-row mg-t16">
+        <div class="col-6-lg">
+            <section class="calndr-div">
+                <label class="label">Invoice Date</label>
+                <mat-form-field appearance="outline" [ngClass]="{'wrongSecurity': showValidationMessage}">
+                    <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY" formControlName='InvoiceDate' [max]="maxDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </section>
+        </div>
+        <div class="col-6-lg">
+            <section>
+                <label class="label">Premium Received</label>
+                <mat-form-field appearance="outline">
+                    <label _ngcontent-c9="" class="dollar-box">$</label>
+                    <input matInput formControlName='PaymentReceived' class="dollar" numbersWithDecimal appNumberFormat>
+                </mat-form-field>
+            </section>
+        </div>
+    </div>
+    <div class="custom-row">
+        <div class="col-6-lg">
+            <section>
+                <label class="label">Commission %</label>
+                <mat-form-field appearance="outline">
+                    <label _ngcontent-c9="" class="percentage-box">%</label>
+                    <input matInput formControlName='CommissionPer' class="percentage" numbersWithDecimal appNumberFormat>
+                </mat-form-field>
+            </section>
+        </div>
+        <div class="col-6-lg">
+            <section>
+                <label class="label">Number of units</label>
+                <mat-form-field appearance="outline">
+                    <input matInput formControlName='NumberOfUnits' numbers>
+                </mat-form-field>
+            </section>
+        </div>
+    </div>
+    <div class="custom-row">
+        <div class="col-6-lg">
+            <section>
+                <label class="label">Dollars per unit </label>
+                <mat-form-field appearance="outline">
+                    <label _ngcontent-c9="" class="dollar-box">$</label>
+                    <input matInput formControlName='DollarPerUnit' class="dollar" numbersWithDecimal appNumberFormat>
+                </mat-form-field>
+            </section>
+        </div>
+        <div class="col-6-lg">
+            <section>
+                <label class="label">Fee</label>
+                <mat-form-field appearance="outline">
+                    <label _ngcontent-c9="" class="dollar-box">$</label>
+                    <input matInput formControlName='Fee' class="dollar" numbersWithDecimal appNumberFormat>
+                </mat-form-field>
+            </section>
+        </div>
+    </div>
+    <div class="custom-row">
+        <div class="col-6-lg">
+            <section>
+                <label class="label">Split %</label>
+                <mat-form-field appearance="outline">
+                    <label _ngcontent-c9="" class="percentage-box">%</label>
+                    <input matInput formControlName='SplitPer' class="percentage" numbersWithDecimal appNumberFormat>
+                </mat-form-field>
+            </section>
+        </div>
+        <div class="col-6-lg">
+
+            <p class="total-payment">Total payment: {{TotalAmount}}</p>
+        </div>
+    </div>
+</form>
+<div mat-dialog-actions class="align-right popup-footer">
+    <button mat-raised-button class="mat-flat-button mat-primary" [disabled]='isButtonDisabled' [ngClass]="{'btn-disable': userDetails.Permissions[1].Permission === 1}" (click)='OnCheckValidation()'>{{data.primaryButton}}</button>
+    <button mat-button mat-stroked-button [mat-dialog-close]='false'>{{data.secondryButton}}</button>
+</div>

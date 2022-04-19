@@ -1,0 +1,3598 @@
+/** * @author: Rahul. * @Name: custom-theme.css. * @description: added design for all page color, font and layout. * @dated: 20 Aug, 2018. * @modified: 20 Aug, 2018 **/
+
+
+@import 'global.scss';
+@import 'table.scss';
+@import 'mixins/buttons';
+@import 'post-login-header';
+
+*,
+ ::after,
+ ::before,
+.cdk-overlay-pane {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: $font-stack !important;
+    background: $body-color;
+}
+
+html {
+    min-height: 100%;
+    height: 100%;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p {
+        color: $Grey-dark;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p,
+    span,
+    label,
+    table,
+    td,
+    tr,
+    th,
+    ul,
+    li,
+    a,
+    div,
+    section,
+    main,
+    article,
+    button {
+        font-family: $font-stack !important;
+    }
+    a {
+        color: $Primary-Color;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    .lightgrey-text {
+        color: $Grey-light;
+    }
+    .mat-fab.mat-primary,
+    .mat-flat-button.mat-primary,
+    .mat-mini-fab.mat-primary,
+    .mat-raised-button.mat-primary {
+        background-color: $Primary-Color;
+        /*text-transform:capitalize;*/
+    }
+}
+
+.highlighted-row {
+    background: #ebeef6;
+}
+
+.outgoing-pay-bg {
+    background: #fdfdfd;
+    border-left: 1px solid #e6e6e6;
+}
+
+.mat-form-field-infix {
+    position: absolute;
+    top: 0px;
+}
+
+.mat-form-field-autofill-control {
+    position: absolute;
+    top: 0px;
+}
+
+
+/* * ===================== UNIVERSAL CSS STARTS ==================== */
+
+.margin-leftright-none {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.margin-left-none {
+    margin-left: 0px !important;
+}
+
+.margin-right-none {
+    margin-right: 0px !important;
+}
+
+.padding-left-none {
+    padding-left: 0px !important;
+}
+
+.padding-right-none {
+    padding-right: 0px !important;
+}
+
+.padding-top-none {
+    padding-top: 0px !important;
+}
+
+.padding-none {
+    Padding: 0px !important;
+}
+
+.margin-none {
+    margin: 0px !important;
+}
+
+.mg-b10 {
+    margin-bottom: 10px !important;
+}
+
+.pull-right {
+    float: right !important;
+}
+
+.mg-b70 {
+    margin-bottom: 70px !important;
+}
+
+.text-center {
+    text-align: center;
+}
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right
+}
+.pa-tp25 {
+    padding-top: 25px !important;
+}
+
+.pa-tp35 {
+    padding-top: 35px !important;
+}
+
+.pa-tp15 {
+    padding-top: 15px !important;
+}
+
+.pa-tp10 {
+    padding-top: 10px !important;
+}
+
+.pa-b10 {
+    padding-bottom: 10px !important;
+}
+
+.mg-b20 {
+    margin-bottom: 20px;
+}
+
+.mg-b25 {
+    margin-bottom: 25px;
+}
+
+.mg-b36 {
+    margin-bottom: 36px;
+}
+
+.mg-b30 {
+    margin-bottom: 30px;
+}
+
+.mg-b20 {
+    margin-bottom: 20px !important;
+}
+
+.mg-b13 {
+    margin-bottom: 13px !important;
+}
+
+.mg-b5 {
+    margin-bottom: 5px !important;
+}
+
+.mg-t0 {
+    margin-top: 0px !important;
+}
+
+.mg-b0 {
+    margin-bottom: 0px !important;
+}
+
+.mg-t5 {
+    margin-top: 5px;
+}
+
+.mg-t6 {
+    margin-top: -6px;
+}
+
+.mg-t16 {
+    margin-top: 16px !important;
+}
+
+.padding-rt {
+    padding-right: 15px !important;
+}
+
+.padding-none {
+    padding: 0px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.padding-top-none {
+    padding-top: 0px !important;
+}
+
+.padding-bottom-none {
+    padding-bottom: 0px !important;
+}
+
+.border-none {
+    border: 0px !important;
+}
+
+.cdk-overlay-container .ng-trigger.mat-select-panel.mat-primary.ng-star-inserted,
+.ng-trigger.ng-trigger-transformPanel.mat-select-panel {
+    @include box_shadow(5);
+}
+
+.shadow-design1 {
+    @include box_shadow(1);
+}
+
+.seprator-line {
+    @extend %border;
+    padding-bottom: 20px;
+}
+
+.mat-raised-button:not([class*=mat-elevation-z]) {
+    box-shadow: none !important;
+}
+
+button.mat-button.mat-flat-button.mat-warn .mat-button-focus-overlay {
+    display: none;
+}
+
+.small {
+    font-size: $small-font-size;
+    line-height: 15px;
+    margin-top: 0px;
+    color: $Grey-light;
+}
+
+.hint-text {
+    color: $Grey-light;
+    font-size: $small-font-size;
+}
+
+.white-box {
+    @include box_shadow(2);
+    h2 {
+        margin-top: 0px;
+    }
+}
+
+.full-rowOuter {
+    display: flex;
+    flex-basis: auto;
+    justify-content: space-between;
+    @media only screen and (max-width: $Break-Small - 1) {
+        flex-flow: wrap;
+    }
+}
+
+.flex-end {
+    justify-content: flex-end;
+}
+
+.divRow {
+    margin-left: -24px;
+    margin-right: -24px;
+    @media screen and (max-width: $Break-Normal) {
+        margin-left: -24px;
+        margin-right: -24px;
+    }
+}
+
+.example-header.data-filterSec.full-widthForm {
+    @media screen and (max-width: $Break-Normal - 1) {
+        .full-rowOuter {
+            .search-div {
+                margin-right: 0px;
+            }
+        }
+    }
+    @media screen and (max-width: $Break-Small - 1) {
+        .full-rowOuter {
+            .search-div {
+                margin-right: 0px;
+            }
+        }
+    }
+}
+
+.white-bg {
+    @extend %white-bg;
+}
+
+.full-container {
+    clear: both;
+    padding: 0px 24px;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+}
+
+button.loader-svg.mat-flat-button.mat-primary {
+    @include button-style-default;
+}
+
+body,
+app-login.ng-star-inserted,
+app-root {
+    height: 100%;
+    min-height: 100%;
+}
+
+.error {
+    color: $Validation-warning !important;
+}
+
+.mat-button,
+.mat-flat-button,
+.mat-icon-button,
+.mat-stroked-button {
+    line-height: 35px !important;
+    @extend %border-radius;
+}
+
+.data-filterSec {
+    .mat-button,
+    .mat-flat-button,
+    .mat-icon-button,
+    .mat-stroked-button {
+        line-height: 30px !important;
+    }
+}
+
+button.small-size.mat-flat-button.mat-primary {
+    @include button-style-small
+}
+
+.icon-btn {
+    @include sprite-bg;
+}
+
+.mat-card-header .mat-card-header-text {
+    margin: 0 8px;
+}
+
+.pos-rel {
+    position: relative;
+}
+
+
+/* * ================================ UNIVERSAL CSS ENDS ========================== */
+
+
+/* * =========================== ADDING MIXINS IN CSS CLASSES ==================== */
+
+a,
+button {
+    @include transition(300ms);
+}
+
+
+/* * ======================= ADDING MIXINS IN CSS ENDS ====================== */
+
+
+/* * ========================= DIALOG BOX CSS STARTS ======================= */
+
+
+/* * ======================= DIALOG BOX CSS ENDS ====================== */
+
+
+/*====================== TOOLTIP DESIGN CSS STARTS ================ */
+
+.mat-tooltip {
+    background: $black;
+    font-size: $label-font-size;
+    font-weight: 400;
+    @include transition(300ms);
+}
+
+.mat-tooltip:hover,
+.mat-tooltip:focus {
+    background: $black;
+}
+
+mat-tooltip-component .tooltip-menu {
+    margin-left: -1px;
+    @media only screen and (max-width: $Break-Small - 1) {
+        display: none;
+    }
+}
+
+
+/*================= TOLLTIP DESIGN CSS ENDS =========== */
+
+
+/* * ===================== FORM CSS STARTS ==================== */
+
+.input-disabled {
+    background: $input-disable-field;
+}
+
+mat-form-field.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline {
+    @include fields-shadow;
+}
+
+div .mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: .25em 0 9px;
+    padding-bottom: 1.23335em;
+}
+
+.mat-checkbox-layout .mat-checkbox-label {
+    color: $input-fieldColor-font;
+    font-size: 12px;
+}
+
+div .mat-card {
+    font-family: $font-stack;
+}
+
+.form-BoxConatiner {
+    form {
+        .field-outer input,
+        textarea {
+            width: 100%;
+            clear: both;
+        }
+        label.mat-checkbox-layout {
+            margin-top: 6px;
+        }
+    }
+    mat-card-title.mat-card-title {
+        font-size: $title-font-size;
+        font-weight: 600;
+        margin-bottom: 16px;
+        color: $Grey-dark;
+    }
+}
+
+.header-logo {
+    max-width: 155px;
+    margin: 12px auto 10px !important;
+    float: none;
+}
+
+body div form.login-form {
+    .mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-touched.mat-focused,
+    .mat-form-field-type-mat-input.mat-primary.mat-form-field-appearance-outline.mat-form-field-can-float.ng-untouched.mat-focused {
+        .mat-icon {
+            color: $Primary-Color;
+        }
+    }
+}
+
+.password-field .mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.mat-focused {
+    .mat-icon {
+        color: $Primary-Color;
+    }
+}
+
+form {
+    font-size: $label-font-size;
+    font-weight: 500;
+    mat-form-field.mat-form-field-type-mat-select .mat-form-field-infix {
+        border: 0px;
+    }
+    .mat-form-field-appearance-outline:focus .mat-form-field-outline-start,
+    .mat-form-field-appearance-outline:focus .mat-form-field-outline-end {
+        border-color: $Primary-Color;
+        box-shadow: 0px 1px 1px rgba (0, 0, 0, .075);
+    }
+    label.label {
+        font-size: $small-font-size;
+        margin-bottom: 5px;
+        font-weight: 600;
+        float: left;
+        color: $Grey-dark;
+        width: 100%;
+        text-transform: capitalize;
+        line-height: 15px;
+    }
+    input.mat-input-element {
+        margin-top: 5px;
+        padding-left: 6px;
+        padding-right: 6px;
+        box-sizing: border-box;
+    }
+    /*.mat-form-field-appearance-outline .mat-form-field-infix {
+        padding: 15px 0 14px 0;
+   }*/
+    .mat-form-field-appearance-outline.mat-form-field-outline-thick div,
+    .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-end,
+    .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-gap,
+    .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-start {
+        border-width: 1px !important;
+    }
+    div .mat-form-field-appearance-outline .mat-form-field-outline-end {
+        @extend %border-radius;
+    }
+    .mat-input-element,
+    textarea {
+        font-size: $label-font-size;
+        height: 17px;
+        color: $input-fieldColor-font;
+    }
+    .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+    .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+        background-color: $Primary-Color;
+    }
+    .mat-checkbox-frame {
+        border-color: $inputfield-color;
+        border-width: 1px;
+    }
+    .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline {
+        box-shadow: 0px 1px 1px rgba (0, 0, 0, .075);
+    }
+    .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
+        background: $Primary-Color;
+        color: #fff;
+    }
+    .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) span {
+        color: #fff;
+    }
+    .justify-left .mat-figure {
+        justify-content: left;
+    }
+    .justify-right .mat-figure {
+        justify-content: flex-end;
+    }
+}
+
+.data-filterSec {
+    input,
+    select {
+        font-size: $label-font-size;
+        height: 16px;
+        color: $Grey-dark;
+    }
+}
+
+.mat-form-field-infix,
+.mat-form-field-autofill-control {
+    position: absolute;
+    top: 0px;
+}
+
+.form-BoxConatiner a.mat-button.link:hover,
+body .form-BoxConatiner a.mat-button.link:focus,
+a.mat-button.link:hover,
+a.mat-button.link:focus {
+    background: $link-hover !important;
+}
+
+
+/* rest field css starts */
+
+.field-outer.pass-field .mat-form-field-suffix {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+}
+
+.field-outer.pass-field .mat-form-field-infix input {
+    padding-right: 32px !important;
+}
+
+
+/* rest password css ends */
+
+
+/* ====== text auto complete field css starts ======*/
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    border: 0px solid $white-color;
+    -webkit-box-shadow: 0 5 0px 1000px $white-color inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+
+/* ====== text auto complete field css ends ======*/
+
+
+/* ===== FORM FIELDS CSS STARSTS ======== */
+
+.date-pickerDiv .mat-form-field-flex {
+    align-items: flex-end;
+}
+
+.form-BoxConatiner {
+    .mat-grid-tile {
+        overflow: visible;
+    }
+}
+
+.mat-dialog-container {
+    .mat-form-field,
+    .updated-service .mat-form-field {
+        width: 100%;
+    }
+}
+
+
+/* ====== validate form css ==== */
+
+.mat-form-field-infix .intl-tel-input.allow-dropdown .mat-input-element {
+    padding-left: 51px !important;
+}
+
+
+/* ===== validate form css ends ===== */
+
+
+/*====== VALIDATION CSS STARTS ======== */
+
+.white-box .example-form .mat-form-field {
+    //    margin-bottom: 5px;
+}
+
+.mat-error,
+.mat-form-field-wrapper .mat-error {
+    margin-left: -9px;
+    font-size: $extraSmall-font-size;
+    min-height: 14px;
+    font-weight: 600;
+}
+
+.mat-card-content p.login-errorMsg,
+.error {
+    margin-bottom: 13px;
+    margin-top: 0px;
+    color: $Validation-warning !important;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 15px;
+    display: block;
+}
+
+.form-BoxConatiner {
+    .mat-error,
+    .mat-form-field-wrapper .mat-error {
+        margin-left: -9px;
+        margin-top: -2px;
+        font-size: $extraSmall-font-size;
+        @media only screen and (max-width: $Break-MobileScreen) {
+            margin-top: 0px;
+        }
+    }
+}
+
+form {
+    .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+        padding-top: 2px;
+    }
+    .wrongSecurity.mat-form-field-appearance-outline .mat-form-field-outline {
+        color: $Validation-warning;
+    }
+}
+
+div .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+    @include transform(0%);
+}
+
+
+/*==== VALIDATION CSS ENDS ========= */
+
+
+/*==== for add upadate css ====*/
+
+.mat-form-field-wrapper .mat-select .mat-select-value {
+    overflow: hidden;
+    height: 16px;
+}
+
+mat-select.mat-select,
+input.mat-input-element,
+textarea.mat-input-element {
+    padding-right: 10px !important;
+    padding-left: 10px !important;
+}
+
+.select .date-pickerDiv .mat-input-element.mat-form-field-autofill-control {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    margin-top: 2px;
+}
+
+.form-style2 {
+    .mat-form-field-wrapper {
+        min-height: 57px;
+    }
+    p.require-text {
+        margin-bottom: 22px;
+    }
+}
+
+form.updated-service,
+.mat-dialog-container form {
+    .mat-form-field-subscript-wrapper[ng-reflect-ng-switch="error"] {
+        position: relative;
+        overflow: visible;
+    }
+    mat-form-field .mat-form-field-wrapper {
+        padding-bottom: 0px;
+    }
+}
+
+
+/*==== for add upadate css ends ====*/
+
+
+/* * ===================== FORM CSS ENDS ==================== */
+
+form {
+    font-size: $label-font-size;
+    font-weight: 500;
+    .justify-left .mat-figure {
+        justify-content: left;
+    }
+    .justify-right .mat-figure {
+        justify-content: flex-end;
+    }
+}
+
+.form-BoxConatiner .mat-grid-tile {
+    overflow: visible;
+}
+
+.mat-dialog-container .mat-form-field,
+.updated-service .mat-form-field {
+    width: 100%;
+}
+
+.bottom-div .button-row {
+    width: 100%;
+    float: left;
+}
+
+.form-BoxConatiner .mat-form-field {
+    width: 100%;
+}
+
+.top-header {
+    text-align: center;
+    .mat-grid-list {
+        text-align: center;
+    }
+}
+
+.form-BoxConatiner .mat-card-content p.pswd-txt {
+    font-size: $normal-font-size;
+    color: $paragraph-text-color;
+    line-height: 20px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.form-BoxConatiner form .field-outer button {
+    width: auto;
+}
+
+footer {
+    width: 100%;
+    float: left;
+    p {
+        color: $Grey-light;
+        font-size: $extraSmall-font-size;
+        margin: 0px;
+    }
+}
+
+.bottom-div {
+    padding-top: 2px;
+}
+
+.half.left-div {
+    width: auto;
+    float: left;
+}
+
+.half.right {
+    float: right;
+}
+
+.full-row {
+    width: 100%;
+    float: left;
+}
+
+div button.loader-svg {
+    min-height: 34px;
+    text-align: center;
+}
+
+.loader-svg .mat-progress-spinner circle,
+.loader-svg .mat-spinner circle {
+    stroke: #fff;
+    margin: 0 auto;
+}
+
+.form-BoxConatiner .field-outer {
+    margin-bottom: 0px;
+}
+
+
+/* * ===================== LOADER CSS ==================== */
+
+button.loader-svg {
+    min-height: 36px;
+    text-align: center;
+    svg {
+        margin: 0 auto;
+        float: none;
+    }
+    mat-spinner.mat-spinner {
+        margin: 0 auto;
+    }
+}
+
+.loader-svg {
+    .mat-progress-spinner circle,
+    .mat-spinner circle {
+        stroke: #fff;
+        margin: 0 auto;
+    }
+}
+
+// 03-10-2018 
+body .spinner-container.loader-svgContainer {
+    background: $overlay;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    z-index: 9;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body .spinner-container {
+    z-index: 105 !important;
+}
+
+
+/* * ===================== LOADER CSS ENDS==================== */
+
+
+/* * ===================== RESET PASSWORD CSS STARTS ==================== */
+
+.form-BoxConatiner.wide-width {
+    max-width: 520px;
+}
+
+
+/*.list-bootom {
+    padding: 0px; margin-top: -5px; margin-bottom: 11px;
+    li {
+        display: inline-block; width: 49.99%; vertical-align: top; margin-bottom: 0px; padding-left: 50px; position: relative; padding-right: 10px; color: $Grey-dark;
+    
+    }
+    li.fade {  
+        color:#008000;                
+        background-position: -103px -303px;
+        list-style-type:none;
+        position: relative;
+    }
+    li.fade:before {
+        content: "check";
+        font-family: 'Material Icons';
+        font-style: normal;
+        font-weight:700;
+        text-decoration: inherit;        
+        color:#008000;  
+        font-size: 12px;            
+        position: absolute;            
+        left: -5px; 
+        list-style-type:none;        
+    }
+    @media only screen and (max-width: $Break-MobileScreen) {
+      li {
+           width: 100%;
+       }
+   }
+}*/
+
+.form-BoxConatiner .mat-form-field-prefix .mat-icon,
+.form-BoxConatiner .mat-form-field-suffix .mat-icon {
+    font-size: 160%;
+    line-height: 1.85;
+}
+
+form .mat-form-field-appearance-outline .mat-form-field-prefix,
+form .mat-form-field-appearance-outline .mat-form-field-suffix {
+    top: .30em;
+}
+
+header .header-menu .icons.toggle-icn,
+.mat-form-field.mat-form-field .mat-form-field-suffix .mat-datepicker-toggle .mat-button-wrapper,
+.img-icons {
+    opacity: 0.4;
+    width: 22px;
+    height: 22px;
+    float: left;
+    display: block;
+    background: url('/assets/images/sprite-icons.png');
+    background-color: rgba(0, 0, 0, 0);
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-position: -109px -22px;
+}
+
+header .header-menu .icons.toggle-icn,
+.mat-form-field.mat-form-field .mat-form-field-suffix .mat-datepicker-toggle .mat-button-wrapper,
+.img-icons:hover {
+    opacity: 1;
+}
+
+.mat-slide-toggle-thumb-container {
+    cursor: pointer !important;
+}
+
+
+/* ============================================= extra services page css starts =====================================*/
+
+
+/* ============================================= referral page css starts =====================================*/
+
+.dashboard-container .referralType-Design {
+    padding: 0px 20px 20px 20px;
+    .mat-tab-header {
+        margin-bottom: 16px;
+        .mat-tab-label {
+            opacity: 1;
+            .mat-tab-label-content {
+                color: $Grey-dark;
+                font-weight: 400;
+            }
+        }
+        .mat-tab-label-active .mat-tab-label-content {
+            color: $Primary-Color;
+            font-weight: 600;
+        }
+    }
+    .mat-tab-body-wrapper {
+        overflow: visible;
+        .mat-tab-body.mat-tab-body-active {
+            overflow-x: visible;
+            overflow-y: visible;
+            .mat-tab-body-content {
+                overflow: visible;
+            }
+        }
+    }
+}
+
+
+/* ============================================= referral page css ends =====================================*/
+
+
+/* ====================== Search form css ==============================*/
+
+.main-content .data-filterSec.full-widthForm .search-field {
+    @media screen and (max-width: $Break-Large) {
+        max-width: 208px;
+    }
+    @media screen and (min-width: $Break-Normal+1) {
+        max-width: 571px;
+        width: 100%;
+    }
+    @media screen and (max-width: $Break-Normal) {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+.main-content .data-filterSec mat-form-field.mat-form-field.mat-form-field-type-mat-select {
+    @media screen and (max-width: $Break-Normal) {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+
+/* ======================= Search for css ends ===================*/
+
+.white-box {
+    margin-bottom: 20px;
+}
+
+.white-box .example-header.data-filterSec {
+    padding: 0px;
+}
+
+.main-content .full-widthForm .mat-form-field-wrapper {
+    margin-right: 24px;
+}
+
+.data-filterSec .label_name {
+    margin-right: 8px;
+}
+
+.main-content .data-filterSec mat-form-field.mat-form-field.mat-form-field-type-mat-select {
+    max-width: 140px;
+    width: auto;
+}
+
+.main-content .data-filterSec.full-widthForm {
+    text-align: left;
+}
+
+.main-content mat-form-field.mat-form-field.mat-form-field-type-mat-select .mat-select-arrow-wrapper {
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+}
+
+.main-content .data-filterSec .mat-form-field-appearance-outline .mat-form-field-outline {
+    display: flex;
+    position: absolute;
+    top: .25em;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    height: 30px;
+}
+
+.icon-placeholder .mat-form-field-suffix.ng-tns-c2-0.ng-star-inserted {
+    float: left;
+    position: absolute;
+    top: 10px;
+}
+
+.data-filterSec .mat-flat-button.mat-primary,
+.data-filterSec .mat-stroked-button {
+    margin: .25em 0;
+    margin-left: 12px;
+}
+
+.data-filterSec .btn-outerDiv .mat-flat-button.mat-primary,
+.data-filterSec .btn-outerDiv .mat-stroked-button {
+    margin: 0px 0px;
+    margin-left: 12px;
+    min-height: 32px;
+    line-height: 32px;
+}
+
+.data-filterSec {
+    label.label {
+        font-size: $small-font-size;
+        font-weight: 600;
+        color: #333;
+        vertical-align: middle;
+        line-height: 37px;
+    }
+    .date-pickerDiv {
+        position: relative;
+        .label_name {
+            float: none;
+            display: inline-block;
+        }
+        @media only screen and (max-width: $Break-Normal) {
+            padding-top: 25px;
+            .label_name {
+                position: absolute;
+                line-height: auto;
+                top: 5px;
+            }
+        }
+    }
+}
+
+.main-content {
+    .data-filterSec {
+        input,
+        select,
+        textarea {
+            font-size: $small-font-size;
+        }
+        h4 {
+            margin-top: 8px;
+            margin-bottom: 5px;
+            font-size: 12px;
+            color: $page-title;
+            font-weight: 700;
+            text-transform: capitalize;
+        }
+    }
+}
+
+.main-content .data-filterSec .mat-form-field-wrapper {
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.main-content .data-filterSec {
+    min-height: auto !important;
+}
+
+.main-content mat-footer-row,
+.main-content mat-header-row,
+.main-content mat-row,
+.main-content td.mat-cell,
+.main-content td.mat-footer-cell,
+.main-content th.mat-header-cell {
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+.mat-select-content.ng-trigger .mat-option-text {
+    font-size: $label-font-size;
+    color: #252527;
+}
+
+div mat-select-panel .mat-optgroup-label,
+div .mat-select-panel .mat-option {
+    line-height: 36px;
+    height: 36px;
+    border-bottom: 1px solid $seprator-linecolor;
+}
+
+.mat-form-field-wrapper .mat-form-field-prefix .mat-icon,
+.mat-form-field-suffix .mat-icon {
+    color: #b3b3b3;
+}
+
+div .mat-select-trigger {
+    font-size: $label-font-size;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-start {
+    display: none;
+}
+
+body .mat-form-field-appearance-outline .mat-form-field-outline-end {
+    @extend %border-radius;
+    border: 1px solid currentColor;
+    border-left-style: 1px solid currentColor;
+}
+
+form .mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: none;
+    padding: 0px;
+}
+
+form.example-form.less-Width {
+    max-width: 800px;
+}
+
+.full-widthRow {
+    width: 100%;
+    clear: both;
+    float: left;
+}
+
+.half-width {
+    width: 50%;
+    float: left;
+}
+
+.full-widthRow {
+    .half-width:first-child {
+        padding-right: 15px;
+        @media only screen and (max-width: $Break-MobileScreen) {
+            padding-right: 6px;
+        }
+    }
+    form .full-widthRow>.half-width {
+        @media only screen and (max-width: $Break-MobileScreen) {
+            width: 100%;
+            float: left;
+            padding: 0px !important;
+        }
+    }
+}
+
+form .mat-form-field-appearance-outline .mat-form-field-outline {
+    min-height: 34px;
+}
+
+.mat-menu-panel .mat-menu-content:not(:empty) {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.mat-form-field-wrapper span.mat-select-placeholder.ng-star-inserted {
+    color: $input-fieldColor-font;
+}
+
+.mat-menu-content i.material-icons.icns.mat-icon {
+    font-size: 16px;
+    margin-right: 0px;
+    text-align: left;
+    vertical-align: -webkit-baseline-middle;
+}
+
+.custom-wdithForm {
+    width: 100%;
+    max-width: 850px;
+}
+
+form .mat-form-field-wrapper textarea {
+    min-height: 100px;
+    position: relative;
+}
+
+.extra-servce .mat-form-field .mat-form-field-infix input {
+    padding-left: 60px !important;
+}
+
+label.icon-overinput {
+    position: absolute;
+    left: 1px;
+    background: #f7f7f7;
+    width: 50px;
+    text-align: center;
+    line-height: 38px;
+    top: -7px;
+    border-right: 1px solid #ccc;
+    font-size: $normal-font-size;
+    color: #252729;
+    font-weight: 600;
+    min-height: 39px;
+    @media all and (-ms-high-contrast: none) {
+        top: -6px;
+    }
+}
+
+@-moz-document url-prefix() {
+    label.icon-overinput {
+        top: -6px;
+    }
+}
+
+form .footer-area {
+    padding: 30px 0px 0px;
+    margin-top: 30px;
+    border-top: 1px solid $seprator-linecolor;
+    text-align: right;
+}
+
+.updated-service {
+    .mat-slide-toggle-bar {
+        margin-left: 24px;
+        line-height: 30px;
+        vertical-align: text-bottom;
+    }
+    label.label {
+        margin-bottom: 5px;
+    }
+    .mat-select-trigger {
+        margin-top: 2px;
+    }
+    @media only screen and (max-width: $Break-MobileScreen+100) {
+        .half-width.drive-payRow,
+        .half-width.extra-servce {
+            width: 100%;
+        }
+    }
+}
+
+.mat-form-field-wrapper .mat-form-field-infix input[formcontrolname="extraServiceCharge"] {
+    padding-left: 50px;
+}
+
+.full-widthRow.drive-pay .half-width:first-child {
+    width: 60%;
+}
+
+.full-widthRow.drive-pay .half-width:last-child {
+    width: 40%;
+    padding-left: 0px;
+}
+
+p.require-text,
+span.span-forcharacter {
+    color: $Grey-light;
+    font-weight: 400;
+    font-size: $extraSmall-font-size;
+}
+
+span.span-forcharacter {
+    float: right;
+    vertical-align: bottom;
+    line-height: 20px;
+}
+
+form p.require-text,
+{
+    margin-bottom: 40px;
+}
+
+.drive-payRow {
+    position: relative;
+}
+
+.data-filterSec .search-field .mat-form-field-suffix.ng-star-inserted {
+    position: absolute;
+    top: 9px;
+    font-size: 15px;
+}
+
+.white-box {
+    float: left;
+    width: 100%;
+}
+
+.normal-box {
+    width: 100%;
+    clear: both;
+}
+
+.action-memuSmallScreen {
+    display: none;
+}
+
+.updated-service button.add-group-btn.mat-button.mat-primary span.mat-button-wrapper {
+    font-size: $small-font-size;
+}
+
+.full-widthRow {
+    position: relative;
+}
+
+button.add-group-btn.mat-button.mat-primary,
+.updated-service a.add-group-btn {
+    position: absolute;
+    top: 22px;
+    margin-left: 16px;
+    color: $Primary-Color;
+    background: transparent;
+    float: right;
+    min-height: 41px;
+}
+
+.updated-service span.mat-button-wrapper {
+    font-weight: 600;
+    font-size: $label-font-size;
+}
+
+.updated-service {
+    button.add-group-btn.mat-button.mat-primary:hover,
+    button.add-group-btn.mat-button.mat-primary:focus,
+    a.add-group-btn:hover,
+    a.add-group-btn:focus {
+        background: $link-hover
+    }
+    button.add-group-btn .mat-button-focus-overlay,
+    a.add-group-btn .mat-button-focus-overlay {
+        display: none;
+    }
+}
+
+
+/* ----- */
+
+
+/* ----- */
+
+
+/*
+form .mat-form-field.mat-primary.mat-form-field-type-mat-select .mat-form-field-wrapper 
+{
+    min-height: 57px;
+}
+*/
+
+form .mat-form-field.mat-primary.mat-form-field-type-mat-select .mat-form-field-wrapper .mat-error {
+    margin-top: 0px;
+}
+
+.main-content .data-filterSec mat-form-field.mat-form-field.mat-form-field.mat-primary.mat-form-field-type-mat-select {
+    margin-top: 0px;
+}
+
+.cdk-column-Action.mat-column-Action .mat-sort-header-arrow.ng-trigger.ng-trigger-arrowPosition {
+    display: none;
+}
+
+.actionMenuDesktop .mat-menu-content .ng-star-inserted:last-child .mat-menu-item,
+.actionMenuDesktop .mat-menu-content .mat-menu-item:last-child i {
+    color: $Validation-warning;
+}
+
+.main-content .data-filterSec .mat-form-field-outline.ng-tns-c8-3.ng-star-inserted {
+    top: 1px !important;
+}
+
+.cdk-overlay-container .align-right.mat-dialog-actions {
+    flex-wrap: inherit;
+    justify-content: right;
+    text-align: right;
+    display: block;
+    margin-top: 20px;
+}
+
+// .ng-star-inserted .mat-dialog-actions {
+//     padding-bottom: 24px;
+// }
+body .mat-stroked-button {
+    border: 1px solid $inputfield-color;
+    padding: 0 15px;
+    line-height: 34px;
+    color: $Grey-dark;
+    /*text-transform: capitalize;*/
+}
+
+.mat-stroked-button .mat-button-focus-overlay {
+    background-color: $button-focus-overlay;
+}
+
+.mat-stroked-button:hover,
+.mat-stroked-button:focus {
+    background: $Stroke-button-hover;
+}
+
+.mat-dialog-container h4.mat-dialog-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.mat-dialog-container p {
+    font-size: $normal-font-size;
+    margin-top: 0px;
+    line-height: 20px;
+}
+
+.cdk-overlay-pane .actionMenuDesktop {
+    margin-top: 0px;
+}
+
+.white-box.filter-box {
+    padding-bottom: 11.8px;
+}
+
+
+/* css for input field height issue */
+
+.mat-form-field-type-mat-select.mat-form-field-appearance-outline .mat-form-field-infix {
+    border: 0px;
+    padding: 13px 0 8px 0;
+}
+
+form .mat-form-field-appearance-outline.textarea .mat-form-field-infix {
+    padding: 5px 0 4px 0;
+}
+
+.search-div .btn-outerDiv.align-withsearchBox {
+    position: absolute;
+    float: left;
+    right: 1px;
+    top: 5px;
+    height: 28px;
+    @media only screen and (max-width: $Break-Small - 1) {
+        right: 0px;
+    }
+}
+
+@-moz-document url-prefix() {
+    .search-div .btn-outerDiv.align-withsearchBox {
+        top: 1px;
+    }
+}
+
+//For edge /
+_:-ms-lang(x),
+.icon-button {
+    top: 1px;
+}
+
+.search-div {
+    padding-right: 52px;
+    position: relative;
+    min-height: 30px;
+    width: 100%;
+    max-width: 300px;
+    @media only screen and (max-width: $Break-Small - 1) {
+        max-width: 100%;
+    }
+    input {
+        margin-top: 1px;
+    }
+}
+
+.main-content .full-widthForm .status-div .mat-form-field-wrapper {
+    margin-right: 8px;
+}
+
+.cdk-overlay-container .cdk-overlay-pane {
+    display: block;
+}
+
+div .drive-payRow mat-form-field.mat-form-field.ng-dirty.ng-touched.mat-form-field-invalid.ng-invalid .mat-form-field-subscript-wrapper {
+    position: relative;
+}
+
+form input.mat-input-element {
+    margin-top: 0px;
+    // height: 18px;
+}
+
+
+/* css for input filed height issue */
+
+
+/* ============= extra services page css ends =========================================*/
+
+
+/* ========================= browser css hacks starts ========================*/
+
+
+/* internet exploere browser css */
+
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+    body .mat-drawer-content {
+        overflow: auto;
+    }
+    .data-filterSec .icon-placeholder .ng-star-inserted.mat-form-field-suffix {
+        position: absolute;
+        top: 13px;
+        left: 9px;
+    }
+}
+
+
+/* internet exploere browser css ends*/
+
+
+/* ========================= browser css hacks ends ========================*/
+
+.moreCustom-padding {
+    padding: 32px;
+    @media only screen and (max-width: $Break-Small - 1) {
+        padding: 12px;
+    }
+    @media only screen and (max-width: $Break-MobileScreen) {
+        .moreCustom-padding {
+            padding: 15px;
+        }
+    }
+}
+
+p.require-text {
+    margin-top: 0px;
+    margin-bottom: 24px;
+}
+
+
+/* == scroll bar css starts == */
+
+
+/* == scroll bar css ends == */
+
+.align-right.mat-dialog-actions button {
+    margin-bottom: 8px;
+    margin-left: 8px;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.align-right.mat-dialog-actions button::first-child {
+    margin-left: 0px;
+}
+
+.mat-dialog-container .mat-dialog-actions button span.mat-button-wrapper {
+    line-height: 33px;
+}
+
+.cdk-overlay-container form .align-right.mat-dialog-actions {
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+p.require-text {
+    font-size: $extraSmall-font-size;
+}
+
+.mat-dialog-container form .mat-form-field-wrapper {
+    margin-bottom: 12px !important;
+}
+
+
+/* ======= delegates page css   ======*/
+
+
+/* ======================================= chauffer unavailability css starts ================*/
+
+.main-content {
+    .filterContianer {
+        background: transparent;
+        border: 0px;
+        box-shadow: transparent;
+        padding: 0px;
+        width: 100%;
+        float: left;
+        .data-filterSec {
+            padding: 0px;
+            .date-pickerDiv {
+                mat-form-field.mat-form-field-type-mat-input .mat-form-field-wrapper {
+                    @media only screen and (min-width: $Break-Normal + 1) {
+                        max-width: 125px;
+                        margin-top: 0px;
+                    }
+                }
+                @media only screen and (min-width: $Break-Small) {
+                    button {
+                        margin-top: 2px;
+                    }
+                }
+                .mat-form-field-subscript-wrapper[ng-reflect-ng-switch="error"] {
+                    position: relative;
+                }
+                .mat-form-field {
+                    vertical-align: top;
+                }
+            }
+            .mat-form-field-appearance-outline .mat-form-field-outline {
+                min-height: 30px;
+            }
+            @media only screen and (max-width: $Break-Small - 1) {
+                mat-form-field {
+                    width: 100% !important;
+                }
+                label.label {
+                    display: none;
+                }
+            }
+            /*  listing searching form css new */
+            .search-field {
+                height: 30px;
+                .mat-form-field-infix {
+                    border-top: 0px;
+                }
+            }
+            @media only screen and (max-width: $Break-Small - 1) {
+                .status-div,
+                .search-div {
+                    width: 100%;
+                }
+                .status-div {
+                    margin-bottom: 5px;
+                }
+            }
+            .mat-form-field-wrapper {
+                margin: 0px;
+            }
+            mat-form-field.mat-form-field.mat-form-field-type-mat-select {
+                max-width: 100%;
+                margin-right: 0px;
+            }
+        }
+        .search-field .mat-form-field-outline,
+        .mat-form-field-outline {
+            background: #fff;
+        }
+    }
+    .mat-button,
+    .mat-fab,
+    .mat-flat-button,
+    .mat-icon-button,
+    .mat-mini-fab,
+    .mat-raised-button,
+    .mat-stroked-button {
+        font-size: $small-font-size;
+        font-weight: 600;
+    }
+    .search-div {
+        @media only screen and (min-width: $Break-Normal +1) {
+            width: 40%;
+            max-width: 400px;
+        }
+    }
+}
+
+.date-pickerDiv .mat-form-field-appearance-outline .mat-form-field-prefix,
+.date-pickerDiv .mat-form-field-appearance-outline .mat-form-field-suffix {
+    top: 0em;
+}
+
+.main-content {
+    label.txt-big {
+        font-size: $title-font-size;
+        float: left;
+        text-align: center;
+        width: 100%;
+        margin-bottom: 4px;
+    }
+    label.days {
+        width: 100%;
+        clear: both;
+        float: left;
+        cursor: pointer;
+    }
+}
+
+ul.listing-dayboxes {
+    width: 100%;
+    clear: both;
+    padding: 0px;
+    list-style: none;
+    float: left;
+    margin-bottom: 16px;
+    text-align: center;
+    margin-top: 0px;
+    @media only screen and (max-width: $Break-Small - 1) {
+        margin-bottom: 0px;
+        margin-top: 12px;
+    }
+    li {
+        width: 25%;
+        text-align: center;
+        list-style: none;
+        background: #fff;
+        border-radius: 2px;
+        display: inline-block;
+        color: #767676;
+        margin-top: 0px;
+        cursor: pointer;
+        @media only screen and (max-width: $Break-MobileScreen) {
+            width: 47%;
+            margin: 0 1% 1% 1%;
+            border: 1px solid rgba(0, 0, 0, 0.1) !important;
+        }
+        .outer {
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            border-right: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 24px;
+            width: 100%;
+            float: left;
+            box-sizing: border-box;
+            @media only screen and (max-width: $Break-MobileScreen) {
+                border: 0px;
+            }
+        }
+    }
+    li:last-child {
+        border-right: 0px;
+    }
+    li.active {
+        background: #F2FAFF;
+        .text {
+            text-decoration: none;
+            border-color: transparent;
+        }
+    }
+}
+
+ul.listing-dayboxes li .text[_ngcontent-c1] {
+    position: relative;
+    top: 15px;
+    right: 0px;
+    left: 0px;
+}
+
+.main-content .data-filterSec.full-widthForm {
+    max-width: 100%;
+    width: 100%;
+    float: left;
+}
+
+.listing-dayboxes li .text {
+    cursor: pointer;
+    position: relative;
+    top: 0px;
+    right: 22px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    text-align: center;
+    font-size: $label-font-size;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 1px solid #999;
+    padding-bottom: 1px;
+    text-decoration: underline;
+    width: auto;
+    display: inline-block;
+}
+
+.mat-dialog-container button span.mat-button-wrapper {
+    font-size: $label-font-size;
+}
+
+.cdk-overlay-container .ng-trigger.mat-select-panel.mat-primary.ng-star-inserted {
+    margin-top: -15px;
+}
+
+date-pickerDiv .mat-form-field {
+    width: auto;
+}
+
+
+/* 30-08-2018 */
+
+.date-pickerDiv {
+    float: left;
+}
+
+.btn-outerDiv {
+    width: auto;
+    display: inline-block;
+    float: right;
+}
+
+.btn-outerDiv.align-withsearchBox,
+.align-withsearchBox {
+    width: auto;
+    display: inline-block;
+    float: left;
+}
+
+
+/*== mozila hacks css ends ==*/
+
+mat-datepicker-content.mat-datepicker-content .mat-calendar-body-selected {
+    background-color: $Primary-Color;
+}
+
+mat-form-field.mat-form-field .mat-form-field-suffix .mat-datepicker-toggle .mat-button-wrapper svg.mat-datepicker-toggle-default-icon {
+    display: none;
+}
+
+.mat-form-field.mat-form-field .mat-form-field-suffix .mat-datepicker-toggle .mat-button-wrapper {
+    background-position: -108px -109px;
+    margin: 0 auto;
+    float: none;
+}
+
+.date-pickerDiv .mat-form-field-appearance-outline .mat-form-field-flex {
+    padding: 0 0 0 .75em;
+}
+
+.mat-form-field.mat-form-field .mat-datepicker-toggle .mat-button-ripple-round,
+.mat-form-field.mat-form-field .mat-datepicker-toggle .cdk-focused .mat-button-ripple-round,
+.mat-form-field.mat-form-field .mat-datepicker-toggle .mat-button-focus-overlay {
+    border-radius: 0px;
+}
+
+.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-datepicker-toggle .mat-icon-button,
+.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-datepicker-toggle .mat-icon-button {
+    width: 38px;
+    height: 34px;
+    display: inline-block !important;
+}
+
+.filter-outerbox {
+    padding: 16px 16px 12px 16px;
+}
+
+.main-content .data-filterSec {
+    .search-div {
+        padding-right: 0px;
+        .search-field button {
+            border-radius: 0px;
+            height: 30px;
+        }
+        .mat-form-field-wrapper {
+            margin-right: 0px;
+            position: relative;
+            .mat-form-field-suffix {
+                position: absolute;
+                right: 0px;
+                top: 4px;
+                height: 30px;
+                overflow: hidden;
+                left: auto;
+            }
+            .mat-form-field-flex {
+                margin-top: 0px;
+                input.mat-input-element.mat-form-field-autofill-control {
+                    padding-right: 60px !important;
+                }
+            }
+            .mat-form-field-infix {
+                padding: 15px 0 15px 0;
+            }
+        }
+        .btn-outerDiv button.icon-button {
+            margin-left: 8px;
+            width: 30px !important;
+            min-width: 30px !important;
+            max-width: 30px !important;
+            margin-right: 0px;
+            min-height: 28px;
+            float: left;
+            background: $body-color;
+            cursor: pointer;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+            border-top: 0px;
+            border-bottom: 0px;
+            border-right: 0px;
+            border-radius: 0px !important;
+            top: 4px;
+            span {
+                line-height: normal;
+                cursor: pointer;
+                width: 22px;
+                height: 22px;
+            }
+            label {
+                vertical-align: text-bottom;
+                cursor: pointer;
+                display: none;
+            }
+            i.img-icons {
+                display: block;
+            }
+            i.img-icons.search-icn {
+                background-position: -109px -314px;
+            }
+            i.img-icons.reset-icn {
+                background-position: -107px -131px;
+            }
+            @media only screen and (max-width: $Break-Medium) {
+                i.img-icons {
+                    display: block;
+                }
+                label {
+                    display: none;
+                }
+            }
+        }
+      
+        .mat-form-field {
+            width: 100%;
+            .mat-form-field-infix {
+                border: 0px;
+            }
+        }
+        .img-icons.search-icn {
+            background-position: -108px -316px !important;
+            position: absolute;
+            top: 4px;
+            right: 6px;
+        }
+        i.material-icons.cross-icon-custom.ng-star-inserted {
+            position: absolute;
+            right: 2px;
+            top: 1px;
+            height: 28px;
+            line-height: 30px;
+            background-color: #fff;
+        }
+    }
+    .full-rowOuter {
+        @extend %full-rowOuter;
+        @media only screen and (max-width: $Break-Small - 1) {
+            padding: 7.5px 14px;
+        }
+    }
+    .mat-form-field-type-mat-select.mat-form-field-appearance-outline .mat-form-field-infix {
+        padding: 8px 0 8px 0;
+    }
+  
+    @media screen and (max-width: 980px) {
+        .divRow.Step-ProgressRow {
+            margin-right: -24px;
+        }
+        .data-filterSec {
+            .divRow.margin-left-none {
+                margin-right: -20px;
+            }
+        }
+    }
+}
+
+.search-cancel-btn {
+    .icon-cross {
+        position: absolute;
+        right: 31px;
+        width: 32px;
+        line-height: 23px !important;
+        height: 28px !important;
+        min-height: 28px !important;
+        background: transparent !important;
+        .material-icons {
+            font-size: 14px !important;
+            color: $Grey-light;
+        }
+    }
+}
+
+
+/*   create new delegate and css */
+
+.full-rowOuter {
+    padding: 7.5px 17px;
+    border-bottom: 1px solid $seprator-linecolor;
+}
+
+.create-newDelegate .full-rowOuter {
+    padding: 7.5px 24px;
+    border-bottom: 1px solid $seprator-linecolor;
+}
+
+.tabs-container .filter-outerbox.filterContianer .full-rowOuter {
+    padding: 8px 24px;
+}
+
+.tabs-container .filter-outerbox.filterContianer .full-rowOuter.border-none {
+    @media only screen and (max-width: $Break-Small - 1) {
+        padding: 8px 14px;
+    }
+}
+
+.main-content .create-newDelegate,
+.main-content .btn-section {
+    button.create-button,
+    button.export,
+    .upload {
+        line-height: 30px;
+        margin: 0px !important;
+        background: $Primary-Color;
+        color: #fff;
+        /*text-transform: capitalize;*/
+    }
+    button.create-button:hover,
+    button.create-button:focus,
+    button.export:hover,
+    .upload:hover {
+        background: $button-hover;
+    }
+    // button { min-height: 30px; margin-top: 0px !important; margin-bottom: 0px !important;  }
+    button.create-button::after {
+        top: 4px;
+        position: absolute;
+        left: 15px;
+        font-size: 16px;
+        vertical-align: middle;
+        line-height: 27px;
+        @include sprite-bg;
+        background-position: -155px 372px;
+    }
+    button.create-button span,
+    button.export span,
+    .upload span {
+        padding-left: 18px;
+        position: relative;
+    }
+    .upload::after {
+        top: 4px;
+        position: absolute;
+        left: 15px;
+        font-size: 16px;
+        vertical-align: middle;
+        line-height: 27px;
+        @include sprite-bg;
+        background-position: -190px 958px;
+    }
+    button.policy-button::after {
+        content: '';
+        top: 4px;
+        position: absolute;
+        left: 15px;
+        font-size: 16px;
+        vertical-align: middle;
+        line-height: 27px;
+        @include sprite-bg;
+        background-position: -188px 430px;
+    }
+    button.policy-button {
+        background-color: $highlight-color !important;
+        color: $Grey-dark;
+        margin-left: 16px;
+        text-transform: capitalize;
+        span {
+            padding-left: 25px;
+        }
+    }
+    button.policy-button:hover,
+    button.policy-button:focus {
+        background-color: #ffc654 !important;
+    }
+    button.export::after {
+        content: '';
+        top: 4px;
+        position: absolute;
+        left: 15px;
+        font-size: 16px;
+        vertical-align: middle;
+        line-height: 27px;
+        @include sprite-bg;
+        background-position: -192px 409px;
+    }
+}
+
+.main-content .btn-section {
+    button.export-button::after {
+        top: 4px;
+        position: absolute;
+        left: 15px;
+        font-size: 16px;
+        vertical-align: middle;
+        line-height: 27px;
+        @include sprite-bg;
+        background-position: -151px 326px;
+    }
+    button.export-button,
+    button.email-button {
+        background-color: $highlight-color;
+        color: $Grey-dark;
+        margin-left: 16px;
+        text-transform: capitalize;
+        span {
+            padding-left: 22px;
+        }
+    }
+    button.export-button:hover,
+    button.export-button:focus,
+    button.email-button:hover {
+        background-color: #ffc654 !important;
+    }
+    button.email-button::after {
+        top: 4px;
+        position: absolute;
+        left: 15px;
+        font-size: 16px;
+        vertical-align: middle;
+        line-height: 27px;
+        @include sprite-bg;
+        background-position: -151px 180px;
+    }
+}
+
+.breadcrumb {
+    padding: 0px;
+    list-style: none;
+    margin: 0px 3px;
+    li {
+        position: relative;
+        margin: 5px 0px;
+        font-size: 11px;
+        font-weight: 500;
+        line-height: 20px;
+        vertical-align: middle;
+        display: inline-block;
+        padding-right: 24px;
+        color: $link-color;
+        text-transform: capitalize;
+        a {
+            cursor: pointer;
+        }
+    }
+    li::before {
+        display: block;
+        content: '/';
+        position: absolute;
+        left: -14px;
+        top: 0px;
+        color: #cccccc;
+    }
+    li::last-child {
+        padding-right: 0px;
+    }
+    li:first-child::before {
+        display: none;
+    }
+    @media only screen and (max-width: $Break-Normal) {
+        /*display: none;*/
+    }
+}
+
+.page-title {
+    color: $input-fieldColor-font;
+    font-weight: 700;
+    color: $link-color;
+    margin: 5px 0px;
+    line-height: 20px;
+    font-size: 12px;
+}
+
+
+/*   create new delegate and css ends */
+
+.filter-outerbox .date-pickerDiv .mat-form-field-wrapper {
+    margin-right: 0px;
+}
+
+.filter-outerbox .date-pickerDiv .mat-form-field-wrapper {
+    margin-right: 0px;
+}
+
+.filter-outerbox .date-pickerDiv .mat-form-field {
+    width: auto;
+    margin-right: 8px;
+}
+
+.listing-dayboxes li a {
+    text-decoration: none !important;
+    color: #767676;
+}
+
+.row-custom {
+    clear: both;
+}
+
+.row-custom::after,
+.row-custom::before {
+    display: table;
+    content: " ";
+}
+
+
+/* ======================================= chauffer unavailability css ends ================*/
+
+
+/* ===== css for overall site improvemnt starts ===== */
+
+.loader-svgContainer circle {
+    stroke: white !important;
+}
+
+.loader-svgContainer svg,
+.loader-svgContainer .mat-spinner {
+    width: 60px !important;
+    height: 60px !important;
+}
+
+button.icon-button {
+    min-width: auto;
+    text-align: center;
+    margin-top: 0px;
+}
+
+mat-calendar-header button span.mat-button-wrapper {
+    font-size: $normal-font-size;
+    font-weight: bold;
+    color: $Grey-dark;
+}
+
+.confirmation-box.ng-star-inserted {
+    text-align: center;
+    padding-top: 80px;
+    width: 100%;
+    max-width: 460px;
+    margin: 0 auto;
+    clear: both;
+}
+
+.confirmation-box.ng-star-inserted h2 {
+    font-size: $title-font-size;
+    margin-bottom: 40px;
+}
+
+.confirmation-box .content-bx {
+    padding: 16px;
+    border: 1px solid $seprator-linecolor;
+}
+
+.confirmation-box .content-bx p {
+    margin: 0px;
+}
+
+.color-red {
+    color: $Validation-warning;
+}
+
+
+/* ===== css for overall site improvemnt starts ===== */
+
+.mat-drawer-content .spinner-container {
+    position: fixed !important;
+    padding-top: 64px;
+    @media only screen and (min-width: $Break-Small) {
+        padding-left: 230px;
+    }
+}
+
+.hideNavBar .mat-drawer-content .spinner-container {
+    @media only screen and (min-width: $Break-Small) {
+        padding-left: 65px;
+    }
+}
+
+
+/* ====loader height css ends == */
+
+.mobile-overlay {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .3);
+    display: none;
+    z-index: -2;
+}
+
+.hideNavBar .mobile-overlay {
+    @media only screen and (max-width: $Break-Small - 1) {
+        display: block;
+        z-index: 1;
+    }
+}
+
+.main-content {
+    padding: 0px 24px;
+    padding-top: 96px;
+    @media only screen and (max-width: $Break-Normal) {
+        padding: 0px 24px;
+        padding-top: 56px;
+    }
+}
+
+
+/*
+  ======================  Profile Form css Starts =========== 
+  */
+
+
+/*
+  ======================  Promocode css Starts =========== 
+  */
+
+.tabs-contentDiv .mat-tab-list {
+    display: none;
+}
+
+.tabs-contentDiv .mat-tab-body-content {
+    height: 100%;
+    overflow: visible !important;
+}
+
+
+/*
+=============   Create Delegate Form Design =========
+*/
+
+.add-editContainer {
+    float: left;
+    width: 100%;
+    form.example-form {
+        .column-container {
+            width: 100%;
+            max-width: 1690px;
+            float: left;
+            border: 1px solid $seprator-linecolor;
+            padding: 0px;
+            @media only screen and (max-width: $Break-Small + 30) {
+                border: 0px;
+            }
+        }
+        .TwoColumnLayout {
+            max-width: 1128px;
+        }
+        .OneColumnLayout {
+            max-width: 564px;
+        }
+        .two-column-form {
+            max-width: 1128px;
+        }
+        section.footer-area.full-widthRow {
+            padding: 10px 24px;
+            button {
+                margin-left: 16px;
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+            button:last-child {
+                margin-left: 0px;
+            }
+        }
+        form label.label,
+        .mat-form-field {
+            width: 100%;
+            float: left;
+        }
+        h4 {
+            left: 19px;
+            position: absolute;
+            margin: 0px;
+            top: -14px;
+            background: #fff;
+            padding: 5px;
+            font-size: 14px;
+            font-weight: 500;
+            z-index: 1;
+        }
+        .full-widthRow {
+            padding: 0px 0px;
+        }
+        p.require-text {
+            margin-bottom: 16px;
+        }
+        .img-ul {
+            background-color: transparent;
+            border: 0px;
+            float: left;
+            margin-top: 16px;
+            position: static;
+            .img-ul-file-upload {
+                padding: 0px;
+            }
+        }
+        .country-phonrCode {
+            mat-form-field.mat-form-field.mat-primary {
+                .mat-form-field-infix {
+                    .intl-tel-input.allow-dropdown {
+                        position: absolute;
+                        width: 100%;
+                        top: 0px;
+                        border: 1px solid #ff0000;
+                        .mat-input-element {
+                            padding-left: 60px !important;
+                        }
+                    }
+                    .iti__flag-container {
+                        right: auto;
+                        left: 1px;
+                        background: $body-color;
+                        border-right: 1px solid #cccccc;
+                        width: 50px;
+                        // height:34px;
+                        height: 32px;
+                        top: -0.52375em;
+                        //For mozilla// 
+                        @-moz-document url-prefix() {
+                            height: 32px;
+                            //  height: 34px; 
+                            top: -0.44375em;
+                        }
+                        //For IE//
+                        /*@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+                       {  height: 84px !important; top: -0.52em !important;  }*/
+                        .selected-flag {
+                            width: 50px;
+                            .iti-arrow {
+                                right: 10px;
+                            }
+                        }
+                    }
+                    //Safari css starts //
+                    @media screen and (-webkit-min-device-pixel-ratio:0) {
+                        /* Safari only override */
+                         ::-i-block-chrome,
+                        .flag-container {
+                            height: 34px;
+                            top: -0.44375em;
+                        }
+                    }
+                    //For edge /
+                    _:-ms-lang(x),
+                    .flag-container {
+                        //  height: 34px;
+                        height: 32px;
+                        top: -0.5375em;
+                    }
+                }
+            }
+        }
+        .intl-tel-input.allow-dropdown .flag-container:hover .selected-flag {
+            background-color: transparent;
+        }
+        .iti-flag {
+            box-shadow: 0px 0px 0px 0px #f7f7f7;
+        }
+        .mat-form-field-outline {
+            // min-height: 36px;
+            min-height: 34px;
+        }
+        .mat-form-field-wrapper {
+            // padding-bottom: 22px !important;
+        }
+    }
+    .white-box {
+        padding: 24px 24px 0px 24px;
+        border-top: 0px;
+        @media only screen and (max-width: $Break-Small + 30) {
+            // padding: 24px 14px 0px 14px;
+            margin-bottom: 0px;
+            section.footer-area.full-widthRow {
+                margin-top: 10px;
+            }
+        }
+        @media only screen and (max-width: $Break-Small - 1) {
+            background: $body-color;
+            .column-container .coloumn-lg-4 {
+                background: #fff;
+                .top-title h4 {
+                    background: $body-color;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+    .footer-area.full-widthRow {
+        padding: 8px 24px;
+    }
+    .mat-form-field-appearance-outline .mat-form-field-subscript-wrapper[ng-reflect-ng-switch="error"] {
+        margin-top: 0px;
+    }
+    .error-Validation {
+        position: absolute;
+        color: $Validation-warning;
+        font-size: 11px;
+        font-weight: 600;
+        // margin-top: 20px;
+        margin-top: 16px;
+    }
+    .mat-form-field-appearance-outline {
+        .mat-form-field-flex+.mat-form-field-subscript-wrapper {
+            margin-top: 4px;
+        }
+    }
+}
+
+.profile-pic {
+    label.img-ul-upload.img-ul-button {
+        @extend %border-radius;
+        position: relative;
+        box-shadow: none;
+        max-width: 190px;
+        padding: 9px 24px 9px 46px;
+        text-align: center;
+        text-transform: initial;
+        background: $highlight-color;
+        vertical-align: middle;
+        line-height: 19px;
+        span {
+            color: $Grey-dark;
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 18px;
+        }
+    }
+    label.img-ul-upload.img-ul-button::after {
+        content: '';
+        width: 18px;
+        height: 18px;
+        float: left;
+        display: block;
+        background: url(/assets/images/sprite-icons.png);
+        background-color: rgba(0, 0, 0, 0);
+        background-position: -110.6px -346px;
+        border-radius: 50%;
+        background-color: #f8c254;
+        position: absolute;
+        left: 25px;
+        top: 10px;
+    }
+    label.img-ul-upload.img-ul-button:hover,
+    label.img-ul-upload.img-ul-button:focus {
+        background: #ffc654;
+        span::after {
+            background-color: $highlight-color
+        }
+    }
+    .right-content {
+        width: 100%;
+        padding-left: 130px;
+        label,
+        span {
+            width: 100%;
+            float: left;
+            font-size: 11px;
+            line-height: 16px;
+        }
+        .tip {
+            color: $Grey-light;
+        }
+        label {
+            margin-top: 0px;
+            font-weight: 400 !important;
+            font-size: $small-font-size;
+            span {
+                font-size: $small-font-size;
+            }
+        }
+        @media only screen and (max-width: $Break-Medium) {
+            padding-left: 90px;
+            .img-ul-container {
+                height: 80px;
+                width: 80px;
+            }
+        }
+    }
+    .image-wrapper {
+        width: 120px;
+        float: left;
+        padding-right: 16px;
+        position: absolute;
+        .image-outer {
+            padding: 16px;
+            background: #f9f9f9;
+            border: 1px solid #e6e6e6;
+            text-align: center;
+            img {
+                margin: 0 auto;
+                width: auto;
+                max-width: 100%;
+                ;
+            }
+        }
+    }
+    .img-ul-container {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        height: 100px;
+        border: 1px solid $seprator-linecolor;
+        background-color: $body-color !important;
+        width: 100px;
+        float: left;
+        z-index: 1;
+        opacity: 1;
+        background: url(/assets/images/user.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        .img-ul-image {
+            width: 100%;
+            margin: 0 auto;
+            float: none;
+            height: 100%;
+            background-color: $body-color;
+            .img-ul-close:before,
+            .img-ul-close:after {
+                top: 2px;
+            }
+        }
+    }
+    button.img-ul-clear {
+        background: $Validation-warning;
+        padding: 11px 24px;
+        text-transform: capitalize;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0px;
+        box-shadow: none;
+    }
+    button {
+        @extend %border-radius;
+    }
+}
+
+.add-editContainer {
+    .custom-row-container,
+    .column-container {
+        .full-widthRow label {
+            font-size: 12px;
+        }
+        .top-title h4 {
+            color: $paragraph-text-color;
+            font-weight: 500;
+            text-transform: capitalize;
+        }
+    }
+}
+
+.column-container {
+    display: flex;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    justify-content: space-between;
+    display: flex;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.column-container.settings-sec {
+    justify-content: normal;
+}
+
+.top-title {
+    min-height: 30px;
+    float: left;
+}
+
+.coloumn-lg-4 {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    max-width: 100%;
+    padding: 16px 24px 24px 24px;
+    border-right: 1px solid $seprator-linecolor;
+    position: relative;
+}
+
+.coloumn-lg-8 {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 2;
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    max-width: 100%;
+    padding: 16px 24px 24px 24px;
+    border-right: 1px solid $seprator-linecolor;
+    position: relative;
+}
+
+.coloumn-lg-4:last-child {
+    border: 0px;
+}
+
+ul.charcter-list {
+    padding-left: 18px;
+    float: left;
+    list-style-type: none;
+    list-style-type: none;
+    margin-bottom: 24px;
+    margin-top: -10px;
+    li {
+        width: 50%;
+        float: left;
+        padding: 4px 0px;
+        min-width: 155px;
+        font-size: 11px;
+        color: $paragraph-text-color;
+        white-space: nowrap;
+    }
+    li::before,
+    li.fade::after {
+        content: "";
+        font-weight: 700;
+        text-decoration: inherit;
+        font-size: 12px;
+        position: absolute;
+        list-style-type: none;
+        display: block;
+        border-radius: 50%;
+    }
+    li::before {
+        width: 5px;
+        height: 5px;
+        display: block;
+        background: #999;
+        border-radius: 50%;
+        margin-top: 4px;
+        margin-left: -14px;
+    }
+    li.fade::after {
+        background: url(/assets/images/sprite-icons.png);
+        background-position: -154px -89px;
+        width: 18px;
+        height: 18px;
+        display: block;
+        margin-top: -18px;
+        margin-left: -18px;
+    }
+    li.fade {
+        color: #008000;
+    }
+    li.fade::before {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: $Break-Small+30) {
+    .column-container .coloumn-lg-4 {
+        flex-basis: auto;
+        border: 1px solid $seprator-linecolor;
+        margin-bottom: 24px;
+    }
+}
+
+
+/*
+=============   Create Delegate Form Design ends =========
+*/
+
+@media only screen and (max-width: $Break-Small - 1) {
+    form .mat-form-field[_ngcontent-c8] {
+        width: 100%;
+    }
+}
+
+// Importing the Media Query scss file for resposive
+
+/* @import 'media-query.scss'; */
+
+.breakLine {
+    word-break: break-all;
+    max-width: 180px !important;
+}
+
+.fieldwithIcon {
+    mat-form-field {
+        input {
+            left: 0px;
+            padding-left: 30px !important;
+        }
+    }
+    label.img-icons.search-icn {
+        position: absolute;
+        /* height: 35px; */
+        top: -2px;
+        width: 36px;
+        float: left;
+        background-position: -103px -313px;
+        left: 3px;
+        padding: 5px;
+    }
+}
+
+.fieldwithIcon .mat-form-field .mat-form-field-wrapper .mat-form-field-infix {
+    padding-left: 30px;
+}
+
+.main-content form .mat-select-arrow {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid;
+    margin: 0 4px;
+    border: 0px;
+    background: url(/assets/images/sprite-icons.png);
+    background-position: -113px -594px;
+    width: 11px;
+    height: 11px;
+}
+
+
+/*
+.main-content .formDesignCustom {
+    .mat-form-field-infix{
+    padding: 0px;
+    border: 0px;
+    min-height: 36px;
+    top: 0px;
+    }
+   .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+    top: 0px;
+   }
+}
+*/
+
+.formDesignCustom {
+    .mat-form-field-wrapper {
+        .mat-form-field-suffix.ng-star-inserted {
+            top: 11px;
+            right: 8px;
+            position: absolute;
+        }
+    }
+    form.example-form .mat-form-field-wrapper {
+        margin-bottom: 3px;
+    }
+}
+
+
+/*    edit profile css */
+
+.add-editContainer {
+    .toggle-sec section.full-widthRow {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 15px;
+        padding-top: 15px;
+        @include border-top;
+        .mat-slide-toggle {
+            vertical-align: baseline;
+            margin-top: -8px;
+        }
+    }
+    .toggle-sec section.full-widthRow::first-child {
+        padding-top: 0px;
+    }
+    .split-box {
+        max-width: 300px;
+        @media only screen and (max-width: $Break-Small - 1) {
+            max-width: 100%;
+        }
+        .mat-form-field-infix {
+            input {
+                padding-left: 10px !important;
+                padding-right: 10px !important;
+            }
+        }
+        .mat-form-field-infix {
+            input.dollar {
+                padding-left: 45px !important;
+                padding-right: 10px !important;
+            }
+        }
+        .mat-form-field-infix {
+            input.percentage {
+                padding-left: 10px !important;
+                padding-right: 45px !important;
+            }
+        }
+    }
+    .mat-form-field-infix {
+        input.dollar {
+            padding-left: 45px !important;
+            padding-right: 10px !important;
+        }
+    }
+}
+
+.toggle-sec section.full-widthRow:first-child {
+    border: 0px;
+}
+
+section.full-widthRow.toggle-sec::nth-child(0) {
+    border: 0px;
+}
+
+.data-filterSec.padding-none.full-widthForm {
+    .full-rowOuter.border-none {
+        justify-content: flex-end;
+    }
+    .full-rowOuter.flex-start {
+        justify-content: flex-start;
+    }
+    .full-rowOuter.space-between {
+        justify-content: space-between;
+    }
+}
+
+label.inline-box {
+    position: absolute;
+    right: 1px;
+    padding-right: 0px;
+    // height: 33.5px;
+    height: 32px;
+    background: #f7f7f7;
+    width: 35px;
+    top: -.55600em;
+    // line-height: 35px;
+    line-height: 33px;
+    text-align: center;
+    border-left: 1px solid #ccc;
+}
+
+label.inline-box-dollar {
+    position: absolute;
+    left: 1px;
+    padding-right: 0px;
+    height: 32px;
+    background: #f7f7f7;
+    width: 35px;
+    top: -.56600em;
+    line-height: 33px;
+    text-align: center;
+    border-right: 1px solid #ccc;
+}
+
+@-moz-document url-prefix() {
+    label.inline-box {
+        top: -.48100em;
+    }
+    label.inline-box-dollar {
+        top: -.48100em;
+    }
+}
+
+.add-editContainer .column-container .full-widthRow.fieldwithIcon label {
+    padding-right: 24px;
+    vertical-align: initial;
+}
+
+.add-editContainer.formDesignCustom .TwoColumnLayout section.full-widthRow.fieldwithIcon {
+    margin-top: 7px;
+    margin-bottom: 32px;
+}
+
+.tabs-contentDiv {
+    .add-editContainer {
+        .white-box {
+            border-left: 0px;
+            border-right: 0px;
+            margin-bottom: 0px;
+        }
+    }
+    .add-editContainer.formDesignCustom {
+        .column-container.TwoColumnLayout {
+            .top-title {
+                min-height: 5px;
+            }
+            .coloumn-lg-4 {
+                padding: 16px 24px 0px 24px;
+            }
+        }
+    }
+    .normal-box.tableData.tablediv {
+        margin-bottom: 24px;
+    }
+    section.footer-area.full-widthRow {
+        padding: 10px 24px;
+        button {
+            margin-left: 16px;
+        }
+        button:last-child {
+            margin-left: 0px;
+        }
+    }
+    .normal-box.tableData.tablediv.listing-table {
+        margin-bottom: 0px;
+    }
+}
+
+
+/*  hidiing desktop view in mobile css starts */
+
+.HideMobileScreen {
+    @media only screen and (max-width: $Break-Small - 1) {
+        display: none;
+    }
+}
+
+.main-content .formDesignCustom {
+    .mat-form-field-suffix.ng-star-inserted {
+        top: 3px;
+        right: 1px;
+    }
+    .password-field {
+        .mat-form-field-suffix.ng-star-inserted {
+            top: 10px;
+            right: 3px;
+            cursor: pointer;
+        }
+    }
+}
+
+
+/*  hiding desktop view in mobiles css ends */
+
+
+/* === Policy Manger css Starts  === */
+
+.main-content .data-filterSec.full-widthForm {
+    .mat-form-field-appearance-outline .mat-form-field-flex {
+        margin-top: 0px;
+        position: relative;
+    }
+    label.label {
+        font-size: 12px;
+        padding-right: 8px;
+    }
+    .left-div {
+        display: flex;
+        flex-flow: row;
+        mat-form-field.mat-form-field.mat-form-field-type-mat-select {
+            min-width: 220px;
+            width: 100%;
+            @media screen and (max-width: 1024px) {
+                min-width: 100%;
+            }
+            .mat-select-placeholder {
+                font-size: 12px;
+            }
+        }
+        .select-boxouter.select-Status {
+            mat-form-field.mat-form-field.mat-form-field-type-mat-select {
+                min-width: 180px;
+            }
+        }
+        .select-boxouter {
+            display: flex;
+            display: -ms-flexbox;
+            padding-right: 24px;
+            float: left;
+            label.label {
+                line-height: 30px;
+                float: left;
+                width: auto;
+            }
+        }
+    }
+}
+
+.main-content .data-filterSec .less-height .mat-form-field-type-mat-select.mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 4px 0 8px 0;
+}
+
+.main-content .add-editContainer.create-policyForm {
+    form.example-form {
+        width: 100%;
+        .mat-form-field {
+            width: 100%;
+        }
+        .full-widthRow .mat-form-field-wrapper {
+            padding-bottom: 14px;
+        }
+        label.label {
+            line-height: 16px;
+        }
+        .column-container {
+            border: 0px;
+        }
+        .TwoColumnLayout.style-border {
+            max-width: 100%;
+            width: 100%;
+            display: flex;
+            padding: 16px 16px 0px 16px;
+            @include style-border;
+            .column-container {
+                max-width: 1128px;
+            }
+        }
+        .style-border {
+            @include style-border;
+        }
+        .coloumn-lg-6 {
+            flex-grow: 1;
+            flex-basis: auto;
+            width: 46%;
+            //    margin: 20px 2%; 
+            margin: 0px 2%;
+            @media screen and (max-width: 980px) {
+                margin: 20px 0;
+            }
+            p {
+                margin-top: 0px;
+            }
+        }
+        .row-margin .coloumn-lg-6 {
+            flex-grow: 1;
+            flex-basis: auto;
+            max-width: 100%;
+            margin: 10px 25px;
+            p {
+                margin-top: 0px;
+            }
+        }
+        .coloumn-lg-6:nth-child(2) {
+            margin-left: 0px;
+        }
+        .mat-form-field-appearance-outline .mat-form-field-outline {
+            // min-height: 36px;
+            min-height: 34px;
+        }
+        .top-title {
+            min-height: 20px;
+            p {
+                margin-bottom: 0px;
+            }
+        }
+    }
+    mat-radio-group.mat-radio-group {
+        /*margin-bottom: 30px;*/
+        float: left;
+        mat-radio-button {
+            margin-right: 20px;
+            margin-bottom: 6px;
+            .mat-radio-label-content {
+                /*padding-left: 14px;*/
+            }
+        }
+        mat-radio-button:last-child {
+            margin-right: 0px;
+        }
+    }
+    span.notification-tooltip {
+        position: absolute;
+        right: -10px;
+        bottom: 30px;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 20px;
+    }
+    // Enter Schedule Foem css starts 
+    /*.top-title.Fixed-TopPos {
+        position: absolute; top: -25px;  background: #fff;  padding: 0px 8px;  font-size: 14px; 
+        p {
+            margin-bottom: 0px; font-size: 14px;  color: $paragraph-text-color;
+            font-weight: 500;
+        }
+    }*/
+    .split-box {
+        max-width: 100%;
+    }
+    .payment_online {
+        .column-container {
+            padding-top: 20px;
+            max-width: 100% !important;
+            .coloumn-lg-8 {
+                border: 0px;
+                flex-grow: 4;
+                padding-top: 0px;
+            }
+            .top-title.Fixed-TopPos {
+                top: -8px;
+            }
+            .coloumn-lg-4 {
+                flex-grow: 2;
+            }
+            .row-margin {
+                width: 100%;
+                @media only screen and (max-width: 1023px) {
+                    .left-barScection {
+                        border-right: 0px !important;
+                    }
+                }
+            }
+            .outer-row {
+                margin-left: -24px;
+                margin-right: -34px;
+            }
+            .tableStyle {
+                border-left: 0px;
+                border-right: 0px;
+            }
+        }
+        .settings-sec {
+            padding-top: 0px;
+        }
+    }
+    .coloumn-lg-12 {
+        width: 100%;
+        margin: 10px 0px;
+    }
+    .row-margin {
+        margin-left: -18px;
+        margin-right: -18px;
+        clear: both;
+        display: flex;
+    }
+    .hightlight-box {
+        background: #fcf8e3;
+        padding: 10px 10px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+        border: 1px solid #FAEBCC;
+        p {
+            padding: 0px;
+            margin: 0px;
+            line-height: 17px;
+            color: #8A6D3B;
+            font-size: $small-font-size;
+        }
+    }
+}
+
+.ng-trigger.ng-trigger-transformPanel.mat-select-panel.mat-primary {
+    background: #fff;
+}
+
+.disableBlueToggle {
+    .mat-slide-toggle-thumb {
+        background-color: $Primary-Color;
+    }
+    .mat-slide-toggle-bar {
+        background-color: $Primary-ColorOpacity;
+    }
+}
+
+
+/* === Policy Manger css Ends  === */
+
+
+/*       mobile view for the setting */
+
+.ContentMobileview {
+    display: none;
+    @media only screen and (max-width: $Break-Small - 1) {
+        display: block;
+    }
+}
+
+.top-title h4 {
+    left: 19px;
+    position: absolute;
+    margin: 0px;
+    top: -14px;
+    background: #fff;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    z-index: 1;
+}
+
+.ContentMobileview {
+    width: 100%;
+    float: left;
+    .box-outer {
+        padding: 20px 24px;
+        width: 100%;
+        background: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        margin-bottom: 16px;
+        position: relative;
+    }
+    .user-info {
+        h4 {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            font-weight: 600;
+        }
+        h4+p {
+            margin-top: 5px;
+        }
+        p {
+            margin-bottom: 0px;
+        }
+    }
+    .permission-box {
+        padding-bottom: 0px;
+        .mat-form-field-wrapper {
+            margin-bottom: 0px;
+        }
+        .mat-input-element.mat-form-field-autofill-control {
+            height: 18px;
+            font-size: 13px;
+        }
+        .mat-form-field.mat-form-field-type-mat-input.mat-form-field-appearance-outline .mat-form-field-infix {
+            padding: 15px 0 14px 0;
+        }
+    }
+}
+
+@media only screen and (max-width: $Break-Small - 1) {
+    .permission-box mat-form-field.mat-form-field.mat-form-field-appearance-outline {
+        width: 100%;
+    }
+    .add-editContainer form.example-form section.footer-area.full-widthRow {
+        padding: 10px 0px;
+    }
+    .ContentMobileview .top-title h4 {
+        background: $stroke-btnBackground;
+    }
+    .tabs-container {
+        .add-editContainer {
+            padding-bottom: 45px;
+            form.example-form section.footer-area.full-widthRow {
+                padding: 0px 0px;
+                position: fixed;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+                width: 100%;
+                z-index: 3;
+                button {
+                    width: 50%;
+                    float: left;
+                    margin: 0px;
+                    border-radius: 0px;
+                }
+                button.mat-stroked-button {
+                    background: #fff;
+                }
+            }
+        }
+    }
+    .no-borderMobile {
+        border: 0px !important;
+        padding: 0px;
+    }
+}
+
+a {
+    outline-style: none;
+}
+
+.hint-text {
+    font-size: $extraSmall-font-size;
+    color: $Grey-light;
+}
+
+.sub-header {
+    line-height: 28px;
+}
+
+.sub-title label {
+    font-size: 12px;
+    font-weight: 700;
+    color: $Grey-dark;
+}
+
+.policy-name {
+    font-size: 13px;
+    font-weight: 400;
+    color: $secondary-color;
+}
+
+
+/* */
+
+.search-div {
+    .mat-form-field-wrapper {
+        margin-top: 0px !important;
+    }
+}
+
+html.cdk-global-scrollblock {
+    top: 0px !important;
+}
+
+// .renewal-percentage {
+//     padding: 10px;
+//     float: left;
+//     color: $Validation-warning;
+//     font-weight: 400; width: 54%;
+// }
+.close_icon {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 16px;
+    height: 16px;
+    opacity: 0.3;
+}
+
+.close_icon:hover {
+    opacity: 1;
+}
+
+.close_icon:before,
+.close_icon:after {
+    position: absolute;
+    left: 6px;
+    content: ' ';
+    height: 16px;
+    width: 2px;
+    background-color: #252729;
+}
+
+.close_icon:before {
+    transform: rotate(45deg);
+}
+
+.close_icon:after {
+    transform: rotate(-45deg);
+}
+
+
+/*  css added for the payment section starts */
+
+.style-border.pos-rel.payment_online {
+    border: 1px solid #e6e6e6;
+    float: left;
+    width: 100%;
+    display: block;
+    .row-margin-custom {
+        margin-right: 0px;
+        margin-left: 0px;
+        width: 100%;
+    }
+    .row-margin-custom:before,
+    .row-margin-custom:after {
+        display: table;
+        content: " ";
+    }
+    .row-margin-custom:after {
+        clear: both;
+    }
+    .coloumn-4 {
+        width: 33%;
+        float: left;
+        padding-left: 24px;
+        min-height: 390px;
+        border-left: 0px !important;
+        padding-right: 24px;
+        box-sizing: border-box;
+        border-right: 1px solid #e6e6e6 !important;
+    }
+    .coloumn-8 {
+        width: 67%;
+        float: left;
+        box-sizing: border-box;
+        padding: 0px 24px;
+        @media only screen and (max-width: 980px) {
+            padding-right: 0px;
+        }
+    }
+    @media only screen and (max-width: 1100px) {
+        .table-outerScroller.table-scroll.outertablediv {
+            overflow: visible;
+        }
+    }
+    .outer-row {
+        margin-left: -24px !important;
+        margin-right: 0px !important;
+    }
+    .table-scroll {
+        overflow: auto;
+        max-height: 350px;
+    }
+    .table-outerScroller {
+        border-bottom: 1px solid #e6e6e6;
+    }
+    @media only screen and (max-width: 1279px) {
+        .table-outerScroller {
+            max-height: 100%;
+            overflow: auto;
+        }
+    }
+    @media only screen and (max-width: 1100px) {
+        .coloumn-4,
+        .coloumn-8 {
+            width: 100%;
+            min-height: auto;
+            border-right: 0px !important;
+        }
+        .table-outerScroller {
+            max-height: 328px;
+        }
+    }
+}
+
+
+/*  css added for the payment section ends */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+    .normal-box.tableData.tablediv .tableStyle table tr .mat-form-field-wrapper label.inline-box {
+        height: 28px;
+        line-height: 28px;
+    }
+}
+
+.search-div .icon-button::after {
+    display: none;
+}
+
+mat-dialog-container app-activate-policy {
+    .mat-input-element,
+    textarea {
+        font-size: $label-font-size;
+        min-height: 16px;
+        height: 20px;
+        color: $input-fieldColor-font;
+    }
+}
+
+
+/******************************************/
+
+.mat-paginator-page-size-select {
+    width: 56px !important;
+}
+
+.iti {
+    position: absolute !important;
+    top: 0px;
+}
+
+.mat-form-field-infix .iti input,
+.iti input[type=text],
+.iti input[type=tel] {
+    padding-left: 56px !important;
+}
+
+
+.batch-manager {
+    .left-col {
+        label.label {
+            display: inline-block;
+            width: auto;
+            float: none;
+            line-height: inherit;
+            margin: 0px;
+        }
+    }
+}

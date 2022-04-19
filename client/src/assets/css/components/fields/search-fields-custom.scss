@@ -1,0 +1,48 @@
+ .data-filterSec {
+    label.label {
+        line-height: 30px;
+        padding-right: 8px;
+      }
+   .search-div {
+    min-width: 300px !important;
+    padding-right: 0px;
+    max-width:330px;
+    .btn-outerDiv.align-withsearchBox {
+        top: 1px;
+    }
+         mat-form-field .mat-form-field-infix input {
+            margin-top: 7px;
+       }
+       button  {
+		min-height: 28px;
+		border-top: 0px;
+		border-bottom: 0px;
+        border-right: 0px;
+        max-width: 34px !important;
+        min-width: 34px !important;
+        width: 34px !important;
+    }
+    input.mat-input-element {
+	    padding-right: 60px !important;
+	}
+
+	.search-icn {
+		background-position: -110px -314px !important;
+    }
+    .search-cancel-btn .icon-cross {
+        top: 3px;
+        .mat-button-ripple ,
+        .mat-button-focus-overlay {
+            display: none;
+        }
+    }
+        //For edge /
+_:-ms-lang(x),  .align-withsearchBox.search-cancel-btn  {top: 1px !important;}
+
+//For IE//
+     @media all and (-ms-high-contrast:none)
+       {
+		.align-withsearchBox.search-cancel-btn  {top: 1px !important; }
+     }
+     }
+ }

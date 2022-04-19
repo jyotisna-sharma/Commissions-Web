@@ -1,0 +1,135 @@
+@import "../../../assets/css/global.scss";
+@import "../../../assets/css/media-query.scss";
+:host ::ng-deep {
+    .listing-table.policy-table {
+        app-comp-manager-list {
+            .normal-box.tableData {
+                .table-outerScroller.table-scroll-mi-listing {
+                    max-height: 100%;
+                    overflow: visible;
+                }
+            }
+        }
+    }
+    .policy-table .normal-box.tableData .tableStyle table tr.mat-header-row .mat-header-cell p {
+        white-space: nowrap;
+    }
+}
+
+:host ::ng-deep {
+    .mat-checkbox .mat-checkbox-ripple {
+        height: 30px;
+        width: 30px;
+        left: calc(50% - 15px);
+        top: calc(50% - 15px);
+    }
+}
+
+h4.title {
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #495057;
+    text-transform: capitalize;
+}
+
+.existing-policy-table {
+    background: #fff;
+}
+
+:host ::ng-deep .existing-policy-table .table-outerScroller.table-scroll-mi-listing {
+    max-height: 230px;
+    overflow: auto;
+}
+
+:host ::ng-deep .existing-policy .normal-box.tableData .tableStyle table tr.mat-header-row .mat-header-cell p {
+    white-space: nowrap;
+}
+
+.mrg-top25 {
+    margin-top: 25px;
+}
+
+.existing-policy .left-col {
+    float: right;
+    margin-left: 30px;
+}
+
+:host ::ng-deep .existing-policy .left-col {
+    label.label {
+        font-size: 12px;
+        padding-right: 8px;
+        font-size: 12px;
+        font-weight: 600;
+        color: #333;
+        display: inline-block;
+        width: auto;
+        vertical-align: middle;
+        line-height: 34px;
+    }
+    .mat-form-field {
+        display: inline-block;
+        width: 220px;
+        .mat-form-field-wrapper {
+            width: 100% !important;
+        }
+    }
+    @media only screen and (max-width: 980px) {
+        .mat-form-field {
+            width: 180px;
+            .mat-form-field-wrapper {
+                width: 100% !important;
+            }
+        }
+    }
+}
+
+.existing-policy .left-col form {
+    display: inline-block;
+}
+
+:host ::ng-deep {
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+        min-height: 30px;
+        background: #fff;
+    }
+    mat-form-field.mat-form-field .mat-form-field-infix {
+        padding: 11px 0 4px 0;
+    }
+}
+
+:host ::ng-deep .existing-policy {
+    .left-col .mat-form-field-appearance-outline .mat-form-field-wrapper {
+        width: 130px;
+        padding: 0px !important;
+    }
+   
+  
+}
+
+.existing-policy .mat-form-field::after {
+    background: #e6e6e6;
+    height: 20px;
+    width: 1px;
+    content: "";
+    display: block;
+    z-index: 9;
+    position: absolute;
+    left: -55px;
+    top: 8px;
+}
+
+.existing-policy .left-col:last-child .mat-form-field::after {
+    display: none;
+}
+
+:host ::ng-deep {
+    td.mat-cell.cdk-column-PaymentRecived.mat-column-PaymentRecived,
+    td.mat-cell.cdk-column-CommissionPercentage.mat-column-CommissionPercentage,
+    td.mat-cell.cdk-column-NumberOfUnits.mat-column-NumberOfUnits,
+    td.mat-cell.cdk-column-Fee.mat-column-Fee,
+    td.mat-cell.cdk-column-SplitPer.mat-column-SplitPer,
+    td.mat-cell.cdk-column-TotalPayment.mat-column-TotalPayment {
+        text-align: right;
+    }
+}

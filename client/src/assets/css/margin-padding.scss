@@ -1,0 +1,57 @@
+$max: 150;
+$offset: 1;   
+$unit: 'px !important'; // Feel free to change the unit.
+@mixin list-loop($className, $styleName) {
+  $i: 0;
+  @while $i <= $max {
+    #{$className + $i} { 
+      #{$styleName}: #{$i + $unit};
+    }
+    $i: $i + $offset;
+  }
+}
+@include list-loop('.p-l-', 'padding-left');
+
+@include list-loop('.m-t-', 'margin-top');
+@include list-loop('.m-r-', 'margin-right');
+@include list-loop('.m-b-', 'margin-bottom');
+@include list-loop('.m-l-', 'margin-left');
+@include list-loop('.m-x-', 'margin');
+// Paddings
+@include list-loop('.p-t-', 'padding-top');
+@include list-loop('.p-r-', 'padding-right');
+@include list-loop('.p-b-', 'padding-bottom');
+@include list-loop('.p-l-0', 'padding-left');
+@include list-loop('.p-x-', 'padding');
+
+
+.row-margin {
+  margin-left: -24px; margin-right: -24px;
+}
+
+.row-less-margin {
+  margin-left: -8px; margin-right: -8px;
+}
+
+
+//  LOOP FOR MINUS MARGIN //
+
+@mixin list-loop-minus($className, $styleName) {
+  $i: 0;
+  @while $i <= $max {
+    #{$className + $i} { 
+      #{$styleName}: -#{$i + $unit};
+    }
+    $i: $i + $offset;
+  }
+}
+
+
+
+@include list-loop-minus('.minus-m-t-', 'margin-top');
+@include list-loop-minus('.minus-m-r-', 'margin-right');
+@include list-loop-minus('.minus-m-b-', 'margin-bottom');
+@include list-loop-minus('.minus-m-l-', 'margin-left');
+@include list-loop-minus('.minus-m-x-', 'margin');
+
+

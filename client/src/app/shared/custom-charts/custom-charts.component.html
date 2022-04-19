@@ -1,0 +1,4 @@
+<div *ngIf="this.chartProperties">
+    <canvas baseChart #canvas [datasets]="chartProperties.ChartData" height="350vh" [labels]="chartProperties.ChartLabels" [chartType]="chartProperties.ChartType" [options]="chartProperties.ChartOptions">
+</canvas>
+</div>

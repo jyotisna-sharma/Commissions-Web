@@ -1,0 +1,298 @@
+<div *ngIf=this.appData.isHeaderShown>
+<header class="top-posHeader" id="top-posHeader">
+  <!-- DEFAULT HEADER HTML STARTS -->
+  <div class="top-fix headerDeafult">
+    <div class="logo-wrapper">
+      <a [routerLink]="moduleNavObj.moduleLinks.dashboard" class="logo">
+        <!-- logo for regular state and mobile devices-->
+        <span class="logo-lg">
+          <img [src]="'assets/images/commissions-dept-logo.png'" alt="image">
+        </span>
+      </a>
+    </div>
+    <div class="nav-roll top-navOuter">
+      <ul class="header-menu postionCenter" role="list">
+
+        <li *ngIf="isDEUSelected === false"> 
+          <div class="divOuterCompany">
+            <label class="label">Agency</label>
+
+            <mat-form-field appearance="outline">
+              <mat-select [(ngModel)]="companyName" (selectionChange)="getSelectedValue($event.value)" disableOptionCentering [ngClass]="{'hide': getData?.Role !==1 && getData?.Role !==4 }">
+                <mat-option *ngFor="let company of getAllLicensee" [value]="company.LicenseeId">
+                  {{company.LicenseeName}}
+                </mat-option>
+              </mat-select>
+
+              <div class="selected-agency show" *ngIf="getData?.Role !==1 && getData?.Role !==4">
+                <label> {{companyName}}</label>
+              </div>
+            </mat-form-field>
+
+          </div>
+        </li>
+      </ul>
+      <ul class="header-menu user-notification" role="list">
+        <li>
+          <button mat-icon-button class="user-profile-btn" [matMenuTriggerFor]="menu2">
+            <div class="top-head">
+              <h3>{{LoginName}}</h3>
+              <p class="mg-t0">{{getRole}}</p>
+            </div>
+            <i class="arrow icon"></i>
+          </button>
+          <mat-menu #menu2="matMenu" class="user-menu">
+            <button mat-menu-item (click)='OnMyAccountRedirection()' *ngIf="(userPermissions && (userPermissions[0].Permission==1||userPermissions[0].Permission==2 && this.getRole !== 'Super Admin' && this.getRole !== 'DEP') )">
+              My Account
+            </button>
+            <div class="bot-footer">
+              <button mat-menu-item (click)="logout()">
+                Logout
+              </button>
+            </div>
+          </mat-menu>
+        </li>
+      </ul>
+      <!-- <p class="Menu-label">Menu</p> -->
+      <span class="Menu-label">
+        <img [src]="'assets/images/commissions-dept-logo.png'" alt="image">
+      </span>
+    </div>
+  </div>
+  <div class="SettingHeader" style="display: none;">
+    <div class="nav-roll top-navOuter">
+      <ul class="header-menu" role="list">
+        <li>
+          <button mat-icon-button>
+            <mat-icon aria-label="icon-button" class="back-btn icon-btn"></mat-icon>
+          </button>
+        </li>
+      </ul>
+      <ul class="title postionCenter">
+        <li>
+          <h3>Title</h3>
+        </li>
+      </ul>
+      <ul class="header-menu user-notification" role="list">
+        <li>
+          <button mat-icon-button color="primary">
+            <mat-icon aria-label="icon-button" class=" edit-btn icon-btn"></mat-icon>
+          </button>
+          <button mat-icon-button color="accent">
+            <mat-icon aria-label="icon-button" class="Delete-btn icon-btn"></mat-icon>
+          </button>
+        </li>
+        <li>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SETTING HEADER HTML ENDS -->
+
+
+  <div class="top-menuSection" *ngIf="getData && getData.Role !==1 && getData.Role !== 4">
+    <div class="rmm style full-width" appResponsiveMultiMenu>
+
+      <ul class="nav-menu">
+        <li class="profile-sec for-responsive">
+          <a href="javascript: void(0)" class="user-profile-btn darker">
+            <div class="top-head">
+              <p class="margin-none">{{getRole}}</p>
+              <h3 class="margin-none">{{LoginName}}</h3>
+            </div>
+            <i class="arrow icon"></i>
+          </a>
+          <ul>
+            <li class="rmm-back">
+              <a class="active">Account</a>
+            </li>
+            <li>
+              <a (click)='OnMyAccountRedirection()'>My Account</a>
+            </li>
+            <li>
+              <a (click)="logout()">Logout</a>
+            </li>
+          </ul>
+        </li>
+        <li class="profile-sec for-responsive">
+          <a class="user-profile-btn light-color">
+            <div class="top-head">
+              <p class="margin-none">Agency</p>
+              <h3 class="mg-b0">{{companyName}}</h3>
+            </div>
+            <!-- <i class="arrow icon"></i> -->
+          </a>
+
+        </li>
+        <li routerLinkActive="active" *ngIf='isDashBoardShown'>
+          <a [routerLink]="['/dashboard']">Dashboard</a>
+        </li>
+        <li routerLinkActive="active" *ngIf="(userPermissions && (userPermissions[1].Permission==1||userPermissions[1].Permission==2)&&userPermissions[1].Module===2 && getRole != 'Super Admin')">
+          <a [routerLink]="['/client']">clients</a>
+        </li>
+        <li routerLinkActive="active" *ngIf="(userPermissions &&(userPermissions[1].Permission==1||userPermissions[1].Permission==2)&&userPermissions[1].Module===2 && getRole != 'Super Admin')">
+          <a [routerLink]="['/policy']">Policy</a>
+        </li>
+        <li routerLinkActive="active" *ngIf="(userPermissions &&(userPermissions[0].Permission==1||userPermissions[0].Permission==2)&& userPermissions[0].Module===1 && getRole != 'Super Admin')">
+          <!-- <li>  -->
+          <a [routerLink]="['/people']">People</a>
+        </li>
+        <li *ngIf="((userPermissions && userPermissions[0].Permission==1||userPermissions[0].Permission==2)&& userPermissions[0].Module===1 && getRole === 'Super Admin')">
+          <a href="javascript: void(0)">People</a>
+        </li>
+        <li routerLinkActive="active" *ngIf="(userPermissions && (userPermissions[2].Permission==1||userPermissions[2].Permission==2)&& userPermissions[2].Module===3 && getRole != 'Super Admin')">
+          <a [routerLink]="moduleNavObj.moduleLinks.Settings">Settings</a>
+        </li>
+        <li routerLinkActive="active" *ngIf="(userPermissions &&(userPermissions[5].Permission==1||userPermissions[5].Permission==2)&& userPermissions[5].Module===6 && getRole != 'Super Admin')">
+          <a [routerLink]="moduleNavObj.moduleLinks.Compensation">Compensation</a>
+        </li>
+
+        <li routerLinkActive="active" *ngIf="(userPermissions &&(userPermissions[6].Permission==1||userPermissions[6].Permission==2)&& userPermissions[6].Module===7 && getRole != 'Super Admin')">
+          <a [routerLink]="moduleNavObj.moduleLinks.Report">Report</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="top-menuSection" *ngIf="getData && getData.Role === 1">
+    <div class="rmm style full-width" appResponsiveMultiMenu>
+
+      <ul class="nav-menu">
+
+        <li class="profile-sec for-responsive">
+          <a href="javascript: void(0)" class="user-profile-btn darker">
+            <div class="top-head">
+              <p class="margin-none">{{getRole}}</p>
+              <h3 class="margin-none">{{LoginName}}</h3>
+            </div>
+            <i class="arrow icon"></i>
+          </a>
+          <ul>
+            <li class="rmm-back">
+              <a class="active">Account</a>
+            </li>
+            <li>
+              <a (click)="logout()">Logout</a>
+            </li>
+          </ul>
+        </li>
+        <li class="profile-sec for-responsive">
+          <a href="javascript: void(0)" class="user-profile-btn light-color">
+            <div class="top-head">
+              <p class="margin-none">Agency</p>
+              <h3 class="mg-b0">{{this.getData.LicenseeName}}</h3>
+            </div>
+            <i class="arrow icon"></i>
+          </a>
+          <ul>
+            <li class="rmm-back">
+              <a>
+                <p class="margin-none">Agency</p>
+                <h3 class="margin-none"></h3>
+              </a>
+            </li>
+
+          </ul>
+          <div class="dropdown-listing">
+            <button *ngFor="let company of getAllLicensee" [value]="company.LicenseeId" [class.activenblue]='company.LicenseeId===this.getData.LicenseeId'>
+              <a (click)="getSelectedValue(company.LicenseeId)"> {{company.LicenseeName}}</a>
+            </button>
+          </div>
+        </li>
+        <li routerLinkActive="active">
+          <a [routerLink]="['/dashboard']">Dashboard</a>
+        </li>
+        <li routerLinkActive="active">
+          <a [routerLink]="['/client']">clients</a>
+        </li>
+        <li routerLinkActive="active">
+          <a [routerLink]="['/policy']">Policy</a>
+          <!-- <a class="mat-button link" routerLink="{{authenUrl?.PageRoute?.forgotPasswordRoute}}">Forgot password?</a> -->
+        </li>
+        <li routerLinkActive="active">
+          <a [routerLink]="['/people']">People</a>
+        </li>
+        <!-- <li routerLinkActive="active" *ngIf="(userPermissions[3].Permission==1||userPermissions[3].Permission==2)&& userPermissions[3].Module===4 && getRole != 'SuperAdmin'">
+          <a >Follow Up</a>
+        </li> -->
+        <li routerLinkActive="active">
+          <a [routerLink]="moduleNavObj.moduleLinks.PayorTool">Payor Tool</a>
+        </li>
+        <li routerLinkActive="active">
+          <a [routerLink]="moduleNavObj.moduleLinks.Settings">Settings</a>
+        </li>
+        <li routerLinkActive="active">
+          <a [routerLink]="moduleNavObj.moduleLinks.Compensation">Compensation</a>
+        </li>
+        <li routerLinkActive="active">
+          <a [routerLink]="moduleNavObj.moduleLinks.Configuration">Configuration</a>
+        </li>
+        <li routerLinkActive="active">
+          <a [routerLink]="moduleNavObj.moduleLinks.Report">Report</a>
+        </li>
+        <li routerLinkActive="active">
+          <a [routerLink]="moduleNavObj.moduleLinks.DataEntryUnit">Data Entry Unit</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <div class="top-menuSection" *ngIf="getData && getData.Role === 4">
+ <div class="rmm style full-width" appResponsiveMultiMenu>
+
+      <ul class="nav-menu">
+
+        <li class="profile-sec for-responsive">
+          <a href="javascript: void(0)" class="user-profile-btn darker">
+            <div class="top-head">
+              <p class="margin-none">{{getRole}}</p>
+              <h3 class="margin-none">{{LoginName}}</h3>
+            </div>
+            <i class="arrow icon"></i>
+          </a>
+          <ul>
+            <li>
+              <a (click)="logout()">Logout</a>
+            </li>
+          </ul>
+        </li>
+        <li class="profile-sec for-responsive">
+          <a href="javascript: void(0)" class="user-profile-btn light-color">
+            <div class="top-head">
+              <p class="margin-none">Agency</p>
+              <h3 class="mg-b0">{{this.getData.LicenseeName}}</h3>
+            </div>
+            <i class="arrow icon"></i>
+          </a>
+          <ul>
+            <li class="rmm-back">
+              <a>
+                <p class="margin-none">Agency</p>
+                <h3 class="margin-none"></h3>
+              </a>
+            </li>
+
+          </ul>
+          <div class="dropdown-listing">
+            <button *ngFor="let company of getAllLicensee" [value]="company.LicenseeId" [class.activenblue]='company.LicenseeId===this.getData.LicenseeId'>
+              <a (click)="getSelectedValue(company.LicenseeId)"> {{company.LicenseeName}}</a>
+            </button>
+          </div>
+        </li>
+        
+        <li routerLinkActive="active">
+          <a [routerLink]="moduleNavObj.moduleLinks.Compensation">Compensation</a>
+        </li>
+        
+        <li routerLinkActive="active">
+          <a [routerLink]="moduleNavObj.moduleLinks.DataEntryUnit">Data Entry Unit</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+ 
+</header>
+</div>
+<router-outlet></router-outlet>

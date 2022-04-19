@@ -1,0 +1,14 @@
+%btn-spc-style {    
+    button{margin-left:16px;}
+    }
+    .btn-spc { @extend %btn-spc-style }
+
+
+    /*   Footer Actions Buttons */
+
+    .footer-area {
+        text-align: right;
+        .coloured-primary-button {
+            margin-left: 0px !important; margin-right: 16px;
+        }
+    }

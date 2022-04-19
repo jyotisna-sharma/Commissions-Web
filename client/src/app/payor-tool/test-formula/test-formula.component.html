@@ -1,0 +1,49 @@
+
+<div class="spinner-container loader-svgContainer" *ngIf="showloading">
+    <mat-spinner></mat-spinner>
+  </div>
+<div class="popup-header">
+    <h4 matDialogTitle>{{data.title}}</h4>
+    <a class="close_icon" (click)='OnCloseDialogBox()'></a>
+</div>
+<p class="error-section" *ngIf="!this.isExpressionValid"> Formula Expression is invalid.
+    <a class="close_icon" (click)='OnCloseValidationPopup()'></a>
+</p>
+<div mat-dialog-content>
+    <form [formGroup]='this.formulaFieldListBuilder'>
+        <div class="custom-row">
+        </div>
+        <div class="custom-row scroll_bar">
+            <div formArrayName="formulaArray">
+                <ng-container *ngFor="let item of this.formulaFieldListBuilder?.get('formulaArray')['controls'];let i=index">
+                    <div [formGroupName]="i" *ngIf="item.value['LableName'] !=''">
+                        <div class="col-5-lg p-t-12">
+                            <label class="inline-label">{{item.value['LableName']}}</label>
+                        </div>
+                        <div class="col-7-lg ">
+                            <div class="inline-block">
+                                <mat-form-field appearance="outline">
+                                    <input matInput formControlName='TokenName' numbers [readonly]="item.value['LableName']==100">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+
+                </ng-container>
+            </div>
+        </div>
+    </form>
+</div>
+<div mat-dialog-actions class="align-right popup-footer text-center">
+    <div class="col-12-lg">
+        <div class="test-formula-bg">
+            <span *ngFor="let item of this.formulaFieldListBuilder['controls']['formulaArray']['controls']">
+                {{item.controls.OperatorName.value + ' ' +  item.controls.LableName.value}}
+            </span>
+        </div>
+
+    </div>
+    <label class="result p-t-12"><strong>Result:</strong> {{FormulaEpressionResult}}</label>
+    <button mat-button mat-stroked-button (click)="OnFetchFormulaResults(this.formulaFieldListBuilder['controls']['formulaArray']['controls'])">Fetch
+        Results</button>
+</div>

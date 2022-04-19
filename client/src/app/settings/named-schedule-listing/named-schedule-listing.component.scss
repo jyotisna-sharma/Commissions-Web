@@ -1,0 +1,20 @@
+:host ::ng-deep .text-transUnset {
+    table {
+        tbody {
+            tr {
+                td,
+                td p {
+                    text-transform: unset !important;
+                }
+            }
+        }
+    }
+}
+
+:host ::ng-deep .main-content .listing-table.text-transUnset .tableStyle table {
+    text-transform: unset !important;
+}
+
+:host ::ng-deep td.mat-cell.cdk-column-StringSplitPercentage.mat-column-StringSplitPercentage {
+    text-align: right;
+}

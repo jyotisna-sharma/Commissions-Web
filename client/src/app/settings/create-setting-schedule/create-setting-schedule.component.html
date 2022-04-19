@@ -1,0 +1,210 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showloading">
+    <mat-spinner></mat-spinner>
+</div>
+<div class="main-content">
+    <app-breadcrumb [pageName]="textShown" [moduleName]="ModuleName" (onPageRedirectionClick)="OnPageNavigationChange('false')"></app-breadcrumb>
+    <div class="divRow">
+        <div class="tabs-container no-leftNavigation">
+            <div class="tabs-contentDiv">
+                <div class="add-editContainer formDesignCustom">
+                    <div class="divRow">
+                        <div class="white-box">
+                            <form class="example-form" [formGroup]='createSchedule'>
+                                <mat-card class="mat-card-style">
+                                    <div class="column-container" [class.medium-width-container]='this.getRouterparamter.childTab==2' [ngClass]="{'two-column-layout': this.getRouterparamter.childTab==2,'three-column-layout': this.getRouterparamter.childTab==1}">
+                                        <div class="coloumn-lg-4" *ngIf="this.getRouterparamter.childTab==1">
+                                            <div class="top-title">
+                                                <h4>Incoming Payment From Payor</h4>
+                                                <p class="require-text">Required field *</p>
+                                            </div>
+                                            <div class="custom-row pa-tp15 m-x-0">
+                                                <div class="col-12-lg p-x-0">
+                                                    <section class="full-widthRow">
+                                                        <label class="label">Payor *</label>
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-select placeholder='Select' (selectionChange)='GetCarrierList($event)' formControlName='Payor' autofocus>
+                                                                <mat-option *ngFor="let payors of payorList" [value]='payors.PayorID'>
+                                                                    {{payors.PayorName}}
+                                                                </mat-option>
+                                                            </mat-select>
+                                                            <mat-error *ngIf="createSchedule.controls['Payor'].errors?.required && createSchedule.controls['Payor'].dirty">
+                                                                {{validationMsg.SettingValidations.Payors}}</mat-error>
+                                                        </mat-form-field>
+                                                    </section>
+                                                </div>
+                                                <div class="col-12-lg  p-x-0">
+                                                    <section class="full-widthRow">
+                                                        <label class="label">Carrier *</label>
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-select placeholder='Select' formControlName='Carrier' (selectionChange)='OnCarrierChange()'>
+                                                                <mat-option *ngFor="let carriers of carrierList" [value]='carriers.CarrierId'>
+                                                                    {{carriers.NickName}}</mat-option>
+                                                            </mat-select>
+                                                            <mat-error *ngIf="createSchedule.controls['Carrier'].errors?.required && createSchedule.controls['Carrier'].dirty">
+                                                                {{validationMsg.SettingValidations.Carrier}}</mat-error>
+                                                        </mat-form-field>
+                                                    </section>
+                                                </div>
+                                                <div class="col-12-lg p-x-0">
+                                                    <section class="full-widthRow">
+                                                        <label class="label">Product *</label>
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-select placeholder='Select' formControlName='Product' (selectionChange)='getProductTypeList()'>
+                                                                <mat-option *ngFor="let products of productList" [value]='products.CoverageID'>
+                                                                    {{products.Name}}</mat-option>
+                                                            </mat-select>
+                                                            <mat-error *ngIf="createSchedule.controls['Product'].errors?.required && createSchedule.controls['Product'].dirty">
+                                                                {{validationMsg.SettingValidations.Product}}</mat-error>
+                                                        </mat-form-field>
+                                                    </section>
+                                                </div>
+                                                <div class="col-12-lg p-x-0">
+                                                    <section class="full-widthRow">
+                                                        <label class="label">Product Type *</label>
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-select placeholder='Select' formControlName='ProductType'>
+                                                                <mat-option value="First school" *ngFor="let productType of productTypes" [value]='productType.NickName'>{{productType.NickName}}</mat-option>
+                                                            </mat-select>
+                                                            <mat-error *ngIf="createSchedule.controls['ProductType'].errors?.required && createSchedule.controls['ProductType'].dirty">
+                                                                {{validationMsg.SettingValidations.ProductType}}</mat-error>
+                                                        </mat-form-field>
+                                                    </section>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="coloumn-lg-4 p-t-30">
+                                            <div class="top-title">
+                                                <h4>Schedule Settings</h4>
+                                            </div>
+                                            <div class="custom-row field-margin-R pa-tp15 m-x-0">
+                                                <div class="col-12-lg">
+                                                    <p class="error-section minus-m-t-30" *ngIf="isValidationShown||isRecordExist">
+                                                        {{validationMessagetext}}
+                                                        <a (click)='OnClosePopup()' class="close_icon"></a>
+                                                    </p>
+                                                </div>
+                                                <div class="col-11-lg p-x-0">
+                                                    <div class="row-margin-custom  Payment-From-Payor">
+                                                        <div *ngIf="this.getRouterparamter.childTab==1">
+                                                            <section class="full-widthRow">
+                                                                <label class="label">Type</label>
+                                                                <mat-form-field appearance="outline">
+                                                                    <mat-select formControlName='Type'>
+                                                                        <mat-option *ngFor="let payType of payTypesList" [value]='payType.PaymentTypeId'>
+                                                                            {{payType.PaymenProcedureName}}</mat-option>
+                                                                    </mat-select>
+                                                                </mat-form-field>
+                                                            </section>
+                                                            <section class="full-widthRow mg-b20 pa-tp15">
+                                                                <label class="label">Schedule</label>
+                                                                <mat-radio-group formControlName='Schedule' (change)='OnScheduleChanges($event)'>
+                                                                    <mat-radio-button value="1">% of Premium</mat-radio-button>
+                                                                    <mat-radio-button value="2">Per head</mat-radio-button>
+                                                                </mat-radio-group>
+                                                            </section>
+
+                                                        </div>
+                                                        <div *ngIf="this.getRouterparamter.childTab==2">
+                                                            <section class="full-widthRow">
+                                                                <div class="half-width ">
+                                                                    <label class="label">Title</label>
+                                                                    <mat-form-field appearance="outline">
+                                                                        <input matInput formControlName='Title' (blur)='IsScheduleExist()' autofocus>
+                                                                        <mat-error *ngIf="createSchedule.controls['Title'].errors?.required && createSchedule.controls['Title'].dirty">
+                                                                            {{validationMsg.SettingValidations.Title}}</mat-error>
+                                                                        <p *ngIf="isTitleAlreadyExist" class="error-Validation">{{this.validationMsg.SettingValidations.NamedScheduleExist}}</p>
+                                                                    </mat-form-field>
+
+                                                                </div>
+                                                                <div class="half-width extra-servce radio-btn-alignMiddle">
+                                                                    <label class="label">Schedule</label>
+                                                                    <mat-radio-group formControlName='Schedule' (change)='OnScheduleChanges($event)'>
+                                                                        <mat-radio-button value="1">% of Premium</mat-radio-button>
+                                                                        <mat-radio-button value="2">Per head</mat-radio-button>
+                                                                    </mat-radio-group>
+
+                                                                </div>
+                                                            </section>
+                                                        </div>
+
+                                                        <!-- <div *ngIf="isPercentOfPremium">
+                                                            <section class="full-widthRow split-box">
+                                                                <div class="half-width extra-servce">
+                                                                    <label class="label">First year</label>
+                                                                    <mat-form-field appearance="outline" [ngClass]="{'wrongSecurity': isValidationShown}">
+                                                                        <label class="inline-box">%</label>
+                                                                        <input matInput class="percentage" formControlName='FirstYearPer' numbersWithDecimal appNumberFormat>
+                                                                    </mat-form-field>
+                                                                </div>
+                                                                <div class="half-width extra-servce">
+                                                                    <label class="label">Renewal</label>
+                                                                    <mat-form-field appearance="outline" [ngClass]="{'wrongSecurity': isValidationShown}">
+                                                                        <label class="inline-box">%</label>
+                                                                        <input matInput class="percentage" formControlName='RenewalYearPer' numbersWithDecimal appNumberFormat>
+                                                                    </mat-form-field>
+                                                                </div>
+                                                            </section>
+                                                        </div>
+                                                        <div *ngIf="!isPercentOfPremium">
+                                                            <section class="full-widthRow split-box">
+                                                                <div class="half-width extra-servce">
+                                                                    <label class="label">First year</label>
+                                                                    <mat-form-field appearance="outline" [ngClass]="{'wrongSecurity': isValidationShown}">
+                                                                        <label class="inline-box-dollar">$</label>
+                                                                        <input matInput class="dollar" formControlName='FirstYearDollar' numbersWithDecimal appNumberFormat>
+                                                                    </mat-form-field>
+                                                                </div>
+                                                                <div class="half-width extra-servce">
+                                                                    <label class="label">Renewal</label>
+                                                                    <mat-form-field appearance="outline" [ngClass]="{'wrongSecurity': isValidationShown}">
+                                                                        <label class="inline-box-dollar">$</label>
+                                                                        <input matInput class="dollar" formControlName='RenewalYearDollar' numbersWithDecimal appNumberFormat>
+                                                                    </mat-form-field>
+                                                                </div>
+                                                            </section>
+                                                        </div> -->
+
+                                                        <section class="full-widthRow split-box">
+                                                            <div class="half-width extra-servce">
+                                                                <label class="label">Split</label>
+                                                                <mat-form-field appearance="outline" [ngClass]="{'wrongSecurity': splitPercentValidationShown}">
+                                                                    <label class="inline-box">%</label>
+                                                                    <input matInput class="percentage" formControlName='Split' numbersWithDecimal appNumberFormat>
+                                                                    <p *ngIf="splitPercentValidationShown" class="error-Validation">
+                                                                        {{validationMsg.SettingValidations.SplitPercent}}</p>
+                                                                </mat-form-field>
+                                                            </div>
+                                                            <div class="half-width">
+                                                                <label class="label">Advanced payments</label>
+                                                                <mat-form-field appearance="outline">
+                                                                    <input matInput formControlName='AdvancePayment' numbers maxlength="4">
+                                                                </mat-form-field>
+                                                                <span class="hint-text fixed-atRight">months</span>
+                                                            </div>
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="coloumn-lg-4 p-t-44">
+                                            <app-schedule-setting [isFormDisabled]='this.userdetail && this.userdetail.Permissions[2].Permission === 1 ' [SceduleData]=customScheduleData (onSaveScheduleData)='OnSaveCustomScheduleData($event)' [ValidationData]=validationData></app-schedule-setting>
+                                        </div>
+                                    </div>
+                                    <div class="divRow">
+                                        <section class="margin-top footer-area full-widthRow">
+                                            <button type="submit" mat-raised-button color='primary' class="pull-left mat-flat-button mat-primary coloured-primary-button" (click)="OnAddingSchedule()" [ngClass]="{'btn-disable': this.userdetail.Permissions[2].Permission === 1}">{{buttonText}}</button>
+                                            <button mat-stroked-button class="pull-right" (click)="OnPageNavigationChange('true')">Cancel</button>
+                                        </section>
+                                    </div>
+                                </mat-card>
+                            </form>
+                            <div class="spinner-container">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

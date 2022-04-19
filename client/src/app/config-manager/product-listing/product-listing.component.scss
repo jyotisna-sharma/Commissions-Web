@@ -1,0 +1,53 @@
+@import'../../../assets/css/variable.scss';
+@import'../../../assets/css/sprite-image-bg.scss';
+
+
+
+.batch-manager .left-col {
+  padding-top: 8px;
+}
+//  .mat-select-trigger{
+//     font-size:12px;
+//   } 
+//   .mat-select-arrow {
+//     background-position: -112px -597px;
+    
+//    }
+    
+//     }  
+    
+    // :host ::ng-deep{  
+     
+    //  div.tabs-contentDiv .listing-table .normal-box.tableData {
+    //   margin-right:0px;
+    // }
+    
+    // }  
+
+
+// @media screen and (max-width: 768px) {  
+//   .margin-right-none {
+//     margin-right: -24px!important;
+//   }
+//   }
+
+// @media screen and (max-width : 1024px) {
+//     .margin-right-none { margin-right:-15px; }
+    
+//     }
+  
+
+
+
+.left-col { 
+padding-right: 16px;
+}
+
+:host ::ng-deep {
+  th.radio-ActionButtons.mat-header-cell.cdk-column-NickName.mat-column-NickName ,
+  td.mat-cell.cdk-column-NickName.mat-column-NickName ,
+.cdk-column-ProductName.mat-column-ProductName {
+  
+    min-width: 303px; width: 303px;
+  }
+}

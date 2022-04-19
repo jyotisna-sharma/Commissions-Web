@@ -1,0 +1,486 @@
+.dragableSection {
+    border: 1px solid #e6e6e6;
+    max-height: 450px;
+    overflow: auto;
+    background: #fff;
+    .fields-list {
+        padding: 4px 36px 4px 12px;
+        border: 1px dashed #777;
+        line-height: 20px;
+        position: relative;
+        font-size: 13px;
+        cursor: move;
+        border-radius: 4px;
+        margin-bottom: 7px;
+        .mat-icon-button {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            right: 4px;
+            top: -5px;
+            .material-icons {
+                font-size: 17px;
+            }
+        }
+    }
+}
+
+.fields-list.cdk-drag-disabled {
+    background: #ccc;
+    cursor: default;
+}
+
+.dragableSectionContainer {
+    border: 1px solid #e6e6e6;
+    // padding: 20px;
+    height: 130px;
+    background: #ffffff;
+    width: 100%;
+    position: relative;
+    display: block;
+    padding: 10px;
+    background-size: 100% 100%;
+}
+
+.dragableListingContainer {
+    .dragableRow {
+        width: 820px;
+    }
+}
+
+.draggable-box {
+    border: 1.4px solid #bcb9b9;
+    position: absolute;
+    background: #fff !important;
+    overflow: hidden;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 13px;
+    text-align: center;
+    padding: 0.5em;
+    box-sizing: border-box;
+    cursor: move;
+    &.icon-close {
+        overflow: visible;
+        .icon-close {
+            position: absolute;
+            margin-top: -20px;
+            right: 0;
+            right: -22px;
+            border: 1.5px dashed #3455A5;
+            border-left: 0px;
+            width: 22px;
+            height: 23px;
+            background: url('/assets/images/sprite-icons.png');
+            background-position: -189px -285px;
+            cursor: pointer;
+        }
+    }
+}
+
+:host ::ng-deep {
+    .full-rowOuter.space-between.formfield-less-h {
+        .full-rowOuter.no-borderMobile {
+            border-bottom: 0px;
+        }
+    }
+    .pairToolFieledSection {
+        max-width: 850px;
+        section {
+            width: 100%;
+            float: left;
+            .labelOuter label {
+                width: 100%;
+                display: inline-block;
+                padding-right: 10px;
+                word-break: break-all;
+                /* float: left; */
+                display: inline-block;
+                word-wrap: break-word;
+                line-height: 18px;
+                vertical-align: middle;
+            }
+            .max-widthField {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+        .mat-stroked-button {
+            min-height: 30px;
+            height: 30px;
+            line-height: 30px !important;
+            vertical-align: middle;
+            .mat-button-wrapper {
+                line-height: 28px !important;
+            }
+        }
+        .mat-form-field-type-mat-select .mat-form-field-infix {
+            padding: 10px 0 7px 0 !important;
+        }
+        mat-form-field {
+            vertical-align: middle;
+            .mat-form-field-wrapper {
+                margin: 0.25em 0 9px;
+                padding-bottom: 0px;
+                margin-bottom: 0px;
+                .mat-form-field-outline {
+                    min-height: 30px;
+                }
+                .mat-form-field-infix {
+                    padding: 10px 0 10px 0;
+                }
+            }
+        }
+        mat-form-field.mat-form-field-type-mat-input {
+            .mat-form-field-infix {
+                border-top: 0.64375em solid transparent;
+            }
+        }
+        mat-radio-group .mat-radio-label-content {
+            vertical-align: super;
+        }
+    }
+}
+
+.max-width-80 {
+    max-width: 80px;
+}
+
+.labelOuter {
+    max-width: 185px;
+    line-height: 36px;
+}
+
+.addFields {
+    background: #f7f7f7;
+    padding: 0px 15px !important;
+    border: 1px solid #e6e6e6;
+    border-bottom: 0px;
+    label {
+        font-weight: 600;
+        margin-top: 10px;
+        float: left;
+    }
+}
+
+:host ::ng-deep {
+    button.cancelBtn.mat-icon-button {
+        position: absolute;
+        right: 0px;
+        top: -3px;
+        font-size: 16px;
+        width: 24px;
+        height: 24px;
+        line-height: 24px !important;
+        z-index: 9;
+        mat-icon {
+            font-size: 20px;
+        }
+    }
+}
+
+.highlightText {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.draggable-box.active {
+    border: 1.5px dashed #3455A5;
+    /* color: #fff; */
+}
+
+.ng-resizable-handle.ng-resizable-e {
+    cursor: ew-resize;
+    width: 7px;
+    right: -5px;
+    height: 100%;
+    top: 0;
+}
+
+.ng-resizable-handle.ng-resizable-s {
+    cursor: s-resize;
+    height: 7px;
+    bottom: -5px;
+    width: 100%;
+    left: 0;
+}
+
+.ng-resizable-handle.ng-resizable-se {
+    cursor: se-resize;
+    width: 12px;
+    height: 12px;
+    right: 1px;
+    bottom: 1px;
+}
+
+.textInstruction {
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.ng-resizable-diagonal {
+    box-sizing: border-box;
+    width: 0;
+    height: 0;
+    border-bottom: 12px solid #aaa;
+    border-left: 12px solid transparent;
+}
+
+.ng-resizable-handle {
+    position: absolute;
+    font-size: .1px;
+    display: block;
+    touch-action: none;
+}
+
+.inline-block {
+    display: inline-block;
+    float: none;
+    vertical-align: text-top;
+}
+
+:host ::ng-deep {
+    .pairToolContainer {
+        .mat-form-field-type-mat-select .mat-form-field-infix {
+            padding: 10px 0 7px 0 !important;
+        }
+        mat-form-field {
+            vertical-align: middle;
+            .mat-form-field-wrapper {
+                margin: 0.25em 0 9px;
+                padding-bottom: 0px;
+                margin-bottom: 0px;
+                .mat-form-field-outline {
+                    min-height: 30px;
+                }
+                .mat-form-field-infix {
+                    padding: 10px 0 10px 0;
+                }
+            }
+        }
+        mat-form-field.mat-form-field-type-mat-input {
+            .mat-form-field-infix {
+                border-top: 0.64375em solid transparent;
+            }
+        }
+        mat-radio-group .mat-radio-label-content {
+            vertical-align: super;
+        }
+        button {
+            line-height: 28px !important;
+            height: 30px;
+        }
+        .checklist {
+            section {
+                width: 48%;
+                max-width: 220px;
+                float: none;
+                display: inline-block;
+                vertical-align: top;
+                padding-right: 12px;
+                .mat-checkbox-layout {
+                    white-space: normal;
+                    .mat-checkbox-label {
+                        line-height: 15px;
+                    }
+                }
+            }
+        }
+        .data-filterSec .formfield-less-h {
+            .mat-form-field-type-mat-select .mat-form-field-infix {
+                padding: 5px 0 7px 0 !important;
+            }
+        }
+    }
+    .minimizeBtn {
+        mat-icon {
+            vertical-align: baseline;
+        }
+    }
+    .btn-upload-container p {
+        text-align: left;
+        line-height: 20px;
+        margin: 0px;
+        font-size: 13px;
+    }
+    .btn-upload-container label::after {
+        padding-left: 30px;
+        background-image: url(/assets/images/sprite-icons.png);
+        width: 24px;
+        height: 24px;
+        content: '';
+        position: absolute;
+        left: 53px;
+        top: 17px;
+        background-position: -186px 495px;
+    }
+    .btn-upload-container input[type="file"] {
+        opacity: 0;
+        float: left;
+        z-index: -10;
+        height: 0px;
+        margin: 0px;
+        padding: 0px;
+    }
+    .upload-container {
+        margin: 0 auto;
+        text-align: center;
+        padding: 50px 0px;
+        width: auto;
+        background-size: 100% 100%;
+        label {
+            width: 100%;
+            height: 56px;
+            line-height: 56px;
+            background: #FFD069;
+            display: inline-block;
+            color: #252729;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 4px;
+            padding-left: 20px;
+        }
+        label:hover {
+            background: #ffc654
+        }
+    }
+    .btn-upload-container {
+        width: 230px;
+        margin: 0 auto;
+        position: relative;
+    }
+}
+
+.field-list {
+    .dragableSection {
+        padding: 5px;
+    }
+}
+
+p.error-section {
+    background: #f2dede;
+    margin: -2px;
+    border-bottom: 1px solid #ebccd1;
+    margin-bottom: 5px;
+    color: #E03F3D;
+    font-size: 13px;
+    position: relative;
+    .close_icon {
+        position: absolute;
+        right: 20px;
+        top: 14px;
+        width: 16px;
+        height: 16px;
+        opacity: 0.3;
+    }
+    .close_icon:hover {
+        opacity: 1;
+    }
+    .close_icon:before,
+    .close_icon:after {
+        position: absolute;
+        left: 6px;
+        content: ' ';
+        height: 10px;
+        width: 2px;
+        background-color: #a94442;
+    }
+    .close_icon:before {
+        transform: rotate(45deg);
+    }
+    .close_icon:after {
+        transform: rotate(-45deg);
+    }
+}
+
+.fullwidthfields {
+    .max-widthField {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+:host ::ng-deep {
+    .formulaSection {
+        max-width: 510px;
+        .select-box-UI {
+            max-width: 171px;
+        }
+        .labelOuter {
+            max-width: 120px;
+        }
+        .inline-block {
+            mat-form-field.mat-form-field.mat-form-field-type-mat-input {
+                max-width: 150px;
+            }
+        }
+        button.mat-icon-button {
+            line-height: 28px !important;
+            height: 30px;
+            width: 30px;
+            mat-icon.material-icons {
+                font-size: 20px;
+                vertical-align: middle;
+            }
+        }
+        .formulaArray {
+            max-height: 133px;
+            overflow: auto;
+        }
+    }
+    .uploadSectionTab {
+        max-width: 600px;
+        float: none;
+        margin: 0 auto;
+    }
+    .mat-tab-body.mat-tab-body-active {
+        .uploadSectionTab {
+            max-width: 790px;
+        }
+    }
+}
+
+.textInstruction {
+    max-width: 778px;
+}
+
+.decoration-link {
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.hightlight-box {
+    padding: 0px;
+    margin: 0px;
+    line-height: 17px;
+    color: #8A6D3B;
+    font-size: 12px;
+}
+
+.blue-blockText {
+    background: #3455A5;
+    padding: 8px 10px;
+    color: #fff;
+}
+
+@media only screen and (max-width: 1200px) {
+    .leftdragableListing {
+        width: 27%;
+    }
+    .dragableListingContainer {
+        width: 73%;
+    }
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.formula-scrollDiv {
+    max-height: 120px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}

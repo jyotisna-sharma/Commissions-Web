@@ -1,0 +1,160 @@
+%textarea-style {
+  .mat-form-field-infix {
+    padding: 6px 0 8px 0 !important;
+  }
+}
+
+.textarea-field {
+  @extend %textarea-style;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+/*   form field with height 30px  */
+
+%form-field-h-30 {
+  .mat-form-field-outline {
+    min-height: 30px !important;
+  }
+  .mat-form-field-infix {
+    border: 0px !important;
+    font-size: 12px !important;
+    padding: 10px 0 5px 0 !important;
+    label.inline-box-dollar {
+      height: 28px;
+      width: 30px;
+      top: -6px;
+      line-height: 28px;
+    }
+  }
+  input {
+    // margin-top: 7px;
+    color: $Grey-dark;
+    height: 17px !important;
+  }
+  .mat-form-field-flex {
+    margin-top: 0px !important;
+  }
+  .mat-form-field-infix {
+    margin-top: 10px !important;
+  }
+  .mat-icon-button {
+    width: 30px !important;
+    height: 28px !important;
+    display: inline-block !important;
+  }
+  &.mat-form-field-type-mat-select {
+    .mat-form-field-infix {
+      margin-top: 0px !important;
+    }
+  }
+  &.statementDate {
+    .mat-form-field-infix {
+      padding: 14px 0 5px 0 !important;
+      margin-top: 0px !important;
+    }
+  }
+}
+
+.form-field-height-30 {
+  @extend %form-field-h-30;
+}
+
+/*   form field in dialog box */
+
+mat-form-field-infix {
+  padding-top: 0px;
+}
+
+/*  css for calender in dalog box  */
+
+.datepicker-field {
+  .mat-form-field-wrapper {
+    .mat-form-field-suffix {
+      position: absolute;
+      right: 0px;
+    }
+  }
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: #252729 !important;
+}
+
+.mat-pseudo-checkbox-checked::after {
+  width: 9px !important;
+  height: 4px !important;
+}
+
+// TEXTAREA  CSS STARTS //
+.mat-form-field-appearance-outline .mat-form-field-infix textarea {
+  min-height: 59px;
+  /* margin-left: 5px; */
+  /* margin-right: 5px; */
+  box-sizing: border-box;
+  width: 97%;
+  /* padding: 0px !important; */
+  margin: 0 auto;
+  float: none;
+  margin-left: 1.5%;
+  padding-left: 3px !important;
+  padding-right: 3px !important;
+}
+
+//  TEXTAREA CSS ENDS //
+.select-box-UI {
+  .mat-form-field-wrapper {
+    .mat-form-field-infix {
+      padding-top: 12px !important;
+    }
+  }
+}
+
+//For Mac//
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+  form input.mat-input-element {
+    margin-top: 0px;
+    height: 20px;
+  }
+}
+
+/*     Calander fields for dataficker (dashboard page) */
+
+.btn-outer {
+  mat-form-field.datepicker-field {
+    .mat-form-field-flex {
+      .mat-form-field-infix {
+        width: 130px;
+      }
+    }
+  }
+}
+
+/************ CSS FOR FIELD WITH LABEL **************/
+
+.field-with-label {
+  input.mat-input-element {
+    padding-left: 44px !important;
+  }
+}
+
+mat-form-field.validation-rightAlign-UI {
+  padding-right: 170px;
+  .mat-form-field-wrapper {
+    .mat-form-field-subscript-wrapper {
+      left: 100%;
+      top: 0px;
+      .mat-error {
+        margin-left: -2px;
+        margin-top: 3px;
+      }
+    }
+    .mat-progress-spinner {
+      right: -30px !important;
+	  top: -2px !important;
+	  position: absolute;
+    }
+  }
+}

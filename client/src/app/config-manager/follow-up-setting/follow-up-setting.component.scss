@@ -1,0 +1,50 @@
+.data-filterSec label.label.inline-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+    vertical-align: top;
+    line-height: 20px;
+    padding-right: 8px;
+}
+ mat-radio-button {
+    margin-right: 16px;
+    margin-bottom: 8px;     margin-top: 12px;
+}
+
+:host ::ng-deep.alignCenter {
+    margin: 0 auto;
+    padding-top: 24px;
+    label.inline-label {
+        width: 100%;
+        float: left;
+        margin-bottom: 8px;
+    }
+
+    mat-form-field {
+       .mat-form-field-outline {
+            min-height: 36px;
+        }
+        .mat-form-field-infix {
+        width: 250px;
+    }
+    .mat-error, .mat-form-field-wrapper .mat-error {
+        margin-top: 5px;
+    }
+}
+    .mat-radio-label-content {
+        font-size: 13px;
+        font-weight: 500;
+    }
+    p.error-Validation {
+        color: #E03F3D; margin: 0px;     font-size: 11px;
+        min-height: 14px;
+        font-weight: 600;     position: absolute;
+        margin-top: -6px;
+    }
+}
+
+.footer-area {
+    button {
+        margin-right: 8px;
+    }
+}

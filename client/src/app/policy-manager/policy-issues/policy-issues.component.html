@@ -1,0 +1,66 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showloading">
+    <mat-spinner></mat-spinner>
+  </div>  
+<div class="main-content">
+  <app-breadcrumb [showNickName]="policyNumber" [pageName]="pagename" [moduleName]="moduleName"
+    (onPageRedirectionClick)="OnPageRedirection()"></app-breadcrumb>
+  <div class="divRow">
+    <div class="tabs-container">
+      <app-policy-manager-left-navigation [isParentHeader]='false' [isTabDisabled]='isTabDisable'></app-policy-manager-left-navigation>
+      <div class="tabs-contentDiv">
+        <div class="filter-outerbox filterContianer">
+          <div class="example-header sub-header">
+            <div class="divRow margin-left-none">
+              <div class="full-rowOuter space-between padding-left-none">
+                <div class="sub-title">
+                  <label class="label">Commission Dashboard:
+                    </label>
+                  <span class="policy-name">Issues</span>
+                </div>
+                <div class="refresh-txt">
+                  Last refresh: {{lastFollowUpRun}} <button (click)="LastRefreshClicked()" class="mat-icon-button btn-refresh" [ngClass]="{'btn-refresh-disable': userdetails?.Permissions[1].Permission === 1}">
+                      <i class="img-icons refresh-icn"></i>
+                  </button>
+                  <!-- <button class="loader-svg pull-left coloured-primary-button create-button small-size" mat-flat-button>Add
+                    New</button>
+                  <button class="export-button" mat-flat-button>Export</button> -->
+                </div>
+              </div>
+              <div class="payment mrg-bottom">
+                <!-- <h4 class="page-title">Incoming payments ({{miIncomingPaymentList.miDataSource.tableData.length}})</h4>  -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="normal-box tableData tablediv listing-table">
+          <div class="issue-header">
+            <div class="left-col">
+              <h4 class="page-title">Issues ({{showCount}})</h4>
+            </div>
+            <div class="right-col">
+              <label class="label">Status:</label>
+
+              <form [formGroup]="filter" >
+                  <!-- <mat-form-field appearance="outline">
+                  <mat-select placeholder="Please Select" formControlName="userType" multiple>
+                    <mat-option #allSelected (click)="toggleAllSelection()" [value]="0">All</mat-option>
+                    <mat-option *ngFor="let statusValue of statusFilters" [value]="statusValue.key" (click)="OnStatusFiltering(allSelected.viewValue)">
+                      {{statusValue.value}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field> -->
+
+                <app-multiple-checkbox-dropdown [DropDownList]=this.statusFilters (OnRefreshListData)='OnFilterGetIssues($event)'>
+                </app-multiple-checkbox-dropdown>
+                </form>
+            </div>
+          </div>
+          <div class="tableStyle">
+            <app-commission-dashboard-list [commissionDashboardList]='followupIssues' (onMenuItemClick)="OnMenuItemClicked($event)" (onPageChange)='OnPageinationChange($event)'  [isButtonDisabled]='isActionButtonDisabled'   ></app-commission-dashboard-list>
+          </div>
+        </div>
+      </div>
+      <!-- <div>
+    <button  (click)='openConfirmDialogBox()'>Add new </button>
+  </div> -->
+    </div>

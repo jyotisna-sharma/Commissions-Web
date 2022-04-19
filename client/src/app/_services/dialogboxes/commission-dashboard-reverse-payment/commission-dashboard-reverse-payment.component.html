@@ -1,0 +1,46 @@
+<div class="popup-header">
+  <h4 matDialogTitle>Reverse</h4><a class="close_icon"  (click)='OnClosePopup()'></a>
+</div>
+<p class="error-section" *ngIf="isValidationShown">Please enter amount greater than 0. <a class="close_icon" (click)='OnCloseValidationPopup()'></a></p>
+<form [formGroup]='ReversePayment'>
+  <div class="custom-row mg-t16">
+    <div class="col-6-lg">
+      <section>
+        <label class="label">Compensation paid to<br>agent house</label>
+        <mat-form-field appearance="outline">
+          <label _ngcontent-c9="" class="dollar-box">$</label>
+          <input matInput class="dollar" numbersWithDecimal appNumberFormat formControlName='CommissionPaid'>
+        </mat-form-field>
+      </section>
+    </div>
+    <div class="col-6-lg">
+      <section>
+        <label class="label">Reverse from agent<br>house</label>
+        <mat-form-field appearance="outline"  [ngClass]="{'wrongSecurity': isValidationShown}">
+          <label _ngcontent-c9="" class="percentage-box">%</label>
+          <input matInput class="percentage" numbersWithDecimal appNumberFormat formControlName='ReverseFromAgent'>
+        </mat-form-field>
+      </section>
+    </div>
+  </div>
+  <div class="custom-row">
+    <div class="col-12-lg">
+      <section>
+        <label class="label">User</label>
+        <mat-form-field appearance="outline" class="select-box-UI">
+          <mat-select formControlName='UserName'placeholder='Select'>
+            <mat-option *ngFor="let list of userList" [value]="list.UserCredentialID">
+              {{list.NickName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-error *ngIf="ReversePayment.controls['UserName'].errors?.required && ReversePayment.controls['UserName'].dirty">Please select user.</mat-error>
+      </section>
+    </div>
+  </div>
+</form>
+<div mat-dialog-actions class="align-right popup-footer">
+  <button mat-raised-button color="primary" class="mat-flat-button" (click)='OnUpdatePayment()'  [ngClass]="{'btn-disable': userDetails.Permissions[1].Permission === 1}" [disabled]='userDetails.Permissions[1].Permission === 1' >Update</button>
+  <button mat-button mat-stroked-button [mat-dialog-close]='false'>Cancel</button>
+</div>
+

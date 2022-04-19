@@ -1,0 +1,414 @@
+                    .Payment-From-Payor {
+                        width: 100%;
+                        // padding-top:10px;
+                        // padding-bottom:20px;
+                        .col-1-lg,
+                        .col-2-lg,
+                        .col-3-lg,
+                        .col-4-lg,
+                        .col-5-lg,
+                        .col-6-lg,
+                        .col-7-lg,
+                        .col-8-lg,
+                        .col-9-lg,
+                        .col-10-lg,
+                        .col-11-lg,
+                        .col-12-lg {
+                            padding-left: 8px;
+                            padding-right: 15px;
+                            float: left;
+                        }
+                        .col-6-lg {
+                            min-width: 394px;
+                        }
+                    }
+                    
+                    .setting-align {
+                        padding-left: 8px;
+                    }
+                    
+                    span.hint-text.fixed-atRight {
+                        position: absolute;
+                        top: 32px;
+                        right: 0px;
+                    }
+                    
+                    p.hint-text.bottom-aligned {
+                        margin-top: -10px;
+                        float: left;
+                    }
+                    
+                    p.error-section {
+                        background: #f2dede;
+                        padding: 8px 30px 8px 12px;
+                        border-bottom: 1px solid #ebccd1;
+                        border-right: 1px solid #ebccd1;
+                        margin-bottom: 5px;
+                        color: #e03f3d;
+                        font-size: 13px;
+                        font-weight: 400;
+                        line-height: 18px;
+                        position: relative;
+                        margin: 0px;
+                        .close_icon {
+                            position: absolute;
+                            right: 13px;
+                            top: 12px;
+                            width: 16px;
+                            height: 16px;
+                            opacity: 0.3;
+                        }
+                        .close_icon:hover {
+                            opacity: 1;
+                        }
+                        .close_icon:before,
+                        .close_icon:after {
+                            position: absolute;
+                            left: 6px;
+                            content: " ";
+                            height: 10px;
+                            width: 2px;
+                            background-color: #a94442;
+                        }
+                        .close_icon:before {
+                            transform: rotate(45deg);
+                        }
+                        .close_icon:after {
+                            transform: rotate(-45deg);
+                        }
+                    }
+                    
+                     :host ::ng-deep {
+                        .table-outerScroller .main-content .listing-table .tableStyle table td .mat-datepicker-toggle .mat-icon-button:hover,
+                        .table-outerScroller .main-content .listing-table .tableStyle table td .mat-datepicker-toggle .mat-icon-button:focus,
+                        .table-outerScroller .normal-box.tableData .tableStyle table td .mat-datepicker-toggle .mat-icon-button:hover,
+                        .table-outerScroller .normal-box.tableData .tableStyle table td .mat-datepicker-toggle .mat-icon-button:focus {
+                            background-color: transparent !important;
+                            border-color: transparent !important;
+                            margin-top: 0px;
+                            /* height: 100% !important; */
+                            height: 31px !important;
+                            width: 36px !important;
+                            margin-right: -1px;
+                        }
+                    }
+                    
+                     :host ::ng-deep {
+                        .table-outerScroller .mat-form-field-prefix .mat-datepicker-toggle .mat-icon-button,
+                        .table-outerScroller .mat-form-field-suffix .mat-datepicker-toggle .mat-icon-button {
+                            margin-top: 0px;
+                            /* height: 100% !important; */
+                            height: 31px !important;
+                            width: 36px !important;
+                            margin-right: -1px;
+                            opacity: 1;
+                        }
+                    }
+                    
+                    button.prim-link-text.tooltip-btn {
+                        position: relative;
+                        padding-right: 36px;
+                        i.tooltip-icon {
+                            right: 11px;
+                            top: 9px;
+                            text-transform: lowercase;
+                        }
+                    }
+                    
+                     :host ::ng-deep .payment_online .table-styleDefault {
+                        .table-scroll {
+                            .table-outerScroller.table-scroll-mi-listing {
+                                overflow: visible;
+                            }
+                            .tableStyle table tr .mat-form-field-wrapper label.inline-box {
+                                height: 28px;
+                                top: -.51400em;
+                            }
+                        }
+                    }
+                    /******************* css for the ie browser issue ********************/
+                    
+                     ::ng-deep .dialog-contaner-minHeight.policies-count,
+                     ::ng-deep .dialog-contaner-minHeight.add-payees {
+                        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                            position: static !important;
+                            .fixed-footer-bottem {
+                                position: relative;
+                            }
+                        }
+                        .mat-form-field-infix {
+                            padding-top: 10px !important;
+                        }
+                    }
+                    
+                     ::ng-deep .dialog-contaner-minHeight.policies-count .fixed-footer-bottem,
+                     ::ng-deep .dialog-contaner-minHeight.add-payees .fixed-footer-bottem {
+                        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                            position: relative !important;
+                        }
+                    }
+                    
+                     ::ng-deep .dialog-contaner-minHeight.policies-count .dialog-content-container,
+                     ::ng-deep .dialog-contaner-minHeight.add-payees .dialog-content-container {
+                        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                            position: static !important;
+                            padding-bottom: 0px !important;
+                        }
+                    }
+                    
+                     ::ng-deep .dialog-contaner-minHeight.policies-count .spinner-container.loader-svgContainer,
+                     ::ng-deep .dialog-contaner-minHeight.add-payees .spinner-container.loader-svgContainer {
+                        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                            z-index: 1000 !important;
+                        }
+                    }
+                    
+                    .row-withAlignBtn {
+                        margin-right: -10px;
+                        margin-left: -10px;
+                        .btn-sec {
+                            margin-top: 3px;
+                        }
+                    }
+                    
+                    .check-schedule {
+                        position: absolute;
+                        right: 0px;
+                        top: 30px;
+                    }
+                    /******************* css for the ie browser issue ends ********************/
+                    
+                    .two-column-layout .custom-row {
+                        margin: 0px;
+                        // margin-right: -15px;
+                    }
+                    
+                    .add-editContainer .split-box {
+                        max-width: 100%;
+                    }
+                    
+                    .mat-radio-button.mat-accent {
+                        margin-right: 20px;
+                    }
+                    
+                    p.error-section {
+                        background: #f2dede;
+                        padding: 8px 30px 8px 24px;
+                        margin: -10px -39px 0px -39px;
+                        border-top: 1px solid #ebccd1;
+                        border-bottom: 1px solid #ebccd1;
+                        margin-bottom: 10px;
+                        color: #e03f3d;
+                        font-size: 13px;
+                        line-height: 20px;
+                        position: relative;
+                        .close_icon {
+                            position: absolute;
+                            right: 20px;
+                            top: 14px;
+                            width: 16px;
+                            height: 16px;
+                            opacity: 0.3;
+                            margin-left: 20px;
+                            display: block;
+                        }
+                        .close_icon:hover {
+                            opacity: 1;
+                        }
+                        .close_icon:before,
+                        .close_icon:after {
+                            position: absolute;
+                            left: 6px;
+                            content: " ";
+                            height: 10px;
+                            width: 2px;
+                            background-color: #a94442;
+                        }
+                        .close_icon:before {
+                            transform: rotate(45deg);
+                        }
+                        .close_icon:after {
+                            transform: rotate(-45deg);
+                        }
+                    }
+                    
+                     :host ::ng-deep {
+                        .table-outerScroller .main-content .listing-table .tableStyle table td .mat-datepicker-toggle .mat-icon-button:hover,
+                        .table-outerScroller .main-content .listing-table .tableStyle table td .mat-datepicker-toggle .mat-icon-button:focus,
+                        .table-outerScroller .normal-box.tableData .tableStyle table td .mat-datepicker-toggle .mat-icon-button:hover,
+                        .table-outerScroller .normal-box.tableData .tableStyle table td .mat-datepicker-toggle .mat-icon-button:focus {
+                            background-color: transparent !important;
+                            border-color: transparent !important;
+                            margin-top: 0px;
+                            /* height: 100% !important; */
+                            height: 31px !important;
+                            width: 36px !important;
+                            margin-right: -1px;
+                        }
+                    }
+                    
+                     :host ::ng-deep {
+                        .table-outerScroller .mat-form-field-prefix .mat-datepicker-toggle .mat-icon-button,
+                        .table-outerScroller .mat-form-field-suffix .mat-datepicker-toggle .mat-icon-button {
+                            margin-top: 0px;
+                            /* height: 100% !important; */
+                            height: 31px !important;
+                            width: 36px !important;
+                            margin-right: -1px;
+                            opacity: 1;
+                        }
+                    }
+                    
+                     :host ::ng-deep {
+                        .field-margin-R .mat-form-field-wrapper {
+                            margin-right: 24px;
+                        }
+                        .small-container {
+                            max-width: 1050px !important;
+                        }
+                        .maxWidth-500 {
+                            max-width: 500px;
+                        }
+                        .radio-btn-alignMiddle {
+                            label {
+                                margin-bottom: 14px;
+                            }
+                        }
+                        .column-container.settings-sec {
+                            .table-outerScroller {
+                                p.error-section {
+                                    margin: 0px 0px 0px 0px;
+                                }
+                            }
+                        }
+                        .error-section {
+                            .close_icon {
+                                top: 10px;
+                                &:before,
+                                &:after {
+                                    height: 11px;
+                                }
+                            }
+                        }
+                        .schedule-setting {
+                            mat-form-field {
+                                .mat-form-field-wrapper {
+                                    margin-right: 0px !important;
+                                }
+                            }
+                        }
+                    }
+                    
+                    .medium-width-container {
+                        max-width: 1124px !important;
+                    }
+                    
+                     :host ::ng-deep .coloumn-lg-4 {
+                        .normal-box.tableData {
+                            .mat-form-field {
+                                max-width: 100px;
+                                margin-bottom: 5px;
+                                .mat-form-field-wrapper {
+                                    margin-bottom: 3px;
+                                    padding-bottom: 0px;
+                                    .mat-form-field-infix {
+                                        padding: 10px 0 10px 0;
+                                    }
+                                }
+                            }
+                            .mat-column-Action>div {
+                                min-width: auto;
+                                text-align: right;
+                            }
+                            tbody {
+                                tr:last-child {
+                                    td {
+                                        border-bottom: 0px !important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    .three-column-layout {
+                        .coloumn-lg-4 {
+                            @media only screen and (min-width: 981px) {
+                                max-width: 33.33% !important;
+                            }
+                        }
+                    }
+                    
+                    .Step-ProgressRow .steps li:nth-child(n+3)::before {
+                        border-left: 0px;
+                    }
+                    
+                    .annual-expected {
+                        float: right !important;
+                        margin-right: 20px;
+                        width: auto !important;
+                        text-align: right !important;
+                        font-weight: 600;
+                        @media only screen and (max-width: 600px) {
+                            max-width: 188px;
+                            padding-left: 10px !important;
+                        }
+                    }
+                    
+                     :host ::ng-deep {
+                        .Payment-From-Payor {
+                            .error-section {
+                                .close_icon {
+                                    right: 6px;
+                                }
+                            }
+                            .normal-box.tableData {
+                                .mat-form-field {
+                                    max-width: 100px;
+                                    margin-bottom: 5px;
+                                    .mat-form-field-wrapper {
+                                        margin-bottom: 3px;
+                                        padding-bottom: 0px !important;
+                                        margin-right: 0px !important;
+                                        .mat-form-field-infix {
+                                            padding: 10px 0 10px 0;
+                                        }
+                                    }
+                                }
+                                tbody {
+                                    tr:last-child {
+                                        td {
+                                            border-bottom: 0px !important;
+                                        }
+                                    }
+                                    .mat-column-Action>div {
+                                        min-width: auto;
+                                        text-align: right;
+                                    }
+                                    mat-form-field {
+                                        input.dollar.mat-input-element {
+                                            padding-right: 8px !important;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        mat-form-field {
+                            input.dollar.mat-input-element {
+                                padding-right: 8px !important;
+                            }
+                            input.percentage.mat-input-element {
+                                padding-right: 40px !important;
+                            }
+                        }
+                    }
+                    
+                     :host ::ng-deep {
+                        mat-form-field.mat-form-field .mat-progress-spinner {
+                            display: block;
+                            position: relative;
+                            height: 20px;
+                            position: absolute;
+                            right: 9px;
+                            top: 0px;
+                        }
+                    }

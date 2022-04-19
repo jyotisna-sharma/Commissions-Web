@@ -1,0 +1,45 @@
+<div class="main-content">
+    <app-breadcrumb [showNickName]="showNickName" [parentTab]="getrouteParamters?.parentTab" [pageName]="pagename" [moduleName]="moduleName" (onPageRedirectionClick)="OnPageRedirection($event)"></app-breadcrumb>
+    <div class="divRow">
+        <div class="tabs-container">
+
+            <app-people-manager-left-navigation></app-people-manager-left-navigation>
+            <div class="tabs-contentDiv">
+                <div class="filter-outerbox filterContianer">
+                    <div class="example-header data-filterSec padding-none full-widthForm">
+                        <div class="divRow">
+                            <div class="full-rowOuter border-none space-between">
+                                <h4 class="HideMobileScreen">User mapping - Agent ({{this.MiListProperties.miDataSource.pageLength}})</h4>
+                                <div class="search-div">
+                                    <mat-form-field appearance="outline">
+                                        <input matInput placeholder="Search: Nickname, email, first and last name" (ngModelChange)="handleSearchClear($event)" [(ngModel)]="filterStatus" (keydown.enter)="applyFilter()" #searchService='matInput'>
+                                    </mat-form-field>
+                                    <div class="btn-outerDiv align-withsearchBox search-cancel-btn">
+                                        <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="filterStatus='';handleSearchClear($event);" class="icon-cross" *ngIf="filterStatus">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                                        <button mat-raised-button class="loader-svg pull-left icon-button" mat-button mat-stroked-button (click)='applyFilter()'>
+                      <i class="img-icons search-icn"></i>
+                      <label>Search</label>
+                    </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="normal-box tableData tablediv listing-table">
+                    <app-mi-list [MiListProperties]=MiListProperties (onPageChange)="pageChanged($event)" (SelectAllCheckBoxes)='onSelectAll($event)' (onSortChange)='sortChanged($event)' (OnCheckBoxClick)='oncheckedvaluecheck($event)' (AfterLoadingData)='onDataLoaded($event)'
+                        [isFieldSelected]=toggleSelect [isButtonDisabled]='isCheckboxDisabled'></app-mi-list>
+                </div>
+                <div class="divRow">
+                    <section class="margin-top footer-area full-widthRow">
+                        <button type="submit" color='primary' class="pull-left mat-flat-button mat-primary coloured-primary-button" (click)="onLinkedUserUpdate()" [disabled]="getLoggedInUserDetails?.Permissions[0].Permission === 1" [ngClass]="{'btn-disable': getLoggedInUserDetails?.Permissions[0].Permission === 1}">Update</button>
+                        <button type="button" mat-stroked-button class="pull-right" (click)="OnbuttonCancel()">Cancel</button>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--*************************************************************************************************************-->

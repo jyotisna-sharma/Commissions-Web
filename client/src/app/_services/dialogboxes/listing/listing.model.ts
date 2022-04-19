@@ -1,0 +1,29 @@
+export interface ListingData {
+    primaryButton: any;
+    secondryButton: any;
+    isSecondListShown: any;
+    dataList: any;
+    isPrimaryControl: boolean,
+    isSearchNotShown: boolean,
+    isSecondryControl: boolean,
+    PrimaryControlType: any,
+    SecondryControlType: any,
+    columnLabels: string[],
+    displayedColumns: string[],
+    columnIsSortable: string[],
+    listingURL: any,
+    showPaging: boolean,
+    title: any,
+    serviceURL: any,
+    postData: any;
+    cachedList: any[];
+    otherData: any;
+    isClientSideList: boolean;
+    isRowClickable: boolean;
+    placeHolder: any;
+    isEditableGrid: boolean;
+    functionName: any;
+    class: any;
+    secondGridData: any;
+    isCountHiden: boolean;
+}

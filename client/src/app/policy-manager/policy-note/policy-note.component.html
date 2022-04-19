@@ -1,0 +1,135 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showLoader">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="main-content">
+  <app-breadcrumb [showNickName]="policyNumber" [pageName]="pagename" [moduleName]="moduleName"
+    (onPageRedirectionClick)="OnPageRedirection()"></app-breadcrumb>
+  <div class="divRow">
+    <div class="tabs-container">
+      <app-policy-manager-left-navigation [isParentHeader]='false' [isTabDisabled]='false'></app-policy-manager-left-navigation>
+      <div class="tabs-contentDiv">
+        <div class="filter-outerbox filterContianer mg-b36">
+
+          <div class="example-header sub-header">
+            <div class="divRow margin-left-none">
+              <div class="full-rowOuter flex-between padding-left-none">
+                <div class="sub-title">
+                  <label class="label">Policy Notes </label>
+                </div>
+ <div class="btn-section">
+                        <span>
+      <button class="loader-svg pull-left coloured-primary-button upload small-size" mat-flat-button
+        (click)="OpenFileUploadDialog()" 
+        >Upload</button></span>
+                       
+                    </div>
+              </div>
+  
+            </div>
+          </div>
+          <div class="add-editContainer formDesignCustom create-policyForm padding-none">
+            <div class="custom-row" id="notes">
+              <div class="col-9-lg col-12-md pa-tp25">
+                <form class="example-form" [formGroup]='Notes'>
+                  <mat-card class="mat-card-style">
+                    <div class="custom-row">
+                      <div class="col-12-lg">
+                        <section class="full-widthRow">
+                          <label class="label label-inline">Write your note</label>
+                          <span class="pull-right hint-text">{{text}}</span>
+                          <mat-form-field appearance="outline" class="textarea-field">
+                            <textarea matInput formControlName='noteData' #note='matInput' (ngModelChange)="OnGetNoteValueLength($event)"
+                              maxlength="5000"></textarea>
+                          </mat-form-field>
+                          <mat-error *ngIf="Notes.controls['noteData'].hasError('maxlength')">
+                          </mat-error>
+                        </section>
+                      </div>
+                      <div class="col-12-lg ">
+                        <section class="margin-top pull-right btn-spc ">
+                          <button mat-raised-button color='primary' class="pull-left mat-flat-button mat-primary coloured-primary-button"
+                            (click)='OnSaveNotes()' [disabled]='!isButtonEnabled' *ngIf="!isUpdateButtonShown"
+                            [ngClass]="{'btn-disable': userdetails?.Permissions[1].Permission === 1}">Save</button>
+                          <button mat-raised-button color='primary' class="pull-left mat-flat-button mat-primary coloured-primary-button"
+                            *ngIf="isUpdateButtonShown" (click)='OnSaveNotes()' [ngClass]="{'btn-disable': userdetails?.Permissions[1].Permission === 1}">Update</button>
+                          <button mat-stroked-button class="pull-right" (click)='OnCancel()'>Cancel</button>
+                        </section>
+                      </div>
+                    </div>
+
+                  </mat-card>
+                </form>
+              </div>
+            
+ <div class="col-8-lg col-12-md">
+                <div class="custom-row">
+                  <div class="col-12-lg">
+                    <div class="nots-seprater"></div>
+                    <h5 class="title">Notes ({{notesCount}})</h5>
+                    <div class="scrollbar">
+                      <div class="notes-col" *ngFor="let item of notesList; let i=index">
+                        <div class="notes-header">
+                          <div class="block">
+                            <span class="label">Created by: <span class="name-date">{{item.CreatedBy}},
+                                {{item.CreatedDateString}}</span></span>
+                          </div>
+                          <div class="block" *ngIf="item.ModifiedBy">
+                            <span class="label">Last modified by: <span class="name-date">{{item.ModifiedBy}},
+                                {{item.LastModifiedDateString}}</span></span>
+                          </div>
+
+                          <a class="edit" (click)=openDeleteDialogBox(item) [ngClass]="{'disable': userdetails?.Permissions[1].Permission === 1}">Delete</a>
+                          <a class="edit" (click)=OnNoteDetailsEdit($event,item) [ngClass]="{'disable': userdetails?.Permissions[1].Permission === 1}">Edit</a>
+
+                        </div>
+                        <div class="notes-content">
+                          <p>{{item.Content}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  <div class="col-4-lg col-12-md">
+                <div class="custom-row">
+                  <div class="col-12-lg">
+                    <div class="nots-seprater"></div>
+                    <h5 class="title">Uploaded File ({{this.uploadedFileList && this.uploadedFileList.length}})</h5>
+                    <div class="scrollbar">
+                      <div class="notes-col" *ngFor="let item of uploadedFileList; let i=index">
+                        <div class="notes-header">
+                          <div class="block">
+                            <span class="label">Uploaded On: <span class="name-date">{{item.UploadedOn}}
+                              </span></span>
+                          </div>
+                         
+
+                          <a class="edit" (click)=OnDeleteUploadedFile(item) [ngClass]="{'disable': userdetails?.Permissions[1].Permission === 1}">Delete</a>
+                         
+
+                        </div>
+                        <div class="notes-content p-r-24">
+<div class="block"> <p>{{item.FileName}}</p></div>
+                          <button mat-icon-button  class='button-with-icon-sm pull-right' (click)="DownloadPDFile(item)" >
+                <i class="img-icons download-icn "> </i>
+              </button>
+ 
+
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

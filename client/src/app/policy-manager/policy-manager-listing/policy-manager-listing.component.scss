@@ -1,0 +1,45 @@
+@import '../../../assets/css/color-variable.scss';
+
+:host ::ng-deep {
+  .table-outerScroller.table-scroll-mi-listing {
+    max-height: 600px;
+    overflow: auto;
+  }
+
+  .main-content .search-div {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+mat-form-field {
+  &.select-box-UI {
+    min-width: 220px;
+  }
+}
+
+.prim-link-text {
+   color: $Primary-BlueColor;  background: rgba(52, 85, 165, 0.09);
+}
+.prim-link-text:hover {
+    background: rgba(52, 85, 165, 0.09);
+}
+
+.full-rowOuter .left-div:last-child {
+    width: 100%;
+    align-items: end;
+    justify-content: flex-end;
+}
+.left-div .search-div::after {
+    width: 1px;
+    height: 30px;
+    background: #eae8e8;
+    content: '';
+    display: block;
+    position: absolute;
+    right: -17px;
+    top: 0px;
+}
+.left-div .search-div + .prim-link-text {
+    margin-left: 30px;
+}

@@ -1,0 +1,48 @@
+@import '../../../../assets/css/global.scss';
+@import'../../../../assets/css/media-query.scss';
+
+
+.dialog-contaner-minHeight {
+	// padding-bottom: 40px;
+    display: block;
+    position: relative;    
+    padding: 0px 10px 0px 10px; 
+
+	.fixed-footer-bottem {
+        position: absolute;
+        bottom: 10px;
+        right: 0px;
+        width: 100%;
+        padding: 0px 10px;                
+    }
+    // .mat-dialog-actions {
+    //     margin-top: 10px;        
+    // }
+
+    .dialog-content-container {
+        padding-bottom: 50px;
+    }
+}
+.policies-count{
+    min-height: 450px;   
+}
+.add-payees{
+    min-height: 450px;       
+}
+
+h4.title {
+    margin-top: 5px;
+    margin-bottom: 10px;    
+}
+
+.dialog-content-container {
+    max-height: 90vh;
+    overflow: auto;
+    overflow-x: hidden;
+    position: relative;
+}
+.margin-less{
+   margin-bottom: -15px;
+}
+ 
+

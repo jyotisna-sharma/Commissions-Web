@@ -1,0 +1,95 @@
+
+mat-form-field {
+  .mat-form-field-infix {
+    input.mat-input-element.mat-form-field-autofill-control {
+        height: 16px;
+        top: 3px;
+   }
+  }
+}
+
+
+
+
+/**************** mixins starts for smalles mat fields **************/
+@mixin mat-field-small  {
+ .mat-form-field-outline {
+  min-height: 24px !important;
+}
+ .mat-form-field-infix {
+  margin-top: 4px !important;
+  border: 0px !important;
+    font-size: 12px !important;
+    padding: 10px 0 5px 0 !important
+     
+}
+
+
+.mat-form-field-infix label.inline-box-dollar {
+  height: 22px;
+  width: 26px;
+  top: 0px;
+  line-height: 22px;
+}
+.mat-datepicker-toggle .mat-icon-button {
+  width: 28px !important;
+  height: 24px !important;
+  display: inline-block !important;
+}
+&.mat-form-field-type-mat-select {
+  .mat-form-field-infix {
+    padding: 5px 0 3px 0 !important;
+    .mat-select-arrow-wrapper {
+      vertical-align: top;
+  }
+}
+}
+}
+
+.mat-field-small {
+  @include mat-field-small;
+}
+
+
+
+.field-with-label.mat-field-small input.mat-input-element {
+  padding-left: 32px !important;
+}
+
+
+
+/***************** serach fileds in dialog box css starts ********************/
+
+
+mat-dialog-container 
+{ 
+  .search-div 
+    {
+      mat-form-field.mat-form-field.mat-form-field-type-mat-input 
+     {
+         .mat-form-field-wrapper 
+                 {
+        min-height: inherit;
+        padding: 0px;
+         margin: 0px;
+        margin-top: 0px;
+        .mat-form-field-infix {
+          padding: 15px 0 15px 0 !important;
+          margin-top: 0px !important;
+        }
+    }
+  }
+.btn-outerDiv.align-withsearchBox {
+    top: 1px;
+    button.icon-button {
+      margin-left: 8px;
+      float: left;
+      border-top: 0px;
+      border-bottom: 0px;
+      border-right: 0px;
+      border-radius: 0px !important;
+      top: 4px;
+  }
+}
+}
+}

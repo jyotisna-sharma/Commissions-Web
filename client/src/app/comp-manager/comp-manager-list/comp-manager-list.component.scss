@@ -1,0 +1,97 @@
+@import "../../../assets/css/global.scss";
+//------------- Link Payment to Existing Policy - Accordion Panel--------------------
+:host ::ng-deep .inner-container {
+    overflow: auto;
+    max-height: 180px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #e6e6e6 !important;
+}
+
+:host ::ng-deep .inner-container .normal-box.tableData .tableStyle table tr.mat-header-row .mat-header-cell p {
+    white-space: nowrap;
+}
+
+//########################################################################################
+//------------- Batch Manager--------------------
+:host ::ng-deep {
+    .mat-form-field-appearance-outline .mat-form-field-outline-end,
+    .mat-form-field-appearance-outline .mat-form-field-outline-gap,
+    .mat-form-field-appearance-outline .mat-form-field-outline-start {
+        background: #fff;
+    }
+    .mat-form-field-appearance-outline .mat-form-field-wrapper {
+        margin: 0em 0 0px;
+    }
+}
+
+:host ::ng-deep table {
+    tfoot td span {
+        font-weight: 800;
+    }
+    mat-radio-button {
+        .mat-radio-ripple.mat-ripple {
+            display: none;
+        }
+    }
+}
+
+//For mozilla//
+@-moz-document url-prefix() {
+    mat-form-field.field-with-icon {
+        i.inline-icons {
+            top: -5px !important;
+        }
+    }
+}
+
+//For Edge//
+_:-ms-lang(x),
+mat-form-field.field-with-icon {
+    i.inline-icons {
+        top: -0.52em !important;
+    }
+}
+
+mat-form-field.field-with-icon {
+    i.inline-icons {
+        position: absolute;
+        right: 1px;
+        top: -0.484375em;
+        height: 28px;
+        width: 30px;
+        border-left: 1px solid #ccc;
+        background-color: #f7f7f7;
+        cursor: pointer;
+    }
+    input.mat-input-element {
+        padding-right: 33px !important;
+    }
+    .img-icons.save-icn {
+        background-position: -149px 60px;
+        opacity: 0.58;
+    }
+    .img-icons.save-icn:hover {
+        opacity: 1;
+    }
+}
+
+:host ::ng-deep .normal-box table tr {
+    mat-form-field {
+        width: 100%;
+        max-width: 320px;
+        .mat-form-field-wrapper {
+            max-width: 348px !important;
+            width: 100%;
+        }
+    }
+    .mat-form-field-wrapper input.mat-input-element {
+        // top:-2px;
+        height: 20px;
+    }
+}
+
+//###########################################################################################
+:host ::ng-deep .mat-form-field-appearance-outline.validation-error .mat-form-field-outline-end {
+    border-color: $Validation-warning;
+}

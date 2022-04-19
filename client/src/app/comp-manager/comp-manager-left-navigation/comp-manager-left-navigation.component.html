@@ -1,0 +1,14 @@
+<div class="tabs_tab-bar" id="tablist">
+  <ul class="ul-tabs tab-links" role="tablist">
+    <li class="nav-item">
+
+      <a class="nav-link " [routerLink]="[ '/comp-manager/batch-manager','1' ]" routerLinkActive='active'>Batch
+        manager</a>
+    </li>
+    <li class="nav-item " *ngIf="getData['Role'] !== 4">
+      <a class="nav-link " [routerLink]="['/comp-manager/link-policies','2','0','10']" routerLinkActive='active'>Link
+        payment to policies </a>
+    </li>
+  </ul>
+
+</div>

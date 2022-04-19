@@ -1,0 +1,13 @@
+@import'../../../assets/css/variable.scss';
+.main-content .normal-box.tableData.tablediv{
+    margin-right: 0px;
+}
+
+
+h4.title{
+    font-size:14px;
+    font-weight:500;
+    color:$secondary-color;
+    text-transform: capitalize;    
+    padding:2px 0px;
+}

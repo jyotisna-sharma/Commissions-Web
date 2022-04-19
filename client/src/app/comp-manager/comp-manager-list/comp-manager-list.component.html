@@ -1,0 +1,207 @@
+<div class="normal-box tableData">
+  <div class="mat-elevation-z8 tableStyle">
+    <div class="spinner-container loader-svgContainer" *ngIf="CompManagerList.miDataSource.loading$ | async">
+      <mat-spinner></mat-spinner>
+    </div>
+    <div class="table-outerScroller table-scroll-mi-listing">
+      <table #table mat-table [dataSource]="CompManagerList.miDataSource" (cdkObserveContent)="onDataLoaded()" matSort multiTemplateDataRows
+        class="mat-elevation-z8 responsive-table" multiple>
+        <ng-container *ngFor="let columData of CompManagerList.displayedColumns; let i=index" matColumnDef="{{columData}}">
+          <p *ngIf="CompManagerList.columnIsSortable[i] == 'true'">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header (click)='SortingOnList()' [disabled]="CompManagerList?.miDataSource?.pageLength && CompManagerList?.miDataSource?.pageLength===0">
+              <p *ngIf="CompManagerList.columnLabels[i]">{{CompManagerList.columnLabels[i]}}</p>
+              <p *ngIf="CompManagerList.columnLabels[i] == 'Checkbox'">
+                <mat-checkbox [checked]='isFieldSelected' (change)="SelectAllCheckBox()" [disabled]='isButtonDisabled'>
+                </mat-checkbox>
+              </p>
+            </th>
+            <td mat-footer-cell *matFooterCellDef>
+              <span *ngIf="CompManagerList?.miDataSource?.footerData">
+                {{CompManagerList?.miDataSource?.footerData[0][columData]}}
+              </span>
+            </td>
+
+          </p>
+          <p *ngIf="CompManagerList.columnIsSortable[i] == 'false'">
+            <th mat-header-cell *matHeaderCellDef>
+              <p *ngIf="CompManagerList.columnLabels[i]">{{CompManagerList.columnLabels[i]}}</p>
+              <p *ngIf="CompManagerList.columnLabels[i] == 'Checkbox'">
+                <mat-checkbox [checked]='isFieldSelected' (change)="SelectAllCheckBox()" [disabled]='isButtonDisabled'>
+                </mat-checkbox>
+              </p>
+            </th>
+            <td mat-footer-cell *matFooterCellDef>
+              <span *ngIf="CompManagerList?.miDataSource?.footerData">
+                {{CompManagerList?.miDataSource?.footerData[0][columData]}}
+              </span>
+            </td>
+
+          </p>
+          <td class='f16' mat-cell *matCellDef="let element; let ij = dataIndex">
+            <!-- ------- used for which type of filed ----------------- -->
+
+            <div *ngIf="CompManagerList.fieldType && CompManagerList.fieldType[columData]">
+              <div *ngIf="CompManagerList.fieldType[columData].type==='input-button'">
+                <mat-form-field appearance="outline" class="field-with-icon" [ngClass]="{'validation-error': isValidationShown && isValidationShown.validationShown &&   CompManagerList.fieldType[columData].columnName===isValidationShown.NameofColumn}">
+                  <input matInput [(ngModel)]="element[columData]" [disabled]='CompManagerList.fieldType[columData].isfunctionRequired === true ? CompManagerList.fieldType[columData].functionToReturnFieldValue(element,"",ij,CompManagerList.fieldType[columData]): CompManagerList.fieldType[columData].itemLabel'>
+                  <i [matTooltip]='CompManagerList.fieldType[columData].itemName' class="{{CompManagerList.fieldType[columData]?.class}} inline-icons"
+                    (click)="menuItemClicked('save',element,CompManagerList.fieldType[columData])" [ngClass]="{'disable-icons':CompManagerList.fieldType[columData].isfunctionRequired === true ? CompManagerList.fieldType[columData].functionToReturnFieldValue(element,'',ij,CompManagerList.fieldType[columData]): CompManagerList.fieldType[columData].itemLabel}">
+                  </i>
+                </mat-form-field>
+              </div>
+              <div *ngIf="CompManagerList.fieldType[columData].type==='radio-button'">
+                <p>
+                  <mat-radio-button (change)="this.OnChangeRadioButton($event,element)" (click)="$event.stopPropagation()" [checked]="this.selectionSuppModel?.isSelected(element)"></mat-radio-button>
+                </p>
+
+              </div>
+              <div *ngIf="CompManagerList.fieldType[columData].type==='DatePicker'">
+                <mat-form-field appearance="outline">
+                  <label class="inline-box">
+                    <mat-datepicker #picker></mat-datepicker>
+                  </label>
+                  <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY" [(ngModel)]="element[columData]">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+            <!-- Column without style-->
+            <p *ngIf="!isObject(element[columData]) && (element[columData] !== 'action') && !CompManagerList.isEditablegrid  ">
+              {{element[columData]}}</p>
+            <p *ngIf="CompManagerList.isEditablegrid && !CompManagerList.fieldType[columData]">{{element[columData]}}
+            </p>
+            <!------------------------------------------------------  shown a Action Menu in listing ---------------------------------------------------------->
+            <div *ngIf="CompManagerList.miListMenu.visibleOnDesk && (element[columData] === 'action' || columData ==='Action') && CompManagerList.isContextMenu=== false">
+              <button mat-icon-button [matTooltip]='miItem.itemName' *ngFor="let miItem of CompManagerList.miListMenu.menuItems; " [ngClass]="{'disable-icons': miItem.isFunction == true ? miItem.functionToReturnMenuItem(element): miItem.itemLabel}"
+                (click)="menuItemClicked(miItem.itemName, element, miItem)">
+                <i class="{{miItem?.class}}"> </i>
+              </button>
+            </div>
+            <!-- ######################################################################################################################################################### -->
+
+            <div *ngIf="CompManagerList.miListMenu.visibleOnDesk && (element[columData] === 'action' || columData ==='Action') && CompManagerList.isContextMenu=== true">
+              <!------------------------------------------------------  shown a Sub Menu in listing ---------------------------------------------------------->
+              <ng-container *ngFor="let miItem of CompManagerList.miListMenu.menuItems;">
+                <a [matMenuTriggerFor]="miMenu" (click)=" !miItem.functionToCheckSubMenu(element,miItem)?menuItemClicked( miItem.itemName, element, ij):''"
+                  [ngClass]="{'disable-icons': isButtonDisabled}">{{miItem.isFunction == true ? miItem.functionToReturnMenuItem(element,miItem): miItem.itemLabel}}
+                  <div class="{{miItem.class}}">
+                  </div>
+                </a>
+                <mat-menu #miMenu="matMenu">
+                  <div *ngIf="miItem.functionToCheckSubMenu(element,miItem)">
+                    <ng-container *ngFor="let item of CompManagerList.subMenuItems">
+                      <button mat-menu-item (click)="menuItemClicked(item.itemName, element, ij)" class="custom-menu">{{item.itemName}}
+                      </button>
+                    </ng-container>
+                  </div>
+                </mat-menu>
+              </ng-container>
+              <!-- ############################################################################################################################################################# -->
+            </div>
+          </td>
+          <td class='f16' mat-cell *matCellDef="let element; let ij = dataIndex" >
+            <!-- ------- used for which type of filed ----------------- -->
+
+            <div *ngIf="CompManagerList.fieldType && CompManagerList.fieldType[columData]">
+              <div *ngIf="CompManagerList.fieldType[columData].type==='input-button'">
+                <mat-form-field appearance="outline" class="field-with-icon" [ngClass]="{'validation-error': isValidationShown && isValidationShown.validationShown &&   CompManagerList.fieldType[columData].columnName===isValidationShown.NameofColumn}">
+                  <input matInput [(ngModel)]="element[columData]">
+                  <i [matTooltip]='CompManagerList.fieldType[columData].itemName' class="{{CompManagerList.fieldType[columData]?.class}} inline-icons"
+                    (click)="menuItemClicked('save',element,CompManagerList.fieldType[columData])">
+                  </i>
+                </mat-form-field>
+              </div>
+              <div *ngIf="CompManagerList.fieldType[columData].type==='radio-button'">
+                <mat-radio-button #miRadio (click)="menuItemClicked('radio-button',element,'',$event)" [checked]="CompManagerList.fieldType[columData].isfunctionRequired === true ? CompManagerList.fieldType[columData].functionToReturnFieldValue(element,miRadio,i,CompManagerList.fieldType[columData]): CompManagerList.fieldType[columData].itemLabel">
+                </mat-radio-button>
+              </div>
+              <div *ngIf="CompManagerList.fieldType[columData].type==='DatePicker'">
+                <mat-form-field appearance="outline">
+                  <label class="inline-box">
+                    <mat-datepicker #picker></mat-datepicker>
+                  </label>
+                  <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY" [(ngModel)]="element[columData]">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+            <!-- Column without style-->
+            <p *ngIf="!isObject(element[columData]) && (element[columData] !== 'action') && !CompManagerList.isEditablegrid  ">
+              {{element[columData]}}</p>
+            <p *ngIf="CompManagerList.isEditablegrid && !CompManagerList.fieldType[columData]">{{element[columData]}}
+            </p>
+            <!------------------------------------------------------  shown a Action Menu in listing ---------------------------------------------------------->
+            <div *ngIf="CompManagerList.miListMenu.visibleOnDesk && (element[columData] === 'action' || columData ==='Action') && CompManagerList.isContextMenu=== false">
+              <button mat-icon-button [matTooltip]='miItem.itemName' *ngFor="let miItem of CompManagerList.miListMenu.menuItems; " [ngClass]="{'disable-icons': miItem.isFunction == true ? miItem.functionToReturnMenuItem(element): miItem.itemLabel}"
+                (click)="menuItemClicked(miItem.itemName, element,miItem)">
+                <i class="{{miItem?.class}}"> </i>
+              </button>
+            </div>
+            <!-- ######################################################################################################################################################### -->
+
+            <div *ngIf="CompManagerList.miListMenu.visibleOnDesk && (element[columData] === 'action' || columData ==='Action') && CompManagerList.isContextMenu=== true">
+              <!------------------------------------------------------  shown a Sub Menu in listing ---------------------------------------------------------->
+              <ng-container *ngFor="let miItem of CompManagerList.miListMenu.menuItems;">
+                <a [matMenuTriggerFor]="miMenu" (click)=" !miItem.functionToCheckSubMenu(element,miItem)?menuItemClicked( miItem.itemName, element, ij):''"
+                  [ngClass]="{'disable-icons': isButtonDisabled}">{{miItem.isFunction == true ? miItem.functionToReturnMenuItem(element,miItem): miItem.itemLabel}}
+                  <div class="{{miItem.class}}">
+                  </div>
+                </a>
+                <mat-menu #miMenu="matMenu">
+                  <div *ngIf="miItem.functionToCheckSubMenu(element,miItem)">
+                    <ng-container *ngFor="let item of CompManagerList.subMenuItems">
+                      <button mat-menu-item (click)="menuItemClicked(item.itemName, element, ij)" class="custom-menu">{{item.itemName}}
+                      </button>
+                    </ng-container>
+                  </div>
+                </mat-menu>
+              </ng-container>
+              <!-- ############################################################################################################################################################# -->
+            </div>
+          </td>
+        </ng-container>
+        <div *ngIf="CompManagerList.isaccordingPanelShown">
+          <ng-container *ngFor="let accordianPanelData of CompManagerList?.accordingPanelHeader; let ij = index" matColumnDef="{{accordianPanelData}}">
+            <td mat-cell *matCellDef="let details;" colspan="10">
+              <div class="inner-container">
+                <div class="tableStyle table-scroll-data">
+                  <div *ngIf="isaccordionPanelShow">
+                    <app-mi-list [MiListProperties]='accordionPanelList' (OnCheckBoxClick)="this.OnCheckBoxClick.emit({ data: $event })" (AfterLoadingData)='onDataLoaded()'
+                      (SelectAllCheckBoxes)='SelectAllCheckBox()' (click)='$event.stopPropagation()' [isFieldSelected]=isFieldSelected></app-mi-list>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </ng-container>
+        </div>
+        <tr mat-header-row *matHeaderRowDef="CompManagerList.displayedColumns;  sticky: true"></tr>
+        <div fxLayout="column" fxLayoutAlign="|start,center,end,space-around,space-between| |start,center,end,stretch|" fxLayoutGap="gappx">
+        </div>
+        <tr mat-row *matRowDef="let row; columns: CompManagerList.displayedColumns;let ik = index" (click)="menuItemClicked('row-click',row,$event)"
+          [class.highlighted-row]="(this.CompManagerList.isFirstRowSelected && this.selectionSuppModel?.isSelected(row))">
+
+        </tr>
+        <div *ngIf="CompManagerList.isaccordingPanelShown">
+          <tr mat-row *matRowDef="let row; columns: CompManagerList.accordingPanelHeader" (click)="menuItemClicked('according-row-click',row,$event)"
+            [ngClass]="{'hide': !row.show}"></tr>
+        </div>
+        <ng-container style="min-height: 200px;">
+          <div *ngIf="CompManagerList.isFooterRequired ">
+            <tr mat-footer-row *matFooterRowDef="CompManagerList.displayedColumns; sticky: true" [ngClass]="{'hide':CompManagerList?.miDataSource?.pageLength===0}"></tr>
+          </div>
+        </ng-container>
+      </table>
+    </div>
+    <p *ngIf="CompManagerList.miDataSource?.pageLength === 0|| CompManagerList?.miDataSource?.tableData?.length ===0" class="noDataFound">
+      <img src="assets/images/icon_no_records_found.png">
+    </p>
+    <div [ngClass]="{'hide': !CompManagerList.showPaging || CompManagerList?.miDataSource?.pageLength < minimumpagesize}">
+      <mat-paginator (page)="onPaginateChange($event)" [length]="CompManagerList.miDataSource?.pageLength" [pageSizeOptions]="pageSizeOptions"
+        class="pagination">
+      </mat-paginator>
+    </div>
+  </div>

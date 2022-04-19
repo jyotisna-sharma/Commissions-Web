@@ -1,0 +1,868 @@
+
+header.top-posHeader {
+  position: fixed;
+  width: 100%;
+  left: 0px;
+  right: 0px;
+  z-index: 101;
+  .top-fix {
+    height: 56px;
+    width: 100%;
+    background: $header-bar;
+    color: #fff;
+    z-index: 2;
+    padding: 0 21px;
+    @media only screen and (max-width: $Break-Small - 1) {
+      padding: 0 8px;
+    }
+  }
+  .top-navOuter {
+    display: flex !important;
+    flex-basis: auto;
+    height: 100%;
+    vertical-align: middle;
+    padding: 0px 0px 0px 6px;
+    border-bottom: 1px solid #e6e6e6;
+    align-items: center;
+    ul.header-menu.postionCenter {
+      margin: 0 auto;
+      width: 100%;
+      max-width: 558px;
+      @media only screen and (max-width: $Break-Normal) {
+        display: none;
+      }
+    }
+    .header-menu {
+      padding-left: 0px;
+      flex-direction: row;
+      display: flex;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      li {
+        margin-right: 16px;
+        @media only screen and (max-width: $Break-Normal) {
+          margin-right: 8px;
+        }
+      }
+      li {
+        margin-right: 0px;
+        float: none;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .divOuterCompany {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
+      }
+    }
+    .header-menu.postionCenter {
+      li {
+        width: 100%;
+      }
+    }
+    .header-menu.user-notification .mat-icon-button {
+      width: 40px !important;
+      height: 40px;
+    }
+    .header-menu.user-notification li:first-child {
+      margin-right: 10px;
+    }
+    .user-menu {
+      background: #fff;
+    }
+    .header-menu:first-child {
+      margin-right: auto;
+    }
+    .user-profile-btn {
+      min-width: 128px;
+      text-align: left;
+      .top-head {
+        float: none;
+        display: inline-block;
+        padding-left: 10px;
+        width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        overflow-wrap: break-word;
+        text-align: right;
+        h3,
+        p {
+          margin: 0px;
+          color: #fff;
+          text-overflow: ellipsis;
+
+          /* Required for text-overflow to do anything */
+          white-space: nowrap;
+          overflow: hidden;
+        }
+        h3 {
+          font-size: 12px;
+          line-height: 14px;
+          height: 16px;
+        }
+        p {
+          font-size: 10px;
+          line-height: 12px;
+          font-weight: 600;
+        }
+      }
+      @media only screen and (max-width: $Break-Normal) {
+        min-width: 52px;
+        display: none;
+      }
+      .mat-button-ripple.mat-ripple.mat-button-ripple-round {
+        display: none;
+      }
+    }
+    .mat-button-wrapper span.user-profile {
+      height: 32px;
+      width: 32px;
+      overflow: hidden;
+      border-radius: 50%;
+      padding: 0px;
+      display: inline-block;
+      margin-right: 5px;
+    }
+    .mat-button-wrapper span.user-profile img {
+      width: 100%;
+      height: auto;
+    }
+    header button.user-profile-btn.mat-icon-button {
+      width: 100%;
+      padding: 0px !important;
+      display: inline-block;
+    }
+    .selected-agency {
+      font-size: 13px;
+      padding: 3px 16px;
+    }
+    .hide {
+      display: none;
+    }
+    .show {
+      display: block;
+    }
+    /* menu mobile design starts */
+    @media only screen and (max-width: $Break-Normal) {
+      flex-direction: row-reverse;
+      .header-menu.user-notification li:first-child {
+        margin-right: 0px;
+      }
+    }
+  }
+  ul.header-menu {
+    li {
+      display: inline-block;
+      float: none;
+      display: flex;
+      align-items: center;
+    }
+  }
+  .logo-wrapper {
+    float: left;
+    position: relative;
+    height: 56px;
+    vertical-align: middle;
+    padding-top: 12px;
+    .logo-mini {
+      display: none;
+    }
+    img {
+      /*width: 84%;*/
+      float: left;
+      margin: 3px auto 0px;
+      max-width: 150px;
+    }
+    @media only screen and (max-width: $Break-Normal) {
+      display: none;
+    }
+  }
+  /* menu css starts */
+  .top-menuSection {
+    background: #fff;
+    float: left;
+    width: 100%;
+    @include box_shadow(3);
+    .rmm.style {
+      text-align: center;
+      min-width: 100% !important;
+      border-bottom: 1px solid #e6e6e6;
+      ul.nav-menu {
+        background: transparent;
+        width: 100%;
+        ul {
+          border-top: 0px;
+          width: 170px;
+          top: 94%;
+          padding-top: 8px;
+          @include box_shadow(4);
+          @media only screen and (max-width: $Break-Normal) {
+            padding-top: 0px;
+          }
+          li {
+            padding: 0px 24px;
+            a {
+              color: $link-color;
+              font-weight: 500;
+              font-size: 15px;
+              border-bottom: 1px solid $border-color;
+              border-top: 3px solid transparent;
+              padding-left: 0px;
+              padding-right: 0px;
+              margin-top: 0px;
+              border-top: 0px;
+              line-height: 28px;
+              min-height: 36px;
+            }
+            li {
+              padding: 0px;
+            }
+          }
+          li:last-child a {
+            border: 0px;
+          }
+        }
+        ul.two-column {
+          width: 340px;
+          @media only screen and (max-width: $Break-Medium + 100) {
+            width: 170px;
+          }
+          @media only screen and (max-width: $Break-Normal) {
+            width: 100%;
+            li {
+              padding: 0px;
+              li {
+                padding: 0px 14px;
+                a {
+                  border: 0px !important;
+                }
+              }
+            }
+            li.rmm-back {
+              padding: 0px 14px;
+              a {
+                padding-left: 20px;
+              }
+            }
+          }
+        }
+        ul.two-column li {
+          display: inline-block;
+          width: 49%;
+          vertical-align: top;
+          @media only screen and (max-width: $Break-Medium + 100) {
+            width: 100%;
+          }
+        }
+        .rmm-back {
+          display: none !important;
+        }
+        li ul li a {
+          text-align: left;
+        }
+        li ul li a:hover,
+        li ul li a:focus {
+          color: $Primary-Color;
+        }
+        li.rmm-back a {
+          color: #fff !important;
+        }
+      }
+      li a {
+        color: $link-color;
+        font-weight: 700;
+        border-top: 3px transparent;
+        position: relative;
+        text-transform: uppercase;
+        font-size: 12px;
+        border-top: 3px solid transparent;
+        padding: 10px 24px;
+        min-width: 100px;
+        letter-spacing: 0.2px;
+        text-align: center;
+        @media only screen and (max-width: 1200px) {
+          padding: 10px 10px;
+        }
+        @media only screen and (max-width: $Break-Normal) {
+          text-transform: capitalize;
+        }
+      }
+      li a:hover,
+      li a:focus,
+      li:hover,
+      li:focus {
+        background: transparent;
+      }
+      li:hover,
+      li:focus {
+        a {
+          border-top: 3px solid #ffcf71;
+        }
+      }
+      li.active > a {
+        border-top: 3px solid #ffcf71;
+        color: $Primary-Color;
+        font-weight: 700;
+      }
+    
+      ul.rmm-mobile li {
+        background: transparent;
+        li {
+          /*padding: 0 14px;*/
+        }
+      }
+      li > a:not(:only-child):after {
+        margin: 0 24px;
+        height: 11px;
+        width: 11px;
+        font-size: 0px;
+        content: "";
+        display: block;
+        background: url(/assets/images/sprite-icons.png);
+        background-position: -113px -92px;
+        display: inline-block;
+        margin-left: 6px;
+        position: absolute;
+      }
+      li > a:hover::after,
+      li > a:focus::after {
+        @media only screen and (min-width: $Break-Small) {
+          background-position: -114px -192px;
+        }
+      }
+      li > a:hover,
+      li > a:focus {
+        color: $Primary-Color;
+      }
+    }
+    .rmm-toggled {
+      min-height: 0px;
+      .rmm-toggled-button {
+        top: 9px;
+        z-index: 2;
+        left: 20px;
+        position: fixed;
+        border: 0px;
+        span {
+          margin: 2px 6px;
+          height: 2px;
+        }
+      }
+    }
+  }
+  .Menu-label {
+    color: #fff;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 700;
+    width: auto;
+    float: none;
+    display: none;
+    vertical-align: center;
+    line-height: 56px;
+    img {
+      line-height: 57px;
+      display: inline-block;
+      vertical-align: middle;
+      max-width: 120px;
+    }
+    @media only screen and (max-width: $Break-Normal) {
+      display: inline-block;
+    }
+  }
+  /* menu css ends */
+  /* mobile menu css starts */
+  ul.nav-menu.rmm-menu.rmm-mobile {
+    li {
+      a {
+        text-align: left;
+        /*padding: 14px 10px;*/
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 28px;
+      }
+      a:not(:only-child):after {
+        right: 10px;
+        background-position: -114px -206px;
+        top: 33%;
+      }
+      a:hover,
+      a:focus {
+        color: $Primary-Color;
+        border-top: 3px solid transparent;
+      }
+      border-color: $seprator-linecolor;
+      ul {
+        width: 100%;
+        li.rmm-back {
+          background: $Primary-Color;
+          a,
+          p,
+          h3 {
+            color: #fff;
+          }
+          p,
+          h3 {
+            font-weight: 600;
+          }
+        }
+        li a {
+          border: 0px !important;
+        }
+        li.rmm-back a {
+          padding-left: 20px;
+          color: #fff;
+          font-weight: 700;
+        }
+        li.rmm-back a::after {
+          background: url(/assets/images/sprite-icons.png);
+          background-position: -107px -247px;
+          height: 20px;
+          width: 20px;
+          content: "";
+          display: block;
+          position: absolute;
+          left: -8px;
+          top: 35%;
+        }
+      }
+    }
+    li.active {
+      a {
+        font-weight: 600;
+      }
+    }
+    .rmm-submenu.rmm-subview {
+      width: 100%;
+      li {
+        width: 100% !important;
+      }
+      li:last-child {
+        border: 0px;
+      }
+      .rmm-back {
+        display: block !important;
+      }
+    }
+  }
+  .rmm-closed ~ .rmm-mobile,
+  .rmm-closed ~ .profile-sec.for-responsive {
+    -webkit-transform: translate(-100%, 0) !important;
+    -ms-transform: translate(-100%, 0) !important;
+    -o-transform: translate(-100%, 0) !important;
+    transform: translate(-100%, 0) !important;
+  }
+  ul.nav-menu.rmm-menu.rmm-mobile {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .rmm-mobile,
+  .profile-sec.for-responsive {
+    -webkit-transition: -webkit-transform 0.3s ease-in-out, width 0.3s ease-in-out;
+    -moz-transition: -moz-transform 0.3s ease-in-out, width 0.3s ease-in-out;
+    -o-transition: -o-transform 0.3s ease-in-out, width 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+  }
+  @media only screen and (max-width: $Break-Small - 1) {
+    box-shadow: none;
+    .top-menuSection {
+      box-shadow: none;
+    }
+  }
+  @media only screen and (max-width: $Break-Normal) {
+    .top-menuSection::after {
+      display: block;
+      content: "";
+      height: 1px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.3);
+      position: absolute;
+      top: 57px;
+    }
+  }
+  /* mobile menu css starts */
+}
+.top-posHeader .divOuterCompany {
+  text-align: center;
+  justify-content: center;
+  label.label {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10.5px 13px;
+    color: #fff;
+    border-right: 1px solid $Primary-Color;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    font-size: 12px;
+    font-weight: 700;
+    vertical-align: top;
+    display: flex;
+    line-height: 12px;
+    height: 36px;
+  }
+  mat-form-field {
+    width: 100%;
+    max-width: 420px;
+    @media only screen and (max-width: $Break-Medium) {
+      width: 320px;
+    }
+    @media only screen and (max-width: $Break-Normal) {
+      width: auto;
+    }
+    .mat-form-field-outline.ng-star-inserted {
+      background: rgba(255, 255, 255, 0.1);
+      height: 36px;
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+      .mat-form-field-outline-end {
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-left: 0px;
+        border-color: rgba(255, 255, 255, 0.1);
+        border: 0px;
+      }
+    }
+    .mat-form-field-wrapper {
+      padding: 0px;
+      margin: 0.25em 0;
+    }
+    .mat-select-arrow-wrapper .mat-select-arrow {
+      border: 0px;
+      background-position: -110px -180px;
+      width: 16px;
+      height: 16px;
+      float: right;
+      vertical-align: middle;
+      margin-top: 0px;
+      background-image: url(/assets/images/sprite-icons.png);
+    }
+  }
+  .mat-form-field-wrapper span.mat-select-placeholder.ng-star-inserted {
+    color: #fff;
+  }
+}
+
+.top-posHeader button.user-profile-btn.mat-icon-button .arrow.icon {
+  background: url(/assets/images/sprite-icons.png);
+}
+.top-posHeader button.user-profile-btn.mat-icon-button .arrow.icon {
+  background-position: -110px -176px;
+  width: 16px;
+  height: 16px;
+  float: right;
+  vertical-align: middle;
+  margin-top: 11px;
+  position: absolute;
+  right: -3px;
+}
+.dashboard-container .user-notification .mat-icon.material-icons,
+.top-posHeader .user-notification .mat-icon.material-icons {
+  font-size: 0px;
+  background: url(/assets/images/sprite-icons.png);
+  background-position: -107px -65px;
+}
+.top-posHeader {
+  .top-navOuter {
+    .mat-form-field-wrapper {
+      .mat-option-text {
+        font-size: $small-font-size;
+      }
+      .mat-select .mat-select-value {
+        font-size: $small-font-size;
+      }
+    }
+    .header-menu + label.label {
+      font-weight: 600;
+      font-size: $small-font-size;
+      color: #252729;
+      min-width: 60px;
+      @media only screen and (max-width: $Break-MobileScreen) {
+        font-size: $extraSmall-font-size;
+      }
+    }
+    border: 0px !important;
+  }
+}
+/* profile and account for the responsive */
+.for-responsive {
+  display: none;
+}
+header.top-posHeader {
+  .top-menuSection .rmm.style ul.nav-menu {
+    li ul {
+      z-index: 3;
+      ol {
+        padding: 0px;
+        list-style: none;
+        li {
+          width: 100% !important;
+        }
+        li:last-child a {
+          border: 0px !important;
+        }
+        li a {
+          border-bottom: 1px solid $seprator-linecolor !important;
+        }
+      }
+      @media only screen and (max-width: $Break-Medium + 100) {
+        li:last-child ol {
+          li a {
+            border-top: 1px solid $seprator-linecolor;
+          }
+        }
+      }
+    }
+    .activenblue {
+      a {
+        color: $Primary-Color;
+      }
+    }
+    li.currentLink {
+      a {
+        color: $Primary-Color;
+      }
+    }
+  }
+  .nav-menu.rmm-menu.rmm-mobile {
+    background: #fff !important;
+    li > a {
+      border-left: 3px solid transparent;
+    }
+    .profile-sec.for-responsive {
+      a.user-profile-btn {
+        border-top: 3px solid transparent;
+        background: $Primary-Color;
+        span.user-profile {
+          height: 32px;
+          width: 32px;
+          overflow: hidden;
+          border-radius: 50%;
+          padding: 0px;
+          display: inline-block;
+          margin-right: 5px;
+          img {
+            width: 100%;
+          }
+        }
+        .top-head {
+          display: inline-block;
+          color: #fff;
+          /*padding-left: 10px;*/
+          vertical-align: super;
+          padding: 2px 0px 10px 0px;
+          h3 {
+            font-size: 16px;
+          }
+          p {
+            font-size: 14px;
+            font-weight: 500;
+          }
+          h3,
+          p {
+            color: #fff;
+          }
+        }
+      }
+      a.user-profile-btn.darker::after {
+        background-position: -114px -234px;
+      }
+      a.light-color {
+        background: $body-color;
+        .top-head {
+          padding-left: 0px;
+          h3,
+          p {
+            color: $Grey-dark;
+          }
+          h3 {
+            margin-top: -1px;
+          }
+        }
+      }
+      a {
+        /*min-height: 70px;*/
+      }
+      li a {
+        height: auto;
+        min-height: auto;
+      }
+      li::last-child {
+        border: 0px;
+      }
+    }
+    .for-responsive {
+      display: block;
+      a {
+        height: auto;
+        span {
+          padding: 0px;
+        }
+      }
+      .top-head {
+        h3 {
+          font-size: 12px;
+          font-weight: 700;
+        }
+        p {
+          font-size: 10px;
+          font-weight: 700;
+        }
+      }
+    }
+    li.active {
+      a {
+        border-left: 5px solid $highlight-color;
+        border-top: 0px !important;
+        line-height: 28px !important;
+        font-size: 15px;
+      }
+    }
+    ul {
+      box-shadow: none !important;
+    }
+  }
+  .nav-menu.rmm-menu.rmm-mobile::after {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    right: 0px;
+    background: rgba(255, 255, 255, 0.2);
+    top: 0px;
+    height: 1px;
+  }
+}
+header.top-posHeader .nav-menu.rmm-menu.rmm-mobile::after {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  height: 100%;
+  top: 100%;
+  bottom: 0px;
+  background: #fff;
+  z-index: -1;
+  min-height: 100vh;
+}
+header.top-posHeader .rmm-toggled.rmm-view.rmm-closed ~ .nav-menu.rmm-menu.rmm-mobile::after {
+  display: none;
+}
+.notification-menu .mat-menu-content h3 {
+  padding: 0 16px;
+  font-size: 14px;
+  margin: 12px 0px !important;
+}
+.notification-menu .mat-menu-content button,
+.user-menu .mat-menu-item {
+  font-size: 13px;
+  line-height: 36px;
+  height: 36px;
+  border-bottom: 1px solid $seprator-linecolor;
+}
+.notification-menu .top-head {
+  border-bottom: 1px solid $seprator-linecolor;
+}
+
+/*    SETTING HEADEV CSS STARTS  */
+.SettingHeader {
+  background: $header-bar;
+  height: 56px;
+}
+body .ng-star-inserted header.top-posHeader .SettingHeader {
+  .back-btn {
+    background-position: -109px -457px;
+  }
+  .edit-btn.mat-icon.material-icons {
+    background-position: -107px -397px;
+  }
+  .Delete-btn.mat-icon.material-icons {
+    background-position: -107px -425px;
+  }
+  .mat-icon-button {
+    width: 40px !important;
+    height: 40px;
+  }
+}
+header.top-posHeader .SettingHeader .top-navOuter .header-menu:first-child {
+  margin-right: 0px;
+}
+header.top-posHeader .SettingHeader .top-navOuter .title.postionCenter {
+  list-style: none;
+  padding: 0px;
+  h3 {
+    color: #fff;
+    margin: 5px auto;
+  }
+}
+.ng-star-inserted header.top-posHeader .SettingHeader .top-navOuter {
+  justify-content: space-between;
+  flex-direction: row;
+}
+/*    SETTING HEADEV CSS ENDS  */
+
+/***************   MEDIA QUERY CSS STARTS *****************/
+header.top-posHeader {
+.dropdown-listing {
+  padding-bottom: 100px;
+  padding-top: 0px;
+   button {
+             width: 100%; float: left; background: #fff;     font-weight: 600; 
+              text-align: left;
+             /*padding: 14px 10px;*/
+             font-weight: 500;
+             font-size: 15px;
+             line-height: 28px; 
+             border: 0px;   border-bottom: 1px solid #e6e6e6; box-shadow: none; border-top: 0px !important;
+             a  {
+                 border: 0px !important;
+             }
+}
+}
+}
+
+@media screen and (max-width: 991px) {
+  header.top-posHeader.menuOpen {
+    overflow: hidden;
+    position: fixed;
+    padding-top: 55px;
+    height: 100%;
+    .top-fix {
+      top: 0px;
+      position: fixed;
+    }
+    .nav-menu.rmm-menu.rmm-mobile::after {
+      display: none;
+    }
+    .rmm-submenu + .dropdown-listing {
+      display: none;
+    }
+    .rmm-submenu.rmm-subview + .dropdown-listing {
+      display: block;
+    }
+    .dropdown-listing {
+      max-height: 100vh;
+      overflow: auto;
+      
+  }
+  }
+
+}
+
+/***************   MEDIA QUERY CSS STARTS *************/
+
+/**************************************************************/

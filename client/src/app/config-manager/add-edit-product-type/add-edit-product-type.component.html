@@ -1,0 +1,80 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showLoader">
+    <mat-spinner></mat-spinner>
+</div>
+<div class="popup-header">
+    <h4 matDialogTitle>{{data.headingTitle}}</h4>
+    <!-- <a class="close_icon" (click)='OnClosePopup(false)'></a> -->
+
+</div>
+<div class="hightlight-box" *ngIf="isError">
+    <p class="error-section">{{errorMessage}}
+        <a class="close_icon" (click)='OnClosePopup()'></a>
+    </p>
+</div>
+<form [formGroup]='SaveProductDetails'>
+    <div class="custom-row">
+        <div class="col-6-lg">
+            <section>
+                <label class="label">Payor Name</label>
+                <mat-form-field appearance="outline" class="select-box-UI">
+                    <mat-select formControlName='PayorName' (selectionChange)='GetCarrierList()'>
+                        <mat-option *ngFor="let payorList of  this.data.extraData.PayorList" [value]="payorList.PayorID">
+                            {{payorList.PayorName}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </section>
+        </div>
+        <div class="col-6-lg">
+            <section>
+                <label class="label">Carrier Name</label>
+                <mat-form-field appearance="outline" class="select-box-UI">
+                    <mat-select formControlName='CarrierName'>
+                        <mat-option *ngFor="let carriers of carrierList " [value]="carriers.CarrierId">
+                            {{carriers.NickName}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </section>
+        </div>
+    </div>
+    <div class="custom-row">
+        <div class="col-6-lg">
+            <section>
+                <label class="label">Product </label>
+                <!-- <mat-form-field appearance="outline" class="select-box-UI"> -->
+                <!-- <mat-select formControlName='Product'>
+                        <mat-option *ngFor="let productList of  this.data.extraData.ProductList" [value]="productList.CoverageID">
+                            {{productList.Name}}
+                        </mat-option>
+                    </mat-select> -->
+
+                <!-- </mat-form-field> -->
+                <mat-form-field appearance="outline" class="select-box-UI">
+                    <input type="text"  aria-label="Number" matInput formControlName='Product' [matAutocomplete]="auto">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option *ngFor="let productList of this.filteredOptions | async " [value]="productList.Name">
+                            {{productList.Name}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+                <mat-error *ngIf="SaveProductDetails.controls['Product'].errors?.required && SaveProductDetails.controls['Product'].dirty">Please enter product.</mat-error>
+                <mat-error *ngIf="SaveProductDetails.controls['Product'].errors?.maxlength && SaveProductDetails.controls['Product'].dirty">Product must not exceed 50 characters.</mat-error>
+            </section>
+        </div>
+        <div class="col-6-lg">
+            <section>
+                <label class="label">Product Type</label>
+                <mat-form-field appearance="outline">
+                    <input matInput formControlName='NickName'>
+                </mat-form-field>
+                <mat-error *ngIf="SaveProductDetails.controls['NickName'].errors?.required && SaveProductDetails.controls['NickName'].dirty">Please enter product type.</mat-error>
+                <mat-error *ngIf="SaveProductDetails.controls['NickName'].errors?.maxlength && SaveProductDetails.controls['NickName'].dirty">Product type must not exceed 50 characters.</mat-error>
+            </section>
+        </div>
+    </div>
+</form>
+<div mat-dialog-actions class="align-right popup-footer">
+    <button mat-raised-button class="mat-flat-button mat-primary" (click)='OnSaveProductdetails()'>{{data.primaryButton}}</button>
+    <button mat-button mat-stroked-button [mat-dialog-close]='false'>{{data.secondryButton}}</button>
+</div>

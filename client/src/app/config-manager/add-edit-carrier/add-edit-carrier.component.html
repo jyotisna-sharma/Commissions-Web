@@ -1,0 +1,74 @@
+ <div class="popup-header">
+  <h4 matDialogTitle>{{DialogBoxData}}</h4>
+  <div class="spinner-container loader-svgContainer" *ngIf="showloading">
+    <mat-spinner></mat-spinner>
+  </div>
+  <!-- <a class="close_icon" (click)='OnClosePopup()'></a> -->
+</div>
+<p class="error-section" *ngIf="showValidationMessage">{{validationMessage}}<a class="close_icon"
+  (click)='OnCloseValidationPopup()'></a></p>
+<form [formGroup]='carrierData'>
+    <div class="custom-row">
+        <div class="col-12-lg">
+            <section>
+                <label class="label">Payor Name </label>
+                <mat-form-field appearance="outline" class="select-box-UI">
+                    <mat-select formControlName='Payor'>
+                      <mat-option *ngFor="let payorList of data.payorList" [value]="payorList.PayorID">
+                        {{payorList.PayorName}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </section>
+        </div>
+       
+    </div>
+  <div class="custom-row">
+      <div class="col-6-lg">
+          <section>
+              <label class="label">Carrier Name </label>
+              <mat-form-field appearance="outline">
+                  <input matInput formControlName='Name'   >
+              </mat-form-field>
+              <mat-error *ngIf="carrierData.controls['Name'].errors?.required && carrierData.controls['Name'].dirty">Please enter carrier name.</mat-error>
+              <mat-error *ngIf="carrierData.controls['Name'].errors?.maxlength && carrierData.controls['Name'].dirty">Carrier Name must not exceed 100 characters.</mat-error>
+          </section>
+      </div>
+      <div class="col-6-lg">
+          <section>
+              <label class="label">Nickname</label>
+              <mat-form-field appearance="outline">
+                  <input matInput  formControlName='NickName'>
+              </mat-form-field>
+              <mat-error *ngIf="carrierData.controls['NickName'].errors?.required && carrierData.controls['NickName'].dirty">Please enter nickname.</mat-error>
+              <mat-error *ngIf="carrierData.controls['NickName'].errors?.maxlength && carrierData.controls['NickName'].dirty">Nickname must not exceed 100 characters.</mat-error>
+          </section>
+      </div>
+  </div>
+  <div class="custom-row">
+      <div class="col-6-lg">
+          <section>
+              <label class="label">Track missing month</label>
+              <mat-radio-group  formControlName='TrackMissingMonth'>
+                  <mat-radio-button value='1'>Yes</mat-radio-button>
+                  <mat-radio-button value='0'>No</mat-radio-button>
+                </mat-radio-group>
+
+          </section>
+      </div>
+      <div class="col-6-lg">
+          <section>
+              <label class="label">Track incoming %</label>
+              <mat-radio-group aria-label="Select an option" formControlName='TrackIncomingPer'>
+                  <mat-radio-button value='1'>Yes</mat-radio-button>
+                  <mat-radio-button value='0'>No</mat-radio-button>
+                </mat-radio-group>
+          </section>
+      </div>
+  </div>
+ 
+</form>
+<div mat-dialog-actions class="align-right popup-footer">
+  <button mat-raised-button  class="mat-flat-button mat-primary"  (click)='OnAddUpdateCarrier()'>{{buttonName}}</button>
+  <button mat-button mat-stroked-button [mat-dialog-close]='false'>Cancel</button>
+</div>

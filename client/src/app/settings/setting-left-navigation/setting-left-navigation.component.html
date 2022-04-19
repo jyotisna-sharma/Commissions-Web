@@ -1,0 +1,19 @@
+<div class="tabs_tab-bar" id="tablist">
+  <ul class="ul-tabs tab-links" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link"  [routerLink]="['/settings/commissionScheduleListing','1','1','10','0']" [class.active]="this.getRouterparamter?.parentTab==='1'">Commission Schedules</a>
+      <div class="comm-sub-menu" >
+        <ul id="menu">
+            <li class="submenu border"><a  [routerLink]="['/settings/commissionScheduleListing','1','1','10','0']"  routerLinkActive='active'>Payor Schedules</a></li>
+            <li class="submenu "><a  [routerLink]="['/settings/NamedScheduleListing',1,'2','10','0']"    routerLinkActive='active' >Named Schedules</a></li>
+        </ul>
+    </div>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" [routerLink]="['/settings/Reportsetting',2,'10','0']" routerLinkActive='active'>Report Settings </a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" [routerLink]="['/settings/SegmentListing',7,'10','0']"    routerLinkActive='active'>Segments</a>
+    </li>
+  </ul>
+</div>

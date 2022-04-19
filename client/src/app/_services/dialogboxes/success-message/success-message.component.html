@@ -1,0 +1,17 @@
+<h4 matDialogTitle>{{data.Title}}</h4>
+<p>{{data.subTitle}}</p>
+<div mat-dialog-actions class="align-right" *ngIf="data.isCommanFunction=== false">
+  <button mat-button color="primary" class='mat-flat-button' (click)='OncreateAnotherAgent()' *ngIf="(checkButtonname!='ok')">{{primarybuttonName}}</button>
+  <button mat-button mat-stroked-button (click)='OnGoToAgentAccount()' *ngIf="(checkButtonname!='ok')">{{secondryButtonName}}</button>
+  <button mat-button class='mat-flat-button' color="primary" class="mat-flat-button mat-primary" *ngIf="(checkButtonname=='ok')"
+    [mat-dialog-close]=''>Ok</button>
+</div>
+<div mat-dialog-actions class="align-right" *ngIf="data.isCommanFunction=== true && data.numberofButtons==='2'">
+  <button mat-button color="primary" class='mat-flat-button' (click)='OnclickPrimaryButton()' [mat-dialog-close]='true'>{{this.data['primarybuttonName']}}</button>
+  <button mat-button mat-stroked-button (click)='OnclickSecondryButton()' [mat-dialog-close]='false'>{{this.data['secondryButtonName']}}</button>
+</div>
+
+
+<div mat-dialog-actions class="align-right" *ngIf="data.isCommanFunction=== true && data.numberofButtons==='1'">
+  <button mat-button class='mat-flat-button' color="primary" class="mat-flat-button mat-primary" [mat-dialog-close]=''>Ok</button>
+</div>

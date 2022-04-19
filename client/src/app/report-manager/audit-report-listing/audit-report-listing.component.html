@@ -1,0 +1,162 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showLoader">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="main-content">
+  <div class="filter-outerbox filterContianer">
+    <div class="example-header data-filterSec padding-none full-widthForm">
+      <div class="divRow">
+        <div class="full-rowOuter space-between">
+          <h4 class="page-title">Report Manager</h4>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="divRow">
+    <div class="tabs-container">
+      <app-report-manager-left-navigation></app-report-manager-left-navigation>
+      <div class="tabs-contentDiv">
+        <div class="normal-box tableData tablediv listing-table">
+          <div class="custom-row margin-right-none">
+            <div class="col-4-lg col-12-md">
+              <div class="report-manager batch-report">
+                <div class="left-col">
+                  <h4 class="page-title">Payors ({{PayorCount}})</h4>
+                </div>
+              </div>
+              <div class="tableStyle table-scroll-data">
+                <app-mi-list [MiListProperties]=PayorsListProperties (OnCheckBoxClick)='OnPayorListChkBoxClicked($event)'
+                  (SelectAllCheckBoxes)='OnPayorListSlctAllCheckBoxes($event)' [isFieldSelected]=PayorAllCheckBoxSelect
+                  (AfterLoadingData)='AfterPayorDataLoading()'></app-mi-list>
+              </div>
+            </div>
+            <div class="col-4-lg col-12-md">
+              <div class="report-manager">
+                <h4 class="page-title">Primary brokers ({{PayeeCount}})</h4>
+              </div>
+              <div class="tableStyle table-scroll-data" *ngIf="isPayorListfound">
+                <app-mi-list [MiListProperties]=PayeeListProperties (OnCheckBoxClick)='OnPayeeListChkBoxClicked($event)'
+                  (SelectAllCheckBoxes)='OnPayeeListSlctAllCheckBoxes($event)' [isFieldSelected]=payeeAllCheckBoxSelect
+                  (AfterLoadingData)='AfterPayeeDataLoading()'></app-mi-list>
+              </div>
+            </div>
+            <div class="col-4-lg col-12-md">
+              <div class="report-manager">
+                <h4 class="page-title">Segments ({{SegmentCount}})</h4>
+              </div>
+              <div class="tableStyle table-scroll-data" *ngIf="isPayorListfound">
+                <app-mi-list [MiListProperties]=SegmentListProperties
+                  (OnCheckBoxClick)='OnSegmentListChkBoxClicked($event)'
+                  (SelectAllCheckBoxes)='OnSegmentListSlctAllCheckBoxes($event)'
+                  [isFieldSelected]=segmentAllCheckBoxSelect
+                  (AfterLoadingData)='AfterSegmentDataLoading()'>
+                </app-mi-list>
+              </div>
+            </div>
+          </div>
+          <div class="custom-row margin-right-none mr-top10">
+            <div class="col-12-lg col-12-md">
+              <div class="report-manager">
+                <h4 class="page-title">Reports ({{ReportCount}})</h4>
+              </div>
+              <ng-template [ngIf] = "isPayeeListfound && isArison === false">
+                
+                <!-- //IsArison check of radiobutton to uncomment
+                  && isArison === false 
+                //IsArison check of radiobutton to uncomment -->
+
+              <!-- <div class="tableStyle table-scroll-data" *ngIf="isPayeeListfound"> -->
+
+                <div class="tableStyle table-scroll-data"> 
+                  <app-mi-list [MiListProperties]=ReportNameProperties (OnCheckBoxClick)='OnReportNameChkBoxClicked($event)'
+                    (SelectAllCheckBoxes)='OnReportListSlctAllCheckBoxes($event)' [isFieldSelected]=reportAllCheckBoxSelect
+                    (AfterLoadingData)='AfterReportDataLoading()'></app-mi-list>
+                </div>
+              </ng-template>
+              <!-- //IsArison check of radiobutton to uncomment -->
+                <ng-template [ngIf] = "isPayeeListfound && isArison === true">
+                <div class="tableStyle table-scroll-data">
+                    <app-mi-list [MiListProperties]=ReportNameProperties
+                    (onMenuItemClick)='OnReportNameRbtnClicked($event)'></app-mi-list>
+                </div>
+            </ng-template> 
+                <!-- //IsArison check of radiobutton to uncomment -->
+            </div>
+
+          </div>
+        </div>
+
+
+        <form>
+       
+            <div class="custom-row margin-right24 deafult-visible-filter" *ngIf="isReportListfound">
+              <div class="col-11-lg ">
+                <div class="audit-report">
+                    <div class="left-col">
+                        <label class="label">Invoice / Date range:</label>               
+                          <mat-form-field appearance="outline" class="outer-shadow">
+                            <input matInput [matDatepicker]="picker" [formControl]="FromDate" placeholder="MM/DD/YY"
+                              (dateChange)="IsValidDateRange()">
+                            <mat-datepicker-toggle matSuffix [for]="picker" md-mode="month"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                          </mat-form-field>
+                       
+                      </div>
+                      <div class="left-col">
+                          <label class="label">To:</label>               
+                            <mat-form-field appearance="outline" class="outer-shadow">
+                              <input [formControl]="ToDate" matInput [matDatepicker]="picker1" placeholder="MM/DD/YY" [min]='FromDate?.value'
+                                (dateChange)="IsValidDateRange()">
+                              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                              <mat-datepicker #picker1></mat-datepicker>
+                            </mat-form-field>               
+                        </div> 
+                        <div class="left-col">
+                            <label class="label">Order by:</label>               
+                              <mat-form-field appearance="outline">
+                                <mat-select [formControl]="OrderBy">
+                                  <mat-option *ngFor="let orderBy of orderByFilters" [value]="orderBy.value">
+                                    {{orderBy.value}}</mat-option>
+                                </mat-select>
+                              </mat-form-field>                
+                          </div>
+                          <div class="left-col">
+                              <label class="label">Type:</label>                
+                                <mat-form-field appearance="outline">
+                                  <mat-select [formControl]="Type">
+                                    <mat-option *ngFor="let type of typeFilters" [value]="type.key">
+                                      {{type.value}}</mat-option>
+                                  </mat-select>
+                                </mat-form-field>                
+                            </div>                
+                    </div>
+               </div>
+               <div class="col-1-lg margin-top22">
+                  <div class="btn-section pull-right" matTooltip="Please select valid date range for the report."
+                    [matTooltipDisabled]="!isValidationShown">
+                    <span matTooltip="This action is disabled as it requires 'Write' access for this module."
+                    [matTooltipDisabled]="userdetails?.Permissions[6].Permission === 2">
+                      <button class="loader-svg pull-left coloured-primary-button export small-size" mat-flat-button
+                      [matMenuTriggerFor]="menu2" [disabled]='!isReportSelected||!isPayeeSelected||!isSegmentSelected||!isPayorSelected||isValidationShown||this.userdetails.Permissions[6].Permission==1'
+                      [ngClass]="{'btn-disable':!isReportSelected||!isPayeeSelected||!isSegmentSelected||!isPayorSelected||isValidationShown||this.userdetails.Permissions[6].Permission==1} ">Export</button>
+                     
+                      <mat-menu #menu2="matMenu" class="user-menu">
+                        <button mat-menu-item (click)='PrintReport("PDF")' [disabled]='isArison' class="pdf-icon icon-button">
+                          PDF
+                        </button>
+                        <button mat-menu-item (click)='PrintReport("Excel")' class="excel-icon icon-button" [disabled]='isFollowUpSlctd' >
+                          Excel
+                        </button>
+                      </mat-menu>
+                    </span>
+                    <!-- <button class="loader-svg email-button" mat-flat-button [disabled]='!isPayorSelected || !isPayeeSelected ||!isReportSelected'
+                    [ngClass]="{'btn-disable': !isPayorSelected || !isPayeeSelected||!isReportSelected}">Email</button> -->
+                  </div>
+
+                  
+                </div>
+            </div> 
+        </form>
+      </div>
+    </div>
+  </div>

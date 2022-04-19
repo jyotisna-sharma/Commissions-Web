@@ -1,0 +1,30 @@
+
+
+<div class="popup-header">
+  <h4 matDialogTitle>{{data.headingTitle}}</h4>
+  <!-- <a class="close_icon" (click)='OnClosePopup(false)'></a> -->
+
+</div>
+<div class="hightlight-box" *ngIf="isError">
+  <p class="error-section">{{errorMessage}}
+      <a class="close_icon" (click)='OnClosePopup()'></a>
+  </p>
+</div>
+<form [formGroup]='ProductDetails'>
+  <div class="custom-row">
+      <div class="col-12-lg">
+          <section>
+              <label class="label">Product Name</label>
+              <mat-form-field appearance="outline">
+                  <input matInput formControlName='Name'>
+              </mat-form-field>
+              <mat-error *ngIf="ProductDetails.controls['Name'].errors?.required && ProductDetails.controls['Name'].dirty">Please enter product name.</mat-error>
+                <mat-error *ngIf="ProductDetails.controls['Name'].errors?.maxlength && ProductDetails.controls['Name'].dirty">Product name must not exceed 50 characters.</mat-error>
+          </section>
+      </div>
+  </div>
+</form>
+<div mat-dialog-actions class="align-right popup-footer">
+  <button mat-raised-button class="mat-flat-button mat-primary" (click)='OnSaveProductdetails()'>{{data.primaryButton}}</button>
+  <button mat-button mat-stroked-button [mat-dialog-close]='false'>{{data.secondryButton}}</button>
+</div>

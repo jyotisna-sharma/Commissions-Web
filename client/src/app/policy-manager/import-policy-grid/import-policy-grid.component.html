@@ -1,0 +1,90 @@
+<div class="normal-box tableData">
+  <div class="mat-elevation-z8 tableStyle">
+    <div *ngIf="isloaderShown">
+      <div class="spinner-container loader-svgContainer" *ngIf="ImportPolicyList.miDataSource.loading$ | async">
+        <mat-spinner></mat-spinner>
+      </div>
+    </div>
+    <div class="table-outerScroller table-scroll-mi-listing">
+      <table mat-table [dataSource]="ImportPolicyList.miDataSource" (cdkObserveContent)="onDataLoaded()" matSort
+        multiTemplateDataRows class="mat-elevation-z8 responsive-table" multiple>
+        <!-- ############################################################################################################################################################################## -->
+        <ng-container *ngFor="let columData of ImportPolicyList.displayedColumns; let i=index"
+          matColumnDef="{{columData}}">
+          <p *ngIf="ImportPolicyList.columnIsSortable[i] == 'true'">
+            <th mat-header-cell *matHeaderCellDef>
+              <p *ngIf="ImportPolicyList.columnLabels[i]">{{ImportPolicyList.columnLabels[i]}}</p>
+            </th>
+          </p>
+          <td class='f16' mat-cell *matCellDef="let element; let ij = dataIndex"
+           >
+            <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+            <div *ngIf="(element[columData] !== 'action') && element.isrowclick=== true">
+              <div *ngIf="ImportPolicyList.columnLabels[i] ===element?.clickedColumnName && !element.isdateClicked">
+                <mat-form-field appearance="outline"
+                  [ngClass]="{'validation-error': element.invalidColumn && ImportPolicyList.columnLabels[i]===element.invalidColumn}">
+                  <input matInput [(ngModel)]="element[columData]" (blur)='onInputclick(element,i)'
+                   autofocus>
+                </mat-form-field>
+              </div>
+              <div *ngIf="ImportPolicyList.columnLabels[i] ===element?.clickedColumnName && element.isdateClicked">
+                <mat-form-field appearance="outline">
+                  <mat-datepicker #picker (closed)="OndateChange(element,ImportPolicyList.columnLabels[i]) ">
+                  </mat-datepicker>
+                  <input matInput (focus)="picker.open()" [matDatepicker]="picker" [(ngModel)]="element[columData]"
+                    autofocus>
+
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                </mat-form-field>
+              </div>
+              <p *ngIf="ImportPolicyList.columnLabels[i] !==element?.clickedColumnName"
+                (click)='onInputclick(element,i)'
+                [class.validation-error]="OnValidationShown(element,ImportPolicyList.columnLabels[i])"y>
+                {{element[columData]}}</p>
+            </div>
+            <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+            <div *ngIf="ImportPolicyList.isEditablegrid">
+              {{element.invalidColumn['Vision Plan ID']}}
+              <!-- {{ImportPolicyList.columnLabels[i]}} -->
+              <p *ngIf="(element[columData] !== 'action') && !element.isrowclick"
+                (click)='onInputclick(element,ImportPolicyList.columnLabels[i])'
+                [class.validation-error]="OnValidationShown(element,ImportPolicyList.columnLabels[i])">
+                {{element[columData]?element[columData]:blankstring}}</p>
+            </div>
+            <div *ngIf="!ImportPolicyList.isEditablegrid">
+              <p *ngIf="(element[columData] !== 'action')">{{element[columData]?element[columData]:blankstring}}</p>
+            </div>
+            <!------------------------------------------------------  shown a Action Menu in listing ---------------------------------------------------------->
+            <div
+              *ngIf="ImportPolicyList.miListMenu.visibleOnDesk && (element[columData] === 'action' || columData ==='Action')">
+              <button mat-icon-button [matTooltip]='miItem.itemName'
+                *ngFor="let miItem of ImportPolicyList.miListMenu.menuItems; "
+                [ngClass]="{'disable-icons': miItem.isFunction == true ? miItem.functionToReturnMenuItem(element): miItem.itemLabel}"
+                (click)="menuItemClicked(miItem.itemName, element, ij)">
+                <i class="{{miItem?.class}}"> </i>
+              </button>
+            </div>
+          </td>
+        </ng-container>
+        <!-- ############################################################################################################################################################################## -->
+        <tr mat-header-row *matHeaderRowDef="ImportPolicyList.displayedColumns;  sticky: true"></tr>
+        <div fxLayout="column" fxLayoutAlign="|start,center,end,space-around,space-between| |start,center,end,stretch|"
+          fxLayoutGap="gappx">
+        </div>
+        <tr mat-row *matRowDef="let row; columns: ImportPolicyList.displayedColumns"
+          (click)="ImportPolicyList.isRowClickable ? menuItemClicked('row-click',row,$event):'' " [ngClass]="[(this?.ImportPolicyList?.rowClass?.functionToLoadClass) ?
+        this?.ImportPolicyList?.rowClass?.functionToLoadClass(row): '',
+        (this?.ImportPolicyList?.rowClass?.className) ?
+         this?.ImportPolicyList?.rowClass?.className : '']"></tr>
+      </table>
+      <p *ngIf="ImportPolicyList.miDataSource?.pageLength === 0|| ImportPolicyList?.miDataSource?.tableData?.length ===0"
+      class="noDataFound"><img src="assets/images/icon_no_records_found.png"></p>
+    </div>
+  
+    <div
+      [ngClass]="{'hide': !ImportPolicyList.showPaging || ImportPolicyList?.miDataSource?.pageLength < minimumpagesize}">
+      <mat-paginator [length]="ImportPolicyList.miDataSource?.pageLength" [pageSizeOptions]="pageSizeOptions"
+        class="pagination">
+      </mat-paginator>
+    </div>
+  </div>

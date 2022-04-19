@@ -1,0 +1,6 @@
+{
+    "API":{
+        "BaseURL":"http://new.coastalcar.com/miAdminDevAPI"
+    },
+    "RunServerWithCluster":true
+}

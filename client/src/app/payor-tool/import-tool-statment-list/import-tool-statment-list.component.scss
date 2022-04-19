@@ -1,0 +1,71 @@
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    opacity: 1;
+}
+
+.less-width-row {
+    width: 120px;
+}
+
+:host ::ng-deep .tableStyle table {
+    thead {
+        tr:first-child {
+            th {
+                text-align: center !important;
+                text-transform: uppercase !important;
+                p {
+                    text-align: center !important;
+                }
+            }
+        }
+        th.mat-header-cell.cdk-column-Fixed-Location.mat-column-Fixed-Location,
+        th.mat-header-cell.cdk-column-Relative-Search.mat-column-Relative-Search {
+            background: #fff;
+            p {
+                color: #000 !important;
+            }
+        }
+        th.mat-table-sticky {
+            text-align: center;
+            p {
+                text-align: center !important;
+                color: #000 !important;
+            }
+        }
+    }
+    tr {
+        td {
+            .mat-form-field-wrapper {
+                margin: 5px 0 5px;
+                padding-bottom: 0px;
+            }
+        }
+    }
+    tbody {
+        td.mat-cell.cdk-column-RelativeSearch.mat-column-RelativeSearch {
+            mat-form-field.mat-form-field {
+                min-width: 300px;
+                margin: 0px;
+                width: 100%;
+            }
+        }
+        tr {
+            td {
+                p {
+                    color: #000 !important;
+                    ;
+                }
+                .cdk-text-field-autofill-monitored[type="number"] {
+                    text-align: right;
+                    /* padding-right: 19px !important; */
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-height: 800px) {
+    .table-outerScroller.table-scroll-mi-listing {
+        max-height: 55vh !important;
+    }
+}

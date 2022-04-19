@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Helvetica Condensed BQ';
+    src: url('HelveticaConBQ-Bold.eot');
+    src: url('HelveticaConBQ-Bold.eot?#iefix') format('embedded-opentype'),
+        url('HelveticaConBQ-Bold.woff2') format('woff2'),
+        url('HelveticaConBQ-Bold.woff') format('woff'),
+        url('HelveticaConBQ-Bold.ttf') format('truetype'),
+        url('HelveticaConBQ-Bold.svg#HelveticaConBQ-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+

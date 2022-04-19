@@ -1,0 +1,45 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showLoader">
+    <mat-spinner></mat-spinner>
+</div>
+
+<div class="popup-header">
+    <h4 matDialogTitle>{{data.title}}</h4>
+    <a class="close_icon" (click)='OnCloseDialog()'></a>
+</div>
+<p>{{data.subTitle}}</p>
+<form [formGroup]='CopyTemplate'>
+    <div class="custom-row">
+        <div class="col-12-lg">
+            <section>
+                <label class="label">{{data.fieldName}}</label>
+                <mat-form-field appearance="outline" class="select-box-UI">
+                    <mat-select formControlName='PayorName' (selectionChange)='GetTemplateList()'>
+                        <mat-option *ngFor="let list of data.PayorList" [value]='list.PayorID'>
+                            {{list.PayorName}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+            </section>
+        </div>
+    </div>
+    <div class="custom-row mg-t16">
+        <div class="col-12-lg">
+            <section>
+                <label class="label">{{data.fieldName2}}</label>
+                <mat-form-field appearance="outline" class="select-box-UI">
+                    <mat-select formControlName='TemplateName'>
+                        <mat-option *ngFor="let templateData of this.templateList" [value]='templateData.TemplateID'>
+                            {{templateData.TemplateName}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </section>
+        </div>
+    </div>
+
+</form>
+<div mat-dialog-actions class="align-right popup-footer">
+    <button mat-raised-button color="primary" class="mat-flat-button"   [disabled]="this.CopyTemplate.controls.TemplateName.value==''? true:false" [mat-dialog-close]='this.CopyTemplate.controls'>{{data.copy}}</button>
+    <button mat-button mat-stroked-button [mat-dialog-close]='false'>{{data.cancel}}</button>
+</div>

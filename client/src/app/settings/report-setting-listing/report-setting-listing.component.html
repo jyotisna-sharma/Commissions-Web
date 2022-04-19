@@ -1,0 +1,66 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showLoading">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="main-content">
+  <div class="filter-outerbox filterContianer">
+    <div class="example-header data-filterSec padding-none full-widthForm">
+      <div class="divRow">
+        <div class="full-rowOuter">
+          <h4 class="page-title">{{title}}</h4>
+          <h4 class="page-title"></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="divRow">
+    <div class="tabs-container">
+      <app-setting-left-navigation></app-setting-left-navigation>
+      <div class="tabs-contentDiv">
+        <div class="filter-outerbox filterContianer">
+          <div class="example-header data-filterSec padding-none full-widthForm">
+             <div class="divRow">
+              <div class="full-rowOuter border-none">
+                <!-- <div class="search-div">
+                  <mat-form-field appearance="outline">
+                    <input matInput placeholder='Search: FieldName' [(ngModel)]="searchData" (keydown.enter)="doSearch()">
+                  </mat-form-field>
+                    <div class="btn-outerDiv align-withsearchBox search-cancel-btn">
+                    <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="searchData='';handleSearchClear($event);"
+                      class="icon-cross" *ngIf="searchData">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                    <button mat-raised-button class="loader-svg pull-left icon-button" mat-button mat-stroked-button
+                      (click)="doSearch()">
+                      <i class="img-icons search-icn"></i>
+                      <label>Search</label>
+                    </button>
+                  </div> -->
+                  
+                <!-- </div>  -->
+              </div>
+            </div> 
+          </div>
+        </div>
+        <div class="normal-box tableData tablediv listing-table">
+            
+          <div class="col-9-lg">
+              <h4 class="page-title">Payee Statement Report Settings</h4>
+          <app-mi-list [MiListProperties]=MiListProperties [isFieldSelected]=toggleSelect
+            (OnCheckBoxClick)='OnCheckBoxClicked($event)' (SelectAllCheckBoxes)='OnSellectAllCheckBoxes()'
+            (AfterLoadingData)='onDataLoaded($event)' [isButtonDisabled]='isCheckBoxDisabled'></app-mi-list>
+        </div>
+      </div>
+      
+            <div class="col-9-lg">
+          <section class="margin-top footer-area full-widthRow pad-left-right-0">
+            <button type="submit" color='primary' class="pull-left mat-flat-button mat-primary coloured-primary-button"
+              (click)="OnUpdateSettings()" [disabled]="this.userdetail.Permissions[2].Permission === 1"
+              [ngClass]="{'btn-disable': this.userdetail.Permissions[2].Permission === 1}">Update</button>
+            <button type="button" mat-stroked-button class="pull-right" (click)="OnbuttonCancel()">Cancel</button>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--*************************************************************************************************************-->

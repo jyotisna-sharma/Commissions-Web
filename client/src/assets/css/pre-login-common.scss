@@ -1,0 +1,203 @@
+
+.example-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.example-container>* {
+	width: 100%;
+}
+
+.example-right-align {
+	text-align: right;
+}
+
+.outer-container .main-container {
+	background: url(/assets/images/bg1.jpg) !important;
+	background-color: transparent !important;
+	background-repeat: no-repeat !important;
+	background-size: cover !important;
+	background-position: center center;
+	padding-top: 60px;
+	h3.confrmation-txt {
+		font-size: 16px;
+		line-height: 20px;
+		font-weight: 400;
+		margin-top: 0px;
+		strong {
+			font-weight: 600;
+		}
+	}
+	.text-mainSec {
+		min-height: 180px;
+		margin-bottom: 20px;
+	}
+	.mat-card-content .login-form {
+		padding-top: 15px;
+	}
+	.mat-card {
+		padding: 30px 22px 30px 22px;
+		float: left;
+		width: 100%;
+		box-sizing: border-box;
+	}
+}
+.match-error{
+	margin-top: -22px;
+	}
+
+body,
+app-login.ng-star-inserted,
+app-root,
+.outer-container {
+	height: 100%;
+	min-height: 100%;
+}
+
+footer p {
+	font-size: 10px;
+	font-weight: 700;
+	color: #fff;
+}
+
+.main-container .field-outer .mat-form-field-wrapper {
+	margin-bottom: 10px;
+}
+
+.mat-card-content {
+	font-size: 13px;
+	/*line-height: 18px;*/
+}
+
+mat-card-title.mat-card-title {
+	font-size: 20px;
+}
+
+.mat-card-content p {
+	color: $paragraph-text-color;
+	font-size: 13px;
+}
+
+.mat-flat-button.mat-primary {
+	@include button-style-default
+}
+.confrmation-txt {
+    strong {
+    text-transform: lowercase;
+   }
+}
+.main-container,
+.main-container {
+	min-height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+		height: 100%;
+	}
+	.bottom-link {
+		@include border-top;
+		width: 100%;
+		float: left;
+        padding: 15px 15px;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+		@media only screen and (max-width: $Break-MobileScreen - 100) {
+			padding: 15px 0px;
+		}
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		background: $light;
+		div {
+			padding-left: 0px;
+			flex-direction: row;
+			display: flex;
+			margin-top: 0px;
+			margin-bottom: 0px;
+		}
+		.align-left {
+			align-items: flex-start;
+		}
+		.align-right {
+			align-items: flex-end;
+		}
+		.mat-button.link {
+			font-weight: 700;
+			font-size: 12px;
+			line-height: 36px;
+			padding: 0 16px;
+			text-decoration: none;
+		}
+	}
+	.row {
+		margin-left: -30px;
+		margin-right: -30px;
+	}
+	.errorMsg,
+	.login-errorMsg {
+		font-size: 12px;
+		font-weight: 600;
+	}
+}
+
+.copyright p {
+	font-size: 10px;
+	font-weight: 700;
+	color: #fff;
+	margin-top: 40px;
+	width: 100%;
+	float: left;
+}
+
+.center-align-div {
+	width: 100%;
+}
+
+.main-container .form-BoxConatiner,
+.main-container .form-BoxConatiner {
+	margin: 0px auto;
+	.example-card.mat-card {
+		margin-top: 15px;
+	}
+}
+
+app-pre-login-header {
+	align-self: flex-start;
+	position: absolute;
+	top: 0;
+	left: 0px;
+	right: 0px;
+	z-index: 2;
+	height: 56px;
+}
+/*.list-bootom {
+	li.fade {
+		opacity: 0.5;
+	}
+	li.fade-out {
+		opacity: 1;
+	}
+	
+}*/
+
+
+@media only screen and (max-width: $Break-MobileScreen - 100) {
+	.outer-container .main-container .form-BoxConatiner .mat-card {
+		padding: 20px 10px 0px 10px;
+		.row {
+			margin-left: -18px;
+			margin-right: -18px;
+		}
+		.login-errorMsg {
+			font-size: 11px;
+		}
+	}
+	.outer-container .main-container .form-BoxConatiner mat-card.reset-card {
+		padding: 20px 10px 20px 10px;
+	}
+}
+
+.outer-container .form-BoxConatiner mat-card.example-card.mat-card {
+    box-shadow: 0px 0px 23px rgba(0, 0, 0, .4);
+}

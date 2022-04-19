@@ -1,0 +1,386 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showLoader">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="main-content pairToolContainer">
+  <div class="filter-outerbox filterContianer">
+    <div class="example-header data-filterSec padding-none full-widthForm">
+      <div class="divRow">
+        <div class="full-rowOuter  space-between formfield-less-h">
+          <app-breadcrumb [showNickName]="payorName" [pageName]="pagename" [moduleName]="moduleName" (onPageRedirectionClick)="OnPageRedirection()"></app-breadcrumb>
+          <!-- <div class="left-col">
+                        <label class="label">PayorName : {{this.payorName}}</label>
+                    </div>-->
+          <div class="left-col p-l-16 ">
+            <label class="label">TemplateName:</label>
+            <mat-form-field appearance="outline">
+              <mat-select [formControl]='selectedTemplateName' (selectionChange)='GetTemplateData($event)'>
+                <mat-option *ngFor="let templateData of templateList" [value]="templateData.TemplateID">
+                  {{templateData.TemplateName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="divRow">
+
+      <mat-tab-group style="display: block; float: left; width: 100%;">
+        <mat-tab label="Statement Upload & Settings">
+          <div class="custom-row m-x-0">
+            <div class="col-2-lg  m-t-12 leftdragableListing">
+              <div class="col-12-lg p-x-0 m-t-12 addFields">
+                <label>Fields</label>
+                <button mat-icon-button (click)="OnAddingDraggableFields()" aria-label="Example icon-button with a heart icon" class="pull-right roundedIconButton">
+                  <mat-icon>add</mat-icon>
+                </button>
+              </div>
+              <div class="col-12-lg p-x-0 m-t-0">
+                <div *ngIf="this.fieldList && this.fieldList.length>0" class='field-list'>
+                  <div class="dragableSection" #todo="cdkDropList" cdkDropList [cdkDropListConnectedTo]="[done]" [cdkDropListData]=" this.fieldList"
+                    cdkDropListSortingDisabled>
+                    <div class="fields-list" *ngFor="let item of this.fieldList" [cdkDragDisabled]="item.Disabled" cdkDrag>{{item.FieldName}}
+                      <button *ngIf="item.IsUsed === false" (click)="OnDeleteField(item)" mat-icon-button color="warn" aria-label="Example icon-button with a heart icon">
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-10-lg  m-t-12 dragableListingContainer">
+
+              <div class="upload-Section border-box m-t-20 m-b-20" *ngIf='!this.statementImage'>
+                <p class="error-section" *ngIf="isValidationShown">{{this.validationMessage}}
+                  <a class="close_icon" (click)='isValidationShown=false'></a>
+                </p>
+                <div class="upload-container">
+                  <div class="btn-upload-container">
+                    <label>
+                      Upload File
+                      <input type="file" name="photo" (change)="UploadAndProgress($event,'Statement')" />
+                    </label>
+                    <p>Supported formats: 'jpg', 'png', 'jpeg'</p>
+                    <p>Upload limit: 1MB.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="custom-row dragableRow" [hidden]="!this.statementImage">
+
+                <div class="col-12-lg m-t-12">
+                  <p class="error-section" *ngIf="isValidationShown">{{this.validationMessage}}
+                    <a class="close_icon" (click)='isValidationShown=false'></a>
+                  </p>
+                  <div cdkDropList #bound #done="cdkDropList" style="background-repeat: no-repeat" [ngStyle]="{'background-image': 'url(' + statementImage + ')'}"
+                    [cdkDropListData]="this.selectedItemList" [cdkDropListConnectedTo]="[todo]" class="dragableSectionContainer"
+                    (cdkDropListDropped)="DropFieldControl($event)" (mouseup)="OnMouseUp($event)">
+                    <div class="draggable-box" (click)='selectedTabField=i' [bounds]=bound *ngFor="let items of this.selectedFieldListBuilder.get('selectFieldListArray')['controls'];let i=index"
+                      [ngClass]="{'active icon-close': i==selectedTabField }" tabindex={{i+1}} [position]="{x:items.value.ControlX , y: items.value.ControlY}"
+                      [ngStyle]=items.value.CssProperties (endOffset)="FieldDragEnd($event,i)" [inBounds]="true" ngDraggable
+                      ngResizable rzHandles='all' rzMinHeight=23 rzMaxHeight=23 rzMaxWidth=300 rzMinWidth=50 (rzStop)="OnResizeStop($event,i)">
+                      <h4 class="widget-header m-x-0"> {{items.value.AvailableFieldName}} </h4>
+                      <div class="icon-close" (click)='DeleteselectedField(items,i)'></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <p class="m-t-7 textInstruction m-b-2" *ngIf='this.statementImage'>
+
+                <label>
+                  <input type="file" style="display: none;" (change)="UploadAndProgress($event,'Statement')" accept="image/jpg,image/png,image/jpeg">
+                  <a class="decoration-link m-l-16 pull-right">Replace image</a>
+                </label>
+              </p>
+              <div class="col-12-lg  m-t-12 abc" *ngIf='this.statementImage'>
+                <div class="custom-row m-x-0">
+                  <form [formGroup]='this.selectedFieldListBuilder' class="formfield-less-h">
+                    <div formArrayName="selectFieldListArray" >
+                      <ng-container *ngFor="let item of this.selectedFieldListBuilder.get('selectFieldListArray')['controls'];let i=index">
+                        <div [formGroupName]="i" *ngIf="i== this.selectedTabField">
+                          <div class="col-6-lg p-x-0 border-line-Right fullwidthfields">
+                            <section class="p-t-4 p-b-4  m-t-4 m-b-0">
+                              <div class="custom-row">
+                                <div class="col-5-lg labelOuter">
+                                  <label>Label on Image</label>
+                                </div>
+                                <div class="col-7-lg">
+                                  <mat-form-field appearance="outline" class="max-widthField">
+                                    <input matInput formControlName='LabelOnField'>
+                                  </mat-form-field>
+                                </div>
+                              </div>
+                            </section>
+                            <section class="p-t-4 p-b-4  m-t-4 m-b-0">
+                              <div class="custom-row">
+                                <div class="col-5-lg labelOuter">
+                                  <label>Field order</label>
+                                </div>
+                                <div class="col-7-lg">
+                                  <mat-form-field appearance="outline" class="select-box-UI max-widthField">
+                                    <mat-select formControlName='FieldOrder'>
+                                      <mat-option *ngFor="let list of tabOrderList" [value]="list.key">
+                                        {{list.value}}
+                                      </mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                                </div>
+                              </div>
+                            </section>
+                            <section class="p-t-4 p-b-4  m-t-4 m-b-0">
+                              <div class="custom-row">
+                                <div class="col-5-lg labelOuter  minus-m-t-9">
+                                  <label>Justify</label>
+                                </div>
+                                <div class="col-7-lg">
+                                  <mat-radio-group formControlName='AllignedDirection'>
+                                    <mat-radio-button value="Left" class="m-r-24">
+                                      Left Aligned</mat-radio-button>
+                                    <mat-radio-button value="Right">Right Aligned
+                                    </mat-radio-button>
+                                  </mat-radio-group>
+                                </div>
+                              </div>
+                            </section>
+                            <section class="p-t-4 p-b-4  m-t-4 m-b-0">
+                              <div class="custom-row">
+                                <div class="col-5-lg labelOuter">
+                                  <label>Mask/Field Type</label>
+                                </div>
+                                <div class="col-7-lg">
+                                  <mat-form-field appearance="outline" class="select-box-UI max-widthField">
+                                    <mat-select formControlName='MaskFieldTypeId'>
+                                      <mat-option *ngFor="let list of item.value.MaskFieldList" [value]="list.maskFieldID">
+                                        {{list.MaskName}}
+                                      </mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                                </div>
+                              </div>
+                            </section>
+                            <section class="p-t-4 p-b-4  m-t-4 m-b-0">
+                              <div class="custom-row">
+                                <div class="col-5-lg labelOuter">
+                                  <label>Default(Text)</label>
+                                </div>
+                                <div class="col-7-lg">
+                                  <mat-form-field appearance="outline" class="max-widthField">
+                                    <input matInput formControlName='DefaultValue'>
+                                  </mat-form-field>
+                                </div>
+                              </div>
+                            </section>
+                            <section class="p-t-4 p-b-4  m-t-4 m-b-0">
+                              <div class="custom-row">
+                                <div class="col-5-lg labelOuter">
+                                  <label>Map to incoming field</label>
+                                </div>
+                                <div class="col-7-lg p-t-0">
+                                  <mat-form-field appearance="outline" class="max-widthField">
+                                    <input matInput formControlName='EquivalentIncomingField'>
+                                  </mat-form-field>
+                                  <!-- <label>{{ this.FieldProperties.controls.EquivalentIncomingField.value ? this.FieldProperties.controls.EquivalentIncomingField.value :'-'}}</label> -->
+                                </div>
+                              </div>
+                            </section>
+                            <section class="p-t-4 p-b-4  m-t-4 m-b-0">
+                              <div class="custom-row">
+                                <div class="col-5-lg labelOuter">
+                                  <label>Map to learned field</label>
+                                </div>
+                                <div class="col-7-lg p-t-0">
+                                  <mat-form-field appearance="outline" class="max-widthField">
+                                    <input matInput formControlName='EquivalentLearnedField' disabled>
+                                  </mat-form-field>
+                                  <!-- <label>{{this.FieldProperties.controls.EquivalentLearnedField.value ? this.FieldProperties.controls.EquivalentLearnedField.value :'-'}}</label>-->
+                                </div>
+                              </div>
+                            </section>
+                            <section class="p-t-4 p-b-4  m-t-4 m-b-0">
+                              <div class="custom-row">
+                                <div class="col-5-lg labelOuter">
+                                  <label>Help text</label>
+                                </div>
+
+                                <div class="col-7-lg">
+                                  <mat-form-field appearance="outline" class="max-widthField">
+                                    <input matInput formControlName='HelpText'>
+                                  </mat-form-field>
+                                </div>
+                              </div>
+                            </section>
+                          </div>
+                          <div class="col-6-lg">
+                            <div class="checklist">
+                              <section class="p-t-4 p-b-4  m-t-4 m-b-0">
+                                <mat-checkbox formControlName='IsPartOfPrimaryKey' (change)='OnPrimaryKeyClick(i)'>Part of Primary Key
+                                </mat-checkbox>
+                              </section>
+                              <section class="p-t-4 p-b-4  m-t-4 m-b-0">
+                                <mat-checkbox formControlName='IsZeroorBlankAllowed' (change)='OnIsZeroorBlankAllowed(i)'>
+                                  Allow 0 Or Blank</mat-checkbox>
+                              </section>
+                              <section class="p-t-4 p-b-4  m-t-4 m-b-0">
+                                <mat-checkbox formControlName='IsPopulateIfLinked' (change)='OnIsPopulateIfLinked(i)'>
+                                  Populate If Linked
+                                </mat-checkbox>
+                              </section>
+
+                              <section class="p-t-4 p-b-4  m-t-4 m-b-0">
+                                <mat-checkbox formControlName='IsTabbedToNextFieldIfLinked' (change)='OnIsTabbedToNextFieldIfLinked(i)'>Tab To Next Field (If Linked)</mat-checkbox>
+                              </section>
+                              <section class="p-t-4 p-b-4  m-t-4 m-b-0">
+                                <mat-checkbox formControlName='IsCalculatedField' (change)='OnCalculatedField(i)'>Calculated
+                                </mat-checkbox>
+                              </section>
+
+                              <section class="p-t-4 p-b-4  m-t-4 m-b-0">
+                                <mat-checkbox formControlName='IsOverrideOfCalcAllowed' (change)='OnOverrideOfCalcAllowed(i)'>Allow Override Of Calc</mat-checkbox>
+                              </section>
+                            </div>
+                            <div class="custom-row  p-t-16">
+                              <div class="col-5-lg m-t-5">
+                                <label>Field Status</label>
+                              </div>
+                              <div class="col-7-lg">
+                                <mat-radio-group formControlName='FieldStatusValue'>
+                                  <mat-radio-button value="Required" class="p-r-24">Required
+                                  </mat-radio-button>
+                                  <mat-radio-button value="Invisible">Invisible
+                                  </mat-radio-button>
+                                </mat-radio-group>
+                              </div>
+                            </div>
+                            <div class="custom-row m-x-0" *ngIf="item.controls.IsCalculatedField.value">
+                              <form [formGroup]='item.controls.Formula'>
+                                <div class="col-12-lg p-t-10 m-t-20 p-l-0 p-r-0 p-b-10 border-top  formulaSection">
+                                  <!-- <div class="col-12-lg p-t-0">
+                                                                        <p class="error minus-m-t-14" *ngIf="!item['controls'].isFormulaExpressionValid.value">Formula expression is invalid.</p>
+                                                                    </div> -->
+                                  <div class="col-12-lg p-t-0 p-b-10 minus-m-l-12">
+                                    <p class="error-section" *ngIf="!item['controls'].isFormulaExpressionValid.value">Formula expression is invalid.
+                                    </p>
+                                  </div>
+                                  <section class="p-t-8 p-b-4">
+                                    <div class="custom-row">
+                                      <div class="col-3-lg labelOuter">
+                                        <label>Formula Title</label>
+                                      </div>
+                                      <div class="col-9-lg">
+                                        <div class="inline-block">
+                                          <mat-form-field appearance="outline">
+                                            <input matInput formControlName='formulaTitle'>
+                                          </mat-form-field>
+                                        </div>
+                                        <div class="inline-block">
+                                          <button mat-stroked-button class="m-l-16 m-t-2" (click)='onTestFormulaDialog(i)' [disabled]="item.controls.Formula.controls.formulaExpressionArray['controls'].length==1">Test Formula</button>
+                                        </div>
+                                        <div class="inline-block">
+                                          <button mat-stroked-button class="m-l-16 m-t-2" (click)="RemoveFormula(i)" [disabled]="item.controls.Formula.controls.formulaExpressionArray['controls'].length==1">Remove</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </section>
+                                  <section class="p-t-4 p-b-8">
+                                    <div class="custom-row">
+                                      <div class="col-3-lg labelOuter">
+                                        <label>Formula</label>
+                                      </div>
+                                      <div class="col-9-lg p-x-0 formula-scrollDiv">
+                                        <div class="custom-row m-x-0">
+                                          <div class="col-4-lg" *ngFor="let formulaExpression of this.item.controls.Formula?.get('formulaExpressionArray').controls;let ij=index">
+                                            <div [formGroup]='formulaExpression'>
+                                              <!-- *ngFor="let item of this.formulaFieldListBuilder?.get('formulaArray')['controls'];let i=index" -->
+                                              <mat-form-field appearance="outline" class="width-100 m-b-10 m-r-16">
+                                                <mat-select placeholder="Select Field" formControlName="FormulaValue" (selectionChange)=AddFormulaPrimaryFields(i,ij,$event)>
+                                                  <mat-option *ngFor="let list of formulaFields" [value]="list">
+                                                    {{list}}
+                                                  </mat-option>
+                                                </mat-select>
+                                              </mat-form-field>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                      </div>
+
+
+                                      <div class="col-12-lg">
+
+                                        <p class="blue-blockText" *ngIf="item.controls.Formula.controls.formulaExpressionArray['controls'].length>1">
+
+                                          <span *ngFor="let item of item.controls.Formula.controls.formulaExpressionArray.controls">
+                                            {{item.controls.FormulaValue.value}}
+                                          </span>
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </section>
+
+                                </div>
+                              </form>
+                            </div>
+
+
+
+
+
+
+                          </div>
+                        </div>
+                      </ng-container>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </mat-tab>
+
+        <mat-tab label="Check Amount Upload">
+          <div class="col-12-lg p-x-20">
+            <div class="uploadSectionTab">
+              <div class="upload-Section border-box m-t-20 m-b-6">
+                <p class="error-section" *ngIf="isValidationShownCheckImage">{{this.validationMessage}}
+                  <a class="close_icon" (click)='isValidationShownCheckImage=false'></a>
+                </p>
+                <div class="upload-container" [style.background-image]="'url('+checkAmountImage+')'" style="background-repeat: no-repeat"
+                  *ngIf="!this.checkAmountImage">
+                  <div class="btn-upload-container" *ngIf="!this.checkAmountImage">
+                    <label> Upload File
+                      <input type="file" name="photo" (change)="UploadAndProgress($event,'CheckAmount')" />
+                    </label>
+                    <p>Supported formats: 'jpg', 'png', 'jpeg'</p>
+                    <p>Upload limit: 1MB</p>
+
+                  </div>
+                  <div class="custom-row dragableRow" [hidden]="!this.checkAmountImage">
+                  </div>
+                </div>
+                <div class="upload-container" [style.background-image]="'url('+checkAmountImage+')'" style="background-repeat: no-repeat"
+                  *ngIf="this.checkAmountImage">
+
+                </div>
+              </div>
+              <label *ngIf="this.checkAmountImage">
+                <input type="file" style="display: none;" (change)="UploadAndProgress($event,'CheckAmount')" accept="image/jpg,image/png,image/jpeg">
+                <a class="pull-right decoration-link">Replace Image</a>
+              </label>
+            </div>
+          </div>
+        </mat-tab>
+
+      </mat-tab-group>
+      <div class="divRow m-x-0">
+        <section class="margin-top footer-area full-widthRow p-t-10 p-b-10 p-l-24 p-r-24 border-top">
+          <button type="submit" mat-raised-button color='primary' class="pull-left mat-flat-button mat-primary coloured-primary-button"
+            (click)='SavePayorToolData()' [disabled]="(this.selectedFieldListBuilder.get('selectFieldListArray'))['length']==0">Save</button>
+
+          <button mat-stroked-button class="pull-right" (click)='OnPageRedirection()'>Cancel</button>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

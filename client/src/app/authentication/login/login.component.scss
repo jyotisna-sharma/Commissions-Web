@@ -1,0 +1,83 @@
+/** 
+ * @author: Rahul.
+ * @Name: login.component.css
+ * @description: Provide css styling for login component.
+ * @dated: 20 Aug, 2018.
+ * @modified: 20 Aug, 2018
+**/
+
+@import '../../../assets/css/global.scss';
+@import '../../../assets/css/pre-login-common.scss';
+
+footer {
+    margin-top: 40px;
+}
+
+.main-container {
+  .form-BoxConatiner {
+    width: 95%;
+    max-width: 400px;
+    margin: 0px auto;
+    .mat-card {
+        padding: 30px 22px 0px 22px;
+        float: left;
+        width: 100%;
+        box-sizing: border-box;
+        .login-errorMsg  {
+            font-size: 12px;
+            position: absolute;
+            top: -18px;
+        }
+    }
+        mat-card-content.mat-card-content {
+            padding: 8px;
+        }
+        a.mat-button{
+            color: $Primary-Color ;    
+            @include transition(300ms);  
+         }
+        a.mat-button.link:hover,  a.mat-button.link:focus {background: $link-hover}
+      .login-form {
+          padding-top: 27px; position: relative;
+      }
+      .container-outerHeight {
+        min-height: 290px;
+    }
+    
+   }
+   .bottom-link  {
+      @include border-top;
+      width: 100%; 
+      float: left;
+      padding: 15px 16px;
+      @media only screen and (max-width: $Break-MobileScreen - 100) {
+        padding: 15px 0px;
+      }
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      background: $light;
+      div {
+        padding-left: 0px;
+        flex-direction: row;
+        display: flex;
+        margin-top: 0px;
+        margin-bottom: 0px;
+      }
+      .align-left{
+          align-items: flex-start;
+      }
+      .align-right{
+        align-items: flex-end;
+    }
+     .mat-button.link{
+       font-weight: 700;
+       font-size: 12px;
+     }
+    }
+    .row { 
+          margin-left: -30px;
+           margin-right: -30px;
+        }
+        
+}

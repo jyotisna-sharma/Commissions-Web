@@ -1,0 +1,63 @@
+@import '../../../../assets/css/global.scss';
+@import'../../../../assets/css/media-query.scss';
+h4.title {
+    margin-top: 5px;
+    margin-bottom: 8px;
+}
+
+h5.title {
+    margin-top: 20px;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.dialog-content-container {
+    margin: 0 auto;
+}
+
+.close_icon {
+    position: absolute;
+    right: 15px;
+    top: -8px;
+    width: 16px;
+    height: 16px;
+    opacity: 0.3;
+}
+
+.close_icon:hover {
+    opacity: 1;
+}
+
+.close_icon:before,
+.close_icon:after {
+    position: absolute;
+    left: 6px;
+    content: ' ';
+    height: 16px;
+    width: 2px;
+    background-color: #252729;
+}
+
+.close_icon:before {
+    transform: rotate(45deg);
+}
+
+.close_icon:after {
+    transform: rotate(-45deg);
+}
+
+ :host ::ng-deep .dialog-content-container .tableStyle .table-outerScroller {
+    height: 200px;
+    overflow: auto;
+}
+
+:host ::ng-deep {
+    td.mat-cell.cdk-column-CheckAmountString.mat-column-CheckAmountString,
+    td.mat-cell.cdk-column-HouseString.mat-column-HouseString,
+    td.mat-cell.cdk-column-RemainingString.mat-column-RemainingString,
+    td.mat-cell.cdk-column-DonePerString.mat-column-DonePerString,
+    td.mat-cell.cdk-column-Entries.mat-column-Entries,
+    td.mat-cell.cdk-column-PaymentString.mat-column-PaymentString {
+        text-align: right;
+    }
+}

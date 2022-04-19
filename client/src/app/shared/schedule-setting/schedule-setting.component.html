@@ -1,0 +1,64 @@
+<form [formGroup]='Schedule'>
+    <p *ngIf="this.ValidationData.isValidationShown" class="error-section">{{this.ValidationData.validationMessage}}
+        <a class="close_icon" (click)='CloseValidationMessage()'></a>
+    </p>
+    <section class="full-widthRow">
+        <label class="label">Mode</label>
+        <mat-form-field appearance="outline">
+            <mat-select formControlName="Mode" (selectionChange)='OnScheduleChange($event)'>
+                <mat-option *ngFor="let Mode of  ModeList" [value]=Mode.value>
+                    {{Mode.key}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </section>
+    <div *ngIf="this?.Schedule?.controls?.Mode.value===0">
+        <section class="full-widthRow" *ngIf="!this.SceduleData.isPercentOfPremium">
+            <div class="half-width">
+                <label class="label"> First Year</label>
+                <mat-form-field appearance="outline">
+                    <label _ngcontent-c9="" class="inline-box-dollar">$</label>
+                    <input matInput formControlName='FirstYear' class="dollar" numbersWithDecimal appNumberFormat maxlength="27">
+                </mat-form-field>
+            </div>
+            <div class="half-width">
+                <label class="label"> Renewal</label>
+                <mat-form-field appearance="outline">
+                    <label _ngcontent-c9="" class="inline-box-dollar">$</label>
+                    <input matInput formControlName='Renewal' class="dollar" numbersWithDecimal appNumberFormat maxlength="27">
+                </mat-form-field>
+            </div>
+        </section>
+        <section class="full-widthRow " *ngIf="this.SceduleData.isPercentOfPremium">
+            <div class="half-width ">
+                <label class="label">First year</label>
+                <mat-form-field appearance="outline">
+                    <label class="inline-box">%</label>
+                    <input matInput class="percentage" formControlName='FirstYearPer' numbersWithDecimal appNumberFormat>
+                </mat-form-field>
+            </div>
+            <div class="half-width ">
+                <label class="label">Renewal</label>
+                <mat-form-field appearance="outline">
+                    <label class="inline-box">%</label>
+                    <input matInput class="percentage" formControlName='RenewalYearPer' numbersWithDecimal appNumberFormat>
+                </mat-form-field>
+            </div>
+        </section>
+        <a [routerLink]="['/routePath']" routerLinkActive="router-link-active"></a>
+    </div>
+    <div *ngIf="this?.Schedule?.controls?.Mode.value===1">
+        <section class="full-widthRow">
+            <mat-radio-group formControlName='CustomType' (change)='OnModeChange($event)'>
+                <mat-radio-button value='1' class="m-r-20">Graded</mat-radio-button>
+                <mat-radio-button value='2'>Non-Graded</mat-radio-button>
+            </mat-radio-group>
+        </section>
+        <section class="full-widthRow m-t-16 m-b-4">
+            <app-mi-list [MiListProperties]='MiListProperties' (onMenuItemClick)="OnMenuItemClick($event)"></app-mi-list>
+        </section>
+        <section class="full-widthRow">
+            <button class="add-btnLink pull-right link-blue" mat-button (click)='OnAddRowInList(this?.Schedule?.controls?.CustomType.value)' [disabled]=this.isFormDisabled>+ Add Row </button>
+        </section>
+    </div>
+</form>

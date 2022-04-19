@@ -1,0 +1,261 @@
+<div class="spinner-container loader-svgContainer progress-bar" *ngIf="showloader">
+  <mat-progress-bar mode="indeterminate" class="progressBar align-middle"></mat-progress-bar>
+  <p class="loader-text">{{uploadText}}</p>
+</div>
+<div class="main-content">
+  <app-breadcrumb [pageName]="pagename" [moduleName]="moduleName" (onPageRedirectionClick)="OnPageRedirectionClick('')">
+  </app-breadcrumb>
+  <div class="divRow margin-none pa-tp25">
+    <div class="normal-box full-box-container white-box outer-border">
+      <div class="full-rowOuter padding-left-none padding-right-none">
+        <mat-tab-group [selectedIndex]=selectedTabIndex>
+          <mat-tab label="Select File" [disabled]='!isfirstTabEnabled'>
+            <div class="tab-outer">
+              <div class="custom-row custom-width">
+                <div class="col-12-lg col-12-xs content-small">
+                  <p> <span>Please select file to import policies in excel format from your hard drive using the
+                      "Browse" button below. If you have not created file and would like to use a pre-defined template
+                      to do so please use the "Download" button to the right of the screen.</span> <a
+                      class="download-template" (click)='DownloadTemplate()' mat-flat-button color="primary">
+                      <i class="button-icn"></i> Download Template
+                    </a> </p>
+
+
+                </div>
+
+                <div class="col-12-lg col-12-xs">
+                  <div class="upload-container">
+                    <p *ngIf="!isFileValid" class="validation-error">{{validationMsg}}</p>
+                    <div class="btn-upload-container">
+                      <label>
+                        Select File
+                        <input type="file" name="photo" (change)="OnValidateFile($event)" accept=".xlsx, .xls" />
+                      </label>
+                      <p>Supported format: excel(.xls)</p>
+                      <p>Upload limit: 10MB.</p>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="row" *ngIf="isFileValid">
+                  <div class="col-12-lg col-12-xs grey-box">
+                    <div class="select-boxOuter text-left">
+                      <label class="label">Select Sheet</label>
+                      <mat-form-field appearance="outline">
+                        <mat-select [formControl]='SelectSheet' placeholder='Please select a sheet'
+                          (selectionChange)='OnSelectSheet()'>
+                          <mat-option *ngFor="let sheet of sheetName" [value]='sheet'>
+                            {{sheet}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="divRow">
+                <section class="margin-top footer-area full-widthRow">
+                  <button type="submit" mat-raised-button color='primary' class="pull-right mat-flat-button mat-primary"
+                    [disabled]='!isButtonEnabled' [ngClass]="{'btn-disable': !isButtonEnabled}"
+                    (click)='AfterScaningData($event)'>
+                    Scan File</button>
+                </section>
+              </div>
+            </div>
+
+          </mat-tab>
+          <mat-tab label="View Data" [disabled]='!isSceondTabEnabled'>
+            <div class="tab-outer">
+              <!-- <h3 class="heading">There were 280 total policy uploaded. </h3> -->
+              <div class="custom-row">
+                <div class="col-5-lg col-12-xs">
+                  <div class="defaultStyle">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Account Name</th>
+                          <th>Plan ID</th>
+                          <th>Original Plan Start Date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <i class="sprite-icons "
+                              [ngClass]="{' check-icn': isAccountNameExist,'cancel-icn' :!isAccountNameExist}"></i>
+                          </td>
+                          <td>
+                            <i class="sprite-icons"
+                              [ngClass]="{'check-icn': isVisionPlanIdExist,'cancel-icn' : !isVisionPlanIdExist}"></i>
+                          </td>
+                          <td>
+                            <i class="sprite-icons"
+                              [ngClass]="{'check-icn': isOrignlEffctveDateExist,'cancel-icn' : !isOrignlEffctveDateExist}"></i>
+                          </td>
+                        </tr>
+
+
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="col-7-lg col-12-xs">
+                  <div class="defaultStyle">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Total Records</th>
+                          <th>Valid records</th>
+                          <th>Invalid records</th>
+                          <th>Duplicate Records
+                            <i *ngIf="this.duplicateRecords?.length >0" class="circle-icon"
+                              matTooltip='Duplicate records can be downloaded by clicking on the count. Once duplicates are removed or corrected, please select the file again and data will be imported.'>i</i>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <a (click)='exportAsXLSX(totalRecords,"Total-records")'
+                              matTooltip="Download Total Records">{{totalRecordsCount}}</a>
+                          </td>
+                          <td>
+                            <a (click)='exportAsXLSX(validRecords,"Valid-records")' matTooltip="Download Valid Records">{{
+                              this.validRecords?.length>0? this.validRecords?.length:0}}
+                            </a>
+                          </td>
+                          <td>
+                            <a (click)='exportAsXLSX(inValidRecords,"InValid-records")'
+                              matTooltip="Download Invalid Records">{{this.inValidRecords?.length>0?
+                              this.inValidRecords?.length:0}}</a>
+                          </td>
+                          <td>
+                            <a (click)='exportAsXLSX(duplicateRecords,"Duplicate-records")'
+                              matTooltip="Download Duplicate Records">{{this.duplicateRecords?.length
+                              >0?
+                              this.duplicateRecords?.length:0}}</a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="action-btns" *ngIf="!isRecordDataShown">
+                <div class="mg-b10 format-msg">
+                  <div class="content-left">
+                    <p class="small-txt error-section"> <span>Selected file has invalid format. Please click "Cancel" to
+                        go to the policy list to restart the import process and download template on select file tab to
+                        get the required template to import the file.</span></p>
+                  </div>
+                  <div class="btn-outer">
+                    <button type="submit" mat-raised-button color='primary'
+                      class="mat-flat-button mat-primary pull-right"
+                      (click)='OnPageRedirectionClick("cancel")'>Cancel</button>
+                  </div>
+                </div>
+              </div>
+
+              <mat-tab-group [selectedIndex]=selectedTabIndex>
+
+                <mat-tab label="Valid ({{this.validRecords?.length>0? this.validRecords?.length:0}})"
+                  *ngIf="isRecordDataShown" (focusChange)='GetValidRecordList()'>
+                  <div class="valid-container">
+                    <app-import-policy-grid [ImportPolicyList]=validRecordList [isloaderShown]=isTableLoaderShown>
+                    </app-import-policy-grid>
+                  </div>
+                  <div class="action-btns">
+                    <button type="submit" mat-stroked-button class="mg-t16 pull-right mat-flat-button"
+                      (click)='OnPageRedirection()'>Cancel</button>
+                    <button type="submit" mat-raised-button color='primary'
+                      class="mg-t16 pull-right mat-flat-button mat-primary" (click)='importPolicyDetails()'
+                      [disabled]='this.validRecords?.length===0'>Import</button>
+                  </div>
+                </mat-tab>
+                <mat-tab label="Invalid  ({{this.inValidRecords?.length>0?this.inValidRecords?.length:0}})"
+                  *ngIf="isRecordDataShown && this.inValidRecords?.length >0">
+
+                  <div class="invalid-container">
+                    <div class="top-txt">
+                      <p class="info-mess">Click to edit any field and "Save" button to save the changes.
+                        If record is found valid after changes are made, it'll be moved to "Valid" tab.</p>
+                    </div>
+                    <app-import-policy-grid [ImportPolicyList]=inValidRecordList [isloaderShown]=isTableLoaderShown
+                      [isValidationShown]='validationErrorObject' (onInputClicked)='onInputclick($event)'>
+                    </app-import-policy-grid>
+                  </div>
+                  <div class="action-btns">
+                    <button type="submit" mat-stroked-button class="mg-t16 pull-right mat-flat-button"
+                      (click)='OnPageRedirection()'>Cancel</button>
+                    <button type="submit" mat-raised-button color='primary'
+                      class="mg-t16 pull-right mat-flat-button mat-primary" (click)='OnUpdateInvalidData()'
+                      [disabled]='this.inValidRecords?.length===0'>Save</button>
+
+                  </div>
+                </mat-tab>
+              </mat-tab-group>
+            </div>
+
+          </mat-tab>
+          <mat-tab label="Import Status" [disabled]='!isThirdTabEnabled'>
+            <div class="col-7-lg col-12-xs center-div">
+              <p class="success-mess">Valid data has been imported successfully in the system. </p>
+              <div class="defaultStyle">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Total Records</th>
+                      <th>New</th>
+                      <th>Update</th>
+                      <th>Failure</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <a (click)='exportAsXLSX(validRecords,"Total-records")'
+                          matTooltip="Download Total Records">{{validRecords?.length}}</a>
+                      </td>
+                      <td>
+                        <a (click)='exportAsXLSX(successList,"success-records")'
+                          matTooltip="Download successfully imported records">{{successCount}}
+                        </a>
+                      </td>
+                      <td>
+                        <a (click)='exportAsXLSX(updateList,"updated-records")'
+                          matTooltip="Download successfully imported records">{{updateCount}}
+                        </a>
+                      </td>
+                      <td>
+                        <a (click)='exportAsXLSX(failedList,"failed-records")'
+                          matTooltip="Download failed Records">{{failedCount}}</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+
+            <div class="action-btns">
+              <div class="custom-row mg-b10">
+                <div class="col-12-lg col-12-xs">
+                  <button type="submit" mat-raised-button color='primary' class="mat-flat-button mat-primary pull-right"
+                    (click)='OnPageRedirectionClick("cancel")'>Go to Policy List</button>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="divRow">
+  <input type="file" style="display: inline-block;" (change)="incomingfile($event)" placeholder="Upload file" accept=".xlsx">
+  <button type="button" class="btn btn-info" (click)="UploadData()" >Upload</button>
+</div> -->

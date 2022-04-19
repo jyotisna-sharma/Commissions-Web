@@ -1,0 +1,83 @@
+ <div class="spinner-container loader-svgContainer" *ngIf="showLoader" >
+  <mat-spinner></mat-spinner>
+</div>
+
+<div>
+  <div class="post-entrySectionContainer">
+    <div class="post-entrySection text-left" *ngIf=!isCheckAmountClicked [ngStyle]="{'background-image': 'url(' + this.statementImage + ')'}"
+      style="background-repeat: no-repeat">
+      <div *ngIf="this.dEUFormFieldsArray['controls'].length>1">
+        <div *ngFor="let item of this.dEUFormFieldsArray['controls'];let i=index">
+          <ng-container>
+            <div [formGroup]='item' class="input-box" [ngStyle]="item.controls.OuterCssProperties.value">
+              <label class="label no-wrap">{{item.controls.LabelOnField.value}}</label>
+              <input *ngIf='item.controls.AvailableFieldName.value!="DEUEntryId"' formControlName='DefaultValue' [tabIndex]=item.controls.FieldOrder.value
+                [ngStyle]="item.controls.CssProperties.value" type="text" [prefix]=item.value.DEUMaskFieldType.Prefix [mask]="item.value.DEUMaskFieldType.MaskTypeName"
+                [suffix]=item.value.DEUMaskFieldType.Suffix [showMaskTyped]=item.value.DEUMaskFieldType.ShowMasking [thousandSeparator]=item.value.DEUMaskFieldType.ThousandSeparator
+                 #inputField (keydown.enter)="OnFocusChange($event,item.controls.FieldOrder.value+1,i,item)"
+                (focus)='FocusOnCalculateFormula(item,i)' [readonly]="item.controls.IsCalculatedField.value && !item.controls.IsOverrideOfCalcAllowed.value"
+                (keydown.delete)=OnDeleteFieldValue(item) 
+                [allowNegativeNumbers]=item.value.DEUMaskFieldType.AllowNegativeNumber  
+                (keydown.tab)=OnLastFieldTabPress($event,item.controls.FieldOrder.value,i,item)
+                (keydown.control.z)=OnUndoPreviousValue(i,$event,item.controls.FieldOrder.value)>
+               
+
+            </div>
+
+          </ng-container>
+
+        </div>
+      </div>
+      <div class="text-center m-t-55" *ngIf="this.dEUFormFieldsArray['controls'].length==0">
+        <span>No Statement Image Available</span>
+      </div>
+    </div>
+    <div class="post-entrySection text-left" *ngIf=isCheckAmountClicked style="background-repeat: no-repeat" [ngStyle]="{'background-image': 'url(' + this.checkAmountImage + ')'}">
+      <div class="text-center m-t-55" *ngIf=!this.payorToolObject.ChequeImageFilePath>
+        <span>No CheckAmount Image Available</span>
+      </div>
+    </div>
+
+
+    <div class="custom-row m-x-0 btns-rows bg-black30" *ngIf=!isCheckAmountClicked>
+      <div class="col-8-lg text-left m-t-8 m-b-10">
+        <div *ngFor="let item of this.dEUFormFieldsArray['controls'];let i=index">
+          <div *ngIf="!this.fieldHelpText">
+            <mat-error class="m-l-0 m-t-5 m-b-0" *ngIf="item.controls.DefaultValue.errors?.required && item.controls.DefaultValue.dirty">
+              Please enter {{item.controls.LabelOnField.value?item.controls.LabelOnField.value:"field value."}}
+
+            </mat-error>
+          </div>
+
+        </div>
+        <span class="m-l-0 m-t-0 m-b-0 f-s-12 font-weight-md help-txt" *ngIf="this.fieldHelpText">
+          <i class="material-icons">info </i>{{this.fieldHelpText}}</span>
+        <mat-error class="m-l-0 m-t-0 m-b-0" *ngIf="this.dEUFormFieldsArray.valid && this.toolTipText && !this.fieldHelpText">
+          {{this.toolTipText}} </mat-error>
+      </div>
+      <div class="col-4-lg text-right m-t-6 m-b-6">
+        <span matTooltip="{{this.toolTipText}}">
+          <button mat-raised-button color="primary" color="primary" (click)='OnPostDEUEntry()' class="btn-sm" [disabled]=isPostStartDisabled
+            tabIndex="{{!isPostStartDisabled?this.dEUFormFieldsArray['controls'].length:this.dEUFormFieldsArray['controls'].length+1}}"
+            #postButton>Post</button>
+
+        </span>
+        <button mat-stroked-button color="primary" class="m-l-16 btn-sm" tabIndex="{{isPostStartDisabled ?this.dEUFormFieldsArray['controls'].length:this.dEUFormFieldsArray['controls'].length+1}}"
+          #resetButton (click)='OnPostResetConfirmation()'>Reset</button>
+      </div>
+    </div>
+  </div>
+  <div class="policy-no-product text-left">
+    <h4>
+      <span class="font-weight-md">Unique Identifier -</span> {{this.primaryKeyName}}</h4>
+    <ul>
+      <li>
+        <a (mouseenter)='isCheckAmountClicked=false'>Statement Image</a>
+      </li>
+      <li>
+        <a (mouseenter)='isCheckAmountClicked=true'>Check Amount Image</a>
+      </li>
+    </ul>
+  </div>
+</div>
+

@@ -1,0 +1,119 @@
+<div class="normal-box tableData">
+  <div class="mat-elevation-z8 tableStyle">
+    <div class="spinner-container loader-svgContainer" *ngIf="commissionDashboardList.miDataSource.loading$ | async">
+      <mat-spinner></mat-spinner>
+    </div>
+    <div class="table-outerScroller table-scroll-mi-listing">
+      <table mat-table [dataSource]="commissionDashboardList.miDataSource" (cdkObserveContent)="onDataLoaded()" matSort
+        multiTemplateDataRows class="mat-elevation-z8 responsive-table" multiple>
+
+
+        <!-- ------------------------------------------------------------------------- this is used for Multiple column shown in table--------------------------------------------------->
+        <div *ngIf="commissionDashboardList.isMultipleColumnShown">
+          <ng-container *ngFor="let columData2 of commissionDashboardList.multipleColumHeader.multiplecolumnLabels; let j=index"
+            matColumnDef="{{columData2}}">
+            <th mat-header-cell *matHeaderCellDef [attr.colspan]='commissionDashboardList?.multipleColumHeader?.multipleColumType[columData2]?.colspan'>
+              <div *ngIf="commissionDashboardList.multipleColumHeader.multipleColumType && commissionDashboardList.multipleColumHeader.multipleColumType[columData2]">
+                <p class="{{commissionDashboardList?.multipleColumHeader?.multipleColumType[columData2]?.class}}">{{commissionDashboardList.multipleColumHeader.multiplecolumnLabels[j]}}</p>
+              </div>
+            </th>
+          </ng-container>
+        </div>
+        <!-- ############################################################################################################################################################################## -->
+        <ng-container *ngFor="let columData of commissionDashboardList.displayedColumns; let i=index" matColumnDef="{{columData}}">
+          <p *ngIf="commissionDashboardList.columnIsSortable[i] == 'true'">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header [disabled]="commissionDashboardList?.miDataSource?.pageLength && commissionDashboardList?.miDataSource?.pageLength===0" >
+              <p *ngIf="commissionDashboardList.columnLabels[i]">{{commissionDashboardList.columnLabels[i]}}</p>
+            </th>
+          </p>
+          <p *ngIf="commissionDashboardList.columnIsSortable[i] == 'false'">
+            <th mat-header-cell *matHeaderCellDef>
+              <p *ngIf="commissionDashboardList.columnLabels[i]">{{commissionDashboardList.columnLabels[i]}}</p>
+            </th>
+          </p>
+          <td class='f16' mat-cell *matCellDef="let element; let ij = dataIndex" >
+            <!-- ------- used for which type of filed ----------------- -->
+
+            <div *ngIf="commissionDashboardList.fieldType && commissionDashboardList.fieldType[columData]">
+              <div *ngIf="commissionDashboardList.fieldType[columData].type==='input percent'">
+                <mat-form-field appearance="outline" [ngClass]="{'validation-error': isValidationShown &&  isValidationShown.validationShown &&   commissionDashboardList.fieldType[columData].columnName===isValidationShown.NameofColumn}">
+                  <label class="percentage-box">%</label>
+                  <input matInput numbersWithDecimal appNumberWithDefault [(ngModel)]="element[columData]" class="percentage">
+                </mat-form-field>
+              </div>
+              <div *ngIf="commissionDashboardList.fieldType[columData].type==='input dollar'">
+                <mat-form-field appearance="outline" class="has-dollar" [ngClass]="{'validation-error': isValidationShown &&  isValidationShown.validationShown &&   commissionDashboardList.fieldType[columData].columnName===isValidationShown.NameofColumn}">
+                  <label class="dollar-box">$</label>
+                  <input matInput numbersWithDecimal appNumberWithDefault [(ngModel)]="element[columData]" class="dollar">
+                </mat-form-field>
+              </div>
+              <div *ngIf="commissionDashboardList.fieldType[columData].type==='radio-button'">
+                <mat-radio-button #miRadio (click)="menuItemClicked('radio-button',element,commissionDashboardList.fieldType[columData],$event)" [checked]="commissionDashboardList.fieldType[columData].isfunctionRequired == true ? commissionDashboardList.fieldType[columData].functionToReturnFieldValue(element,miRadio,ij,commissionDashboardList.fieldType[columData]): element.Checked">
+                </mat-radio-button>
+              </div>
+              <div *ngIf="commissionDashboardList.fieldType[columData].type==='DatePicker'">
+                <mat-form-field appearance="outline">
+                  <label class="inline-box">
+                    <mat-datepicker #picker></mat-datepicker>
+                  </label>
+                  <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY" [(ngModel)]="element[columData]">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+            <!-- Column without style-->
+            <p *ngIf="!isObject(element[columData]) && (element[columData] !== 'action') && !commissionDashboardList.isEditablegrid  ">{{element[columData]}}</p>
+            <p *ngIf="commissionDashboardList.isEditablegrid && !commissionDashboardList.fieldType[columData]">{{element[columData]}}</p>
+            <!------------------------------------------------------  shown a Action Menu in listing ---------------------------------------------------------->
+            <div *ngIf="commissionDashboardList.miListMenu.visibleOnDesk && (element[columData] === 'action' || columData ==='Action') && commissionDashboardList.isContextMenu=== false">
+              <button mat-icon-button [matTooltip]='miItem.itemName' *ngFor="let miItem of commissionDashboardList.miListMenu.menuItems; "
+                [ngClass]="{'disable-icons': miItem.isFunction == true ? miItem.functionToReturnMenuItem(element): miItem.itemLabel}"
+                (click)="menuItemClicked(miItem.itemName, element, ij)">
+                <i class="{{miItem?.class}}"> </i>
+              </button>
+            </div>
+            <!-- ######################################################################################################################################################### -->
+
+            <div *ngIf="commissionDashboardList.miListMenu.visibleOnDesk && (element[columData] === 'action' || columData ==='Action') && commissionDashboardList.isContextMenu=== true">
+              <!------------------------------------------------------  shown a Sub Menu in listing ---------------------------------------------------------->
+              <ng-container *ngFor="let miItem of commissionDashboardList.miListMenu.menuItems;">
+                <a [matMenuTriggerFor]="miMenu" (click)=" !miItem.functionToCheckSubMenu(element,miItem)?menuItemClicked( miItem.itemName, element, ij):''"
+                  [ngClass]="{'disable-icons': isButtonDisabled}">{{miItem.isFunction == true ?
+                  miItem.functionToReturnMenuItem(element,miItem): miItem.itemLabel}}<div class="{{miItem.class}}"></div></a>
+                <mat-menu #miMenu="matMenu">
+                  <div *ngIf="miItem.functionToCheckSubMenu(element,miItem)">
+                    <ng-container *ngFor="let item of commissionDashboardList.subMenuItems">
+                      <button mat-menu-item (click)="menuItemClicked(item.itemName, element, ij)" class="custom-menu">{{item.itemName}}
+                      </button>
+                    </ng-container>
+                  </div>
+                </mat-menu>
+              </ng-container>
+              <!-- ############################################################################################################################################################# -->
+            </div>
+          </td>
+
+        </ng-container>
+        <!-- ------------------------------------------------------------------------- this is used for Multiple column shown in table--------------------------------------------------->
+        <div *ngIf="commissionDashboardList.isMultipleColumnShown">
+          <tr mat-header-row *matHeaderRowDef="commissionDashboardList.multipleColumHeader.multiplecolumnLabels;  sticky: true"></tr>
+        </div>
+        <!-- ############################################################################################################################################################################## -->
+        <tr mat-header-row *matHeaderRowDef="commissionDashboardList.displayedColumns;  sticky: true"></tr>
+        <div fxLayout="column" fxLayoutAlign="|start,center,end,space-around,space-between| |start,center,end,stretch|"
+          fxLayoutGap="gappx">
+        </div>
+        <tr mat-row *matRowDef="let row; columns: commissionDashboardList.displayedColumns" (click)="commissionDashboardList.isRowClickable ? menuItemClicked('row-click',row,$event):'' "
+        [ngClass]="{'highlighted-row': row.firstrow}"></tr>
+      </table>
+    </div>
+    <p *ngIf="commissionDashboardList.miDataSource?.pageLength === 0|| commissionDashboardList?.miDataSource?.tableData?.length ===0"
+      class="noDataFound"><img src="assets/images/icon_no_records_found.png"></p>
+    <div [ngClass]="{'hide': !commissionDashboardList.showPaging || commissionDashboardList?.miDataSource?.pageLength < minimumpagesize}">
+      <mat-paginator (page)="onPaginateChange($event)" [length]="commissionDashboardList.miDataSource?.pageLength"
+        [pageSizeOptions]="pageSizeOptions" class="pagination">
+      </mat-paginator>
+    </div>
+  </div>

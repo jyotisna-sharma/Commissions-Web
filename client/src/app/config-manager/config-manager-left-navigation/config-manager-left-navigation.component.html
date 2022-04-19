@@ -1,0 +1,27 @@
+<div class="tabs_tab-bar" id="tablist">
+  <ul class="ul-tabs tab-links" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/config-manager/payor-listing',1,'10','0']" routerLinkActive='active'>Payors</a>
+    </li>
+
+    <li class="nav-item ">
+      <a class="nav-link" [routerLink]="['/config-manager/carrier-listing',2,'10','0']" routerLinkActive='active' [class.active]='isclassActive&& this.getRouterParamater.parentTab==2'>Carriers </a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" [routerLink]="['/config-manager/payor-contacts',3,'10','0']" routerLinkActive='active' [class.active]='isclassActive&& this.getRouterParamater.parentTab==3'>Payor contacts </a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" [routerLink]="['/config-manager/product-listing',7,'10','0']" routerLinkActive='active'>Product </a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" [routerLink]="['/config-manager/product-type-listing',4,'10','0']" routerLinkActive='active' [class.active]='isclassActive && this.getRouterParamater.parentTab==4'>Product Type </a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" [routerLink]="['/config-manager/follow-up-setting',5]" routerLinkActive='active'>Follow up Setting </a>
+    </li>
+    <li class="nav-item ">
+      <a class="nav-link" [routerLink]="['/config-manager/comp-type-listing',6,'10','0']" routerLinkActive='active'>Comp type </a>
+    </li>
+   
+  </ul>
+</div>

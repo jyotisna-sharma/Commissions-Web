@@ -1,0 +1,11 @@
+<div>
+  <div class="divRow m-x-0" *ngIf=isSearchListShown>
+    <div class="col-12-lg  minimize-height">
+      <h4 class="page-title text-cap"> {{Gridtext}}</h4>
+      
+      <app-batch-statement-list [batchStatementList]=searchedPolicyList [selectedRow]=this.selectedIndex (OnSelectionChange)='OnSearchedPolicyChange($event)'
+        [isListRefresh]='isListRefresh' [isLoaderToHide] = 'true' ></app-batch-statement-list>
+    </div>
+  </div>
+
+</div>

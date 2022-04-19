@@ -1,0 +1,487 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showLoader">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="main-content">
+  <app-breadcrumb [showNickName]="policyName" [parentTab]="getRouteParamtersService?.parentTab" [pageName]="pagename" [moduleName]="moduleName"
+    (onPageRedirectionClick)="OnPageRedirection($event,'breadcrumbs')"></app-breadcrumb>
+  <div class="divRow">
+    <div class="tabs-container">
+      <app-policy-manager-left-navigation [isParentHeader]='false' [isTabDisabled]='isTabDisable'></app-policy-manager-left-navigation>
+      <div class="tabs-contentDiv">
+        <div class="filter-outerbox filterContianer">
+          <div class="example-header data-filterSec padding-none full-widthForm">
+            <div class="divRow margin-left-none">
+              <div class="full-rowOuter  flex-space-between padding-left-none less-height">
+                <div class="left-div">
+                  <div class="select-boxouter select-client">
+                    <label class="label">Client:</label>
+                    <form [formGroup]="client" class="formfield-less-h">
+                      <mat-form-field appearance="outline" class="select-box-UI validation-rightAlign-UI">
+                        <!-- <mat-select formControlName='ClientList' (selectionChange)="OnClientChange($event)" class="h">
+                          <mat-option *ngFor="let clients of clientListing" [value]="clients.ClientId">
+                            {{clients.Name}}
+                          </mat-option>
+                        </mat-select> -->
+                        <input type="text" placeholder="Enter client name" aria-label="Number" matInput formControlName='ClientObject'  [matAutocomplete]="auto" >
+                        <mat-spinner [diameter]='20' *ngIf="isSearchLoading"></mat-spinner>
+                        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"  (optionSelected)="OnClientChange($event)">
+                            <mat-option *ngFor="let clientList of ClientDropDown | async " [value]="clientList" >
+                                {{clientList.Name}}
+                            </mat-option>
+							 <mat-option *ngIf="(this.ClientDropDown | async)?.length === 0" [disabled]="true">
+                              No Record Found
+                          </mat-option>
+                        </mat-autocomplete>
+                        <mat-error *ngIf="client.controls['ClientObject'].errors?.required && client.controls['ClientObject'].dirty">
+                          {{validationMesaage.PolicyManagerValidation.client}}
+                        </mat-error>
+                      </mat-form-field>
+                    </form>
+                  </div>
+                </div>
+                
+                <div *ngIf="arison">
+                  <button type="button" mat-raised-button color='primary' class="pull-right mat-flat-button mat-primary coloured-primary-button" (click)="openClientDetail()">Client Information</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="example-header data-filterSec  padding-none full-widthForm">
+            <div class="divRow Step-ProgressRow margin-left-none">
+              <div class="full-rowOuter padding-left-none padding-right-none">
+                <div class="progress-divOuter">
+                  <ul class="steps steps-progress">
+                    <li [ngClass]="{'active': !isScheduleFormEnabled ,done:isScheduleFormEnabled}">
+                      <a title="" (click)="OnTabChange('Tab1')">
+                        <label>STEP 1</label>
+                        <span>Enter Details</span>
+                      </a>
+                    </li>
+                    <li [ngClass]="{'active': isScheduleFormEnabled}">
+                      <a (click)="OnTabChange('Tab2')" title="">
+                        <label>STEP 2</label>
+                        <span>Enter Schedules</span>
+                      </a>
+                    </li>
+                    <li class="annual-expected">
+                      <a>
+                        <span class="pull-right">Annual expected: {{this.PAC}}</span>
+                      </a>
+
+                    </li>
+
+                  </ul>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!----Create New Policy Start---->
+          <div class="example-header  padding-none" id="EnterDetailsForm" *ngIf="!isScheduleFormEnabled">
+            <div class="divRow">
+
+              <div class="full-rowOuter add-editContainer formDesignCustom create-policyForm padding-top-none padding-bottom-none">
+                <form class="example-form" [formGroup]="createNewPolicy">
+                  <mat-card class="mat-card-style">
+                    <div class="TwoColumnLayout style-border">
+                      <div class="column-container">
+                        <section class="full-widthRow">
+                          <div class="top-title mg-t6">
+                            <p class="require-text">Required field *</p>
+                          </div>
+                        </section>
+                        <div class="coloumn-lg-6  col-12-md ">
+                          <p>Status</p>
+                          <section class="full-widthRow">
+                            <mat-radio-group formControlName='PolicyStatusId' (change)=OnPolicyStatusChanged()>
+                              <mat-radio-button value=0>Active</mat-radio-button>
+                              <mat-radio-button value=2>Pending</mat-radio-button>
+                              <mat-radio-button value=1>Terminated</mat-radio-button>
+                            </mat-radio-group>
+                          </section>
+                          <section class="full-widthRow mg-t5">
+                            <label class="label">Insured / Division</label>
+                            <mat-form-field appearance="outline">
+                              <input matInput formControlName='Insured' tabindex="1" #insured maxlength="100" autofocus>
+                            </mat-form-field>
+                          </section>
+                          <section class="full-widthRow">
+                            <label class="label">Original effective date *</label>
+                            <mat-form-field appearance="outline" class="outer-shadow">
+                              <input matInput [matDatepicker]="picker" tabindex="3" placeholder="MM/DD/YYYY"  formControlName='OriginalEffectiveDate'
+                                (focus)="picker.open()" (blur)="ValidAllDatesFields()" (dateChange)='onChangeEffectDate($event)'>
+                              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                              <mat-datepicker #picker (closed)="ValidAllDatesFields()"></mat-datepicker>
+                              <mat-error *ngIf="createNewPolicy.controls['OriginalEffectiveDate'].errors?.required && createNewPolicy.controls['OriginalEffectiveDate'].dirty">
+                                {{validationMesaage.PolicyManagerValidation.originalEffectiveDate}}
+                              </mat-error>
+                            </mat-form-field>
+                          </section>
+                          <section class="full-widthRow">
+                            <label class="label">Mode</label>
+                            <mat-form-field appearance="outline">
+                              <mat-select formControlName='PolicyModeId' tabindex="5">
+                                <mat-option *ngFor="let mode of modeList" [value]="mode.PolicyModeId">
+                                  {{mode.Value}}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </section>
+                          <section class="full-widthRow">
+                            <label class="label">Payor</label>
+
+                            <mat-form-field appearance="outline" class="select-box-UI">
+                              <input type="text" matInput formControlName="PayorName" [matAutocomplete]="autoPayor" (blur)="getCarrierList('',$event)">
+                              <mat-spinner [diameter]='20' *ngIf="isPayorLoaderShown"></mat-spinner>
+                              <mat-autocomplete autoActiveFirstOption #autoPayor="matAutocomplete" (optionSelected)="getCarrierList('',$event)">
+                                <mat-option *ngFor="let payor of PayorListing |async" [value]="payor.PayorName">
+                                  {{payor.PayorName}}
+                                </mat-option>
+                              </mat-autocomplete>
+                            </mat-form-field>
+                          </section>
+                          <section class="full-widthRow">
+                            <label class="label">Product</label>
+                            <mat-form-field appearance="outline">
+                              <mat-select formControlName='CoverageId' placeholder="Select" (selectionChange)="getProductType('')" tabindex="9">
+                                <mat-option *ngFor="let product of productsList" [value]="product.CoverageID">
+                                  {{product.Name}}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </section>
+                          <section class="full-widthRow">
+                            <label class="label">Business Segment</label>
+                            <mat-form-field appearance="outline">
+                              <mat-select formControlName='SegmentId' placeholder="Select" tabindex="17" (selectionChange)="OnSegmentChange()" >
+                                 <mat-option *ngFor="let seggmentList of segmentList" [value]="seggmentList.SegmentId" >
+                                  {{seggmentList.SegmentName}}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </section>
+                          <section class="full-widthRow">
+                            <label class="label">Submitted through</label>
+                            <mat-form-field appearance="outline">
+                              <mat-select formControlName='SubmittedThrough' placeholder="Select" tabindex="11">
+                                <mat-option *ngFor="let SubmittedThroughData of submittedThrough" [value]="SubmittedThroughData.PayorName">
+                                  {{SubmittedThroughData.PayorName}}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </section>
+                          <section class="full-widthRow">
+                            <div class="custom-row">
+                              <div class="col-6-lg">
+                                <label class="label">Enrolled</label>
+                                <mat-form-field appearance="outline">
+                                  <input matInput formControlName='Enrolled' tabindex="13" numbers maxlength="50">
+                                </mat-form-field>
+                              </div>
+                              <div class="col-6-lg ">
+                                <label class="label">Eligible</label>
+                                <mat-form-field appearance="outline">
+                                  <input matInput formControlName='Eligible' tabindex="14" numbers maxlength="50">
+                                </mat-form-field>
+                              </div>
+                            </div>
+                          </section>
+                          <section class="full-widthRow">
+                            <label class="label">Account executive</label>
+                            <mat-form-field appearance="outline">
+                              <mat-select formControlName='AccoutExec' placeholder="Select" tabindex="16">
+                                <mat-option *ngFor="let user of accExecList" [value]="user.NickName">
+                                  {{user.NickName}}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </section>
+                        </div>
+                        <div class="coloumn-lg-6  col-12-md">
+                          <p>Type</p>
+                          <section class="full-widthRow">
+                            <mat-radio-group formControlName='PolicyType' (click)="onFieldAutoPopulate('')" (change)="setIsManuallyChanged()">
+                              <mat-radio-button value="New">New</mat-radio-button>
+                              <mat-radio-button value="Replace">Replacement</mat-radio-button>
+                            </mat-radio-group>
+                            <div class="prim-link-text pull-right mg-t6" (click)='OnReplacePolicy($event)' *ngIf="isReplacebuttonShown" [ngClass]="{'prim-link-disable': userdetail?.Permissions[1].Permission === 1}">Replace</div>
+                          </section>
+                          <section class="full-widthRow mg-t5">
+                            <label class="label">Policy #</label>
+                            <mat-form-field appearance="outline">
+                              <input matInput formControlName='PolicyNumber' tabindex="2" maxlength="50" specialIsAlphaNumeric (blur)=OnPolicyNumberFocusChange($event)>
+                            </mat-form-field>
+                          </section>
+                          <section class="full-widthRow">
+                            <label class="label">Track from date</label>
+                            <mat-form-field appearance="outline" [ngClass]="{'wrongSecurity':  isTrackDateVShown}">
+                              <input matInput [matDatepicker]="picker3" placeholder="MM/DD/YYYY" formControlName='TrackFromDate' tabindex="4" (focus)="picker3.open()"
+                                (blur)='ValidAllDatesFields()'>
+                              <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                              <mat-datepicker #picker3 (closed)="ValidAllDatesFields()"></mat-datepicker>
+                              <span *ngIf="isTrackDateVShown" class="error-Validation">{{validationMesaage.PolicyManagerValidation.trackDateNotGreaterDate}}</span>
+                            </mat-form-field>
+                          </section>
+                          <section class="full-widthRow">
+                            <label class="label"> Monthly premium</label>
+                            <mat-form-field appearance="outline">
+                              <label _ngcontent-c9="" class="inline-box-dollar">$</label>
+                              <input matInput formControlName='ModeAvgPremium' class="dollar" tabindex="6" numbersWithDecimal appNumberFormat maxlength="27">
+                            </mat-form-field>
+                          </section>
+                          <section class="full-widthRow">
+                            <label class="label">Carrier</label>
+                            <mat-form-field appearance="outline">
+                              <mat-select formControlName='CarrierID' placeholder="Select" (selectionChange)="getProductType('carrier-change')" tabindex="8">
+                                <mat-option *ngFor="let carrrierList of carrierList" [value]="carrrierList.CarrierId">
+                                  {{carrrierList.CarrierName}}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </section>
+                          <section class="full-widthRow">
+                            <label class="label">Product type</label>
+                            <mat-form-field appearance="outline">
+
+                              <mat-select formControlName='ProductType' placeholder="Select" tabindex="10" (selectionChange)='OnCheckIncomingScheduleExist($event)'>
+                                <mat-option *ngFor="let getProductType of productTypes" [value]="getProductType.NickName | lowercase">
+                                  {{getProductType.NickName }}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </section>
+                          <section class="full-widthRow">
+                            <label class="label">Policy term date</label>
+                            <mat-form-field appearance="outline" [ngClass]="{'wrongSecurity': ispolicyTermVShown}">
+                              <input matInput [matDatepicker]="picker2" tabindex="12" placeholder="MM/DD/YYYY" formControlName='PolicyTerminationDate'
+                                (focus)="picker2.open()" #policyTermDate='matInput' (blur)='ValidAllDatesFields()'>
+                              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                              <mat-datepicker #picker2 (closed)="ValidAllDatesFields()"></mat-datepicker>
+                              <span *ngIf="ispolicyTermVShown && !createNewPolicy.controls['PolicyTerminationDate'].errors?.required" class="error-Validation">{{validationMesaage.PolicyManagerValidation.policyTermNotGreaterDate}}</span>
+                              <mat-error *ngIf="createNewPolicy.controls['PolicyTerminationDate'].errors?.required && createNewPolicy.controls['PolicyTerminationDate'].dirty">
+                                {{validationMesaage.PolicyManagerValidation.PolicyTermDate}}
+                              </mat-error>
+                            </mat-form-field>
+                          </section>
+                          <section class="full-widthRow">
+                            <label class="label">Term reason</label>
+                            <mat-form-field appearance="outline" class="term-reason">
+                              <mat-select formControlName='TerminationReasonId' tabindex="15" placeholder="Select">
+                                <mat-option *ngFor="let termReasonList of terminationReasonList" [value]="termReasonList.TerminationReasonId">
+                                  {{termReasonList.TerminationReason}}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                            <span *ngIf="this.createNewPolicy.controls.PolicyStatusId.value != 1">
+                              <i class="tooltip-icon tooltip-position" matTooltip='Term reason can be set when policy status is "Terminated”'
+                                aria-label='Term reason can be set when policystatus is "Terminated”' [matTooltipPosition]="position.value">i</i>
+                            </span>
+                          </section>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="divRow">
+                      <section class="margin-top footer-area full-widthRow">
+                        <button type="button" mat-raised-button color='primary' class="pull-left mat-flat-button mat-primary coloured-primary-button"
+                          (click)='OnBeforeCreatePolicy()'>Next</button>
+
+                        <button type="button" mat-stroked-button class="pull-right" tabindex="18" (click)="OnPageRedirection('Cancel','')">Cancel</button>
+                      </section>
+
+
+                    </div>
+                  </mat-card>
+                </form>
+              </div>
+
+            </div>
+          </div>
+          <!----Create New Policy End---->
+          <!----Create Schedule Policy Start---->
+          <div class="example-header  padding-none full-widthForm" id="EnterDetailsForm" *ngIf="isScheduleFormEnabled">
+            <div class="divRow">
+              <div class="full-rowOuter add-editContainer formDesignCustom create-policyForm padding-bottom-none">
+                <form class="example-form" [formGroup]="createSchedule">
+                  <mat-card class="mat-card-style">
+                    <div class="TwoColumnLayout style-border  mg-t5 mg-b20">
+                      <div class="column-container settings-sec">
+
+                        <div class="top-title">
+                          <h4>Settings</h4>
+                        </div>
+                        <div class="col-4-lg  mg-b10 mg-t0 border-none setting-align">
+                          <mat-slide-toggle formControlName='IsTrackMissingMonth'>Track missing month</mat-slide-toggle>
+                        </div>
+                        <div class="col-4-lg  mg-b10 mg-t0 border-none">
+                          <mat-slide-toggle formControlName='IsTrackIncomingPercentage'>Track incoming %</mat-slide-toggle>
+                        </div>
+                        <div class="col-4-lg  mg-b10 mg-t0 border-none">
+                          <mat-slide-toggle formControlName='IsTrackPayment'>Track payment</mat-slide-toggle>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="TwoColumnLayout style-border mg-b20 pos-rel">
+                      <div class="column-container settings-sec">
+                        <div class="top-title">
+                          <h4>Incoming payment from payor</h4>
+                        </div>
+                        <div class="row-margin-custom  Payment-From-Payor">
+
+                          <div class="col-6-lg">
+                            <section class="full-widthRow">
+                              <label class="label">Type</label>
+                              <mat-form-field appearance="outline" class="p-r-120">
+                                <mat-select formControlName='IncomingPaymentTypeId' (selectionChange)='OnCheckIncomingScheduleExist($event)'>
+                                  <mat-option *ngFor="let item of payTypesList" [value]="item.PaymentTypeId">
+                                    {{item.PaymenProcedureName}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                              <div class="prim-link-text pull-right mg-t6 check-schedule m-r-24" (click)='OnCheckScheduleList()' *ngIf="isNamedScheduleExist"
+                                [ngClass]="{'prim-link-disable': userdetail?.Permissions[1].Permission === 1}">check-schedule</div>
+                            </section>
+                            <p>Schedule</p>
+                            <section class="full-widthRow mg-b10">
+                              <mat-radio-group formControlName='ScheduleTypeId' (change)='OnIncomingScheduleChange($event)'>
+                                <mat-radio-button value="1">% of Premium</mat-radio-button>
+                                <mat-radio-button value="2">Per head</mat-radio-button>
+                              </mat-radio-group>
+                            </section>
+
+
+                            <section class="full-widthRow split-box">
+                              <div class="half-width extra-servce">
+                                <label class="label">Split</label>
+                                <mat-form-field appearance="outline">
+                                  <label class="inline-box">%</label>
+                                  <input matInput class="percentage" formControlName='SplitPercentage' numbersWithDecimal appNumberFormat>
+                                </mat-form-field>
+
+                              </div>
+                              <div class="half-width p-r-24">
+                                <label class="label">Advanced payments</label>
+                                <mat-form-field appearance="outline">
+                                  <input matInput formControlName='Advance' numbersWithDecimal maxlength="4">
+                                </mat-form-field>
+                                <span class="hint-text fixed-atRight">months</span>
+                              </div>
+                            </section>
+                          </div>
+                          <div class="col-6-lg schedule-setting">
+                            <app-schedule-setting [isFormDisabled]='this.userdetail && this.userdetail && this.userdetail.Permissions[1].Permission === 1'
+                              [SceduleData]=customScheduleData (ScheduleData)='OnGettingScheduleData($event)' (onSaveScheduleData)='OnSaveCustomScheduleData($event)'
+                              [ValidationData]=validationData (OnChangingMode)='OnChangeIncomingMode($event)'></app-schedule-setting>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="style-border pos-rel payment_online new-design padding-top-none ">
+                      <div class="column-container settings-sec">
+                        <div class="top-title">
+                          <h4>Outgoing payments</h4>
+                        </div>
+                        <div class="row-margin-custom">
+                          <div class="coloumn-4 left-barScection pa-tp25 outgoing-pay-bg">
+                            <mat-slide-toggle formControlName='CustomSplit' (change)='onScheduleChanged($event)'> Custom Splits</mat-slide-toggle>
+                            <div class="pull-right">
+                              <mat-slide-toggle formControlName='Tier' (toggleChange)='OnChnageTierValue($event)' (dragChange)='OnChnageTierValue($event)'
+                                (change)='onScheduleChanged($event)'> Tiered</mat-slide-toggle>
+                            </div>
+                            <div>
+                              <p class="pa-tp10">Split schedule</p>
+                              <section class="full-widthRow">
+                                <mat-radio-group formControlName='SplitSchedule' (change)='OnOutgoingScheduleChange($event)'>
+                                  <mat-radio-button value="2">% of Commission</mat-radio-button>
+                                  <mat-radio-button value="1">% of Premium</mat-radio-button>
+                                </mat-radio-group>
+                              </section>
+                            </div>
+                            <div *ngIf="isCustomSchedule" class="pa-tp25">
+                              <p>Split based on</p>
+                              <section class="full-widthRow">
+                                <mat-radio-group formControlName='SplitBasedSchedule'>
+                                  <mat-radio-button value="Invoice">Invoice date</mat-radio-button>
+                                  <mat-radio-button value="Entered">Enter date</mat-radio-button>
+                                </mat-radio-group>
+                              </section>
+                            </div>
+                            <section class="full-widthRow">
+                              <div class="hightlight-box" *ngIf="this?.createSchedule?.controls.SplitSchedule.value==='2'">
+                                <p>Please ensure that sum of first year and renewal percentage of all agents in the outgoing
+                                  schedule equals 100% respectively.</p>
+                              </div>
+                              <div class="hightlight-box" *ngIf="this?.createSchedule?.controls.SplitSchedule.value==='1'">
+                                <p>Please ensure that sum of outgoing first year and renewal percentage of all agents in the
+                                  outgoing schedule matches the first year and renewal percentage of incoming schedule respectively.</p>
+                              </div>
+                            </section>
+
+                            <section class="full-widthRow">
+                              <label class="label">Primary agent</label>
+                              <mat-form-field appearance="outline">
+                                <mat-select placeholder="Select" formControlName='PrimaryAgent'>
+                                  <mat-option *ngFor="let AgentList of primaryAgentList" [value]="AgentList.UserCredentialID">
+                                    {{AgentList.NickName}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </section>
+                          </div>
+                          <div class="coloumn-8">
+                            <div class="outer-row">
+                              <div class="pull-right table-header-nav">
+                                <ul>
+                                  <li>
+                                    <button class="prim-link-text" [disabled]='isAddPayeeDisabled === true || isFormFieldDisabled=== true'
+                                      (click)='OnAddPayee($event)' [ngClass]="{'disable-link-text': isFormFieldDisabled || isAddPayeeDisabled}">Add Payee</button>
+                                  </li>
+                                  <li>
+                                    <button class="prim-link-text " (click)='onAddHouseAccount()' [disabled]='isFormFieldDisabled || isHouseAccBttnDisabled'
+                                      [ngClass]="{'disable-link-text': isFormFieldDisabled ||isHouseAccBttnDisabled}">Add House</button>
+                                  </li>
+                                  <li>
+                                    <button class="prim-link-text tooltip-btn" (click)='onSplitSchedule()' *ngIf="createSchedule?.controls?.CustomSplit?.value === false"
+                                      [disabled]='isFormFieldDisabled || isSplitEvenlyDisabled' [ngClass]="{'disable-link-text': isFormFieldDisabled ||isSplitEvenlyDisabled}">Split Evenly
+                                      <i class="tooltip-icon tooltip-position" matTooltip="Split evenly will work on the valid tier numbers only." *ngIf="createSchedule.controls.Tier.value===true">i</i>
+                                    </button>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div class="normal-box tableData tablediv table-styleDefault hide-for-Mobile">
+                                <div class="mat-elevation-z8 tableStyle">
+                                  <div class="table-outerScroller table-scroll outertablediv">
+                                    <p *ngIf="!isScheduleValid" class="error-section">{{invalidScheduleMsg}}
+                                      <a class="close_icon" (click)='CloseValidationMessage()'></a>
+                                    </p>
+
+                                    <app-mi-list [MiListProperties]='miEditList' (onMenuItemClick)="onMenuItemClick($event)"></app-mi-list>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="divRow">
+                      <section class="margin-top footer-area full-widthRow">
+                        <button mat-raised-button color='primary' class="pull-left mat-flat-button mat-primary coloured-primary-button" (click)='OnSavePolicyDetails()'
+                          [ngClass]="{'btn-disable': userdetail?.Permissions[1].Permission === 1}">{{SumbitbuttonText}}</button>
+                        <button mat-stroked-button (click)="OnPageRedirection('Cancel','')">Cancel</button>
+                      </section>
+                    </div>
+                  </mat-card>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!----Create Schedule Policy End---->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

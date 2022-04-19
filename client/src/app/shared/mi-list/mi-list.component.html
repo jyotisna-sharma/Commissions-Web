@@ -1,0 +1,135 @@
+<div class="normal-box tableData min-record" [ngClass]="{'max-record': (MiListProperties?.miDataSource.tableData && (MiListProperties?.miDataSource.tableData.length>20|| MiListProperties?.miDataSource.tableData.length>'20'))}">
+  <div class="mat-elevation-z8 tableStyle">
+    <div class="spinner-container loader-svgContainer" *ngIf="MiListProperties.miDataSource.loading$ | async">
+      <mat-spinner></mat-spinner>
+    </div>
+    <div class="table-outerScroller table-scroll-mi-listing">
+      <table mat-table [dataSource]="MiListProperties.miDataSource" (cdkObserveContent)="onDataLoaded()" matSort id="matTable"
+        multiTemplateDataRows class="mat-elevation-z8 responsive-table" multiple>
+        <ng-container *ngFor="let columData of MiListProperties.displayedColumns; let i=index" matColumnDef="{{columData}}">
+          <p *ngIf="MiListProperties.columnIsSortable[i] == 'false'">
+            <th mat-header-cell *matHeaderCellDef class="radio-ActionButtons">
+              <p *ngIf="MiListProperties.columnLabels[i] == 'Checkbox'">
+                <mat-checkbox [checked]='isFieldSelected' (change)="SelectAllCheckBox()" [disabled]='isButtonDisabled'>
+                </mat-checkbox>
+              </p>
+              <p *ngIf="MiListProperties.columnLabels[i] != 'Checkbox'">{{MiListProperties.columnLabels[i]}}</p>
+            </th>
+          </p>
+          <p *ngIf="MiListProperties.columnIsSortable[i] == 'true'">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header [disabled]="(MiListProperties?.miDataSource?.pageLength && (MiListProperties?.miDataSource?.pageLength ==='0' || MiListProperties?.miDataSource?.pageLength ===0))||
+              (MiListProperties?.miDataSource.tableData && (MiListProperties?.miDataSource.tableData.length===0|| MiListProperties?.miDataSource.tableData.length==='0'))">
+              <p *ngIf="MiListProperties.columnLabels[i] != 'Checkbox'">{{MiListProperties.columnLabels[i]}}</p>
+            </th>
+          </p>
+          <td class='f16' mat-cell *matCellDef="let element; let ij = dataIndex" >
+            <!-- ------- used for which type of filed ----------------- -->
+            <div *ngIf="MiListProperties.isEditablegrid === true && MiListProperties.fieldType[columData]">
+              <div *ngIf="MiListProperties.fieldType[columData].type==='inputDecimalNum'">
+                <mat-form-field appearance="outline">
+                  <label class="{{MiListProperties.fieldType[columData].class}}">{{MiListProperties.fieldType[columData].labelName}}</label>
+                  <input matInput maxlength='12' numbersWithDecimal appNumberWithDefault [(ngModel)]="element[columData]" class="percentage">
+                </mat-form-field>
+              </div>
+              <div *ngIf="MiListProperties.fieldType[columData].type==='inputNum'">
+                <mat-form-field appearance="outline">
+                  <label class="{{MiListProperties.fieldType[columData].class}}">{{MiListProperties.fieldType[columData].labelName}}</label>
+                  <input matInput numbers [(ngModel)]="element[columData]">
+                </mat-form-field>
+              </div>
+              <div *ngIf="MiListProperties.fieldType[columData].type==='inputDollar'">
+                <mat-form-field appearance="outline" class="has-dollar">
+                  <label class="dollar-box">$</label>
+                  <input matInput maxlength='12' numbersWithDecimal appNumberWithDefault [(ngModel)]="element[columData]" class="dollar">
+                </mat-form-field>
+              </div>
+              <div *ngIf="MiListProperties.fieldType[columData].type==='radio-button'">
+                <mat-radio-button #miRadio (click)="menuItemClicked('radio-button',element,miRadio,$event)">
+                </mat-radio-button>
+              </div>
+              <div *ngIf="MiListProperties.fieldType[columData].type==='DatePicker'">
+                <mat-form-field appearance="outline">
+                  <label class="inline-box">
+                    <mat-datepicker #picker></mat-datepicker>
+                  </label>
+                  <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY" [(ngModel)]="element[columData]">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                </mat-form-field>
+              </div>
+              <div *ngIf="MiListProperties.fieldType[columData].type==='check-box'">
+                <p>
+                  <mat-checkbox [checked]="element.Checked" (change)="CheckBoxClicked(element,$event);" [ngClass]="{'disable-icons': MiListProperties.fieldType[columData].isfunctionRequired == true ? MiListProperties.fieldType[columData].functionToReturnFieldValue(element): MiListProperties.fieldType[columData].itemLabel}">
+                  </mat-checkbox>
+                </p>
+              </div>
+            </div>
+            <!-- ------------------------------------------------------------------------------------------------------------------------------------- -->
+            <div *ngIf="(isObject(element[columData]))">
+              <!-- Add a class to a column------ -->
+              <p *ngIf="element[columData].Type == 'class'">
+                <span class='{{element[columData].CssClass}} '></span>{{element[columData].FormattedValue}}
+              </p>
+              <!-- Image-->
+              <p *ngIf="element[columData].Type == 'image'">
+                <img src='{{element[columData].Src}}' class='{{element[columData].CssClass}}' style='width: 66px; height:66px' />
+              </p>
+              <!-- Radio Button-->
+              <p *ngIf="element[columData].Type == 'radio-button'">
+                <mat-radio-button [checked]="element[columData].FormattedValue" (click)="menuItemClicked('radio-button',element,$event,'')"
+                  [ngClass]="{'disable-icons': isButtonDisabled}"></mat-radio-button>
+              </p>
+              <!-- Radio button list-->
+              <p *ngIf="element[columData].Type == 'radio-button-setting'">
+                <mat-radio-group name="{{element.ModuleName}}">
+                  <mat-radio-button value="{{MiListProperties.displayedColumns[i]}}" [checked]="(MiListProperties.displayedColumns[i] ===element.PermissionName)"
+                    (click)="menuItemClicked(MiListProperties.displayedColumns[i],element,'','')" [ngClass]="{'disable-icons': isButtonDisabled}"></mat-radio-button>
+                </mat-radio-group>
+              </p>
+              <!-- Checkbox-->
+              <p *ngIf="element[columData].Type == 'check-box'" class='{{element[columData].CssClass}}'>
+                <mat-checkbox [checked]="element[columData].FormattedValue " (change)="CheckBoxClicked(element)" [disabled]='isButtonDisabled'></mat-checkbox>
+              </p>
+              <!-- Toggle Button-->
+              <p *ngIf="element[columData].Type == 'toggle-button'" class='{{element[columData].CssClass}}'>
+                <mat-slide-toggle [checked]="element.Admin" (click)="menuItemClicked('toggle-button',element,'','')"
+                  [ngClass]="{'disable-icons': isButtonDisabled}">
+                </mat-slide-toggle>
+              </p>
+            </div>
+            <!-- ------------------------------------------------------------------------------------------------------------------------------------- -->
+            <!-- Column without style-->
+            <p *ngIf="MiListProperties.isEditablegrid === true && !MiListProperties.fieldType[columData]">
+              {{element[columData]}}</p>
+            <p *ngIf="!isObject(element[columData]) && (element[columData] !== 'action') && !MiListProperties.isEditablegrid">
+              {{element[columData]}}</p>
+            <p *ngIf=" !MiListProperties.isEditablegrid && ( isObject(element[columData]) && element[columData].Type==='AnchorTag') && (element[columData] !== 'action') ">
+              <a (click)="menuItemClicked(element[columData],element,'','')">{{element[columData].FormattedValue}}</a>
+            </p>
+
+            <!--  shown a Action Menu in listing -->
+            <div *ngIf="MiListProperties.miListMenu.visibleOnDesk && (element[columData] === 'action' || columData ==='Action')">
+
+              <button mat-icon-button [matTooltip]='miItem.itemName' *ngFor="let miItem of MiListProperties.miListMenu.menuItems; " [ngClass]="{'disable-icons': miItem.isFunction == true ? miItem.functionToReturnMenuItem(element): miItem.itemLabel}"
+                (click)="menuItemClicked(miItem.itemName, element, ij,element[columData]);$event.stopPropagation();">
+                <i class="{{miItem?.class}}"> </i>
+              </button>
+
+            </div>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="MiListProperties.displayedColumns;  sticky: true"></tr>
+        <div fxLayout="column" fxLayoutAlign="|start,center,end,space-around,space-between| |start,center,end,stretch|" fxLayoutGap="gappx">
+
+        </div>
+        <tr mat-row *matRowDef="let row; columns: MiListProperties.displayedColumns" (click)="menuItemClicked('row-click',row,$event)"></tr>
+      </table>
+    </div>
+    <p *ngIf="MiListProperties.miDataSource?.pageLength === 0|| MiListProperties?.miDataSource?.tableData?.length ===0" class="noDataFound">
+      <img src="assets/images/icon_no_records_found.png">
+    </p>
+    <div [ngClass]="{'hide': !MiListProperties.showPaging || MiListProperties?.miDataSource?.pageLength < minimumpagesize}">
+      <mat-paginator (page)="onPaginateChange($event)" [length]="MiListProperties.miDataSource?.pageLength" [pageSizeOptions]="pageSizeOptions"
+        class="pagination">
+      </mat-paginator>
+    </div>
+  </div>

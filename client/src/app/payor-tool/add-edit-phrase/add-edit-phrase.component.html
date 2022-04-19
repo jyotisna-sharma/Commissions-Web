@@ -1,0 +1,39 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showLoading">
+    <mat-spinner></mat-spinner>
+</div>
+
+<div class="popup-header">
+    <h4 matDialogTitle>{{data.title}}</h4>
+</div>
+
+<p class="error-section" *ngIf="isValidationShown">{{errorMsg}}
+    
+</p>
+<form [formGroup]="pharaseForm">
+    <div class="custom-row mg-t16">
+
+        <div class="col-12-lg">
+            <section>
+                <label class="label">{{data.fieldName}}</label>
+                <mat-form-field appearance="outline">
+                    <input matInput formControlName='PhraseName'>
+                </mat-form-field>
+                <mat-error *ngIf="pharaseForm.controls['PhraseName'].errors?.required && pharaseForm.controls['PhraseName'].dirty">
+                    {{data.fieldName}} cannot be blank.
+                </mat-error>
+                <mat-error *ngIf="(pharaseForm.controls['PhraseName'].hasError('minlength') ||  pharaseForm.controls['PhraseName'].hasError('maxlength')) ">
+                    {{data.fieldName}} must be between 3 to 100 characters long.
+                </mat-error>
+
+            </section>
+        </div>
+    </div>
+</form>
+<div  *ngIf="!isValidationShown" mat-dialog-actions class="align-right popup-footer">
+    <button mat-raised-button color="primary" class="mat-flat-button" (click)='SavePhraseDetails()'>Save</button>
+    <button mat-button mat-stroked-button [mat-dialog-close]='false'>Cancel</button>
+</div>
+<div *ngIf="isValidationShown" mat-dialog-actions class="align-right popup-footer">
+    <button mat-raised-button color="primary" class="mat-flat-button" (click)='SaveDuplicatePhrase()'>Yes</button>
+    <button mat-button mat-stroked-button [mat-dialog-close]='false'>No</button>
+</div>

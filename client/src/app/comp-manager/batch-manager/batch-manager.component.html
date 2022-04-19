@@ -1,0 +1,96 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showloading">
+    <mat-spinner></mat-spinner>
+</div>
+<div class="main-content">
+    <div class="filter-outerbox filterContianer">
+        <div class="example-header data-filterSec padding-none full-widthForm">
+            <div class="divRow">
+                <div class="full-rowOuter space-between">
+                    <h4 class="page-title">Comp Manager</h4>
+                    <div class="btn-section">
+                        <span>
+      <button class="loader-svg pull-left coloured-primary-button upload small-size" mat-flat-button
+        (click)="OpenFileUploadDialog()" [ngClass]="{'btn-disable': isButtonDisabled}"
+        [disabled]="userDetail?.Permissions[5]?.Permission===1">Upload</button></span>
+                        <!-- <button class="loader-svg export-button" mat-flat-button (click)="ExportToExcel()">Export</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="divRow">
+        <div class="tabs-container">
+            <app-comp-manager-left-navigation></app-comp-manager-left-navigation>
+            <div class="tabs-contentDiv">
+                <div class="filter-outerbox filterContianer">
+                    <div class="example-header data-filterSec padding-none">
+                        <div class="divRow margin-left-none">
+                            <div class="full-rowOuter space-between padding-left-none">
+                                <form>
+                                    <div class="batch-manager">
+                                        <div class="left-col">
+                                            <label class="label">Year:</label>
+                                            <div class="inline-block">
+                                            <mat-form-field appearance="outline">
+                                                <mat-select [formControl]='yearFilter' (selectionChange)='OnChangeYearFilter($event)'>
+                                                    <mat-option *ngFor="let year of yearFilters" [value]="year.value">
+                                                        {{year.value}}</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        </div>
+                                        <div class="left-col p-l-16" *ngIf="this.isMonthDropdownShow">
+                                            <label class="label">Months:</label>
+                                            <div class="inline-block">
+                                                <app-multiple-checkbox-dropdown [isListRefresh]=isYearChange [DropDownList]=this.monthsList (OnRefreshListData)='OnFilterBatchListMonthly($event)'></app-multiple-checkbox-dropdown>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="search-div">
+                                    <mat-form-field appearance="outline">
+                                        <input matInput placeholder='Search: Batch #, Status' [(ngModel)]="searchData" (keydown.enter)="doSearch()">
+                                    </mat-form-field>
+                                    <div class="btn-outerDiv align-withsearchBox search-cancel-btn">
+                                        <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="searchData='';handleSearchClear($event);" class="icon-cross" *ngIf="searchData">
+                                                <mat-icon>close</mat-icon>
+                                              </button>
+                                        <button mat-raised-button class="loader-svg pull-left icon-button" mat-button mat-stroked-button (click)="doSearch()">
+                                                <i class="img-icons search-icn"></i>
+                                                <label>Search</label>
+                                              </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="normal-box tableData tablediv listing-table">
+                    <div class="custom-row margin-right-none">
+                        <div class="col-12-lg col-12-md">
+                            <div class="batch-manager">
+                                <div class="left-col">
+                                    <h4 class="page-title">Batches ({{ this.batchList.miDataSource.getResponse && this.batchList.miDataSource.getResponse.TotalLength}})</h4>
+                                </div>
+                            </div>
+                            <div class="tableStyle batchListing">
+                                <app-comp-manager-list [isSortingRefresh]=isSortingRefresh [CompManagerList]='batchList' [isListRefresh]=isYearChange (OnSelectionChange)='this.GetStatemnentListPrmtrs($event)' (OnDataSorting)='OnStatementListHide()' (onMenuItemClick)='OnBatchMenuItemClick($event)'
+                                    (onPageChange)='OnStatementListHide()'></app-comp-manager-list>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="custom-row margin-right-none mr-top10" *ngIf="isStatmentListShown">
+                        <div class="col-12-lg col-12-md">
+                            <div class="batch-manager">
+                                <h4 class="page-title">Statements ({{this.statementList.miDataSource.getResponse && this.statementList.miDataSource.getResponse.TotalLength}})</h4>
+                            </div>
+                            <div class="tableStyle">
+                                <app-comp-manager-list [CompManagerList]='statementList' (onMenuItemClick)='OnStmtMenuItemClick($event)'></app-comp-manager-list>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--*************************************************************************************************************-->

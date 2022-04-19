@@ -1,0 +1,41 @@
+<div class="popup-header">
+  <h4 matDialogTitle>{{this.data.headingTitle}}</h4>
+
+</div>
+<p class="error-section" *ngIf="showValidationMessage">{{validationMessage}}
+  <a class="close_icon" (click)='OnCloseValidationPopup()'></a>
+</p>
+<form [formGroup]='CompTypeDetails'>
+  <div class="custom-row">
+    <div class="col-12-lg">
+      <section>
+        <label class="label">Comp type </label>
+        <mat-form-field appearance="outline" class="select-box-UI">
+          <mat-select formControlName='Comptype'>
+            <mat-option *ngFor="let comptype of this.data.comptypeList" [value]="comptype.PaymentTypeId">
+              {{comptype.PaymenProcedureName}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </section>
+    </div>
+
+  </div>
+  <div class="custom-row">
+    <div class="col-12-lg">
+      <section>
+        <label class="label">Name</label>
+        <mat-form-field appearance="outline">
+          <input matInput formControlName='Name'>
+        </mat-form-field>
+        <mat-error *ngIf="CompTypeDetails.controls['Name'].errors?.required && CompTypeDetails.controls['Name'].dirty">Please enter comp type name.</mat-error>
+        <mat-error *ngIf="CompTypeDetails.controls['Name'].errors?.maxlength && CompTypeDetails.controls['Name'].dirty">Name must be between 1 to 100 characters long.</mat-error>
+      </section>
+    </div>
+
+  </div>
+
+</form>
+<div mat-dialog-actions class="align-right popup-footer">
+  <button mat-raised-button class="mat-flat-button mat-primary" (click)='OnAddUpdateCompType()'>{{this.data.primaryButton}}</button>
+  <button mat-button mat-stroked-button [mat-dialog-close]='false'>Cancel</button>
+</div>

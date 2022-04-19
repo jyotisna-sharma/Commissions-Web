@@ -1,0 +1,286 @@
+.tabs-container {
+    /*min-height: 60vh;*/
+    padding-left: 172px;
+    position: relative;
+    width: 100%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    margin: 0 auto;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    ul.ul-tabs.tab-links {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+        li {
+            width: 100%;
+            float: left;
+        }
+        li {
+            a {
+                padding: 16px 24px;
+                display: block;
+                border-left: 3px solid transparent;
+                font-size: 12px;
+                font-weight: 500;
+                color: $link-color;
+                text-transform: capitalize;
+                text-decoration: none;
+                position: relative;
+                span.total-no {
+                    float: right;
+                }
+            }
+        }
+        li a::before {
+            background: $seprator-linecolor;
+            width: 100%;
+            height: 1px;
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+        }
+        li a.active {
+            background: #fff;
+            border-left: 3px solid $highlight-color;
+            color: $Primary-Color;
+            font-weight: 700;
+            cursor: context-menu;
+            text-decoration: none;
+        }
+        li a.active:hover,
+        li a.active:focus {
+            background: #fff !important;
+        }
+        a.nav-link.active::after {
+            width: 1px;
+            height: 100%;
+            background: #fff;
+            content: "";
+            display: block;
+            position: absolute;
+            right: -1px;
+            top: 0px;
+            bottom: 0px;
+        }
+        a:hover,
+        a:focus,
+        a.nav-link.active:hover,
+        a.nav-link.active:focus {
+            background: $hover-color;
+            border-left: 3px solid $highlight-color;
+        }
+        a.nav-disabled {
+            color: $nav-disabled;
+            background: transparent;
+            cursor: default;
+        }
+    }
+    .tabs_tab-bar {
+        border-bottom: none;
+        border-right: 1px solid $seprator-linecolor;
+        border-bottom: 1px solid $seprator-linecolor;
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        width: 172px;
+        height: 100%;
+        background: $light-blueBackground-2;
+        @media only screen and (max-width: $Break-Small - 1) {
+            display: block;
+            z-index: 2;
+            background: #fff;
+            width: 100%;
+            padding: 0 16px;
+            top: 38px;
+            height: auto;
+            display: none;
+            border: 0px;
+            background: transparent;
+            ul.ul-tabs.tab-links {
+                border: 1px solid $inputfield-color;
+                border-top: 0px;
+                border-top: 0px;
+                background: #fff;
+                a {
+                    border: 0px;
+                    font-weight: 600;
+                    min-height: 49px;
+                }
+                li a.active {
+                    border: 0px;
+                    color: $Grey-light !important;
+                    border-right: 1px solid;
+                }
+            }
+        }
+    }
+    .tabs_tab-bar.show {
+        display: block;
+    }
+    .tabs-contentDiv {
+        /* -webkit-box-flex: 0;
+                           -ms-flex: 0 0 84%; */
+        width: 100%;
+        max-width: 100%;
+        padding: 0px 24px;
+        background: #fff;
+        /*padding-bottom:24px;*/
+        border-bottom: 1px solid #e6e6e6;
+        min-height: 70vh;
+        @media only screen and (max-width: $Break-Small - 1) {
+            padding: 0px 16px;
+            background: transparent;
+        }
+        .full-rowOuter {
+            @extend %full-rowOuter;
+        }
+    }
+    @media only screen and (max-width: $Break-Small - 1) {
+        padding: 0px;
+    }
+}
+
+.tabs-dropbox {
+    width: 100%;
+    float: left;
+    text-align: center;
+    display: none;
+    padding: 7.5px 16px 0px;
+    button.mat-button {
+        float: left;
+        width: 100%;
+        position: relative;
+        padding: 0px 25px 0px 17px;
+        background: #fff;
+        border: 1px solid $inputfield-color;
+        min-height: 31px;
+        /* height: 30px; */
+        line-height: 31px;
+        text-align: left;
+        color: $Primary-Color;
+        span.mat-select-arrow-wrapper {
+            vertical-align: middle;
+            height: 20px;
+            float: right;
+            position: absolute;
+            right: 0;
+            top: 10px;
+            right: 8px;
+        }
+    }
+    @media only screen and (max-width: $Break-Small - 1) {
+        display: block;
+    }
+}
+
+.tabs-container .tabs-contentDiv {
+    .normal-box.tableData.tablediv {
+        @media only screen and (min-width: $Break-MobileScreen - 1) {
+            padding-bottom: 24px;
+        }
+    }
+}
+
+.tabs-container .tabs-contentDiv {
+    .normal-box.tableData.tablediv {
+        @media only screen and (min-width: $Break-Normal + 1) {
+            margin-right: -24px;
+            clear: both;
+            width: auto;
+            padding-bottom: 24px;
+        }
+    }
+}
+
+.tabs-container .normal-box.tableData.tablediv.listing-table {
+    app-mi-list {
+        .normal-box.tableData {
+            margin-right: 0px;
+        }
+    }
+}
+
+.tabs-container.no-leftNavigation {
+    padding-left: 0px;
+}
+
+.tabs-container ul.ul-tabs.tab-links li .comm-sub-menu {
+    background: #fff;
+    width: 100%;
+    float: left;
+    border-bottom: 1px solid #e6e6e6;
+    ul#menu {
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
+    }
+    li {
+        float: right;
+        width: 140px;
+    }
+    li.submenu a {
+        padding: 12px 0px;
+        border-left: transparent;
+        border-bottom: 0px;
+        min-height: 39px;
+    }
+    li.submenu a:hover {
+        background: #fff;
+        border-left: transparent;
+        color: #3455a5;
+    }
+    li.submenu a .active {
+        color: #3455a5;
+    }
+    li.submenu:last-child {
+        a {
+            border-bottom: px;
+        }
+        a::before {
+            display: none;
+        }
+    }
+}
+
+.tabs-container ul.ul-tabs.tab-links .mat-icon {
+    color: #767676;
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+}
+
+a.nav-disabled {
+    color: #ccc !important;
+}
+
+mat-tab-group {
+    background: #fff;
+    box-shadow: none !important;
+    .mat-tab-label {
+        opacity: 1;
+    }
+    .mat-tab-list {
+        .mat-tab-label.mat-tab-label-active {
+            color: #3455A5;
+            ;
+        }
+    }
+}

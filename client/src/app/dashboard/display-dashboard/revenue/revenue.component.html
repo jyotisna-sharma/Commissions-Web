@@ -1,0 +1,65 @@
+<div *ngFor="let RevenueData of this.RevenueData">
+    <div class="col-6-lg m-t-16 m-b-16 full-width-tab" [ngClass]='GetTabClassName(RevenueData.Title)'>
+        <div class="border-box p-t-15 p-r-24 p-b-0 p-l-24">
+            <h3 class="m-t-0 p-b-16 m-b-16 border-line-bot">{{RevenueData.Title}} <span class="small-txt">(Approx.)</span></h3>
+            <div class="custom-row">
+                <div class="col-4-lg">
+
+                    <div class="top p-b-16 m-b-16 border-dotted-bot">
+                        <p class="font-weight-bold text-cap m-t-8 m-b-6">MTD Revenue</p>
+                        <p class="dim-gray small-txt m-t-0 m-b-8">{{RevenueData.MTDCurrentLabel}}</p>
+                        <h4 class="m-x-0">{{RevenueData.MTDCurrentdata}}</h4>
+                    </div>
+
+                    <div class="middle p-b-16 m-b-16 border-dotted-bot ">
+                        <p class="dim-gray small-txt m-t-0 m-b-0">{{RevenueData.MTDLastLabel}}</p>
+                        <p class="font-weight-bold m-t-6 m-b-0">{{RevenueData.MTDLastData}}</p>
+                    </div>
+
+                    <div class="bottom p-b-16">
+                        <p class="dim-gray small-txt m-t-0 m-b-0">{{RevenueData.MTDGainLossLabel}}</p>
+                        <p class="font-weight-bold m-t-6 m-b-0" [ngClass]='GetGainLossValue(RevenueData.MTDGainLossLabel)'>{{RevenueData.MTDGainLoss}} {{RevenueData.MTDGainLossPercent}}</p>
+                    </div>
+                </div>
+
+                <div class="col-4-lg">
+                    <div class="top p-b-16 m-b-16 border-dotted-bot ">
+                        <p class="font-weight-bold text-cap m-t-8 m-b-6">YTD Revenue</p>
+                        <p class="dim-gray small-txt m-t-0 m-b-8">{{RevenueData.YTDCurrentLabel}}</p>
+                        <h4 class="m-x-0">{{RevenueData.YTDCurrentdata}}</h4>
+                    </div>
+
+                    <div class="middle p-b-16 m-b-16 border-dotted-bot ">
+                        <p class="dim-gray small-txt m-t-0 m-b-0">{{RevenueData.YTDLastLabel}}</p>
+                        <p class="font-weight-bold m-t-6 m-b-0">{{RevenueData.YTDLastData}}</p>
+                    </div>
+
+                    <div class="bottom p-b-16">
+                        <p class="dim-gray small-txt m-t-0 m-b-0">{{RevenueData.YTDGainLossLabel}}</p>
+                        <p class="font-weight-bold m-t-6 m-b-0" [ngClass]='GetGainLossValue(RevenueData.YTDGainLossLabel)'>{{RevenueData.YTDGainLoss}} {{RevenueData.YTDGainLossPercent}}</p>
+                    </div>
+                </div>
+
+
+                <div class="col-4-lg">
+                    <div class="top p-b-16 m-b-16 border-dotted-bot ">
+                        <p class="font-weight-bold text-cap m-t-8 m-b-6">Trailing 12 Months</p>
+                        <p class="dim-gray small-txt m-t-0 m-b-8">{{RevenueData.YearCurrentLabel}}</p>
+                        <h4 class="m-x-0">{{RevenueData.YearCurrentdata}}</h4>
+                    </div>
+
+                    <div class="middle p-b-16 m-b-16 border-dotted-bot ">
+                        <p class="dim-gray small-txt m-t-0 m-b-0">{{RevenueData.YearLastLabel}}</p>
+                        <p class="font-weight-bold m-t-6 m-b-0">{{RevenueData.YearLastData}}</p>
+                    </div>
+
+                    <div class="bottom p-b-16">
+                        <p class="dim-gray small-txt m-t-0 m-b-0">{{RevenueData.YearGainLossLabel}}</p>
+                        <p class="font-weight-bold m-t-6 m-b-0" [ngClass]='GetGainLossValue(RevenueData.YearGainLossLabel)'>{{RevenueData.YearGainLoss}} {{RevenueData.YearGainLossPercent}}</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

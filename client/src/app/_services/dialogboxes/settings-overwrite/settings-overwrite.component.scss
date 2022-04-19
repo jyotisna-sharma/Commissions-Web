@@ -1,0 +1,50 @@
+ul 
+{ 
+    color: #252729;
+    padding-left: 0px; list-style: none; margin: 0px;
+    li {
+        
+        margin-bottom: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        min-height: 30px;
+        padding-left: 32px;
+        position: relative;     font-size: 14px;
+        .mat-radio-button {
+            position: absolute;
+            left: 0px;
+        }
+    }
+    
+}
+.mat-dialog-content {
+h4 {
+    margin-top: 0px;
+    font-weight: 600;
+}
+}
+
+.popup-header  {
+    background: #f7f7f7;
+    margin: -24px;
+    margin-bottom: 24px;
+    padding: 10px 0px 0px 24px;
+    border-bottom: 1px solid #e6e6e6;
+    position: relative;
+    .close_icon {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        width: 16px;
+        height: 16px;
+        opacity: 0.3;
+    }
+}
+
+.popup-footer {
+    margin: -24px;
+    border-top: 1px solid #e6e6e6;
+    padding-top: 15px;
+    padding-right: 24px;
+    padding-bottom: 8px;
+}

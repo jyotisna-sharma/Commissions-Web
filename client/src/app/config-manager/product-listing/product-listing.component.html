@@ -1,0 +1,55 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showLoader">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="main-content">
+  <div class="filter-outerbox filterContianer">
+    <div class="example-header data-filterSec padding-none full-widthForm">
+      <div class="divRow">
+        <div class="full-rowOuter">
+            <h4 class="page-title">{{title}}</h4>
+          <h4 class="page-title"></h4>
+          <span> </span>
+          <div class="create-newDelegate" >
+              <button class="loader-svg pull-right create-button small-size" (click)='OnAddUpdateProduct("create","")' mat-flat-button  >
+                Create New Product 
+              </button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="divRow">
+    <div class="tabs-container"> 
+     <app-config-manager-left-navigation></app-config-manager-left-navigation>
+     <div class="tabs-contentDiv">
+        <div class="filter-outerbox filterContianer">
+          <div class="example-header data-filterSec padding-none full-widthForm">
+            <div class="divRow">
+              <div class="full-rowOuter border-none">
+                <div class="search-div">
+                  <mat-form-field appearance="outline">
+                    <input matInput placeholder='Search: Product Name'  [(ngModel)]="searchData" (keydown.enter)="doSearch()" >
+                  </mat-form-field>
+                  <div class="btn-outerDiv align-withsearchBox search-cancel-btn">
+                      <button mat-button  matSuffix mat-icon-button aria-label="Clear" (click)="searchData='';HandleSearchClear($event);" class="icon-cross" *ngIf="searchData">
+                          <mat-icon>close</mat-icon>
+                        </button>
+                    <button mat-raised-button class="loader-svg pull-left icon-button" mat-button mat-stroked-button  (click)="doSearch()" >
+                      <i class="img-icons search-icn"></i>
+                      <label>Search</label>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="normal-box tableData tablediv listing-table">
+              <app-mi-list [MiListProperties]=MiListProperties (onMenuItemClick)="OnMenuClicked($event)"></app-mi-list> 
+        </div>  
+      </div>
+    </div>
+  </div>
+</div>
+      <!--*************************************************************************************************************-->

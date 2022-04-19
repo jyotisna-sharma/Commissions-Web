@@ -1,0 +1,180 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showLoader">
+    <mat-spinner></mat-spinner>
+</div>
+<div class="main-content">
+    <div class="filter-outerbox filterContianer">
+        <div class="example-header data-filterSec padding-none full-widthForm">
+            <div class="divRow">
+                <div class="full-rowOuter space-between">
+                    <h4 class="page-title">Report Manager</h4>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="divRow">
+        <div class="tabs-container">
+            <app-report-manager-left-navigation></app-report-manager-left-navigation>
+            <div class="tabs-contentDiv">
+                <div class="normal-box tableData tablediv listing-table table-minHeight-160">
+                    <div class="custom-row margin-right-none">
+                        <div class="col-6-lg col-12-md">
+                            <div class="report-manager batch-report">
+                                <div class="left-col">
+                                    <h4 class="page-title">Batches ({{batchCount}})</h4>
+                                </div>
+                                <form [formGroup]='ListFilters'>
+                                    <div class="right-col">
+
+                                        <div *ngIf="isMonthShown">
+                                            <label class="label">Months:</label>
+                                            <div class="inline-block">
+                                                <app-multiple-checkbox-dropdown [DropDownList]=this.monthsFilters [isListRefresh]=isYearChange (OnRefreshListData)='this.OnFilterBatchListMonthly($event)'></app-multiple-checkbox-dropdown>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="right-col">
+                                        <label class="label">Filter:</label>
+                                        <mat-form-field appearance="outline">
+                                            <mat-select placeholder='Please Select' formControlName="mainFilter" (selectionChange)='OnChangeMainFilter($event)'>
+                                                <mat-option *ngFor="let filterName of mainFilterList" [value]="filterName.value">
+                                                    {{filterName.value}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+
+                                    </div>
+                                </form>
+                            </div>
+
+                            <app-mi-list [MiListProperties]=BatchDetailsListProperties (OnCheckBoxClick)='OnBatchListChkBoxClicked($event)' (SelectAllCheckBoxes)='OnbatchListSlctAllCheckBoxes($event)' [isFieldSelected]=batchAllCheckBoxSelect (AfterLoadingData)='AfterBatchDataLoading()'></app-mi-list>
+
+                        </div>
+                        <div class="col-3-lg col-12-md">
+                            <div class="payee-manager">
+                                <h4 class="page-title">Payees ({{PayeeCount}})</h4>
+                            </div>
+                            <div *ngIf="isBatchListfound">
+                                <!-- isBatchListfound = false or no value found for
+                                isBatchListfound comes into effect when //responseObject comes = null; in ReportManagerRouter.js
+                                and isBatchListfound is always = true because from C# code every time responseObject
+                                is intialised either with list count  = 0 (in this case it is initialised with message = "No data found"
+                                and code = "404")
+                                or list count > 0 (in this case it is initialised with list values, message = "Data found successfully"
+                                and code = "200") -->
+                                <app-mi-list [MiListProperties]=PayeeListProperties (OnCheckBoxClick)='OnPayeeListChkBoxClicked($event)' (SelectAllCheckBoxes)='OnPayeeListSlctAllCheckBoxes($event)' [isFieldSelected]=payeeAllCheckBoxSelect (AfterLoadingData)='AfterPayeeDataLoading()'></app-mi-list>
+                            </div>
+                        </div>
+
+
+                        <div class="col-3-lg col-12-md">
+                            <div class="payee-manager">
+                                <h4 class="page-title">Segments ({{SegmentCount}})</h4>
+                            </div>
+                            <div *ngIf="isBatchListfound">
+                                <!-- isBatchListfound = false or no value found for
+                                isBatchListfound comes into effect when //responseObject comes = null; in ReportManagerRouter.js
+                                and isBatchListfound is always = true because from C# code every time responseObject
+                                is intialised either with list count  = 0 (in this case it is initialised with message = "No data found"
+                                and code = "404")
+                                or list count > 0 (in this case it is initialised with list values, message = "Data found successfully"
+                                and code = "200") -->
+                                <app-mi-list [MiListProperties]=SegmentListProperties 
+                                (OnCheckBoxClick)='OnSegmentListChkBoxClicked($event)' 
+                                (SelectAllCheckBoxes)='OnSegmentListSlctAllCheckBoxes($event)' 
+                                [isFieldSelected]=segmentAllCheckBoxSelect 
+                                (AfterLoadingData)='AfterSegmentDataLoading()'></app-mi-list>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="custom-row margin-right-none mr-top10">
+                        <div class="col-12-lg col-12-md">
+                            <div class="report-manager">
+                                <h4 class="page-title">Reports ({{ReportCount}})</h4>
+                            </div>
+                            <!-- <div *ngIf="isPayeeListfound && isArison === false; then thenBlock else elseBlock"></div> -->
+
+                             <ng-template [ngIf] = "isPayeeListfound && isArison === false">
+                                 <!-- //IsArison check of radiobutton to uncomment
+                                    && isArison === false with ng-template
+                                        //IsArison check of radiobutton to uncomment    -->
+                                <div class="tableStyle table-scroll-data">
+                                    <app-mi-list [MiListProperties]=ReportNameProperties (OnCheckBoxClick)='OnReportNameChkBoxClicked($event)' 
+                                    (SelectAllCheckBoxes)='OnReportListSlctAllCheckBoxes($event)' [isFieldSelected]=reportAllCheckBoxSelect 
+                                    (AfterLoadingData)='AfterReportDataLoading()'></app-mi-list>
+                                </div>
+                            </ng-template>
+
+                            <!-- IsArison check of radiobutton to uncomment -->
+                                <ng-template [ngIf] = "isPayeeListfound && isArison === true">
+                                <div class="tableStyle table-scroll-data">
+                                    <app-mi-list [MiListProperties]=ReportNameProperties
+                                    (onMenuItemClick)='OnReportNameRbtnClicked($event)'></app-mi-list>
+                                </div>
+                            </ng-template> 
+                                <!-- IsArison check of radiobutton to uncomment -->
+                        </div>
+
+                    </div>
+                </div>
+                <div class="custom-row margin-right24">
+                    <div class="col-10-lg divider-right">
+                        <div class="left-div checkbox-group">
+                            <mat-checkbox class="example-margin" [formControl]='isZero' (change)='OnChangeIszero($event)'>Show zero
+                            </mat-checkbox>
+                            <mat-checkbox class="example-margin" [formControl]="isSubTotal" disbaled=true (change)='OnChangeSubTotal($event)'>Subtotal
+                            </mat-checkbox>
+                        </div>
+                        <div class="batch-report">
+                            <div class="year-col">
+                                <label class="label">Status:</label>
+                                <form [formGroup]="StatusFilter">
+                                    <mat-form-field appearance="outline">
+                                        <mat-select placeholder='Please Select' formControlName="statusFilterType">
+                                            <mat-option *ngFor="let statusValue of statusFilters" [value]="statusValue.value">
+                                                {{statusValue.value}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- IsArison check of radiobutton to uncomment -->
+                        <div class="col-1-lg" *ngIf="isArison">
+                        <div class="btn-section pull-right">
+                            <span matTooltip="This action is disabled as it requires 'Write' access for this module." [matTooltipDisabled]="userdetails?.Permissions[6].Permission === 2">
+                                <button class="loader-svg pull-left coloured-primary-button export small-size" mat-flat-button
+                                [disabled]="!isBatchPaid || !isBatchSelected || !isPayeeSelected"
+                                [ngClass]="{'btn-disable': !isBatchPaid || !isBatchSelected || !isPayeeSelected}"
+                                (click) = "SetBatchMarkAsPaid()">Mark Paid</button>
+                            </span>
+                        </div>
+                    </div>  
+                    <!-- IsArison check of radiobutton to uncomment -->
+
+                    <div class="col-2-lg">
+                        <div class="btn-section pull-right">
+                            <span matTooltip="This action is disabled as it requires 'Write' access for this module." [matTooltipDisabled]="userdetails?.Permissions[6].Permission === 2">
+                <button class="loader-svg pull-left coloured-primary-button export small-size" mat-flat-button
+                [disabled]='!isBatchSelected || !isPayeeSelected ||!isReportSelected || !isSegmentSelected || this.userdetails.Permissions[6].Permission==1' 
+                [ngClass]="{'btn-disable': !isBatchSelected || !isPayeeSelected||!isReportSelected|| !isSegmentSelected || this.userdetails.Permissions[6].Permission==1}"
+                  [matMenuTriggerFor]="menu2" >Export</button>
+                <mat-menu #menu2="matMenu" class="user-menu">
+                  <button mat-menu-item (click)='PrintReport("Excel")' class="excel-icon icon-button">
+                    Excel
+                  </button>
+                  <button mat-menu-item (click)='PrintReport("PDF")' [disabled]='isArison'  class="pdf-icon icon-button">
+                    PDF
+                  </button>
+                </mat-menu>
+              </span>
+                            <!-- <button class="loader-svg email-button" mat-flat-button [disabled]='!isBatchSelected || !isPayeeSelected ||!isReportSelected'
+                [ngClass]="{'btn-disable': !isBatchSelected || !isPayeeSelected||!isReportSelected}">Email</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

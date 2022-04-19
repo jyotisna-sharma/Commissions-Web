@@ -1,0 +1,108 @@
+.main-content {
+  button {
+    i.edit-icn {
+      background-position: -150px -45px;
+    }
+    i.setting-icn {
+      background-position: -150px -1px;
+    }
+    i.user-icn {
+      background-position: -150px -22px;
+    }
+    i.delete-icn {
+      background-position: -150px -68px;
+    }
+    i.duplicate-icn {
+      background-position: -150px -110px;
+    }
+    i.unlink-icn {
+      background-position: -152px -204px;
+    }
+    i.reverse-icn {
+      background-position: -150px -265px;
+    }
+    i.refresh-icn {
+      background-position: -149px -234px;
+    }
+    i.view-icn {
+      background-position: -149px -294px;
+    }
+    i.export-icn {
+      background-position: -187px 428px;
+    }
+    i.active-policy-icn {
+      background-position: -189px -116px;
+    }
+    i.link-icn {
+      background-position: -189px -142px;
+    }
+    i.arrow-up-icn {
+      background-position: -189px -169px;
+    }
+    i.arrow-down-icn {
+      background-position: -189px -197px;
+    }
+    i.contact-icn {
+      background-position: -227px -71px;
+    }
+    i.carrier-icn {
+      background-position: -227px -95px;
+    }
+    i.product-icn {
+      background-position: -227px -117px;
+    }
+    i.view-icn {
+      background-position: -265px -35px;
+    }
+    i.download-icn {
+      background-position: -189px -312px;
+    }
+  }
+}
+
+.mat-dialog-container {
+  button {
+    i.arrow-up-icn {
+      background-position: -189px -169px;
+    }
+    i.arrow-down-icn {
+      background-position: -189px -197px;
+    }
+  }
+}
+
+.check-icn {
+  background-position: -189px 245px;
+  display: inline-block;
+}
+
+.cancel-icn {
+  background-position: -190px 215px;
+  display: inline-block;
+}
+
+.custom-row {
+  button {
+    i.export-2-icn {
+      background-position: -267px -6px;
+    }
+  }
+}
+
+.sprite-bg {
+  background: url(/assets/images/sprite-icons.png);
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.minimize-icon {
+  background-position: -227px -345px;
+}
+.maximize-icon {
+  background-position: -227px -374px;
+}
+
+// .minimize-icon  {
+// background-position: ;
+// }

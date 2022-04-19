@@ -1,0 +1,17 @@
+::ng-deep button.filterButton {
+    width: 80%;
+    padding: 9px 10px;
+    background: #3455A5;
+    border: 0px;
+    color: #fff;
+    /* max-width: 144px; */
+    margin: 10px auto !important;
+    float: none;
+    display: inline-block;
+    margin-left: 10% !important;
+}
+
+ ::ng-deep .scrollMatOptionContainer {
+    max-height: 200px;
+    overflow: auto;
+}

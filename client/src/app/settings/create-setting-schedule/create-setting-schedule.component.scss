@@ -1,0 +1,173 @@
+.two-column-layout .custom-row {
+    margin: 0px;
+    // margin-right: -15px;
+}
+
+.add-editContainer .split-box {
+    max-width: 100%;
+}
+
+span.hint-text.fixed-atRight {
+    position: absolute;
+    top: 32px;
+    right: -25px;
+}
+
+.mat-radio-button.mat-accent {
+    margin-right: 20px;
+}
+
+p.error-section {
+    background: #f2dede;
+    padding: 8px 30px 8px 24px;
+    margin: -10px -39px 0px -39px;
+    border-top: 1px solid #ebccd1;
+    border-bottom: 1px solid #ebccd1;
+    margin-bottom: 10px;
+    color: #e03f3d;
+    font-size: 13px;
+    line-height: 20px;
+    position: relative;
+    .close_icon {
+        position: absolute;
+        right: 20px;
+        top: 14px;
+        width: 16px;
+        height: 16px;
+        opacity: 0.3;
+        margin-left: 20px;
+        display: block;
+    }
+    .close_icon:hover {
+        opacity: 1;
+    }
+    .close_icon:before,
+    .close_icon:after {
+        position: absolute;
+        left: 6px;
+        content: " ";
+        height: 10px;
+        width: 2px;
+        background-color: #a94442;
+    }
+    .close_icon:before {
+        transform: rotate(45deg);
+    }
+    .close_icon:after {
+        transform: rotate(-45deg);
+    }
+}
+
+:host ::ng-deep {
+    .table-outerScroller .main-content .listing-table .tableStyle table td .mat-datepicker-toggle .mat-icon-button:hover,
+    .table-outerScroller .main-content .listing-table .tableStyle table td .mat-datepicker-toggle .mat-icon-button:focus,
+    .table-outerScroller .normal-box.tableData .tableStyle table td .mat-datepicker-toggle .mat-icon-button:hover,
+    .table-outerScroller .normal-box.tableData .tableStyle table td .mat-datepicker-toggle .mat-icon-button:focus {
+        background-color: transparent !important;
+        border-color: transparent !important;
+        margin-top: 0px;
+        /* height: 100% !important; */
+        height: 31px !important;
+        width: 36px !important;
+        margin-right: -1px;
+    }
+}
+
+:host ::ng-deep {
+    .table-outerScroller .mat-form-field-prefix .mat-datepicker-toggle .mat-icon-button,
+    .table-outerScroller .mat-form-field-suffix .mat-datepicker-toggle .mat-icon-button {
+        margin-top: 0px;
+        /* height: 100% !important; */
+        height: 31px !important;
+        width: 36px !important;
+        margin-right: -1px;
+        opacity: 1;
+    }
+}
+
+:host ::ng-deep {
+    .field-margin-R .mat-form-field-wrapper {
+        margin-right: 24px;
+    }
+    .small-container {
+        max-width: 1050px !important;
+    }
+    .maxWidth-500 {
+        max-width: 500px;
+    }
+    .radio-btn-alignMiddle {
+        label {
+            margin-bottom: 14px;
+        }
+    }
+}
+
+.medium-width-container {
+    max-width: 1124px !important;
+}
+
+:host ::ng-deep .coloumn-lg-4 {
+    .normal-box.tableData {
+        .mat-form-field {
+            max-width: 100px;
+            margin-bottom: 5px;
+            .mat-form-field-wrapper {
+                margin-bottom: 3px;
+                padding-bottom: 0px;
+                .mat-form-field-infix {
+                    padding: 10px 0 10px 0;
+                }
+            }
+        }
+        .mat-column-Action>div {
+            min-width: auto;
+            text-align: right;
+        }
+        tbody {
+            tr:last-child {
+                td {
+                    border-bottom: 0px !important;
+                }
+            }
+        }
+    }
+    .error-section {
+        background: #f2dede;
+        padding: 8px 30px 8px 24px;
+        border-bottom: 1px solid #ebccd1;
+        margin-bottom: 5px;
+        color: #e03f3d;
+        font-size: 13px;
+        position: relative;
+        line-height: 20px;
+        margin-left: -24px;
+        margin-right: -24px;
+        margin-bottom: 8px;
+        margin-top: -44px;
+        .close_icon {
+            top: 14px;
+            right: 10px;
+        }
+        .close_icon:before,
+        .close_icon:after {
+            height: 12px;
+        }
+    }
+}
+
+.three-column-layout {
+    .coloumn-lg-4 {
+        @media only screen and (min-width: 981px) {
+            max-width: 33.33% !important;
+        }
+    }
+}
+
+mat-form-field {
+    input.dollar.mat-input-element {
+        padding-right: 8px !important;
+    }
+    input.percentage.mat-input-element {
+        padding-right: 40px !important;
+    }
+}

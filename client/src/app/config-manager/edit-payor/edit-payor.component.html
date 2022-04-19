@@ -1,0 +1,86 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showLoader">
+    <mat-spinner></mat-spinner>
+  </div> 
+<div class="popup-header">
+  <h4 matDialogTitle>{{data.headingTitle}}</h4>
+  <!-- <a class="close_icon" (click)='OnClosePopup(false)'></a> -->
+
+</div>
+<div class="hightlight-box" *ngIf="isError">
+    <p class="error-section">{{errorMessage}} <a class="close_icon"(click)='OnClosePopup(false)'></a></p>
+  </div>
+<form [formGroup]='SavePayor'>
+  <div class="custom-row">
+      <div class="col-6-lg">
+          <section>
+              <label class="label">Payor Name</label>
+              <mat-form-field appearance="outline">
+                  <input matInput formControlName='PayorName'>
+              </mat-form-field>
+              <mat-error *ngIf="SavePayor.controls['PayorName'].errors?.required && SavePayor.controls['PayorName'].dirty">Please enter payor name.</mat-error>
+              <mat-error *ngIf="SavePayor.controls['PayorName'].errors?.maxlength && SavePayor.controls['PayorName'].dirty">Payor Name must not exceed 100 characters.</mat-error>
+          </section>
+      </div> 
+      <div class="col-6-lg">
+          <section>
+              <label class="label">Nickname</label>
+              <mat-form-field appearance="outline">
+                  <input matInput formControlName='NickName' >
+              </mat-form-field>
+              <mat-error *ngIf="SavePayor.controls['NickName'].errors?.required && SavePayor.controls['NickName'].dirty">Please enter nickname.</mat-error>
+              <mat-error *ngIf="SavePayor.controls['NickName'].errors?.maxlength && SavePayor.controls['NickName'].dirty">Nickname must not exceed 100 characters.</mat-error>
+          </section>
+      </div>
+ </div>
+
+  <div class="custom-row">
+      <div class="col-6-lg">
+          <section>
+                <label class="label">Type</label>
+          <mat-radio-group formControlName='Type'>
+              <mat-radio-button value="0">Single Carrier</mat-radio-button>
+              <mat-radio-button value="1">General Agent</mat-radio-button>
+          </mat-radio-group>
+
+          </section>
+      </div>
+      <div class="col-6-lg">
+        <section>
+            <label class="label">Region</label>
+            <mat-form-field appearance="outline" class="select-box-UI">
+                <mat-select formControlName='Region' >
+                  <mat-option *ngFor="let list of regionList" [value]="list.RegionId">
+                    {{list.RegionName}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </section>
+    </div>
+  </div> 
+  
+<div class="custom-row">
+    <div class="col-6-lg">
+        <section>
+            <label class="label">Status</label>
+            <mat-radio-group formControlName='Status'>
+                <mat-radio-button value="0">Active</mat-radio-button>
+                <mat-radio-button value="1">Inactive</mat-radio-button>
+            </mat-radio-group>
+        </section>
+    </div>
+ 
+    <!-- <div class="col-6-lg">
+        <section>
+            <label class="label">Notes</label>
+        </section>
+        <mat-form-field appearance="outline">
+            <input matInput formControlName='Notes' >
+        </mat-form-field>
+    </div> -->
+</div> 
+
+</form>
+<div mat-dialog-actions class="align-right popup-footer">
+  <button mat-raised-button  class="mat-flat-button mat-primary"   (click)='OnSave()'>{{data.primaryButton}}</button>
+  <button mat-button mat-stroked-button [mat-dialog-close]='false'>{{data.secondryButton}}</button> 
+</div>

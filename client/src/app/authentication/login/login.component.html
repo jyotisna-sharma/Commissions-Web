@@ -1,0 +1,83 @@
+<!-- 
+ * @author: Rahul.
+ * @Name: login.component.html.
+ * @description: Provide the html for login component.
+ * @dated: 20 Aug, 2018.
+ * @modified: 20 Aug, 2018
+-->
+
+<div class="outer-container">
+   <main class="main-container">
+      <app-pre-login-header></app-pre-login-header>
+      <div class="center-align-div">
+         <div class="form-BoxConatiner">
+            <mat-card class="example-card">
+               <mat-card-header>
+                  <mat-card-title>Sign in</mat-card-title>
+               </mat-card-header>
+               <mat-card-content>
+                  <form class="login-form val-error UserPass-errMsg" [formGroup]="loginForm">
+                     <div class="container-outerHeight">
+                        <p class="login-errorMsg" *ngIf="showInvalidLoginMsg">
+                           {{authenValMess.LoginValidationMessages.account.notValid}}
+                        </p>
+                        <p  class="login-errorMsg" *ngIf=showErrorMessage>{{this.showErrorMessage}}</p>
+                        <div class="field-outer">
+                           <label class="label">Username</label>
+                           <mat-form-field appearance="outline">
+                              <input matInput formControlName="userName" ng-keyup="$event.keyCode == 13 ? submitLogin() : null"
+                                 #userName>
+                              <mat-error *ngIf="loginForm.controls['userName'].errors?.required &&
+                         loginForm.controls['userName'].dirty">
+                                 {{authenValMess.LoginValidationMessages.userName.required}}
+                              </mat-error>
+                           </mat-form-field>
+                        </div>
+                        <div class="field-outer">
+                           <label class="label">Password</label>
+                           <mat-form-field appearance="outline">
+                              <input matInput [type]="'password'" formControlName="password" ng-keyup="$event.keyCode == 13 ? submitLogin() : null">
+                              <mat-error *ngIf="loginForm.controls['password'].errors?.required &&
+                         loginForm.controls['password'].dirty">
+                                 {{authenValMess.LoginValidationMessages.password.required}}
+                              </mat-error>
+                           </mat-form-field>
+                        </div>
+                        <div class="bottom-div">
+                           <div class="full-row mg-b36">
+                              <div class="half left-div">
+                                 <mat-checkbox formControlName="rememberMe">Remember me</mat-checkbox>
+                              </div>
+                              <div class="half right">
+                                 <app-mi-button (onBtnClick)="submitLogin()" [showSpinner]="showLoader" btnLabel="Sign in"></app-mi-button>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="bottom-div bottom-fixed">
+                        <div class="row">
+                           <div class="bottom-link">
+                              <div class="half align-left"> <a class="mat-button link" routerLink="{{authenUrl?.PageRoute?.forgotPasswordRoute}}">Forgot
+                                    password?</a></div>
+                              <div class="half align-right"> <a class="mat-button link" routerLink="{{authenUrl?.PageRoute?.forgotUsername}}">Forgot
+                                    username?</a></div>
+                           </div>
+                        </div>
+                     </div>
+                  </form>
+               </mat-card-content>
+            </mat-card>
+
+         </div>
+
+         <div class="copyright text-center">
+            <p>&copy; {{today | date:'yyyy'}} Commissions Dept. All Right Reserved <br><br>
+             Version {{Appversion}}</p>
+         </div>
+         
+     
+      </div>
+
+   </main>
+</div>
+<!--*************************************************************************************************************-->

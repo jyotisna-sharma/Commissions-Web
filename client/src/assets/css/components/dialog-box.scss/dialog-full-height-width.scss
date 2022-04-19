@@ -1,0 +1,19 @@
+.full-dialog-header {
+    h4 {
+        font-weight: 600;
+    }
+    .close_icon {
+        top: 8px;
+    }
+    a.minimize-icon {
+        position: absolute;
+        right: 0px;
+        top: 6px;
+        right: 15px;
+    
+    }
+}
+
+html.cdk-global-scrollblock {
+    overflow: hidden !important;
+}

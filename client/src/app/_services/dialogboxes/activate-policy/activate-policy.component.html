@@ -1,0 +1,52 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showloading">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div class="popup-header">
+  <h4 matDialogTitle>Activate Policy</h4><a class="close_icon"  (click)='OnClosePopup()'></a>
+</div>
+
+<form [formGroup]='ActivatePolicy'>
+  <div class="custom-row mg-t16">
+    <div class="col-12-lg">
+      <section>
+        <label class="label">Current Client</label>
+        <mat-form-field appearance="outline">
+          <input matInput formControlName='CurrentClient' > 
+        </mat-form-field>
+      </section>
+    </div> 
+  </div>
+  <div class="custom-row">
+    <div class="col-12-lg">
+      <section>
+        <label class="label">Select Client</label>
+        <mat-form-field appearance="outline" class="select-box-UI" >
+          <!-- <mat-select formControlName='ClientList' >
+            <mat-option *ngFor="let list of clientsList" [value]="list.ClientId">
+              {{list.Name}}
+            </mat-option>
+          </mat-select> -->
+          <input type="text" aria-label="Number" matInput formControlName='ClientObject' placeholder="Enter client name"  [matAutocomplete]="auto" >
+
+          <!-- <mat-spinner [diameter]='20' *ngIf="isSearchLoading"></mat-spinner> -->
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="OnClientChange($event)">
+              <mat-option *ngFor="let clientList of ClientListing|async "
+                  [value]="clientList">
+                  {{clientList.Name}}
+              </mat-option>
+              <mat-option *ngIf="(this.ClientListing | async)?.length === 0" [disabled]="true">
+                  No Record Found
+              </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <!-- <mat-error *ngIf="ReversePayment.controls['UserName'].errors?.required && ReversePayment.controls['UserName'].dirty">Please select user.</mat-error> -->
+      </section>
+    </div>
+  </div>
+</form>
+<div mat-dialog-actions class="align-right popup-footer">
+  <button mat-raised-button color="primary"  [mat-dialog-close]='this.ActivatePolicy.controls.ClientList.value' class="mat-flat-button"  [ngClass]="{'btn-disable': userDetails.Permissions[1].Permission === 1}" [disabled]='userDetails.Permissions[1].Permission === 1' >Activate Policy</button>
+  <button mat-button mat-stroked-button [mat-dialog-close]='false'>Cancel</button>
+</div>
+

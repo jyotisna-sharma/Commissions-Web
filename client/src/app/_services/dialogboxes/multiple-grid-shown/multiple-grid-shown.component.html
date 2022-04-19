@@ -1,0 +1,40 @@
+<!-- <div class="spinner-container loader-svgContainer" *ngIf="showloading">
+  <mat-spinner></mat-spinner>
+</div> -->
+
+<div [ngClass]='data?.class'>
+  <div class="custom-row" *ngIf="data.isSecondListShown">
+    <div class="col-4-lg">
+      <h4 class="title" *ngIf="!showloading">{{data.title}}<span *ngIf="!data.secondGridData.isCountHiden"> :
+          ({{totalCount}})</span></h4>
+    </div>
+    <div class="col-8-lg" style="position: relative;">
+      <a class="close_icon" (click)='OnClosePopup()'></a>
+    </div>
+  </div>
+  <div *ngIf="data.isSecondListShown">
+    <app-mi-list [MiListProperties]=SecondListProperties (OnCheckBoxClick)='oncheckedvaluecheck($event)'
+      (onMenuItemClick)="MenuItemClicked($event)" (SelectAllCheckBoxes)='onSelectAll($event)' [isFieldSelected]=toggleSelect></app-mi-list>
+    <form [formGroup]='listform'>
+    </form>
+  </div>
+  <div class="custom-row">
+    <div class="col-4-lg">
+      <h5 class="title" *ngIf="!showloading">{{data.secondGridData.title}} <span *ngIf="!data.isCountHiden">:({{totalCount}})</span></h5>
+    </div>
+  </div>
+  <div >
+    <app-mi-list [MiListProperties]=MiListProperties (OnCheckBoxClick)='oncheckedvaluecheck($event)' (onMenuItemClick)="MenuItemClicked($event)"
+      (SelectAllCheckBoxes)='onSelectAll($event)' [isFieldSelected]=toggleSelect></app-mi-list>
+  </div>
+
+  <!-- <div mat-dialog-actions class="align-right fixed-footer-bottem">
+      <div class="custom-row">
+        <div class=" col-12-lg">
+          <button mat-button mat-raised-button color="primary" cdkFocusInitial [mat-dialog-close]='dataPassing'
+            [disabled]=data.otherData.isdisabled>{{data.primaryButton}}</button>
+          <button mat-button mat-stroked-button [mat-dialog-close]='false' *ngIf="data.secondryButton">{{data.secondryButton}}</button>
+        </div>
+      </div>
+    </div> -->
+</div>

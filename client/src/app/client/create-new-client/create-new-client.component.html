@@ -1,0 +1,165 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showloading">
+    <mat-spinner></mat-spinner>
+</div>
+<div class="main-content">
+    <app-breadcrumb [showNickName]="showNickName" [parentTab]="getRouteParamtersService?.parentTab" [pageName]="pagename" [moduleName]="moduleName" (onPageRedirectionClick)="OnPageRedirection($event)"></app-breadcrumb>
+    <div class="divRow">
+        <div class="tabs-container" [ngClass]="{' no-leftNavigation': true}">
+
+            <div class="tabs-contentDiv">
+                <div class="add-editContainer formDesignCustom">
+                    <div class="divRow">
+                        <div class="white-box">
+                            <form class="example-form" [formGroup]="clientForm" *ngIf=" isCreateForm|| showLoader ">
+                                <mat-card class="mat-card-style">
+                                    <div class="column-container two-column-form">
+                                        <div class="coloumn-lg-4">
+                                            <div class="top-title">
+                                                <h4>Personal information</h4>
+                                                <p class="require-text">Required field *</p>
+                                            </div>
+                                            <section class="full-widthRow">
+                                                <label class="label">Name *</label>
+                                                <mat-form-field appearance="outline">
+                                                    <input matInput formControlName="name" #firstnameref='matInput'  #nameInputField autofocus />
+                                                    <mat-error *ngIf="clientForm.controls['name'].errors?.required && clientForm.controls['name'].dirty">
+                                                        {{clientValidationMsg.CreateNewClientErrors.Name.required}}
+                                                    </mat-error>
+                                                    <mat-error *ngIf="(clientForm.controls['name'].hasError('minlength') || clientForm.controls['name'].hasError('maxlength')) && clientForm.controls['name'].dirty">
+                                                        {{clientValidationMsg.CreateNewClientErrors.Minlength.name}}
+                                                    </mat-error>
+                                                    <p *ngIf="isClientAlreadyExist" class="error-Validation">Client with same name already exists in the system.</p>
+                                                </mat-form-field>
+                                            </section>
+                                            <section class="full-widthRow" *ngIf="isArison">
+                                                <label class="label">Date Of Birth</label>
+                                                <mat-form-field appearance="outline" class="outer-shadow">
+                                                    <input matInput [matDatepicker]="picker"  placeholder="MM/DD/YYYY"  
+                                                    formControlName='dob' 
+                                                       >
+                                                    <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+                                                     <mat-datepicker #picker ></mat-datepicker>
+                                                    <!-- <mat-error *ngIf="createNewPolicy.controls['OriginalEffectiveDate'].errors?.required && createNewPolicy.controls['OriginalEffectiveDate'].dirty">
+                                                      {{validationMesaage.PolicyManagerValidation.originalEffectiveDate}}
+                                                    </mat-error> -->
+                                                  </mat-form-field>
+                                            </section>
+                                            <section class="full-widthRow"  *ngIf="isArison">
+                                                <label class="label">Social Security Number</label>
+                                                <mat-form-field appearance="outline">
+                                                    <input matInput formControlName="ssn" [showMaskTyped]="true" #ssnRef mask="000-00-0000" >
+                                                </mat-form-field>
+                                            </section>
+                                            <section class="full-widthRow"  *ngIf="isArison">
+                                                <label class="label">Gender</label>
+                                                <mat-form-field appearance="outline">
+                                                    <mat-select formControlName='gender' class="h" >
+                                                        <mat-option value="None">--Select Gender--</mat-option>
+                                                        <mat-option value="Male">Male</mat-option>
+                                                        <mat-option value="Female">Female</mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </section>
+                                            <section class="full-widthRow"  *ngIf="isArison">
+                                                <label class="label">Marital Status</label>
+                                                <mat-form-field appearance="outline">
+                                                    <mat-select formControlName='maritalStatus' class="h" >
+                                                        <mat-option value="None">--Select Marital Status--</mat-option>
+                                                        <mat-option value="Single">Single</mat-option>
+                                                        <mat-option value="Married">Married</mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </section>
+                                            
+                                        </div>
+                                        <div class="coloumn-lg-4">
+                                            <div class="top-title">
+                                                <h4>Contact information </h4>
+                                            </div>
+
+                                            <section class="full-widthRow">
+                                                <label class="label">Email</label>
+                                                <mat-form-field appearance="outline">
+                                                    <input matInput formControlName="email" >
+                                                    <mat-error *ngIf="clientForm.controls['email'].errors?.required && clientForm.controls['email'].dirty">
+                                                        {{clientValidationMsg.CreateNewClientErrors.EmailValidate.required}}
+                                                    </mat-error>
+                                                    <mat-error *ngIf="clientForm.controls['email'].errors?.pattern && clientForm.controls['email'].dirty">
+                                                        {{clientValidationMsg.CreateNewClientErrors.EmailValidate.pattern}}
+                                                    </mat-error>
+                                                    <!-- <p *ngIf="isEmailAlreadyExist" class="error-Validation">{{peoplemanagervalidation.CreateNewAgentErrors.EmailValidate.emailIdAlreadyExist}}</p> -->
+                                                </mat-form-field>
+                                            </section>
+
+
+                                            <app-phone-input  *ngIf="isArison" labelName='Phone' [formGroupData]=this.clientForm.controls.phone >
+                                            </app-phone-input>
+
+
+                                            <section class="full-widthRow fieldwithIcon" *ngIf="!showloading">
+                                                <label class="label">Address</label>
+                                                <mat-form-field appearance="outline" class='hidden'>
+                                                    <label class="img-icons search-icn"></label>
+                                                    <input matInput placeholder="Search address" formControlName="address" >
+                                                </mat-form-field>
+                                                <app-mi-autocomplete
+                                                class="search-icn" [postData]="Searchforstring"
+                                                [tabSequancing]='tabSequancing'
+                                                (autocompleteData)='fillInData($event)'
+                                                (textBoxValue)='getValue($event)'
+                                                (selAutoData)='GetSelectedAccount($event)' [editSelValue]='clientForm?.controls?.address?.value'>
+                                                <!-- (textBoxValue)='getValue($event)' [dataURL]="url"  -->
+                                                </app-mi-autocomplete>
+                                            </section>
+                                            <!-- Modify -->
+                                            <section class="full-widthRow" >
+                                                <div class="custom-row" >
+                                                    <div class="col-6-lg" >
+                                                    <label class="label">Address Line 2</label>
+                                                    <mat-form-field appearance="outline">
+                                                        <input matInput formControlName="flatno" >
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-6-lg" >
+                                                    <label class="label">City</label>
+                                                    <mat-form-field appearance="outline">
+                                                        <input matInput formControlName="city" id="city">
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            </section>
+                                            <section class="full-widthRow" >
+                                                <div class="custom-row" >
+                                                    <div class="col-6-lg" >
+                                                        <label class="label">State</label>
+                                                        <mat-form-field appearance="outline">
+                                                            <input matInput formControlName="state" id="state">
+                                                        </mat-form-field>
+                                                </div>
+                                                <div class="col-6-lg" >
+                                                    <label class="label">Zipcode</label>
+                                                    <mat-form-field appearance="outline">
+                                                        <input matInput formControlName="zipcode" id="zipcode">
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            </section>       
+                                        </div>
+                                    </div>
+                                    <div class="divRow">
+                                        <section class="margin-top footer-area full-widthRow">
+                                            <button type="button" mat-stroked-button class="pull-right" (click)="onCancel()" >Cancel</button>
+                                            <button type="submit" mat-raised-button color='primary' class="pull-right mat-flat-button mat-primary" (click)="updatedetails()" *ngIf="!isCreateButton" [disabled]="userdetail?.Permissions[1].Permission=== 1" [ngClass]="{'btn-disable': userdetail?.Permissions[1].Permission === 1}"
+                                                >Update</button>
+                                            <button type="submit" mat-raised-button color='primary' class="pull-right mat-flat-button mat-primary" (click)="createdetails()" *ngIf="isCreateButton" >Create</button>
+                                        </section>
+                                    </div>
+                                </mat-card>
+                            </form>
+                            <div class="spinner-container">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,274 @@
+<div [ngClass]="{'data-entry-unit-page col-12-lg m-t-96 p-t-0':this.appDataSvc.isHeaderShown}">
+  <div class="spinner-container loader-svgContainer" *ngIf="showLoader">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div class="popup-header col-12-lg p-t-0 full-dialog-header" *ngIf=!this.appDataSvc.isHeaderShown>
+    <h4 matDialogTitle class="m-x-0 f-s-14">Data Entry Unit</h4>
+    <a class="minimize-icon sprite-bg pull-right" (click)=OnCloseFullView()></a>
+  </div>
+  <div class="custom-row black80 m-x-0">
+    <div class="main-content minimized-pageContent col-12-lg p-t-0">
+      <div class="divRow">
+        <div class="fullBoxContainerMain p-x-0 white-bg">
+          <div class='col-6-lg col-12-md batch-statmnts-col'>
+            <mat-tab-group (selectedTabChange)="onTabChanged($event);">
+              <mat-tab label="Batch ({{this.batchCount}})">
+
+                <app-batch-statement-list [batchStatementList]=batchList [selectedRow]='selectedBatchIndex' (OnDivScrolling)=OnScrollingInList($event)
+                  (OnSelectionChange)='OnBatchChange($event)' [onFixedDivScroll]=onFixedDivScroll></app-batch-statement-list>
+              </mat-tab>
+              <mat-tab label="Statements ({{this.statementCount}})">
+                <div *ngIf="isStatmentListShown">
+                  <app-batch-statement-list [batchStatementList]=statementList [selectedRow]='selectedStatementIndex' [isListRefresh]='isListRefresh'
+                    (OnSelectionChange)='OnStatementChange($event)' (OnDivScrolling)=OnScrollingInList($event) [onFixedDivScroll]=onFixedDivScroll>
+                  </app-batch-statement-list>
+                </div>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+          <div class='col-6-lg col-12-md statment-col'>
+            <span class='statement-info f-s-12 m-t-8 white-bg'>Statement Info</span>
+            <a class="link pull-right f-s-12 m-t-7 sprite-bg maximize-icon" *ngIf=this.appDataSvc.isHeaderShown (click)=OnCloseFullView()></a>
+            <form [formGroup]='StatementInfoGroup' class="StatementInfoGroupBox border-box m-t-8 p-t-10 p-b-10 no-radious">
+              <section class="full-widthRow">
+                <div class="col-6-lg field-witk-label">
+                  <div class="display-table">
+                    <div class="table-cell">
+                      <label class="statement-info-label ">Batch</label>
+                    </div>
+                    <div class="table-cell">
+                      <mat-form-field appearance="outline" class="mat-field-small">
+                        <input matInput formControlName='BatchNumber' (blur)=OnFieldValueClear($event) type='number'>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div class='col-6-lg m-t-2 statnmt-links'>
+                  <a class='links' *ngIf=this.StatementInfoGroup.controls.BatchNumber.value (click)='OnCloseBatch();isFindStatamentNumber=false'>
+                    Close</a>
+                  <a class='links' (click)='OnClearBatchDetails();isFindStatamentNumber=false'> Clear</a>
+                  <a class='links' *ngIf=this.StatementInfoGroup.controls.BatchNumber.value (click)='OnFindBatch();isFindStatamentNumber=false'>
+                    Find</a>
+                  <a class='links' *ngIf=this.StatementInfoGroup.controls.BatchNumber.value (click)='OnBatchReOpen();isFindStatamentNumber=false'>
+                    Re-open</a>
+                  <a class='links' color="primary" *ngIf=this.StatementInfoGroup.controls.BatchNumber.value (click)='OnViewFile(this.selectedRecord)'>View File</a>
+                </div>
+              </section>
+              <section class="full-widthRow">
+                <div class="col-6-lg field-witk-label">
+                  <div class="display-table">
+                    <div class="table-cell">
+                      <label class="statement-info-label ">Statement ID</label>
+                    </div>
+                    <div class="table-cell">
+                      <mat-form-field appearance="outline" class="mat-field-small">
+                        <input matInput formControlName='StatementNumber' (blur)=OnFieldValueClear($event) type='number'>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div class='col-6-lg m-t-6 statnmt-links'>
+                  <a class='links' (click)='OnNewStatementCreate();isFindStatamentNumber=false'> New</a>
+                  <a class='links' *ngIf='this.StatementInfoGroup.controls.StatementNumber.value' (click)='OnFindStatementNumber();isFindStatamentNumber=false'>
+                    Find</a>
+                  <a class='links' (click)="CloseDialogBoxShown(false);isFindStatamentNumber=false" *ngIf="this.StatementInfoGroup.controls.StatementNumber.value && this.StatementInfoGroup.controls.StatmentStatus.value !== 'Close'">
+                    Close</a>
+                  <a class='links' (click)='OnOpenStatement();isFindStatamentNumber=false' *ngIf="this.StatementInfoGroup.controls.StatementNumber.value && this.StatementInfoGroup.controls.StatmentStatus.value === 'Close'">
+                    Open</a>
+
+                  <a class='links' (click)="CloseDialogBoxShown(true)" *ngIf="this.StatementInfoGroup.controls.StatementNumber.value && this.StatementInfoGroup.controls.StatmentStatus.value !== 'Close'">
+                    Close+New</a>
+                </div>
+              </section>
+              <section class="full-widthRow payor-row">
+                <div class='col-6-lg field-witk-label'>
+                  <div class="display-table">
+                    <div class="table-cell">
+                      <label class="statement-info-label">Payor</label>
+                    </div>
+                    <div class="table-cell">
+                      <!-- <mat-form-field appearance="outline" class="mat-field-small">
+                      <mat-select placeholder="Select" formControlName='PayorId' (selectionChange)='GetTemplateList()'>
+                        <mat-option *ngFor="let payor of payorList" [value]="payor.PayorID">
+                          {{payor.PayorName}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field> -->
+                      <mat-form-field appearance="outline" class="mat-field-small">
+                        <input type="text" matInput formControlName="PayorName" [matAutocomplete]="autoPayor" (blur)="GetTemplateList(true)">
+                        <mat-autocomplete autoActiveFirstOption #autoPayor="matAutocomplete" (optionSelected)="GetTemplateList(true)">
+                          <mat-option class="fontText"*ngFor="let payor of PayorListing |async" [value]="payor.PayorName" >
+                            {{payor.PayorName}}
+                          </mat-option>
+                        </mat-autocomplete>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div class='col-6-lg field-witk-label'>
+                  <div class="display-table">
+                    <div class="table-cell">
+                      <label class="statement-info-label">Template</label>
+                    </div>
+                    <div class="table-cell">
+                      <mat-form-field appearance="outline" class="mat-field-small">
+                        <mat-select placeholder="Select" formControlName='TemplateId' (selectionChange)='GetTemplateDetails()'>
+                          <mat-option *ngFor="let template of templateList" [value]="template.TemplateID">
+                            {{template.TemplateName}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+
+
+              </section>
+              <section class="full-widthRow">
+
+                <div class="col-6-lg field-witk-label">
+                  <div class="display-table">
+                    <div class="table-cell">
+                      <label class="statement-info-label ">Check Amt</label>
+                    </div>
+                    <div class="table-cell">
+                      <mat-form-field appearance="outline" class="field-with-label mat-field-small">
+                        <label class="inline-box-dollar">$</label>
+                        <input class="dollar" formControlName='CheckAmount' matInput (blur)="OnCheckAmtChange('Check Amount')">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6-lg field-witk-label">
+                  <div class="display-table">
+                    <div class="table-cell">
+                      <label class="statement-info-label">Statement Date</label>
+                    </div>
+                    <!-- <mat-form-field appearance="outline" class='m-l-112'>
+                <input matInput formControlName='StatementDate'>
+              </mat-form-field> -->
+                    <div class="table-cell">
+                      <mat-form-field appearance="outline" class="statementDate mat-field-small">
+                        <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY" [(ngModel)]=lastStatementDate [ngModelOptions]="{standalone: true}"
+                          (dateChange)="OnStatementDateChange($event)">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="full-widthRow">
+                <div class="col-6-lg field-witk-label">
+                  <div class="display-table">
+                    <div class="table-cell">
+                      <label class="statement-info-label ">BalFor/Adj</label>
+                    </div>
+                    <div class="table-cell">
+                      <mat-form-field appearance="outline" class="field-with-label mat-field-small">
+                        <label class="inline-box-dollar">$</label>
+                        <input matInput formControlName='BalForAdj' (blur)="OnUpdatingBalAdjField()">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6-lg field-witk-label">
+                  <!-- <div class="display-table">
+                <div class="table-cell">
+                  <label class="statement-info-label ">StatmentStatus</label>
+                </div>
+                <div class="table-cell">
+                  <mat-form-field appearance="outline" class="mat-field-small">
+                    <input matInput formControlName='StatmentStatus'>
+                  </mat-form-field>
+                </div>
+              </div> -->
+
+                  <div class="display-table">
+                    <div class="table-cell">
+                      <label class="statement-info-label ">Pages</label>
+                    </div>
+                    <div class="table-cell">
+                      <mat-form-field appearance="outline" class="mat-field-small">
+                        <input matInput maxlength="100" formControlName='Pages' (blur)="OnPageChange()">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="full-widthRow p-t-4 m-b-0">
+                <div class="col-5-lg">
+
+                  <label class='minus-m-l-2 label-inline'> Net Check : </label>
+                  <span class='m-l-13 black60'>${{this.StatementInfoGroup.controls.NetCheckAmount.value}}</span>
+
+                </div>
+                <div class="col-7-lg">
+                  <div class="display-table width-auto">
+                    <div class="table-cell">
+                      <label class="label-inline"> Entered : </label>
+                      <span class='m-l-10  black60'>${{this.StatementInfoGroup.controls.EnteredAmount.value}},</span>
+                    </div>
+                    <div class="table-cell">
+                      <span class='m-l-5  black60'>{{this.totalPercentage === "Infinity" || this.totalPercentage === "NaN" ? "0.00" : this.totalPercentage}}%
+                      </span>
+                      <label> Complete
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </form>
+          </div>
+          <div class='col-12-lg text-center m-t-2'>
+            <div class='deu-post-entry text-center'>
+              <app-post-entry-section [StatementInfoGroup]=StatementInfoGroup [isTemplateDataShown]=isTemplateDataShown [isSelectedPaymentDetails]=isSelectedPaymentDetails
+                [policyLearnedFields]=policyLearnedFields (afterProcessPaymentEntry)=UpdateStatementAfterPost($event) (afterPostPaymentEntry)=UpdatePaymentAfterPost($event)
+                (PostedPaymentData)=OnGettingPaymentDetails($event) (isNewEntryPost)='OnPostNewDataEntry()' (IsFirstPaymentIndexSelected)="OnSelectedFirstPageIndex($event)"></app-post-entry-section>
+            </div>
+          </div>
+          <div *ngIf='isSearchPolicyListShown'>
+            <app-post-entry-bottom-section [StatementInfoGroup]=StatementInfoGroup [isSearchPolicyGridShown]=searchPolicyParameters (policyLearnedFields)=PolicyLearnedFields($event)>
+            </app-post-entry-bottom-section>
+          </div>
+
+          <div *ngIf='isPostedPaymentListShown'>
+            <div class="custom-row m-x-0 text-center">
+              <div class="col-12-lg  m-t-8 minimize-height-5">
+                <h4 class="page-title text-cap">Commissions posted for statement #{{ this.selectedStatmentRecord && this.selectedStatmentRecord.StatementNumber}}
+                </h4>
+                <label class="label-middle">
+                  <a>
+                    <span class="no-count" (click)='OnGettingPostedPaymentList(false)'> Entries Count: {{this.StatementInfoGroup.controls.PaymentEntriesCount.value}}</span>
+                  </a>
+                  <a>
+                    <span class="no-count error" (click)='OnGettingPostedPaymentList(true)'> Error Count: {{this.errorCount}}</span>
+                  </a>
+                </label>
+                <span>
+                  <h4 class="errorMessage m-t-9 m-b-0">*Any payment with red background must be reposted as it indicates error </h4>
+                </span>
+                <app-batch-statement-list [batchStatementList]=postedPaymentList [selectedRow]='postedPaymentIndex' (OnSelectionChange)='OnPaymentSelectionChange($event)'
+                  (OnPageDetailsChange)='OnChangeStartEditText()' [isListRefresh]='isPaymentListRefresh' [isPageReset]=isPageReset></app-batch-statement-list>
+              </div>
+            </div>
+            <div class="custom-row m-x-0">
+              <div class="col-12-lg text-right p-r-0">
+                <a mat-button color="primary" [ngClass]="{'disabled': (this.lastPaymentRecord && this.lastPaymentRecord.isProcessing) ||
+                (this.StatementInfoGroup.controls.PaymentEntriesCount.value===0)  ||(this.dataEntryUnitSvc.isErrorListDEUEntry && this.errorCount==0)}"
+                  (click)='OnClickStartEdit()'>{{this.dataEntryUnitSvc.buttonText}}</a>
+                <a mat-button color="primary" [ngClass]="{'disabled': (this.lastPaymentRecord && this.lastPaymentRecord.isProcessing)||
+                (this.StatementInfoGroup.controls.PaymentEntriesCount.value===0) ||(this.dataEntryUnitSvc.isErrorListDEUEntry && this.errorCount==0)}"
+                  (click)='OnDeleteSelectedPayment()'>Delete</a>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!--*************************************************************************************************************-->

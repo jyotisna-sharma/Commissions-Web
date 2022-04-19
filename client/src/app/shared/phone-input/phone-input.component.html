@@ -1,0 +1,10 @@
+<form [formGroup]='formGroupData'>
+    <section class="full-widthRow country-phonrCode">
+        <label class="label">{{labelName}}</label>
+        <mat-form-field appearance="outline">
+            <input type='text' formControlName="PhoneNumber" #phoneNumber (hasError)="hasErrorInPhone($event)" [ng2TelInputOptions]="{initialCountry: 'us', formatOnDisplay: true }" (intlTelInputObject)="setPhoneInputObject($event)" matInput ng2TelInput (countryChange)="onCountryChange($event)"
+                (blur)="autoformatData()">
+            <p class="error-Validation" *ngIf="this.formGroupData.controls.IsFormValid.value && this.formGroupData.controls.PhoneNumber.value">Please enter valid {{labelName}}.</p>
+        </mat-form-field>
+    </section>
+</form>

@@ -1,0 +1,70 @@
+@import '../../../assets/css/global.scss';
+@import '../../../assets/css/pre-login-common.scss';
+footer {
+	margin-top: 40px;
+}
+
+.main-container {
+	.form-BoxConatiner {
+		width: 95%;
+		max-width: 400px;
+		margin: 0px auto;
+		.mat-card {
+			padding: 30px 22px 0px 22px;
+			float: left;
+			width: 100%;
+			box-sizing: border-box;
+		}
+		mat-card-content.mat-card-content {
+			padding: 8px;
+		}
+		a.mat-button {
+			color: $Primary-Color;
+			@include transition(300ms);
+		}
+		a.mat-button.link:hover,
+		a.mat-button.link:focus {
+			background: $Primary-ColorLightOpacity
+		}
+		.ContentOuter-div {
+			min-height: 212px;
+        }
+        .text-mainSec {
+            min-height: 292px;
+		}
+		 .text-mainSec.lessheight {
+			min-height: 323px;
+		}
+		.text-mainSec.lessheightSecurity {
+			min-height: 276px;
+			.security-ques {
+			 p{
+				 margin-bottom: 24px;
+				 margin-top: 0px;
+			 }
+			 p::last-child {
+				margin-bottom: 20px;
+			}
+		}
+		}
+		.mat-card-content p.error.ng-star-inserted {			
+			margin-top: -24px;
+			font-size:12px;
+		}
+		.security-ques p{
+			font-weight: 400;
+		}
+		p.login-errorMsg.mg-t5.ng-star-inserted {
+			margin-top: -24px;
+		}
+		
+	}
+	footer {
+		display: block;
+	}
+	/* .confirmation-box.ng-star-inserted { 
+                    padding-top: 0px; position: absolute; left: 0px; right: 0px; top: 50%; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); -webkit-transform: translateY(-50%); -o-transform: translateY(-50%); transform: translateY(-50%); 
+                       @media screen and (max-height: 460px) and (orientation: landscape)  { position: relative; top: auto;  -webkit-transform: translateY(0%); -ms-transform: translateY(0%); -webkit-transform: translateY(0%); -o-transform: translateY(0%); transform: translateY(0%)
+                       }
+             } */
+}

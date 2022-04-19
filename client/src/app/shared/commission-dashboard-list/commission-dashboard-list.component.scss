@@ -1,0 +1,142 @@
+@import'../../../assets/css/global.scss';
+.down-arrow{
+    background: url(/assets/images/sprite-icons.png);
+    background-position: -113px -591px;
+    width: 11px;
+    height: 13px;
+    margin-left: 3px;
+    float:right;
+    line-height: 13px;
+    
+}
+button.custom-menu{
+    line-height:36px;
+    height:36px;
+    border-bottom:1px solid #e6e6e6;
+    font-size:13px;
+}
+mat-form-field.has-dollar {
+label.inline-box.left-align {
+    left: 1px;
+    border-left: 0px; border-right: 1px solid #ccc;
+}
+input {
+    padding-left: 42px !important;
+}
+}
+label.dollar-box {
+    position: absolute;
+    left: 1px;
+    padding-right: 0px;
+    // height: 32px;
+    background: #f7f7f7;
+    width: 35px;
+    top: -0.53em;
+    line-height: 28px;
+    text-align: center;
+    border-right: 1px solid #ccc;
+    color:#252729;  
+}
+
+label.percentage-box {
+    position: absolute;
+    right: 1px;
+    padding-right: 0px;
+    // height: 32px;
+    background: #f7f7f7;
+    width: 35px;
+    top: -.53em;
+    line-height: 28px;
+    text-align: center;
+    border-left: 1px solid #ccc;
+    color:#252729;
+}
+:host ::ng-deep {
+    .mat-form-field-infix input.dollar 
+    {
+    padding-left: 46px !important;
+    padding-right: 15px !important;
+    }
+    .mat-form-field-infix input.percentage
+    {
+    padding-left: 10px !important;
+    padding-right: 46px !important;
+    }
+}
+input.dollar.mat-input-element, input.percentage.mat-input-element {
+    top: 0px !important;    
+}
+:host ::ng-deep {
+
+.mat-form-field-appearance-outline .mat-form-field-outline-end, .mat-form-field-appearance-outline .mat-form-field-outline-gap ,.mat-form-field-appearance-outline .mat-form-field-outline-start{
+    background: #fff;
+  }
+  .mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: .0em 0 0px;    
+}
+}
+
+table tr th.cdk-column-Premium.mat-column-Premium, table tr th.cdk-column-Unit.mat-column-Unit{
+    background:#fff;
+    border-left:1px solid #e6e6e6;
+    border-right:1px solid #e6e6e6;
+    p{
+        text-align: center !important;
+        text-transform: uppercase;        
+    }
+}
+table tr th.cdk-column-Premium.mat-column-Premium
+{
+    border-right:0px;  
+}
+table tr th.cdk-column-PaymentRecived.mat-column-PaymentRecived {
+    border-left:1px solid #e6e6e6;   
+}
+table tr th.cdk-column-NumberOfUnits.mat-column-NumberOfUnits {
+    border-left:1px solid #e6e6e6;
+}
+table tr th.cdk-column-Fee.mat-column-Fee {
+    border-right:1px solid #e6e6e6;
+}
+table tr th.cdk-column-Outgoing---of.mat-column-Outgoing---of {
+    background:#fff;
+    border-left:1px solid #e6e6e6;
+    border-right:1px solid #e6e6e6;
+    p{
+        text-align: center !important;
+        text-transform: uppercase;        
+    }
+}
+table tr th.cdk-column-OutgoingPremium.mat-column-OutgoingPremium
+{
+    border-left:1px solid #e6e6e6;
+}
+table tr th.cdk-column-Payment.mat-column-Payment
+{
+    border-right:1px solid #e6e6e6;
+}
+ //For mozilla// 
+ @-moz-document url-prefix() 
+ {
+     label.dollar-box, label.percentage-box { line-height: 28px; top: -0.45em !important;}        
+ }
+  //For Mac// 
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2)  and (min-resolution: 192dpi)
+{
+   label.dollar-box, label.percentage-box { line-height: 28px; top: -0.47em !important;} 
+} 
+ //For Edge// 
+ _:-ms-lang(x),  
+ table tr th { 
+   outline: 1px solid #e6e6e6;
+  }
+//For IE//
+@media all and (-ms-high-contrast:none)
+     {
+		table tr th  {outline: 1px solid transparent !important;}
+     }
+
+
+    :host ::ng-deep .mat-form-field-appearance-outline.validation-error .mat-form-field-outline-end {
+        border-color: $Validation-warning;
+    } 

@@ -1,0 +1,2079 @@
+/** * @author: Rahul. * @Name: custom-theme.css. * @description: added design for all page color, font and layout. * @dated: 20 Aug, 2018. * @modified: 20 Aug, 2018 **/
+body {
+    font-family: 'Open Sans', sans-serif;
+     background: #f7f7f7;
+}
+ body, html{
+    min-height: 100%;
+     height: 100%;
+     color: #252729;
+}
+ *{
+    box-sizing: border-box;
+}
+ .mat-form-field-infix{
+     position: absolute;
+     top: 0px;
+}
+ .mat-form-field-autofill-control{
+     position: absolute;
+     top:0px;
+}
+/* ---------------------- universal css starts -------------------- */
+ h1,h2,h3,h4,h5,p {
+    color: #252729;
+}
+ a{
+    color: #00558c;
+     text-decoration: none;
+}
+ .lightgrey-text {
+    color: #999;
+}
+ div .mat-fab.mat-primary, .mat-flat-button.mat-primary, div .mat-mini-fab.mat-primary, div .mat-raised-button.mat-primary {
+    background-color: #00558c;
+}
+ .mg-b10 {
+    margin-bottom: 10px !important;
+}
+ .pull-right{
+    float: right !important;
+}
+ .mg-b70{
+    margin-bottom: 70px !important;
+}
+ .text-center{
+    text-align: center;
+}
+ .mg-b20{
+    margin-bottom: 20px;
+}
+ .mg-b25{
+    margin-bottom: 25px;
+}
+ .mg-b36 {
+    margin-bottom: 36px;
+}
+ .mg-b20{
+     margin-bottom: 20px !important;
+}
+ .mg-b5{
+    margin-bottom: 5px !important;
+}
+ .mg-t0{
+    margin-top: 0px;
+}
+ .mg-t5{
+    margin-top: 5px;
+}
+.mg-t10 {
+    margin-top: 10px !important;
+}
+ .padding-none{
+    padding: 0px;
+}
+ .dashboard-container .sidebar-menu li a {
+     transition: 300ms ease all;
+     -webkit-transition: 300ms ease all;
+     -moz-transition: 300ms ease all;
+     -ms-transition: 300ms ease all;
+     -o-transition: 300ms ease all;
+}
+ .shadow-design1 {
+     box-shadow: 0 3px 1px -2px rgba(0,0,0,0.01), 0 2px 2px 0 rgba(0,0,0,.01), 0 1px 5px 0 rgba(0,0,0,.01) 
+}
+ .mat-raised-button:not([class*=mat-elevation-z]) {
+     box-shadow: none !important;
+}
+/* --------------------- universal css ends ------------------------ */
+ div .mat-card {
+     font-family: 'Open Sans', sans-serif;
+}
+ .form-BoxConatiner form .field-outer input , .form-BoxConatiner form textarea {
+     width: 100%;
+     clear: both;
+}
+ .header-logo {
+    max-width: 155px;
+     margin: 12px auto 10px !important;
+     float: none;
+}
+ .form-BoxConatiner {
+     width: 95%;
+     max-width: 400px;
+     margin: 66px auto;
+}
+ .top-header .mat-grid-tile {
+     text-align: center;
+}
+ .top-header .mat-grid-tile .mat-figure {
+    margin: 0 auto;
+}
+ body div form.login-form .mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-touched.mat-focused .mat-icon, body div form.login-form .mat-form-field-type-mat-input.mat-primary.mat-form-field-appearance-outline.mat-form-field-can-float.ng-untouched.mat-focused .mat-icon {
+     color: #00558c;
+}
+/* ----------------------------------- form fields (input) css starts ---------------------------------------------------- */
+ .form-BoxConatiner label.mat-checkbox-layout {
+     margin-top: 6px;
+}
+ .form-BoxConatiner mat-card-title.mat-card-title , .form-BoxConatiner .mat-card-header .mat-card-title {
+     font-size: 24px;
+     font-weight: 600;
+     margin-bottom: 33px;
+     color: #252729;
+}
+ .form-BoxConatiner mat-card-content.mat-card-content {
+     padding: 8px;
+}
+ .mat-form-field-appearance-outline:focus .mat-form-field-outline-start, .mat-form-field-appearance-outline:focus .mat-form-field-outline-end{
+     border-color: #00558c;
+     box-shadow: 0px 32px 5px #e6e6e6;
+}
+ .mat-form-field-appearance-outline .mat-form-field-infix {
+     padding: 15px 0 14px 0;
+    /* margin: 0px !important;
+     border-top: 10px;
+     */
+}
+ .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-end, .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-gap, .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-start {
+     border-width: 1px !important;
+}
+ div .mat-form-field-appearance-outline .mat-form-field-outline-start {
+     border-radius:2px 0 0 2px !important;
+}
+ div .mat-form-field-appearance-outline .mat-form-field-outline-end {
+     border-radius: 0 2px 2px 0 !important;
+}
+ form .mat-input-element , form textarea , .data-filterSec input, .data-filterSec select{
+    /* font-size: 13px;
+     min-height: 16px;
+     color: #252729;
+     */
+}
+ form label.label {
+     font-size: 13px;
+     margin-bottom: 10px;
+     font-weight: 600;
+     float: left;
+     color: #333;
+}
+ .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline {
+     box-shadow: 0px 0px 3px #d2d0d0;
+}
+ form .mat-checkbox-checked.mat-accent .mat-checkbox-background, form .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+     background-color: #00558c;
+}
+ form input.mat-input-element {
+    /* margin-top: 2px;
+     padding-left: 6px;
+     padding-right: 6px;
+     box-sizing: border-box;
+     */
+}
+ button span.mat-button-wrapper {
+     font-size: 14px;
+     font-weight: bold;
+}
+/* .mat-checkbox-checked.mat-warn .mat-checkbox-background,.mat-checkbox-indeterminate.mat-warn .mat-checkbox-background{
+    background-color : green !important;
+}
+ .mat-checkbox-disabled.mat-checkbox-checked .mat-checkbox-background,.mat-checkbox-disabled.mat-checkbox-indeterminate .mat-checkbox-background{
+    background-color : green !important;
+}
+ .mat-checkbox-disabled:not(.mat-checkbox-checked) .mat-checkbox-frame{
+    border-color:#b0b0b0
+}
+.mat-checkbox-disabled .mat-checkbox-label{
+    color : green !important;
+}
+ .mat-checkbox-anim-unchecked-checked.mat-checkbox-cheked .mat-checkbox-ripple{
+    background: green;
+}
+ */
+ form .mat-checkbox-frame {
+     border-color: #ccc;
+     border-width: 1px;
+}
+ body .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
+     background: #005586;
+     color: #fff;
+}
+ body .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) span{
+     color: #fff;
+}
+/* ======================= validation error css starts =================================*/
+/*-- class 'UserPass-errMsg' adding in form will show msg --*/
+/*-- class 'val-error' adding in form will validation error --*/
+ p.login-errorMsg {
+     margin-bottom: 13px;
+     margin-top: 0px;
+     color: #E03F3D;
+     font-size: 12px;
+     line-height: 15px;
+     display: block;
+}
+ .form-BoxConatiner .mat-error, .mat-form-field-wrapper .mat-error {
+     margin-left: -9px;
+     margin-top: 5px;
+     font-size: 11px;
+}
+ form .mat-form-field-appearance-outline .mat-select-arrow-wrapper{
+     padding-top: 2px;
+}
+/* form input field error validation erc color design starts */
+ .form-BoxConatiner .mat-form-field-invalid .mat-input-element, .mat-warn .mat-input-element {
+     caret-color: #00558c;
+}
+ .form-BoxConatiner .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+     color: #00558c;
+}
+ .form-BoxConatiner mat-form-field.mat-form-field.mat-form-field-type-mat-input.mat-form-field-appearance-outline.ng-touched.ng-dirty.mat-form-field-invalid.ng-invalid .mat-form-field-outline-thick {
+     color: #E03F3D;
+}
+ .form-BoxConatiner .mat-form-field-appearance-outline.mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-focused .mat-form-field-suffix.ng-star-inserted {
+     color: #00558c;
+}
+ form .mat-error , form .mat-form-field.mat-primary.mat-form-field-appearance-outline.mat-form-field-can-float.ng-invalid.ng-dirty.mat-form-field-invalid .mat-form-field-outline-thick, form .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+     color: #E03F3D;
+}
+ form .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+     color: #cccccc;
+}
+ form .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched.mat-focused .mat-form-field-outline-thick {
+     color: #00558c;
+}
+
+/* =================================================== validation error css ends -=====================================================  */
+/* for add upadate css */
+ form .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick, form .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-select-arrow {
+     color: #ccc;
+}
+ form .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid.mat-focused .mat-form-field-outline-thick, form .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid.mat-focused .mat-select-arrow {
+     color: #00558c;
+}
+/* ============================================== form fields (input) ======================================================= css ends*/
+ form .justify-left .mat-figure {
+     justify-content: left ;
+}
+ form .justify-right .mat-figure {
+     justify-content: flex-end;
+}
+ form {
+    font-size: 13px;
+     font-weight: 500;
+}
+ .form-BoxConatiner .mat-card {
+     padding: 30px 22px 30px 22px;
+     float: left;
+     width: 100%;
+     box-sizing: border-box;
+}
+ .form-BoxConatiner .mat-grid-tile {
+    overflow: visible;
+}
+ .mat-dialog-container .mat-form-field, .updated-service .mat-form-field {
+     width: 100%;
+}
+/* check box hover circel color css starts */
+ form .mat-checkbox:not(.mat-checkbox-disabled).mat-primary .mat-checkbox-ripple .mat-ripple-element{
+    background-color: rgba(0,85, 140,.5)
+}
+ form .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element{
+    background-color: rgba(0,85, 140,.5)
+}
+ form .mat-checkbox:not(.mat-checkbox-disabled).mat-warn .mat-checkbox-ripple .mat-ripple-element{
+    background-color: rgba(0,85, 140,.5) 
+}
+/* check box hover circel color css ends */
+ .bottom-div .button-row {
+     width: 100%;
+     float: left;
+}
+ .form-BoxConatiner .mat-form-field{
+    width: 100%;
+}
+ .top-header, .top-header .mat-grid-list {
+    text-align: center;
+}
+ .form-BoxConatiner .mat-card-content p.pswd-txt {
+     font-size: 14px;
+     color: #252729;
+     line-height: 20px;
+     font-weight: 400;
+     margin-bottom: 40px;
+}
+ .form-BoxConatiner form .field-outer button{
+     width: auto;
+}
+ footer p {
+     color: #999;
+     font-size: 11px;
+     margin: 0px;
+}
+ footer {
+     width: 100%;
+     float: left;
+}
+ .bottom-div {
+     padding-top: 2px;
+}
+ .half.left-div {
+     width: auto;
+     float: left;
+}
+ .half.right {
+     float: right;
+}
+ .full-row{
+    width: 100%;
+     float: left;
+}
+ div vbutton.loader-svg {
+     min-height: 34px;
+     text-align: center;
+}
+ .loader-svg .mat-progress-spinner circle, .loader-svg .mat-spinner circle {
+     stroke: #fff;
+     margin: 0 auto;
+}
+ .top-header {
+     background: #000;
+     min-height: 80px;
+     vertical-align: middle;
+    /* line-height: 80px;
+     */
+     vertical-align: middle;
+}
+ .form-BoxConatiner .field-outer {
+     margin-bottom: 5px;
+}
+/*--- loader button css starts --- */
+ .loader-svg svg {
+     margin: 0 auto;
+     float: none;
+}
+ button.loader-svg {
+     min-height: 36px;
+     text-align: center;
+}
+ button.loader-svg mat-spinner.mat-spinner {
+     margin: 0 auto;
+}
+/*--- loader button css ends --- */
+/* =================================================== reset password css starts =================================================== */
+ form .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
+     color: #e5e5e5;
+     background: #e5e5e5;
+     border-color: #e5e5e5;
+}
+ .form-BoxConatiner.wide-width {
+     max-width: 520px;
+}
+ .list-bootom li {
+     display: inline-block;
+     width: 48%;
+     vertical-align: top;
+     margin-bottom: 13px;
+     padding-left: 16px;
+     position: relative;
+     padding-right: 10px;
+     color: #252729;
+}
+ .list-bootom {
+     padding: 0px;
+     margin-top: 0px;
+     margin-bottom: 11px;
+}
+ .list-bootom li::after {
+     width: 5px;
+     height: 5px;
+     background: #333;
+     display: block;
+     content: '';
+     border-radius: 25px;
+     position: absolute;
+     top: 4px;
+     left: 0px;
+}
+ .form-BoxConatiner .mat-form-field-prefix .mat-icon, .form-BoxConatiner .mat-form-field-suffix .mat-icon {
+     font-size: 160%;
+     line-height: 1.85;
+}
+ form .mat-form-field-appearance-outline .mat-form-field-prefix, form .mat-form-field-appearance-outline .mat-form-field-suffix {
+     top: .30em;
+}
+ header .header-menu .icons.toggle-icn, .mat-form-field.mat-form-field .mat-form-field-suffix .mat-datepicker-toggle .mat-button-wrapper {
+     width: 22px;
+     height: 22px;
+     float: left;
+     display: block;
+     background: url('/assets/images/sprite-icons.png');
+     background-color: rgba(0, 0, 0, 0);
+     background-position-x: 0%;
+     background-position-y: 0%;
+     background-position: -109px -22px;
+}
+/* =================================================== dashboard design css starts ================================= */
+ .dashboard-container .logo-wrapper , .dashboard-container header a span, .dashboard-container .sidebar-nav, .top-posHeader .logo-wrapper {
+    /* -webkit-transition: .3s ease all;
+     -o-transition: .3s ease all;
+     -moz-transition: .3s ease all;
+     transition: .3s ease all;
+     */
+     -webkit-backface-visibility: hidden;
+     -moz-backface-visibility: hidden;
+     backface-visibility: hidden;
+}
+ .dashboard-container{
+     min-height: 100%;
+}
+ .dashboard-container .sidebar-nav, .hideNavBar .dashboard-container .sidebar-menu {
+    /* -webkit-transition: .3s ease all;
+     -o-transition: .3s ease all;
+     -moz-transition: .3s ease all;
+     transition: .3s ease all;
+     */
+     -webkit-backface-visibility: hidden;
+     -moz-backface-visibility: hidden;
+     backface-visibility: hidden;
+}
+ .dashboard-container .sidebar-nav {
+     transform: none !important;
+     -webkit-transform: none !important;
+     -moz-transform: none !important;
+     -ms-transform: none !important;
+     -o-transform: none !important;
+     visibility: visible !important;
+     width: 230px;
+     background: #252729;
+     color: #fff;
+}
+ .dashboard-container .sidebar-nav.ng-animating{
+     visibility: visible !important;
+     background: #252729;
+}
+ .top-posHeader .header-menu {
+     padding-left: 0px;
+}
+ .mat-icon-button.user-profile-btn {
+    width: 100%;
+}
+ .top-posHeader .user-menu {
+     background: #fff;
+}
+ .cdk-overlay-pane.mat-datepicker-popup{
+     margin-top: 0px !important;
+}
+ .top-posHeader {
+     height: 64px;
+     position: fixed;
+     top: 0px;
+     left: 0;
+     width: 100%;
+     background: #fff;
+}
+ .top-posHeader .toggle-btn .mat-button-ripple.mat-ripple {
+     display: none;
+}
+ .top-posHeader .mat-icon-button.user-profile-btn {
+     width: auto;
+     display: inline-block;
+     padding: 1.2rem 0.6rem;
+}
+ .top-posHeader ul li{
+     display: inline-block;
+     float: none;
+}
+ header .top-navOuter{
+     display: flex !important;
+     flex-basis: auto;
+     height: 100%;
+     vertical-align: middle;
+     line-height: 64px;
+     padding: 0px 24px 0px 6px;
+     border-bottom: 1px solid #e6e6e6;
+}
+ header .header-menu li {
+    margin-right: 16px;
+}
+ header .header-menu li:last-child {
+    margin-right: 0px;
+}
+ header .header-menu {
+     flex-direction: row;
+     display: flex;
+     margin-top: 0px;
+     margin-bottom: 0px;
+}
+ header .header-menu:first-child {
+     margin-right: auto;
+}
+ header .header-menu h2 {
+     margin: 0px auto;
+}
+ .dashboard-container .mat-drawer {
+     top: 64px;
+}
+ .dashboard-container .logo-wrapper, .top-posHeader .logo-wrapper{
+     width: 230px;
+     float: left;
+     height: 64px !important;
+     background: #252729;
+     padding: 0px 24px;
+     height: 100%;
+     position: relative;
+     border-bottom: 1px solid rgba(255,255,255,.4);
+}
+ .top-posHeader {
+     z-index: 2;
+}
+ .dashboard-container .logo-wrapper .logo-mini, .top-posHeader .logo-wrapper .logo-mini {
+     display: none;
+}
+ .dashboard-container .logo-wrapper img, .top-posHeader .logo-wrapper img {
+     width: 84%;
+     float: left;
+     margin: 9px auto;
+     max-width: 130px;
+}
+ .hideNavBar .top-posHeader .logo-wrapper .logo-lg {
+     display: none;
+}
+ .hideNavBar .top-posHeader .logo-wrapper .logo-mini {
+     display: block;
+}
+ .dashboard-container .header-menu .toggle-btn .mat-button-focus-overlay, .top-posHeader .logo-wrapper .toggle-btn .mat-button-focus-overlay {
+     background-color: transparent;
+}
+ .dashboard-container .header-menu .toggle-btn span.mat-button-wrapper, .top-posHeader .header-menu .toggle-btn span.mat-button-wrapper {
+     font-size: 16px;
+     font-weight: bold;
+}
+ .dashboard-container .header-menu .toggle-btn, .top-posHeader .header-menu .toggle-btn {
+     min-width: auto;
+     padding: .8rem 1rem .9rem;
+     margin-top: 7px;
+}
+ .dashboard-container .sidebar-menu {
+     padding: 0px;
+     margin: 24px 0px 0px 0px;
+     list-style: none;
+     float: left;
+     width: 100%;
+}
+ .dashboard-container .sidebar-menu li a {
+     padding: 12px 16px 12px 24px;
+     color: #fff;
+     font-size: 14px;
+     float: left;
+     width: 100%;
+     border-left: 4px solid rgba(255,255,255,.0);
+     min-height: 48px;
+     opacity: 0.6;
+     font-weight: 600;
+     position: relative;
+     -webkit-transition: all .3s ease;
+     -ms-transition: all .3s ease;
+     -moz-transition: all .3s ease;
+     -o-transition: all .3s ease;
+     transition: all .3s ease;
+}
+ .dashboard-container .sidebar-menu li a span {
+     margin-left: 24px;
+     line-height: 22px;
+     vertical-align: top;
+}
+ .dashboard-container .sidebar-menu .icons, .img-icons {
+     width: 22px;
+     height: 22px;
+     font-size: 22px;
+}
+ .dashboard-container .sidebar-menu li a:hover, .dashboard-container .sidebar-menu li a:focus{
+     background: rgba(118,118,118,.6);
+}
+ .dashboard-container .sidebar-menu li.active a{
+     background: #00558c;
+     border-left: 4px solid #fff;
+     opacity: 1;
+     font-weight: 800;
+}
+ .sidebar-nav .sidebar p {
+     color: #fff;
+     padding: 0px 24px;
+     font-size: 12px;
+     opacity: .6;
+     float: left;
+     width: 100%;
+}
+ .dashboard-container .sidebar-menu > li a .icons, .dashboard-container .top-posHeader button.user-profile-btn.mat-icon-button .arrow.icon , .img-icons {
+     background-image: url('/assets/images/sprite-icons.png');
+     background-position-x: 0%;
+     background-position-y: 0%;
+     background-repeat: no-repeat;
+     float: left;
+}
+ .dashboard-container .sidebar-menu > li a .icons.dash {
+     background-position: -1px 0px;
+}
+ .dashboard-container .sidebar-menu > li a .icons.accnt {
+     background-position: -1px -22px;
+}
+ .dashboard-container .sidebar-menu > li a .icons.deleg {
+     background-position: -1px -44px;
+}
+ .dashboard-container .sidebar-menu li a .icons.prof {
+     background-position: -1px -66px;
+}
+ .dashboard-container .sidebar-menu > li a .icons.vechcle {
+     background-position: -1px -88px;
+}
+ .dashboard-container .sidebar-menu li a .icons.getqte {
+     background-position: -1px -110px;
+}
+ .dashboard-container .sidebar-menu > li a .icons.refrl {
+     background-position: -1px -132px;
+}
+ .dashboard-container .sidebar-menu > li a .icons.event {
+     background-position: -1px -154px;
+}
+ .dashboard-container .sidebar-menu > li a .icons.dispatch{
+     background-position: -1px -176px;
+}
+ .dashboard-container .sidebar-menu > li a .icons.reports {
+     background-position: -1px -198px;
+}
+ .dashboard-container .sidebar-menu > li a .icons.tracking {
+     background-position: -1px -220px;
+}
+ .dashboard-container .sidebar-menu > li a .icons.accounting {
+     background-position: -1px -242px;
+}
+ .dashboard-container .sidebar-menu > li a .icons.reporting {
+     background-position: -1px -265px;
+}
+ .dashboard-container .sidebar-menu > li a .icons.manage {
+     background-position: -1px -287px;
+}
+ .dashboard-container .sidebar-menu > li a .icons.back {
+     background-position: -105px -44px;
+}
+ .dashboard-container .sidebar-menu > li a .icons.admin {
+     background-position: -1px -308px;
+}
+ .dashboard-container .sidebar-menu > li a .icons.Chauff {
+     background-position: -1px -331px;
+}
+ .dashboard-container .sidebar-menu > li a .icons.circle {
+     background-position: -1px -242px;
+}
+ .dashboard-container .sidebar-menu > li a .icons.Vehicles {
+     background-position: -1px -354px;
+}
+ i.img-icons.search-icn {
+     background-position: -107px -154px;
+}
+ i.img-icons.reset-icn{
+     background-position: -107px -131px;
+}
+ .dashboard-container .sidebar-menu > li .menu-content {
+     display: none;
+     float: left;
+     width: 100%;
+     padding: 0px;
+     list-style: none;
+}
+ .dashboard-container .sidebar-menu > li .menu-content li a {
+     padding: 12px 16px 12px 80px;
+    ;
+}
+ .dashboard-container .sidebar-menu > li.has-sub > a:after {
+     background-image: url(/assets/images/sprite-icons.png);
+     background-position: -108px 0px;
+     display: block;
+     content: '';
+     width: 22px;
+     height: 22px;
+     float: left;
+     position: absolute;
+     right: 15px;
+     top: 13px;
+}
+ .dashboard-container .sidebar-menu li.has-sub > a {
+     padding: 12px 35px 12px 24px;
+}
+/* */
+ .hideNavBar .dashboard-container .sidebar-menu li a span{
+    display: none;
+}
+ .hideNavBar .dashboard-container .sidebar-nav, .hideNavBar .dashboard-container .logo-wrapper, .hideNavBar .top-posHeader .logo-wrapper {
+    width: 65px;
+}
+ .hideNavBar .dashboard-container .sidebar-nav {
+     visibility: visible !important;
+     background: #252729;
+     color: #fff;
+}
+ .hideNavBar .dashboard-container .sidebar-menu > li.has-sub > a:after{
+    display: none;
+}
+ .hideNavBar .dashboard-container .sidebar-menu li a {
+     padding: 12px 8px 12px 4px;
+}
+ .hideNavBar .dashboard-container .sidebar-menu > li a .icons {
+     display: block;
+     margin: 0 auto;
+     float: none;
+}
+ .hideNavBar .dashboard-container .sidebar-menu li {
+     float: left;
+     width: 100%;
+     text-align: center;
+}
+ .hideNavBar .dashboard-container .logo-wrapper .logo-mini img, .hideNavBar .top-posHeader .logo-wrapper .logo-mini img {
+     width: 90%;
+     float: left;
+     margin: 9px auto;
+     max-width: 40px;
+}
+ .hideNavBar .top-posHeader .logo-wrapper .logo-mini img {
+     width: 45px;
+     float: none;
+     margin: 5px auto;
+    /* max-width: 40px;
+     */
+    /* float: none;
+     */
+    /* margin-left: auto;
+     */
+    /* margin-right: auto;
+     */
+     display: inline-block;
+}
+ .hideNavBar .top-posHeader .logo-wrapper .logo-mini{
+    text-align: center;
+}
+ .hideNavBar .dashboard-container .logo-wrapper, .hideNavBar .top-posHeader .logo-wrapper {
+     padding: 5px 5px;
+}
+/* sidebar menu css starts */
+/* main content css starts */
+ .dashboard-container .example-sidenav-content, .main-content {
+     min-height: 100%;
+     height: 100%;
+    ;
+}
+ .dashboard-container .mat-drawer-content {
+     margin-left: 230px;
+}
+ .hideNavBar .dashboard-container .mat-drawer-content{
+     padding-left: 0px;
+     margin-left: 66px !important;
+}
+ .hideNavBar .dashboard-container .main-content {
+     padding-left: 0px;
+}
+ mat-drawer-container.dashboard-container {
+     padding-top: 64px;
+}
+ .dashboard-container .example-sidenav-content{
+    padding: 24px;
+}
+ .hideNavBar .dashboard-container header span.logo-lg, .hideNavBar .top-posHeader header span.logo-lg {
+     display: none;
+}
+ .hideNavBar .dashboard-container header span.logo-mini , .hideNavBar .top-posHeader header span.logo-mini {
+    display: block;
+}
+ .hideNavBar .dashboard-container header span.logo-mini , .hideNavBar .top-posHeader header span.logo-mini {
+     max-width: 50px;
+     margin: 0 auto;
+}
+ .hideNavBar .dashboard-container ul.sidebar-menu.manage-setting button.back-button.mat-stroked-button.mat-primary .mat-button-wrapper span {
+     display: none;
+}
+/* main content css ends */
+ .dashboard-container .cdk-visually-hidden{
+    display: none;
+}
+ .mat-drawer:not(.mat-drawer-side) {
+     box-shadow: none !important;
+}
+ .mat-button-wrapper span.user-profile {
+     height: 40px;
+     width: 40px;
+     overflow: hidden;
+     border-radius: 50%;
+     padding: 0px;
+     display: inline-block;
+     margin-right: 5px;
+}
+ .mat-button-wrapper span.user-profile img{
+     width: 100%;
+     height: auto;
+}
+ header button.user-profile-btn.mat-icon-button {
+     width: 100%;
+     padding: 0px !important;
+     display: inline-block;
+}
+/* manage setting menu css starts */
+ .dashboard-container ul.sidebar-menu.manage-setting {
+     margin: 0px 0px 25px 0px;
+    ;
+     padding-bottom: 40px;
+     border-bottom: 1px solid rgba(255,255,255,.4);
+}
+ .dashboard-container ul.sidebar-menu.manage-setting li ul li a {
+     padding: 12px 16px 12px 24px;
+}
+ .dashboard-container ul.sidebar-menu.manage-setting button.back-button.mat-stroked-button.mat-primary {
+     width: 100%;
+     float: left;
+     background: transparent !important;
+     opacity: 1;
+     color: #fff;
+     border-left: 0px;
+     border-right: 0px;
+     border-color: rgba(255,255,255,.4);
+    /* min-height: 48px;
+     */
+     padding: 12px 16px 12px 26px;
+     line-height: initial;
+     text-align: left;
+}
+ .dashboard-container ul.sidebar-menu.manage-setting button.back-button.mat-stroked-button.mat-primary .mat-button-wrapper span {
+     margin-left: 24px;
+     line-height: 22px;
+     vertical-align: top;
+}
+ .dashboard-container ul.sidebar-menu.manage-setting button.back-button.mat-stroked-button.mat-primary .icons.back {
+     background-image: url('/assets/images/sprite-icons.png');
+     background-position: -109px -44px;
+     background-repeat: no-repeat;
+     float: left;
+}
+ .dashboard-container ul.sidebar-menu.manage-setting button.back-button.mat-stroked-button.mat-primary .mat-button-focus-overlay{
+     background: transparent;
+}
+ .hideNavBar .dashboard-container ul.sidebar-menu.manage-setting li ul li a , .hideNavBar .dashboard-container ul.sidebar-menu.manage-setting button.back-button.mat-stroked-button.mat-primary {
+     padding: 12px 8px 12px 4px;
+}
+ .dashboard-container ul.sidebar-menu p.label-title {
+     float: left;
+     margin-top: 25px;
+     font-size: 13px;
+     font-weight: 600;
+     margin-bottom: 15px;
+}
+ .dashboard-container ul , .hideNavBar .dashboard-container ul li {
+     clear: both;
+}
+ .dashboard-container .top-posHeader button.user-profile-btn.mat-icon-button {
+    /* padding-right: 31px !important;
+     */
+    /* float: left;
+     */
+     min-width: 60px;
+     text-align: left;
+}
+ .dashboard-container .top-posHeader button.user-profile-btn.mat-icon-button .arrow.icon {
+     background-position: -108px -89px;
+     width: 22px;
+     height: 22px;
+    /* background-color: red;
+     */
+     float: right;
+     vertical-align: middle;
+     margin-top: 11px;
+     position: absolute;
+}
+ .dashboard-container .user-notification .mat-icon.material-icons, .top-posHeader .user-notification .mat-icon.material-icons {
+     font-size: 0px;
+     background: url(/assets/images/sprite-icons.png);
+     background-position: -107px -65px;
+}
+ .dashboard-container .user-notification .user-profile-btn .mat-button-ripple.mat-ripple.mat-button-ripple-round, .top-posHeader .user-notification .user-profile-btn .mat-button-ripple.mat-ripple.mat-button-ripple-round {
+     display: none;
+}
+ .user-menu .top-head, .mat-menu-content .top-head {
+    /* border-top: 1px solid #e6e6e6;
+     */
+     border-bottom: 1px solid #e6e6e6;
+     padding: 0px 25px;
+}
+ .user-menu .top-head h3, .mat-menu-panel .top-head h3 {
+    margin-bottom: 3px;
+     font-size: 13px;
+}
+ .user-menu .top-head {
+    font-size: 13px;
+}
+ .user-menu .mat-menu-content{
+     padding: 0px !important;
+}
+ .user-menu .bot-footer {
+     border-top: 1px solid #e6e6e6;
+}
+ .user-menu .mat-menu-item{
+     padding: 0px 25px;
+}
+ .white-box {
+     background: #fff;
+     padding: 15px;
+     border: 1px solid #e6e6e6;
+     border-radius: 2px;
+}
+ header .header-menu:first-child li:first-child{
+    margin-right: 2px;
+}
+ .white-box h2{
+    margin-top: 0px;
+}
+ .mat-menu-content .mat-menu-item {
+    color: #252729;
+     font-size: 13px;
+     height: 40px;
+     line-height: 40px;
+}
+/* manage setting menu sss ends */
+/* cliekc menu classes */
+ .sidebar-menu .showSettingsBar {
+     display: block !important;
+}
+ .sidebar-menu.HideMenu{
+     display: none;
+}
+ .hideSettingsBar .bot-box{
+     display: none;
+}
+ .sidebar-menu.manage-setting.showSettingsBar .menu-content{
+     display: block !important;
+}
+ .sidebar-menu.top-menu.hideSettingsBar{
+     display: none !important;
+}
+ .sidebar-menu.top-menu.showSettingsBar{
+     display: block !important;
+}
+ ul.sidebar-menu.manage-setting.has-sub.hideSettingsBar{
+     display: none;
+}
+ .hideSettingsBar{
+     display: none;
+}
+ .hideNavBar .dashboard-container .sidebar-menu ul.menu-content {
+     display: none;
+}
+ .sidebar ul.sidebar-menu.top-menu {
+     padding-bottom: 40px;
+     margin-bottom: 25px;
+     border-bottom: 1px solid rgba(255,255,255,.4);
+}
+ .hideNavBar .back-button.mat-stroked-button {
+     text-align: center !important;
+     width: p;
+     padding: 12px 0px !important;
+     min-width: 100%;
+}
+ .hideNavBar .back-button.mat-stroked-button .icons.back{
+     float: none !important;
+     margin: 0 auto;
+     display: inline-block;
+}
+ .dashboard-container .sidebar-menu li a {
+     cursor: pointer !important;
+}
+/* ======================================= dashboard design css ends ==================================== */
+/* ============================================= extra services page css starts =====================================*/
+ .status-div {
+     width: auto;
+     float: left;
+}
+ .white-box {
+    margin-bottom: 20px;
+}
+ .white-box .example-header.data-filterSec {
+     padding: 0px;
+}
+ .main-content .full-widthForm .mat-form-field-wrapper {
+    margin-right: 24px;
+}
+ .data-filterSec .label_name {
+    margin-right: 8px;
+}
+ .main-content .mat-elevation-z8.tableStyle {
+     width: 100%;
+     box-shadow: none;
+     border: 1px solid #e6e6e6;
+}
+ .main-content .data-filterSec mat-form-field.mat-form-field.mat-form-field-type-mat-select {
+     max-width: 140px;
+     width: 100%;
+}
+ .main-content .data-filterSec.full-widthForm {
+    text-align: left;
+}
+ .main-content mat-form-field.mat-form-field.mat-form-field-type-mat-select .mat-select-arrow-wrapper {
+     transform: translateY(0%);
+     -webkit-transform: translateY(0%);
+     -moz-transform: translateY(0%);
+     -ms-transform: translateY(0%);
+     -o-transform: translateY(0%);
+}
+ .main-content .data-filterSec .mat-form-field-appearance-outline .mat-form-field-outline {
+     display: flex;
+     position: absolute;
+     top: .25em;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     pointer-events: none;
+     height: 36px;
+}
+ .main-content tr.example-element-row[_ngcontent-c18]:not(.example-expanded-row):active, .main-content table tr.mat-row.ng-star-inserted:hover {
+     background: #fafafa;
+}
+ .icon-placeholder .mat-form-field-suffix.ng-tns-c2-0.ng-star-inserted {
+     float: left;
+     position: absolute;
+     top: 10px;
+}
+ .main-content table td{
+    position: relative;
+}
+ .main-content table td.mat-cell.cdk-column-IsActive.mat-column-IsActive.ng-star-inserted p[ng-class="active"]::after, .main-content table td.mat-cell.cdk-column-IsActive.mat-column-IsActive.ng-star-inserted p[ng-class="inactive"]::after {
+     width: 6px;
+     height: 6px;
+     border-radius: 50%;
+     content: '';
+     display: block;
+     position: absolute;
+     left: 0px;
+     top: 3px;
+}
+ .main-content table tr.mat-header-row th {
+     padding-left: 8px;
+     padding-right: 8px;
+}
+ .main-content table td.mat-cell.cdk-column-IsActive.mat-column-IsActive.ng-star-inserted p{
+     position: relative;
+     padding-left: 13px;
+}
+ .main-content table td.mat-cell.cdk-column-IsActive.mat-column-IsActive.ng-star-inserted p[ng-class="active"]::after {
+     background: #3dab0f;
+}
+ .main-content table td.mat-cell.cdk-column-IsActive.mat-column-IsActive.ng-star-inserted p[ng-class="inactive"]::after {
+     background: #E03F3D;
+}
+ .data-filterSec .mat-flat-button.mat-primary, .data-filterSec .mat-stroked-button {
+     margin: .25em 0;
+     margin-left: 12px;
+}
+ .data-filterSec .btn-outerDiv .mat-flat-button.mat-primary, .data-filterSec .btn-outerDiv .mat-stroked-button {
+     margin: 0px 0px;
+     margin-left: 12px;
+     min-height: 36px;
+}
+ .data-filterSec label.label {
+     font-size: 12px;
+     font-weight: 600;
+     color: #333;
+     vertical-align: top;
+     line-height: 37px;
+}
+ .main-content .data-filterSec input, .main-content .data-filterSec select , .main-content .data-filterSec textarea {
+     font-size: 12px;
+}
+ .tableStyle .mat-table .mat-header-cell , table .mat-sort-header-container .mat-sort-header-button {
+    font-size: 13px;
+     color: #252729;
+}
+ .main-content .mat-elevation-z8.tableStyle table{
+    box-shadow: none;
+}
+ .main-content table tr td .mat-icon {
+    color: #00558c;
+}
+ .main-content .data-filterSec .mat-form-field-wrapper {
+     padding-bottom: 0px;
+     margin-top: 0px;
+     margin-bottom: 0px;
+}
+ .main-content .data-filterSec {
+     min-height: auto !important;
+}
+ .main-content table tr td{
+     font-size: 13px;
+     color: #252729;
+}
+ .main-content table tbody tr td:first-child, .main-content table tr td{
+     padding-left: 8px;
+     padding-right: 8px;
+}
+ .main-content table tr td p{
+    margin: 0px;
+}
+ .main-content mat-footer-row, .main-content mat-header-row, .main-content mat-row, .main-content td.mat-cell, .main-content td.mat-footer-cell, .main-content th.mat-header-cell {
+     border-bottom-color: rgba(0,0,0,0.1);
+}
+ .main-content .tableStyle .mat-paginator .mat-paginator-container {
+    min-height: 40px;
+}
+ .main-content .tableStyle .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+     padding-bottom: 14px;
+}
+ .mat-select-content.ng-trigger .mat-option-text {
+    font-size: 13px;
+     color: #252527;
+}
+ div mat-select-panel .mat-optgroup-label, div .mat-select-panel .mat-option {
+     line-height: 40px;
+     height: 40px;
+}
+ .mat-form-field-wrapper .mat-form-field-prefix .mat-icon, .mat-form-field-suffix .mat-icon {
+     color: #b3b3b3;
+}
+ div .mat-select-trigger {
+     font-size: 13px;
+}
+ .mat-option:focus:not(.mat-option-disabled), .mat-option:hover:not(.mat-option-disabled) {
+     background: #fafafa;
+}
+ .mat-form-field-appearance-outline .mat-form-field-outline-start {
+     border-radius: 2px 0 0 2px !important;
+}
+ .mat-form-field-appearance-outline .mat-form-field-outline-end{
+     border-radius: 0 2px 2px 0 !important;
+}
+ .main-content .mat-elevation-z8.tableStyle table thead {
+     background: -moz-linear-gradient(270deg, rgba(255,255,255,0) 0%, rgba(0,0,0,.025) 100%);
+    /* ff3.6+ */
+     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255,255,255,0)), color-stop(100%, rgba(0,0,0,.025)));
+    /* safari4+,chrome */
+     background: -webkit-linear-gradient(270deg, rgba(255,255,255,0) 0%, rgba(0,0,0,.025) 100%);
+    /* safari5.1+,chrome10+ */
+     background: -o-linear-gradient(270deg, rgba(255,255,255,0) 0%, rgba(0,0,0,.025) 100%);
+    /* opera 11.10+ */
+     background: -ms-linear-gradient(270deg, rgba(255,255,255,0) 0%, rgba(0,0,0,.025) 100%);
+    /* ie10+ */
+     background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,.025) 100%);
+    /* w3c */
+     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 );
+    /* ie6-9 */
+}
+ .main-content table tr.mat-footer-row, .main-content table tr.mat-row {
+     height: 40px;
+}
+ .main-content table tr.mat-header-row {
+     height: 48px;
+}
+ form .mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: none;
+     padding: 0px;
+}
+ ::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+     color: #999999 !important;
+     opacity: 1 important;
+}
+ ::-moz-placeholder {
+    /* Firefox 19+ */
+     color: #999999 !important;
+     opacity: 1 important;
+}
+ :-ms-input-placeholder {
+    /* IE 10+ */
+     color: #999999 !important;
+     opacity: 1 important;
+}
+ :-moz-placeholder {
+    /* Firefox 18- */
+     color: #999999 !important;
+     opacity: 1 important;
+}
+ form.example-form.less-Width {
+     max-width: 800px;
+}
+ .full-widthRow {
+    width:100%;
+     clear: both;
+     float: left;
+}
+ .half-width {
+     width: 50%;
+     float: left;
+}
+ .full-widthRow .half-width:first-child{
+     padding-right: 15px;
+}
+ form .mat-form-field-appearance-outline .mat-form-field-outline {
+     min-height: 41px;
+}
+ .mat-menu-panel .mat-menu-content:not(:empty) {
+     padding-top: 0px;
+     padding-bottom: 0px;
+}
+ .mat-form-field-wrapper span.mat-select-placeholder.ng-star-inserted {
+     color: #252729;
+}
+ .mat-menu-content i.material-icons.icns.mat-icon {
+     font-size: 16px;
+     margin-right: 0px;
+     text-align: left;
+     vertical-align: -webkit-baseline-middle;
+}
+ .custom-wdithForm {
+     width: 100%;
+     max-width: 780px;
+}
+ form .mat-form-field-wrapper textarea{
+    min-height: 100px;
+}
+ label.icon-overinput {
+     position: absolute;
+     left: -9px;
+    /* height: 75%;
+     */
+     background: #f7f7f7;
+     width: 50px;
+     text-align: center;
+     line-height: 38px;
+     top: 4.6px;
+     border-right: 1px solid #ccc;
+     border-radius: 2px;
+     border-top-right-radius: 2px;
+     border-bottom-right-radius: 2px;
+     font-size: 14px;
+     color: #252729;
+     font-weight: 600;
+     min-height: 40px;
+     min-height: 39px;
+}
+ form .footer-area {
+     padding: 30px 0px 0px;
+     margin-top: 30px;
+     border-top: 1px solid #e6e6e6;
+     text-align: right;
+}
+ .updated-service .mat-slide-toggle-bar {
+     margin-left: 24px;
+     line-height: 30px;
+     vertical-align: text-bottom;
+}
+ .mat-form-field-wrapper .mat-form-field-infix input[formcontrolname="extraServiceCharge"] {
+     padding-left: 50px;
+}
+ .full-widthRow.drive-pay .half-width:first-child{
+     width: 60%;
+}
+ .full-widthRow.drive-pay .half-width:last-child{
+     width: 40%;
+     padding-left: 0px;
+}
+ p.require-text, span.span-forcharacter {
+     color: #999;
+     font-weight: 400;
+     font-size: 11px;
+}
+ span.span-forcharacter {
+     float: right;
+     vertical-align: bottom;
+     line-height: 20px;
+}
+ form p.require-text,{
+     margin-bottom: 40px;
+}
+ .drive-payRow {
+    position: relative;
+}
+ .data-filterSec .search-field .mat-form-field-suffix.ng-star-inserted {
+     position: absolute;
+     top: 9px;
+     font-size: 15px;
+}
+ .white-box {
+     float: left;
+     width: 100%;
+}
+ .normal-box {
+     width: 100%;
+     clear: both;
+}
+ .tableStyle {
+     width: 100%;
+     box-shadow: none;
+     border: 1px solid #e6e6e6;
+     overflow-x: auto;
+     -webkit-overflow-scrolling: touch;
+     -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+ .action-memuSmallScreen {
+     display: none;
+}
+ .updated-service button.add-group-btn.mat-button.mat-primary span.mat-button-wrapper {
+     font-size: 12px;
+}
+ .full-widthRow{
+     position: relative;
+}
+ button.add-group-btn.mat-button.mat-primary, .updated-service a.add-group-btn {
+     position: absolute;
+     top: 27px;
+     margin-left: 20px;
+     color: #00558c;
+     background: transparent;
+     float: right;
+     min-height: 41px;
+}
+ .updated-service span.mat-button-wrapper {
+     font-weight: bold;
+     font-size: 12px;
+}
+ .updated-service button.add-group-btn.mat-button.mat-primary:hover, .updated-service button.add-group-btn.mat-button.mat-primary:focus, .updated-service a.add-group-btn:hover, .updated-service a.add-group-btn:focus{
+     background: rgba(234, 241, 246, 1) 
+}
+/* ----- */
+/* ----- */
+ form .mat-form-field.mat-primary.mat-form-field-type-mat-select .mat-form-field-wrapper {
+     min-height: 57px;
+}
+ form .mat-form-field.mat-primary.mat-form-field-type-mat-select .mat-form-field-wrapper .mat-error {
+     margin-top: 0px;
+}
+ div .mat-form-field-type-mat-select .mat-select .mat-select-trigger {
+     margin-top: 3px;
+}
+ .extra-servce .mat-form-field-infix .mat-input-element {
+    /* padding-left: 45px;
+     */
+}
+ .main-content .data-filterSec mat-form-field.mat-form-field.mat-form-field.mat-primary.mat-form-field-type-mat-select {
+     margin-top: 0px;
+}
+ .cdk-column-Action.mat-column-Action .mat-sort-header-arrow.ng-trigger.ng-trigger-arrowPosition {
+     display: none;
+}
+ .actionMenuDesktop .mat-menu-content .mat-menu-item:last-child , .actionMenuDesktop .mat-menu-content .mat-menu-item:last-child i {
+     color: #E03F3D;
+    ;
+}
+ .main-content .data-filterSec .mat-form-field-outline.ng-tns-c8-3.ng-star-inserted {
+     top: 1px !important;
+}
+ .cdk-overlay-container .align-right.mat-dialog-actions {
+     flex-wrap: inherit;
+     justify-content: right;
+     text-align: right;
+     display: block;
+     margin-top: 20px;
+}
+ .ng-star-inserted .mat-dialog-actions {
+     padding-bottom: 24px;
+}
+ body .mat-stroked-button {
+     border: 1px solid #ccc;
+     padding: 0 15px;
+     line-height: 34px;
+     color: #252729;
+}
+ .mat-stroked-button .mat-button-focus-overlay {
+     background-color: rgba(234,241,246,.1);
+}
+ .mat-stroked-button:hover, .mat-stroked-button:focus {
+     background: rgba(153, 153, 153, .1);
+}
+ .mat-dialog-container h4.mat-dialog-title {
+     font-size: 18px;
+     margin-bottom: 10px;
+}
+ .mat-dialog-container p{
+     font-size: 13px;
+     margin-top: 0px;
+}
+ .mat-dialog-actions button:first-child{
+     margin-right: 8px;
+}
+ .cdk-overlay-pane .actionMenuDesktop{
+     margin-top: -50px;
+}
+ .white-box.filter-box {
+     padding-bottom: 11.8px;
+}
+/* css for input field height issue */
+ body .main-content .data-filterSec.full-widthForm .search-div .mat-form-field-appearance-outline .mat-form-field-infix {
+    /*padding: 0;
+    */
+}
+ body .main-content .data-filterSec.full-widthForm .mat-form-field-type-mat-select.mat-form-field-appearance-outline .mat-form-field-infix {
+     padding: 0px 0 12px 0;
+}
+/* body .main-content .data-filterSec.full-widthForm .date-pickerDiv .mat-form-field-appearance-outline .mat-form-field-infix {
+     padding: 15px 0 5.25px 0;
+}
+ */
+/* body .main-content .data-filterSec.full-widthForm .date-pickerDiv .mat-form-field-appearance-outline .mat-form-field-infix input {
+     vertical-align: super;
+}
+ */
+ .search-div .btn-outerDiv.align-withsearchBox {
+     position: absolute;
+    /* left: 0px;
+     */
+     float: left;
+     right: -8px;
+}
+ .search-div {
+     padding-right: 125px;
+     position: relative;
+}
+ .main-content .full-widthForm .status-div .mat-form-field-wrapper {
+     margin-right: 8px;
+}
+/* css for input filed height issue */
+/* ============= extra services page css ends =========================================*/
+/* ========================= browser css hacks starts ========================*/
+/* internet exploere browser css */
+ @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+     body .mat-drawer-content{
+         overflow: visible;
+    }
+     .data-filterSec .icon-placeholder .ng-star-inserted.mat-form-field-suffix {
+         position: absolute;
+         top: 13px;
+         left: 9px;
+    }
+}
+/* internet exploere browser css ends*/
+/* ========================= browser css hacks ends ========================*/
+ .moreCustom-padding {
+     padding: 32px;
+}
+ p.require-text{
+     margin-top: 0px;
+     margin-bottom: 24px;
+}
+/* == scroll bar css starts == */
+/* == scroll bar css ends == */
+ .align-right.mat-dialog-actions button:last-child{
+    margin-left: 8px;
+}
+ .align-right.mat-dialog-actions button:first-child{
+    margin-right: 8px;
+}
+ .cdk-overlay-container form .align-right.mat-dialog-actions {
+     margin-top: 0px;
+     padding-top: 0px;
+}
+ p.require-text {
+     font-size: 11px;
+}
+ .mat-dialog-container form label.label {
+     margin-bottom: 13px;
+}
+ .mat-dialog-container form .mat-form-field-wrapper {
+     margin-bottom: 12px !important;
+}
+ .main-content table tr.mat-header-row th:first-child , .main-content table tbody tr td:first-child {
+    padding-left: 16px;
+}
+/* ======================================= chauffer unavailability css starts ================*/
+ .main-content label.txt-big {
+     font-size: 32px;
+     float: left;
+     text-align: center;
+     width: 100%;
+     margin-bottom: 16px;
+     color: #252729;
+}
+ .listing-dayboxes li {
+     width: 24%;
+    /* float: left;
+     */
+     text-align: center;
+     list-style: none;
+     padding: 32px;
+     background: #fff;
+     border: 1px solid rgba(0,0,0,0.1);
+     border-radius: 2px;
+     display: inline-block;
+     color: #767676;
+     margin-top: 0px;
+}
+ .listing-dayboxes li:nth-child(1), .listing-dayboxes li:nth-child(2), .listing-dayboxes li:nth-child(3){
+     margin-right: 1.3%;
+}
+ ul.listing-dayboxes {
+     width: 100%;
+     clear: both;
+     padding: 0px;
+     list-style: none;
+     float: left;
+     margin-bottom: 24px;
+     text-align: center;
+     margin-top: 0px 
+}
+ ul.listing-dayboxes li .text[_ngcontent-c1] {
+     position: relative;
+     top: 15px;
+     right: 0px;
+     left: 0px;
+}
+ .main-content .data-filterSec.full-widthForm {
+     max-width: 100%;
+}
+ .listing-dayboxes li .text {
+     position: relative;
+     top: 0px;
+     right: 22px;
+     left: 0px;
+     right: 0px;
+     width: 100%;
+     text-align: center;
+     font-size: 12px;
+     font-weight: 600;
+}
+/* .main-content .data-filterSec.full-widthForm .mat-form-field-appearance-outline .mat-form-field-infix {
+     padding: 14px 0 14px 0;
+}
+ */
+ .mat-dialog-container button span.mat-button-wrapper {
+     font-size: 13px;
+}
+/* 30-08-2018 */
+ .top-posHeader .back-btn {
+     padding-left: 24px;
+     position: relative;
+     display: block;
+     float: left;
+     margin-left: -10px;
+     font-size: 11px;
+     color: #999;
+     font-weight: 400;
+     margin-top: -14px;
+}
+ .top-posHeader .header-menu .back-btn {
+     margin-left: -48px;
+}
+ header .header-menu h2 {
+     line-height: 44px;
+}
+ header .header-menu .no-backbtn h2 {
+     line-height: unset;
+}
+ .top-posHeader .back-btn::after{
+     width: 0;
+     height: 0;
+     border-top: 5px solid transparent;
+     border-right: 5px solid #005586;
+     border-bottom: 5px solid transparent;
+     margin: 0 4px;
+     display: block;
+     content: '';
+     left: 2px;
+     float: left;
+     top: 13px;
+     position: absolute;
+}
+ .top-posHeader .title-withbackBtn {
+     display: flex;
+     align-items: center;
+     flex-direction: column;
+     justify-content: center;
+}
+ .top-posHeader .back-btn > div{
+    display: none;
+}
+ .cdk-overlay-container .ng-trigger.mat-select-panel.mat-primary.ng-star-inserted{
+     margin-top: -15px;
+}
+ date-pickerDiv .mat-form-field {
+     width: auto;
+}
+/* 30-08-2018 */
+ .date-pickerDiv {
+     float: left;
+}
+ .btn-outerDiv {
+     width: auto;
+     display: inline-block;
+     float: right;
+}
+ .btn-outerDiv.align-withsearchBox, .align-withsearchBox {
+     width: auto;
+     display: inline-block;
+     float: left;
+}
+/* body .main-content .data-filterSec.full-widthForm .date-pickerDiv .mat-form-field-appearance-outline .mat-form-field-infix {
+     padding: 3px 0 6.5px 0;
+     top: 2px;
+}
+ */
+/*== mozila hacks css ==*/
+/* @-moz-document url-prefix() {
+     body .main-content .data-filterSec.full-widthForm .date-pickerDiv .mat-form-field-appearance-outline .mat-form-field-infix {
+         top: -4px;
+    }
+}
+ */
+/*== mozila hacks css ends ==*/
+ mat-datepicker-content.mat-datepicker-content .mat-calendar-body-selected {
+     background-color: #00558c;
+}
+ mat-form-field.mat-form-field .mat-form-field-suffix .mat-datepicker-toggle .mat-button-wrapper svg.mat-datepicker-toggle-default-icon {
+     display: none;
+}
+ .mat-form-field.mat-form-field .mat-form-field-suffix .mat-datepicker-toggle .mat-button-wrapper {
+     background-position: -108px -109px;
+     margin: 0 auto;
+     float: none;
+}
+ .date-pickerDiv .mat-form-field-appearance-outline .mat-form-field-flex {
+     padding: 0 0 0 .75em;
+}
+ .search-div input#mat-input-0 {
+     margin-top: 2px;
+}
+ .mat-form-field.mat-form-field .mat-datepicker-toggle .mat-button-ripple-round, .mat-form-field.mat-form-field .mat-datepicker-toggle .cdk-focused .mat-button-ripple-round, .mat-form-field.mat-form-field .mat-datepicker-toggle .mat-button-focus-overlay {
+     border-radius: 0px;
+}
+ .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-datepicker-toggle .mat-icon-button, .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-datepicker-toggle .mat-icon-button {
+     width: 38px;
+     height: 35px;
+     display: inline-block !important;
+}
+ .filter-outerbox {
+     padding: 16px 16px 12px 16px;
+}
+ .main-content .data-filterSec .search-div .btn-outerDiv button.icon-button{
+     margin-left: 0px;
+     margin-right: 8px;
+     float: left;
+}
+ .main-content .full-widthForm .search-field .mat-form-field-wrapper {
+     margin-right: 0px;
+}
+ .filter-outerbox .date-pickerDiv .mat-form-field-wrapper {
+     margin-right: 0px;
+}
+ .filter-outerbox .date-pickerDiv .mat-form-field-wrapper {
+     margin-right: 0px;
+}
+ .filter-outerbox .date-pickerDiv .mat-form-field {
+     width: auto;
+     margin-right: 8px;
+}
+/* ======================================= chauffer unavailability css ends ================*/
+/* ===== css for overall site improvemnt starts ===== */
+ .main-content table tr.mat-header-row .mat-header-cell.cdk-column-Action.mat-column-Action button.mat-sort-header-button {
+     cursor: none;
+}
+ .loader-svgContainer circle {
+     stroke: white !important;
+}
+ .loader-svgContainer svg, .loader-svgContainer .mat-spinner {
+     width: 70px !important;
+     height: 70px !important;
+}
+ button.icon-button {
+     min-width: auto;
+     text-align: center;
+     margin-top: 0px;
+}
+ mat-calendar-header button span.mat-button-wrapper {
+     font-size: 14px;
+     font-weight: bold;
+     color: #252729;
+}
+ .main-container{
+     min-height: 100%;
+}
+ .confirmation-box.ng-star-inserted {
+     text-align: center;
+     padding-top: 80px;
+     width: 100%;
+     max-width: 460px;
+     margin: 0 auto;
+     clear: both;
+}
+ .confirmation-box.ng-star-inserted h2{
+     font-size: 24px;
+     margin-bottom: 40px;
+}
+ .confirmation-box .content-bx{
+     padding: 16px;
+     border: 1px solid #e6e6e6;
+}
+ .confirmation-box .content-bx p{
+     margin: 0px;
+}
+ .color-red {
+     color: #E03F3D;
+}
+/* ===== css for overall site improvemnt starts ===== */
+/*======================= media quey css starts ===============================*/
+ @media only screen and (max-width: 1280px) {
+     .main-content .data-filterSec.full-widthForm .search-field {
+         max-width: 208px;
+    }
+}
+ @media only screen and (min-width: 981px) {
+     .main-content .data-filterSec.full-widthForm .search-field{
+         max-width: 571px;
+         width: 100%;
+    }
+     .custom-wdithForm {
+         padding-right: 150px;
+    }
+     .data-filterSec .date-pickerDiv mat-form-field.mat-form-field-type-mat-input .mat-form-field-wrapper {
+         max-width: 125px;
+         margin-top: 0px;
+    }
+     .search-div {
+         width: 40%;
+         max-width: 530px;
+         float: left;
+    }
+}
+ @media only screen and (max-width: 980px) {
+    /* table mobiel design css starts */
+     .main-content table.responsive-table tr td {
+         width: 100%;
+         display: table-row-group;
+         float: left;
+         padding: 12px 10px 12px 10px;
+         min-height: 39px;
+         padding-left: 50% !important;
+         position: relative;
+    }
+     .main-content table.responsive-table thead{
+        display: none;
+    }
+     table.responsive-table tbody tr td::before, table.responsive-table tbody tr th::before {
+         content: attr(title);
+         color: #252729;
+         font-size: 13px;
+         position: absolute;
+         left: 15px;
+         font-weight: 700;
+         width: 45%;
+    }
+     table.responsive-table tr.mat-row{
+         margin-bottom: 20px;
+        /* float: left;
+         */
+         width: 100%;
+         clear: both;
+         display: table;
+         background: #fff;
+         border: 1px solid rgba(0,0,0,0.1);
+    }
+     .responsive-table {
+         background: #fff;
+    }
+     .data-filterSec label.label {
+         display: none;
+    }
+     .main-content table.responsive-table {
+         background: transparent;
+    }
+     .main-content .mat-elevation-z8.tableStyle{
+         border: 0px;
+    }
+    /* action menu css stars */
+     .action-memuSmallScreen {
+         display: block;
+    }
+     .main-content table.responsive-table tr td button.mat-icon-button.ng-star-inserted {
+         display: none;
+    }
+     .action-memuSmallScreen li {
+         width: 33.3333%;
+         float: left;
+         text-align: center;
+         border-right: 1px solid rgba(0,0,0,0.1);
+    }
+     .action-memuSmallScreen li:last-child{
+         border: 0px;
+    }
+     ul.action-memuSmallScreen {
+         float: left;
+         width: 100%;
+         margin: 0px;
+         padding: 0px;
+    }
+     .main-content table.responsive-table tr td[title="Action"]{
+         padding: 0px !important;
+         border-bottom: 0px;
+    }
+     .main-content table.responsive-table tr td[title="Action"]::before{
+         display: none;
+    }
+     .action-memuSmallScreen {
+        list-style: none;
+    }
+     ul.action-memuSmallScreen li a{
+         width: 100%;
+         float: left;
+         padding: 3px 5px;
+         font-size: 14px;
+    }
+     ul.action-memuSmallScreen li.mobile-delete-btn a{
+         color: #E03F3D;
+    }
+     .tableStyle mat-paginator.mat-paginator {
+         border-top: 1px solid rgba(0,0,0,0.1);
+         border-left: 1px solid rgba(0,0,0,0.1);
+         border-right: 1px solid rgba(0,0,0,0.1);
+    }
+    /* action menu css ends */
+    /* table mobile design css ensd */
+    /* search fileter css starts */
+     .dashboard-container .data-filterSec .mat-form-field[_ngcontent-c7] , .main-content .data-filterSec mat-form-field.mat-form-field.mat-form-field-type-mat-select{
+         width: 100%;
+         min-width:100%;
+    }
+     .dashboard-container .data-filterSec .mat-form-field[_ngcontent-c7]:first-child {
+         margin-bottom: 7px;
+    }
+     .main-content .full-widthForm .mat-form-field-wrapper {
+         margin-right: 24px;
+    }
+     .main-content .full-widthForm .mat-form-field-wrapper {
+         margin-right: 0px;
+    }
+     .data-filterSec .mat-flat-button.mat-primary {
+         margin: 0px;
+         margin-top: 15px;
+    }
+     .data-filterSec .mat-flat-button.mat-primary, .data-filterSec .mat-stroked-button {
+         margin: 0px;
+         width: 100%;
+         margin-top: 8px;
+    }
+     .main-content .data-filterSec mat-form-field.mat-form-field.mat-form-field.mat-primary.mat-form-field-type-mat-select {
+         margin-top: 8px;
+    }
+    /* search filter css ends */
+     body div .data-filterSec .mat-form-field {
+         font-size: 14px;
+         width: 100%;
+    }
+     .updated-service button.add-group-btn.mat-button.mat-primary, .updated-service a.add-group-btn {
+        position: relative;
+        top: auto;
+        margin-bottom: 10px;
+    }
+     .date-pickerDiv, .btn-outerDiv, .btn-outerDiv.align-withsearchBox, .align-withsearchBox {
+         width: 100%;
+         float: left;
+    }
+     body div .data-filterSec .mat-form-field{
+         margin-top: 10px;
+    }
+     .main-content .mat-elevation-z8.tableStyle table thead{
+         display: none;
+    }
+     .main-content .data-filterSec.full-widthForm .search-field , .main-content .data-filterSec mat-form-field.mat-form-field.mat-form-field-type-mat-select {
+         width: 100%;
+         max-width: 100%;
+    }
+     .status-div {
+         width: 100%;
+         float: left;
+         margin-bottom: 0px;
+         margin-top: 0px;
+    }
+     .data-filterSec .btn-outerDiv .mat-flat-button.mat-primary, .data-filterSec .btn-outerDiv .mat-stroked-button {
+         margin-left: 0px;
+    }
+     .data-filterSec .btn-outerDiv .mat-flat-button.mat-primary, .data-filterSec .btn-outerDiv .mat-stroked-button {
+         margin: 10px 0px 0px 0px;
+    }
+     .main-content .data-filterSec .search-div .btn-outerDiv button.icon-button, .data-filterSec .search-div .btn-outerDiv.align-withsearchBox {
+         width: auto;
+    }
+     .search-div {
+         float: left;
+         width: 100%;
+    }
+     .filter-outerbox .date-pickerDiv .mat-form-field:last-child, .main-content .full-widthForm .status-div .mat-form-field-wrapper {
+         margin-right: 0px;
+    }
+     .filter-outerbox .date-pickerDiv .mat-form-field {
+         width: 49%;
+         margin-right: 8px;
+    }
+}
+ @media only screen and (min-width: 768px){
+     .hideNavBar .dashboard-container .sidebar-menu {
+         -webkit-transform: translate(0, 0);
+         -ms-transform: translate(0, 0);
+         -o-transform: translate(0, 0);
+         transform: translate(31, 44);
+         width: 65px !important;
+         z-index: 850;
+    }
+     .hideNavBar .dashboard-container .sidebar-nav .sidebar p {
+         display: none;
+    }
+     .white-box.filter-box .data-filterSec button {
+         margin-top: 2px;
+    }
+}
+ @media only screen and (max-width: 767px) {
+     .dashboard-container .mat-drawer-content {
+         padding-left: 0px;
+         margin-left: 0px !important;
+    }
+     .hideNavBar .dashboard-container .mat-drawer.mat-drawer-side, .hideNavBar .top-posHeader .logo-wrapper {
+         width: 230px !important;
+    }
+     .dashboard-container .logo-wrapper{
+        display: none;
+    }
+     .hideNavBar .dashboard-container .mat-drawer-content {
+         margin-left: 0px !important;
+    }
+     .hideNavBar .mat-drawer-transition .mat-drawer-backdrop {
+         background: rgba(0,0,0,.3);
+    }
+     .hideNavBar .dashboard-container .sidebar-menu li a span {
+         display: block;
+    }
+     .hideNavBar .example-container.dashboard-container.mat-drawer-container.mat-drawer-transition .mat-drawer-transition .mat-drawer-backdropmat-drawer-backdrop.ng-star-inserted, .hideNavBar .example-container.dashboard-container.mat-drawer-container.mat-drawer-transition .mat-drawer-transition .mat-drawer-backdrop.ng-star-inserted {
+         visibility: visible;
+         background: rgba(0, 0, 0, 0.3);
+    }
+     .example-container.dashboard-container.mat-drawer-container.mat-drawer-transition.mat-drawer-opened .mat-drawer-backdrop.ng-star-inserted.mat-drawer-shown{
+         visibility: hidden;
+    }
+     .hideNavBar .example-container.dashboard-container.mat-drawer-container.mat-drawer-transition.mat-drawer-opened .mat-drawer-backdrop.ng-star-inserted.mat-drawer-shown{
+         visibility: visible;
+    }
+     .hideNavBar .dashboard-container .sidebar-menu > li a .icons {
+         display: block;
+         margin: auto;
+         float: left;
+    }
+     .hideNavBar .dashboard-container .sidebar-menu li{
+        text-align: left;
+    }
+     .hideNavBar .dashboard-container .sidebar-menu li a {
+         padding: 12px 16px 12px 24px;
+    }
+     .dashboard-container .sidebar-menu li a span {
+         float: left;
+    }
+     .hideNavBar .dashboard-container .sidebar-nav{
+        width: 230px;
+         opacity: 1;
+    }
+     .dashboard-container .sidebar-nav ul , .dashboard-container .sidebar-nav p{
+         opacity: 0;
+         display: none;
+    }
+     .dashboard-container .sidebar-nav, .top-posHeader .logo-wrapper {
+         width: 0px;
+         transform: translate3d(-240px, 0px, 0px) !important;
+         -webkit-transform: translate3d(-240px, 0px, 0px) !important;
+         -moz-transform: translate3d(-240px, 0px, 0px) !important;
+         -ms-transform: translate3d(-240px, 0px, 0px) !important;
+         -o-transform: translate3d(-240px, 0px, 0px) !important;
+         -webkit-transition: -webkit-transform .1s ease-in-out,width .1s ease-in-out;
+         -moz-transition: -moz-transform .1s ease-in-out,width .1s ease-in-out;
+         -o-transition: -o-transform .1s ease-in-out,width .1s ease-in-out;
+         -ms-transition: -o-transform .1s ease-in-out,width .1s ease-in-out;
+         transition: transform .1s ease-in-out,width .1s ease-in-out;
+    }
+     .hideNavBar .dashboard-container .sidebar-nav , .hideNavBar .top-posHeader .logo-wrapper {
+         transform: translate3d(0px, 0px, 0px) !important;
+         -webkit-transform: translate3d(0px, 0px, 0px) !important;
+         -moz-transform: translate3d(0px, 0px, 0px) !important;
+         -ms-transform: translate3d(0px, 0px, 0px) !important;
+         -o-transform: translate3d(0px, 0px, 0px) !important;
+         visibility: visible !important;
+         width: 230px;
+         background: #252729;
+         color: #fff;
+    }
+     .top-posHeader .logo-wrapper{
+         padding: 0px;
+    }
+     html .hideNavBar .top-posHeader .logo-wrapper{
+         display: none;
+         width: 230px;
+    }
+     .hideNavBar .dashboard-container .sidebar-nav ul {
+         opacity: 1;
+         display: block;
+    }
+     .dashboard-container .sidebar-nav p{
+         opacity: 0;
+         display: none;
+    }
+     .hideNavBar .dashboard-container .sidebar-nav p{
+         display: block;
+         opacity: 1;
+    }
+     header .top-navOuter {
+         padding: 0px 15px;
+    }
+     header .header-menu:first-child li:first-child {
+         margin-right: 0px;
+    }
+     .top-posHeader .header-menu h2 {
+         display: none;
+    }
+     .hideNavBar .mat-drawer-transition .mat-drawer-backdrop {
+         margin-top: 64px;
+    }
+     .hideNavBar .dashboard-container ul.sidebar-menu.manage-setting button.back-button.mat-stroked-button.mat-primary .mat-button-wrapper span{
+         display: block;
+    }
+     form .mat-form-field[_ngcontent-c8] {
+         width: 100%;
+    }
+     .data-filterSec mat-form-field {
+         width: 100% !important;
+    }
+     .top-posHeader .back-btn {
+         margin-top: 15px;
+    }
+     .hideNavBar .top-posHeader .logo-wrapper .logo-mini {
+         display: none;
+    }
+     .hideNavBar .top-posHeader .logo-wrapper .logo-lg {
+         display: block;
+    }
+     ul.listing-dayboxes {
+         margin-bottom: 20px;
+         margin-top: 0px;
+    }
+     .hideNavBar .dashboard-container ul.sidebar-menu.manage-setting button.back-button.mat-stroked-button.mat-primary .mat-button-wrapper span {
+         display: inline-block;
+    }
+     .top-posHeader .header-menu .back-btn {
+         margin-left: 0px;
+    }
+}
+ @media only screen and (max-width: 480px) {
+     .list-bootom li{
+        width: 100%;
+    }
+     .full-widthRow .half-width:first-child {
+         padding-right: 6px;
+    }
+     .moreCustom-padding {
+         padding: 15px;
+    }
+     form .full-widthRow > .half-width {
+         width: 100%;
+         float: left;
+         padding: 0px !important;
+    }
+     div .listing-dayboxes li {
+         width: 47%;
+         margin: 1%;
+    }
+}
+ 

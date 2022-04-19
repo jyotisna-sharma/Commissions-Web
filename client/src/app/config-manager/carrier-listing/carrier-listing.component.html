@@ -1,0 +1,94 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showloading">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="main-content">
+  <div class="filter-outerbox filterContianer">
+    <div class="example-header data-filterSec padding-none full-widthForm">
+      <div class="divRow">
+        <div class="full-rowOuter space-between">
+          <h4 class="page-title">{{title}}</h4>
+
+          <div class="btn-section">
+            <!-- <span> -->
+            <button class="loader-svg pull-right create-button small-size" (click)='OnAddUpdateCarrier()' mat-flat-button [disabled]="userdetail?.Permissions[1].Permission === 1"
+              [ngClass]="{'btn-disable': userdetail?.Permissions[1].Permission === 1}">Create New Carrier</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="divRow">
+    <div class="tabs-container">
+      <app-config-manager-left-navigation></app-config-manager-left-navigation>
+      <div class="tabs-contentDiv">
+     
+          <div class="filter-outerbox filterContianer">
+            <div class="example-header data-filterSec padding-none">
+              <div class="divRow margin-left-none">
+                <div class="full-rowOuter space-between padding-left-none less-height border-none">
+                    <div class="left-col">
+                      <label class="label">Payor:</label>
+                      <mat-form-field appearance="outline">
+                        <mat-select [formControl]='payor' (selectionChange)='OnChangePayor($event)'>
+                          <mat-option *ngFor="let payor of payorList" [value]="payor.PayorID">
+                            {{payor.PayorName}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  <!-- <div class="search-div pull-right">
+                        <mat-form-field appearance="outline"  class="form-field-height-30">
+                          <input matInput>
+                        </mat-form-field>
+                        <div class="btn-outerDiv align-withsearchBox search-cancel-btn"> 
+                            <button mat-button  matSuffix mat-icon-button class="icon-cross">
+                                <mat-icon>close</mat-icon>
+                              </button>
+                          <button mat-raised-button class="loader-svg pull-left icon-button">
+                            <i class="img-icons search-icn"></i>
+                          </button>
+                        </div>
+                      </div> -->
+             
+                          <div class="search-div">
+                            <mat-form-field appearance="outline">
+                              <input matInput placeholder='Search: Carrier Name, Nickname' [(ngModel)]="searchData" (keydown.enter)="doSearch()">
+                            </mat-form-field>
+                            <div class="btn-outerDiv align-withsearchBox search-cancel-btn">
+                              <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="searchData='';handleSearchClear($event);" class="icon-cross"
+                                *ngIf="searchData">
+                                <mat-icon>close</mat-icon>
+                              </button>
+                              <button mat-raised-button class="loader-svg pull-left icon-button" mat-button mat-stroked-button (click)="doSearch()">
+                                <i class="img-icons search-icn"></i>
+                                <label>Search</label>
+                              </button>
+                            </div>
+                          </div>
+                      
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="normal-box tableData tablediv listing-table">
+          
+              <div class="col-12-lg col-12-md padding-none">
+                <!-- <div class="batch-manager">
+                  <div class="left-col">
+                    <h4 class="page-title mg-t0">Carriers ({{ this.carrierCount}})
+                    </h4>
+                  </div>
+                </div>  -->
+                <div class="tableStyle " *ngIf="ispayorlistfound">
+                  <app-mi-list [MiListProperties]='MiListProperties' (onMenuItemClick)='OnMenuItemClick($event)'></app-mi-list>
+                </div>
+              </div>
+
+          
+
+          </div>
+       
+      </div>
+    </div>
+  </div>
+  <!--*************************************************************************************************************-->

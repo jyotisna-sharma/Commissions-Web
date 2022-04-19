@@ -1,0 +1,477 @@
+@import 'media-variable';  
+@import 'color-variable';  
+@import 'mixins'; 
+
+.dashboard-container .logo-wrapper , .dashboard-container header a span, .dashboard-container .sidebar-nav, .top-posHeader .logo-wrapper {
+    -webkit-backface-visibility: hidden;
+     -moz-backface-visibility: hidden;
+     backface-visibility: hidden;
+}
+   
+/*    safari header issue , iphone fixed header issue css   */
+body .mat-drawer-content, body .mat-drawer-container {
+    z-index: 2;  
+    overflow: visible !important;
+}
+/*
+body .mat-drawer-container {
+    overflow:  visible !important;
+    z-index: 2;
+    }  */ 
+    /*    safari header issue  ends */
+ .dashboard-container{
+     min-height: 100%;
+}
+ .dashboard-container .sidebar-nav, .hideNavBar .dashboard-container .sidebar-menu {
+   -webkit-backface-visibility: hidden;
+     -moz-backface-visibility: hidden;
+     backface-visibility: hidden;
+}
+ .dashboard-container .sidebar-nav {
+     transform: none !important;
+     -webkit-transform: none !important;
+     -moz-transform: none !important;
+     -ms-transform: none !important;
+     -o-transform: none !important;
+     visibility: visible !important;
+     width: 230px;
+     background: $Grey-dark;
+     color: #fff;
+}
+ .dashboard-container .sidebar-nav.ng-animating{
+     visibility: visible !important;
+     background: $Grey-dark;
+}
+ .top-posHeader .header-menu {
+     padding-left: 0px;
+}
+ .mat-icon-button.user-profile-btn {
+    width: 100%;
+}
+ .top-posHeader .user-menu {
+     background: #fff;
+}
+ .cdk-overlay-pane.mat-datepicker-popup{
+     margin-top: 0px !important;
+}
+ .top-posHeader {
+     height: 64px;
+     position: fixed;
+     top: 0px;
+     left: 0;
+     width: 100%;
+     background: #fff;
+        z-index: 2 ;
+        transform: translate3d(0,0,0);
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+  .top-navOuter {
+              display: flex !important; flex-basis: auto; height: 100%; vertical-align: middle; line-height: 64px;  padding: 0px 24px 0px 6px;  border-bottom: 1px solid #e6e6e6;
+
+        .toggle-btn .mat-button-ripple.mat-ripple {
+            display: none;
+       }
+       .mat-icon-button.user-profile-btn {
+        width: auto;
+        display: inline-block;
+        padding: 1.2rem 0.6rem;
+                          }
+   ul
+      {   
+          li {
+        display: inline-block;
+        float: none; }   
+          }
+   .header-menu 
+    { 
+        flex-direction: row;
+        display: flex;
+        margin-top: 0px;
+        margin-bottom: 0px; 
+       li {
+             margin-right: 16px;
+             @media only screen and (max-width: $Break-Normal) {
+              margin-right: 8px;  
+                        }
+                     }
+        li:last-child {
+                 margin-right: 0px; }
+                    }
+    header .header-menu:first-child {
+                    margin-right: auto;
+                 }
+              }
+           }
+
+
+ header .header-menu:first-child {
+     margin-right: auto;
+}
+ header .header-menu h2 {
+     margin: 0px auto;
+}
+
+.dashboard-container .sidebar-nav.mat-drawer{position: fixed;   top: 64px;}
+ .dashboard-container .logo-wrapper, .top-posHeader .logo-wrapper{
+     width: 230px;
+     float: left;
+     height: 64px !important;
+     background: $Grey-dark;
+     padding: 0px 24px;
+     height: 100%;
+     position: relative;
+     border-bottom: 1px solid rgba(255,255,255,.4);
+}
+
+ .dashboard-container .logo-wrapper .logo-mini, .top-posHeader .logo-wrapper .logo-mini {
+     display: none;
+}
+ .dashboard-container .logo-wrapper img, .top-posHeader .logo-wrapper img {
+     width: 84%;
+     float: left;
+     margin: 9px auto;
+     max-width: 130px;
+}
+ .hideNavBar .top-posHeader .logo-wrapper .logo-lg {
+     display: none;
+}
+ .hideNavBar .top-posHeader .logo-wrapper .logo-mini {
+     display: block;
+}
+ .dashboard-container .header-menu .toggle-btn .mat-button-focus-overlay, .top-posHeader .logo-wrapper .toggle-btn .mat-button-focus-overlay {
+     background-color: transparent;
+}
+ .dashboard-container .header-menu .toggle-btn span.mat-button-wrapper, .top-posHeader .header-menu .toggle-btn span.mat-button-wrapper {
+     font-size: 16px; font-weight: bold;
+}
+ .dashboard-container .header-menu .toggle-btn, .top-posHeader .header-menu .toggle-btn {
+     min-width: auto; padding: .8rem 1rem .9rem; margin-top: 7px; width: 52px; min-width: 52px;
+     @media only screen and (max-width: $Break-Small - 1){
+            padding: .8rem 0.5rem .9rem; width: 38px; min-width: 38px; margin-right: 4px; margin-left: -6px;
+     }
+}
+
+ .dashboard-container .sidebar-menu li a {
+     padding: 12px 16px 12px 24px; color: $Grey-light; font-size: 14px; float: left; width: 100%; min-height: 48px; font-weight: 400;  position: relative;
+}
+ .dashboard-container .sidebar-menu li a span {
+     margin-left: 24px; line-height: 22px;  vertical-align: top;
+}
+ .dashboard-container .sidebar-menu .icons, .img-icons {
+     width: 22px; height: 22px;  font-size: 22px;
+}
+ .dashboard-container .sidebar-menu li a:hover, .dashboard-container .sidebar-menu li a:focus,  .dashboard-container .sidebar-menu li.active a:hover{
+     background: $menu-hover;
+}
+
+ .dashboard-container .sidebar-menu > li a .icons, .dashboard-container .top-posHeader button.user-profile-btn.mat-icon-button .arrow.icon , .img-icons {
+     background-image: url('/assets/images/sprite-icons.png'); background-position-x: 0%; background-position-y: 0%; background-repeat: no-repeat; float: left;
+}
+ .dashboard-container{
+    .sidebar-nav{
+        .sidebar p {
+            color: $Grey-light; padding: 0px 24px; font-size: 12px; float: left;  width: 100%;
+       }
+    }
+ .sidebar-menu 
+ {  
+    padding: 0px; margin: 24px 0px 0px 0px;  list-style: none; float: left;width: 100%; 
+     li a {
+         @include transition(300ms);  
+        .icons {opacity: .5;}
+       .icons.dash {background-position: -1px 0px;}
+       .icons.accnt {background-position: -1px -22px;}
+       .icons.deleg { background-position: -1px -44px;}
+       .icons.prof {background-position: -1px -66px;}
+       .icons.prof { background-position: -1px -66px;}
+       .icons.book{ background-position: -1px -88px;}
+       .icons.vechcle {background-position: -1px -88px;}
+       .icons.getqte {background-position: -1px -110px;}
+       .icons.refrl {background-position: -1px -132px;}
+       .icons.event {background-position: -1px -154px;}
+       .icons.dispatch{background-position: -1px -176px;}
+       .icons.reports {background-position: -1px -198px;}
+       .icons.tracking {background-position: -1px -220px;}
+       .icons.accounting {background-position: -1px -242px;}
+      .icons.reporting {background-position: -1px -265px;}
+       .icons.manage {background-position: -1px -287px;}
+      .icons.back {background-position: -105px -44px;}
+      .icons.admin {background-position: -1px -308px;}
+      .icons.Chauff {background-position: -1px -331px;}
+      .icons.circle {background-position: -1px -242px;}
+       .icons.Vehicles {background-position: -1px -354px;}
+ span {
+        margin-left: 24px; line-height: 22px;  vertical-align: top;
+   }
+       
+}
+li .menu-content {    display: none; float: left; width: 100%; padding: 0px; list-style: none;}
+li .menu-content li a {padding: 12px 16px 12px 80px;}
+li.has-sub > a:after { background-image: url(/assets/images/sprite-icons.png); background-position: -108px 0px; display: block; content: ''; width: 22px; height: 22px; float: left; position: absolute; right: 15px; top: 13px;}
+li.has-sub > a { padding: 12px 35px 12px 24px;}
+li.active a
+         {
+             background: $transparent; opacity: 1; font-weight: 700; color: #fff;
+             .icons {opacity: 1;}
+}
+.icons, .img-icons {
+    width: 22px; height: 22px;  font-size: 22px;
+}
+}
+i.img-icons.search-icn {background-position: -107px -154px;}
+i.img-icons.reset-icn{background-position: -107px -131px;}
+} 
+
+.hideNavBar
+{
+.dashboard-container {
+    .sidebar-nav { visibility: visible !important; background: $Grey-dark; color: #fff; } 
+    .sidebar-menu > li.has-sub > a:after{display: none;}
+    .sidebar-menu li 
+     {
+        float: left; width: 100%; text-align: center;
+      a { padding: 12px 8px 12px 4px; 
+        .icons {display: block; margin: 0 auto;float: none; }
+        span{display: none;}
+    }
+   }
+   
+}
+.sidebar-nav , .top-posHeader .logo-wrapper {
+    width: 65px;  
+   }
+}
+
+/* */
+
+
+
+ .hideNavBar .dashboard-container .logo-wrapper .logo-mini img, .hideNavBar .top-posHeader .logo-wrapper .logo-mini img {
+     width: 90%; float: left; margin: 9px auto; max-width: 40px;
+}
+ .hideNavBar .top-posHeader .logo-wrapper .logo-mini img {
+     width: 45px; float: none; margin: 5px auto; display: inline-block;
+}
+ .hideNavBar .top-posHeader .logo-wrapper .logo-mini{
+    text-align: center;
+}
+ .hideNavBar .dashboard-container .logo-wrapper, .hideNavBar .top-posHeader .logo-wrapper {
+     padding: 5px 5px;
+}
+
+/* sidebar menu css starts */
+ .dashboard-container .example-sidenav-content, .main-content {
+     min-height: 100%;
+     height: 100%;
+}
+
+ .dashboard-container .mat-drawer-content {
+     margin-left: 230px;  background: transparent;
+}
+ .hideNavBar .dashboard-container .mat-drawer-content{
+     padding-left: 0px; margin-left: 66px !important;
+}
+ .hideNavBar .dashboard-container .main-content {
+     padding-left: 0px;
+}
+ mat-drawer-container.dashboard-container {
+     padding-top: 64px;
+}
+ .dashboard-container .example-sidenav-content .main-content .main-content{
+    padding: 8px 24px 24px 24px;
+    @media only screen and (max-width: $Break-Small - 1) {
+        padding: 12px 12px 12px 12px; 
+    }
+}
+.dashboard-container .example-sidenav-content > .main-content {padding-top: 8px;
+    @media only screen and (max-width: $Break-Small - 1) {
+        padding-top: 0px;
+    }
+}
+ .hideNavBar .dashboard-container header span.logo-lg, .hideNavBar .top-posHeader header span.logo-lg {
+     display: none;
+}
+ .hideNavBar .dashboard-container header span.logo-mini , .hideNavBar .top-posHeader header span.logo-mini {
+    display: block;
+}
+ .hideNavBar .dashboard-container header span.logo-mini , .hideNavBar .top-posHeader header span.logo-mini {
+     max-width: 50px; margin: 0 auto;
+}
+ .hideNavBar .dashboard-container ul.sidebar-menu.manage-setting button.back-button.mat-stroked-button.mat-primary .mat-button-wrapper span {
+     display: none;
+}
+.top-posHeader 
+{ 
+    .top-navOuter 
+        {
+          .mat-form-field-wrapper  {
+           .mat-option-text { font-size: 12px; }
+           .mat-select .mat-select-value{font-size: 12px;}
+        } 
+    .header-menu + label.label { font-weight: 600;  font-size: 12px;  color: #252729; min-width: 60px;
+       @media only screen and (max-width: $Break-MobileScreen) { font-size: 11px;  }  }  }
+  }
+/* main content css ends */
+ .dashboard-container .cdk-visually-hidden{
+    display: none;
+}
+ .mat-drawer:not(.mat-drawer-side) {
+     box-shadow: none !important;
+}
+ .mat-button-wrapper span.user-profile {
+                                         height: 33px; width: 33px; overflow: hidden; border-radius: 50%; padding: 0px; display: inline-block; margin-right: 5px; margin-top: -5px;
+                                         @media only screen and (max-width: $Break-Normal) {
+                                         height: 30px; width: 30px;
+                                      }
+}
+ .mat-button-wrapper span.user-profile img{
+     width: 100%; height: auto;
+}
+ header button.user-profile-btn.mat-icon-button {
+     width: 100%; padding: 0px !important;  display: inline-block;
+}
+/* manage setting menu css starts */
+ .dashboard-container ul.sidebar-menu.manage-setting {
+     margin: 0px 0px 25px 0px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.4);
+}
+ .dashboard-container ul.sidebar-menu.manage-setting li ul li a {
+     padding: 12px 16px 12px 24px;
+}
+ .dashboard-container ul.sidebar-menu.manage-setting button.back-button.mat-stroked-button.mat-primary {
+     width: 100%; float: left; background: transparent !important; line-height: 100%; opacity: 1; color: #fff; border-left: 0px; border-right: 0px;  border-color: rgba(255,255,255,.4) !important; border-top: 0px; padding: 12px 16px 12px 26px; line-height: initial; text-align: left;
+}
+ .dashboard-container ul.sidebar-menu.manage-setting button.back-button.mat-stroked-button.mat-primary .mat-button-wrapper span {
+     margin-left: 24px; line-height: 22px; vertical-align: top; font-weight: 600;
+}
+ .dashboard-container ul.sidebar-menu.manage-setting button.back-button.mat-stroked-button.mat-primary .icons.back {
+     background-image: url('/assets/images/sprite-icons.png'); background-position: -109px -44px; background-repeat: no-repeat; float: left;
+}
+ .dashboard-container ul.sidebar-menu.manage-setting button.back-button.mat-stroked-button.mat-primary .mat-button-focus-overlay{
+     background: transparent;
+}
+ .hideNavBar .dashboard-container ul.sidebar-menu.manage-setting li ul li a , .hideNavBar .dashboard-container ul.sidebar-menu.manage-setting button.back-button.mat-stroked-button.mat-primary {
+     padding: 12px 8px 12px 4px;
+}
+ .dashboard-container ul.sidebar-menu p.label-title {
+     float: left;  margin-top: 25px; font-size: 13px; font-weight: 600; margin-bottom: 15px;
+}
+ .dashboard-container ul , .hideNavBar .dashboard-container ul li {
+     clear: both;
+}
+ .dashboard-container .top-posHeader button.user-profile-btn.mat-icon-button {
+         min-width: 60px;  text-align: left;
+}
+ .dashboard-container .top-posHeader button.user-profile-btn.mat-icon-button .arrow.icon {
+     background-position: -108px -89px; width: 22px; height: 22px; float: right; vertical-align: middle; margin-top: 11px; position: absolute;
+}
+ .dashboard-container .user-notification .mat-icon.material-icons, .top-posHeader .user-notification .mat-icon.material-icons {
+     font-size: 0px; background: url(/assets/images/sprite-icons.png);   background-position: -107px -65px;
+}
+ .dashboard-container .user-notification .user-profile-btn .mat-button-ripple.mat-ripple.mat-button-ripple-round, .top-posHeader .user-notification .user-profile-btn .mat-button-ripple.mat-ripple.mat-button-ripple-round {
+     display: none;
+}
+ .user-menu .top-head, .mat-menu-content .top-head {
+     border-bottom: 1px solid #e6e6e6; padding: 0px 25px;
+}
+ .user-menu .top-head h3, .mat-menu-panel .top-head h3 {
+    margin-bottom: 3px;  font-size: 13px;
+}
+ .user-menu .top-head {
+    font-size: 13px;
+}
+ .user-menu .mat-menu-content{
+     padding: 0px !important;
+}
+ .user-menu .bot-footer {
+     border-top: 1px solid #e6e6e6;
+}
+ .user-menu .mat-menu-item{
+     padding: 0px 25px;
+}
+ .white-box {
+     background: #fff; padding: 15px; border: 1px solid #e6e6e6;   border-radius: 2px;
+}
+ header .header-menu:first-child li:first-child{
+    margin-right: 2px;
+}
+ .white-box h2{
+    margin-top: 0px;
+}
+ .mat-menu-content .mat-menu-item {
+    color: $Grey-dark; font-size: 13px; height: 40px;  line-height: 40px;
+}
+/* manage setting menu sss ends */
+ .sidebar-menu .showSettingsBar {
+     display: block !important;
+}
+ .sidebar-menu.HideMenu{
+     display: none;
+}
+ .hideSettingsBar .bot-box{
+     display: none;
+}
+ .sidebar-menu.manage-setting.showSettingsBar .menu-content{
+     display: block !important;
+}
+ .sidebar-menu.top-menu.hideSettingsBar{
+     display: none !important;
+}
+ .sidebar-menu.top-menu.showSettingsBar{
+     display: block !important;
+}
+ ul.sidebar-menu.manage-setting.has-sub.hideSettingsBar{
+     display: none;
+}
+ .hideSettingsBar{
+     display: none;
+}
+ .hideNavBar .dashboard-container .sidebar-menu ul.menu-content {
+     display: none;
+}
+ .sidebar ul.sidebar-menu.top-menu {
+     padding-bottom: 40px;  margin-bottom: 25px;   border-bottom: 1px solid rgba(255,255,255,.4);
+}
+ .hideNavBar .back-button.mat-stroked-button {
+     text-align: center !important;  width: 100%; padding: 12px 0px !important;   min-width: 100%;
+}
+ .hideNavBar .back-button.mat-stroked-button .icons.back{
+     float: none !important; margin: 0 auto; display: inline-block;
+}
+ .dashboard-container .sidebar-menu li a {
+     cursor: pointer !important;
+}
+
+.hideNavBar {
+    .dashboard-container {
+               .sidebar-menu {
+                    @media only screen and (min-width: $Break-Small){
+                      -webkit-transform: translate(0, 0);
+                    -ms-transform: translate(0, 0);
+                     -o-transform: translate(0, 0);
+                      transform: translate(31, 44);
+                    width: 65px !important;
+                     z-index: 850;
+                        }
+                    }
+          .sidebar-nav  { 
+            .sidebar p {
+                display: none;
+              }
+           }
+        }
+    }
+
+
+.top-posHeader .mat-form-field-appearance-outline .mat-form-field-wrapper {
+                                         margin: 0.80em 7px; padding: 0px;
+                                               .mat-form-field-infix {
+                                                                padding: 13px 0 8px 0;
+                                                                  @media only screen and (max-width: $Break-Normal) 
+                                                                  { max-width: 130px;}
+                                                                  @media only screen and (max-width: $Break-MobileScreen) 
+                                                                   { max-width: 100px;}
+    }
+}
+

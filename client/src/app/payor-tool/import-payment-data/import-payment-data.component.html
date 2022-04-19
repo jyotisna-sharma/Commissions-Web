@@ -1,0 +1,247 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showLoader">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="custom-row m-t-10 m-l-0 m-r-0 p-b-70 p-l-12 p-r-12">
+  <div class="col-5-lg">
+    <div class="custom-row">
+      <div cdkDropListGroup>
+        <div class="col-6-lg">
+
+          <div class="fields-container">
+            <h5 class="m-x-0 p-x-8 p-l-12 p-r-12 border-all">Available Fields</h5>
+
+            <div cdkDropList class="fields-items-list" cdkDropListSortingDisabled>
+              <div class="fields-box" *ngFor="let item of this.avilableFieldList" [cdkDragDisabled]="item.Disabled" cdkDrag>{{item.FieldName}}</div>
+            </div>
+          </div>
+        </div>
+        <!-- border-red green-box -->
+
+        <div class="col-6-lg p-r-0">
+          <div class="fields-container dragable-tabs-fileds">
+            <h5 class="m-x-0 p-x-8 p-l-12 p-r-12 border-all">Selected Fields </h5>
+            <div cdkDropList class="fields-items-list" (cdkDropListDropped)="DropFieldInSelectedList($event)">
+              <div *ngFor="let items of this.selectedFieldListBuilder.get('selectedFieldListArray')['controls'];let i=index" (click)='selectedFieldIndex=i'
+                [ngClass]="{'active-tab': i==selectedFieldIndex ,'border-red': items['controls'].className.value=='border-red','green-box':items['controls'].className.value=='green-box'}"
+                class="fields-box">{{items.value.FieldsName}}
+
+                <div class="icon-close" (click)='DeleteSelectedListItem(items,i)'></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form [formGroup]='this.selectedFieldListBuilder'>
+    <div class="col-7-lg p-l-0 p-t-0 m-x-0" formArrayName='selectedFieldListArray'>
+      <div class="selectedFieldListArray p-x-20 border-dotted-all">
+        <ng-container *ngFor="let item of this.selectedFieldListBuilder.get('selectedFieldListArray')['controls'];let i=index">
+          <div [formGroupName]="i" *ngIf="i==this.selectedFieldIndex">
+            <div class="custom-row m-x-0">
+              <div class="col-3-lg">
+                <h4 class="m-t-0">Fixed Location</h4>
+                <div class="custom-row minus-m-l-8 minus-m-r-8">
+                  <div class="col-6-lg p-l-8 p-r-8">
+                    <section class="full-widthRow">
+                      <label>Row</label>
+                      <mat-form-field appearance="outline" [ngClass]="{'invalid-error':item['controls'].className.value=='border-red' && item['controls'].isFormulaExpressionValid.value}">
+                        <input matInput formControlName="FixedRowLocation" type="number" oninput="validity.valid||(value='' );" min="1">
+                      </mat-form-field>
+                    </section>
+                  </div>
+                  <div class="col-6-lg p-l-8 p-r-8">
+                    <section class="full-widthRow">
+                      <label>Column</label>
+                      <mat-form-field appearance="outline" [ngClass]="{'invalid-error':item['controls'].className.value=='border-red' && item['controls'].isFormulaExpressionValid.value}">
+                        <input matInput formControlName="FixedColLocation" type="number" oninput="validity.valid||(value='' );" min="1">
+                      </mat-form-field>
+                    </section>
+                  </div>
+                </div>
+              </div>
+              <div class="col-9-lg">
+                <h4 class="m-t-0">Header Search</h4>
+                <div class="custom-row minus-m-l-8 minus-m-r-8">
+                  <div class="col-8-lg p-l-8 p-r-8">
+                    <section class="full-widthRow">
+                      <label>Then</label>
+                      <mat-form-field appearance="outline" class="less-width-row ">
+                        <input matInput formControlName="HeaderSearch">
+                      </mat-form-field>
+                    </section>
+                  </div>
+                  <div class="col-2-lg p-l-8 p-r-8">
+                    <section class="full-widthRow">
+                      <label>Row</label>
+                      <mat-form-field appearance="outline" class="less-width-row" [ngClass]="{'invalid-error':item['controls'].className.value=='border-red' && item['controls'].isFormulaExpressionValid.value}">
+                        <input matInput type="number" formControlName='RelativeRowLocation' oninput="validity.valid||(value='' );" min="1">
+                      </mat-form-field>
+                    </section>
+                  </div>
+                  <div class="col-2-lg p-l-8 p-r-8">
+                    <section class="full-widthRow">
+                      <label>Column</label>
+                      <mat-form-field appearance="outline" class="less-width-row" [ngClass]="{'invalid-error':item['controls'].className.value=='border-red'  && item['controls'].isFormulaExpressionValid.value}">
+                        <input matInput type="number" formControlName='RelativeColLocation' oninput="validity.valid||(value='' ); " min="1">
+                      </mat-form-field>
+                    </section>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12-lg p-t-0">
+                <p class="error minus-m-t-14" *ngIf="item['controls'].className.value=='border-red' && item['controls'].isFormulaExpressionValid.value">Minimum one input required</p>
+              </div>
+
+              <div class="col-12-lg p-t-0 p-b-20 minus-m-t-6">
+                <div class="border-dotted-bot custom-seprator"></div>
+              </div>
+
+            </div>
+            <div class="custom-row m-x-0">
+              <div class="col-6-lg">
+                <section class="full-widthRow">
+                  <label>Mask/Field Type</label>
+                  <mat-form-field appearance="outline" class="select-box-UI max-widthField ">
+                    <mat-select formControlName='PayorToolMaskFieldTypeId'>
+                      <mat-option *ngFor="let list of item.value.MaskFieldList" [value]="list.maskFieldID">
+                        {{list.MaskName}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </section>
+              </div>
+
+              <div class="col-5-lg pull-right">
+                <div class="custom-row minus-m-l-8 minus-m-r-8">
+                  <div class="col-6-lg p-l-8 p-r-8">
+                    <section class="full-widthRow">
+                      <label>Translate</label>
+                      <mat-form-field appearance="outline" class="select-box-UI max-widthField ">
+                        <mat-select placeholder="Select Field" formControlName='TransID'>
+                          <mat-option *ngFor="let list of item.value.TranslateList" [value]="list.TransID">
+                            {{list.Name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </section>
+                  </div>
+                  <div class="col-6-lg p-l-8 p-r-8">
+                    <section class="full-widthRow">
+                      <label>Default(Text)</label>
+                      <mat-form-field appearance="outline" class="max-widthField ">
+                        <input matInput formControlName='strDefaultText'>
+                      </mat-form-field>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="custom-row m-x-0">
+              <div class="col-6-lg p-t-0 minus-m-t-14">
+                <section class="full-widthRow">
+                  <mat-checkbox formControlName='PartOfPrimaryKey' class="m-r-16">Part of Primary Key
+                  </mat-checkbox>
+                  <mat-checkbox formControlName='CalculatedFields'>
+                    Calculated Field</mat-checkbox>
+                </section>
+              </div>
+            </div>
+            <div class="custom-row m-x-0 minus-m-t-16">
+              <div class="col-12-lg p-t-20 p-b-20">
+                <div class="border-dotted-bot custom-seprator"></div>
+              </div>
+            </div>
+
+            <div class="custom-row m-x-0" *ngIf="item.controls.CalculatedFields.value">
+              <form [formGroup]='item.controls.Formula'>
+                <div class="col-12-lg p-t-0 m-t-0 p-l-0 p-r-0 p-b-10 formulaSection">
+                  <div class="col-12-lg p-t-0 p-b-10">
+                    <p class="error-section" *ngIf="item['controls'].className.value=='border-red' && !item['controls'].isFormulaExpressionValid.value">Formula expression is invalid.
+                    </p>
+                  </div>
+                  <div class="custom-row m-x-0">
+                    <div class="col-12-lg labelOuter">
+                      <label>Formula Expression
+                        <span matTooltip="{{OnGenratingFormulaExpression(item.controls.Formula.controls.formulaExpressionArray.controls,'shownExpression')}}"
+                          class="m-l-8" *ngIf="item.controls.Formula.controls.formulaExpressionArray['controls'].length>1">
+                          <i class="tooltip-icon float-none inline-block minus-m-l-7 minu-m-t-2 ">i</i>
+                        </span>
+                      </label>
+                    </div>
+
+                    <div class="col-12-lg p-l-0 p-r-0">
+                      <div class="custom-row m-x-0">
+                        <!-- <div class="col-8-lg p-t-4 m-x-0">
+                          <section class="col-12-lg p-t-3 p-b-3 ">
+                            <mat-form-field appearance="outline" class="minus-m-b-16">
+                            
+                            </mat-form-field>
+                          </section>
+                        </div> -->
+                        <div class="col-8-lg p-t-6">
+                          <section class="full-widthRow">
+                            <mat-form-field appearance="outline" class="minus-m-b-16">
+                              <input matInput value="{{OnGenratingFormulaExpression(item.controls.Formula.controls.formulaExpressionArray.controls,'shownExpression')}}"
+                                readonly>
+                            </mat-form-field>
+                          </section>
+                        </div>
+                        <div class="col-2-lg p-t-6">
+                          <button mat-stroked-button class="m-t-2" (click)='OnTestFormulaDialog(i)' [disabled]="item.controls.Formula.controls.formulaExpressionArray['controls'].length==1">Test Formula</button>
+                        </div>
+                        <div class="col-2-lg p-t-6">
+                          <button mat-stroked-button class="m-t-2" (click)="RemoveFormula(i)" [disabled]="item.controls.Formula.controls.formulaExpressionArray['controls'].length==1">Remove</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="custom-row Formula-row m-x-0 p-t-10">
+                    <div class="col-2-lg labelOuter p-t-16">
+                      <label>Formula</label>
+                    </div>
+                    <div class="col-10-lg p-l-0 p-b-0 formula-scrollDiv">
+                      <div class="custom-row minus-m-l-8 minus-m-r-8">
+
+                        <div class="col-3-lg p-t-4 p-b-0 p-l-8 p-r-8" *ngFor="let formulaExpression of this.item.controls.Formula?.get('formulaExpressionArray').controls;let ij=index">
+                          <div [formGroup]='formulaExpression'>
+                            <!-- *ngFor="let item of this.formulaFieldListBuilder?.get('formulaArray')['controls'];let i=index" -->
+                            <mat-form-field appearance="outline" class="select-box-UI  m-r-16 minus-m-b-16">
+                              <mat-select placeholder="Select Field/Operator" formControlName="FormulaValue" (selectionChange)=AddFormulaPrimaryFields(i,ij,$event)>
+                                <mat-option *ngFor="let list of formulaFieldList" [value]="list">
+                                  {{list}}
+                                </mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </ng-container>
+      </div>
+    </div>
+  </form>
+  <div class="divRow m-x-0">
+    <section class="margin-top footer-area full-widthRow fixed-bottom-footer border-top">
+      <div class="col-12-lg">
+        <button type="submit" mat-raised-button color='primary' class="pull-left mat-flat-button mat-primary coloured-primary-button"
+          [disabled]="(this.selectedFieldListBuilder.get('selectedFieldListArray'))['length']==0" (click)='SaveImportToolPaymentData("save")'>Save</button>
+        <button type="submit" mat-raised-button color='primary' class="pull-left mat-flat-button mat-primary coloured-primary-button"
+          [disabled]="(this.selectedFieldListBuilder.get('selectedFieldListArray'))['length']==0" (click)='SaveImportToolPaymentData("saveFinish")'
+          *ngIf='isSaveFinishButtonShown'>Save & Finish</button>
+        <button mat-stroked-button class="pull-right" (click)='OnPageRedirection()'>Cancel</button>
+      </div>
+    </section>
+  </div>
+</div>

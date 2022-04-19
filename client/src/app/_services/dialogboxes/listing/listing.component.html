@@ -1,0 +1,65 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showloading">
+    <mat-spinner></mat-spinner>
+</div>
+
+<div class="dialog-contaner-minHeight data-filterSec" [ngClass]='data?.class'>
+    <div class="custom-row  m-b-6">
+        <div class="col-5-lg">
+            <h4 class="title" *ngIf="!showloading">{{data.title}}: ({{totalCount}})</h4>
+        </div>
+        <div class="col-7-lg margin-less">
+            <div class="search-div pull-right">
+                <mat-form-field appearance="outline" class="form-field-height-30">
+                    <input matInput [placeholder]="data.placeHolder" [(ngModel)]="searchData" (keydown.enter)="doSearch()">
+                </mat-form-field>
+                <div class="btn-outerDiv align-withsearchBox search-cancel-btn">
+                    <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="searchData='';handleSearchClear($event);" class="icon-cross" *ngIf="searchData">
+              <mat-icon>close</mat-icon>
+            </button>
+                    <button mat-raised-button class="loader-svg pull-left icon-button" mat-button mat-stroked-button (click)="doSearch()">
+          <i class="img-icons search-icn"></i>
+        </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dialog-content-container">
+        <app-mi-list [MiListProperties]=MiListProperties (OnCheckBoxClick)='oncheckedvaluecheck($event)' (onMenuItemClick)="MenuItemClicked($event)" (SelectAllCheckBoxes)='onSelectAll($event)' [isFieldSelected]=toggleSelect></app-mi-list>
+        <form [formGroup]='listform'>
+            <div class="custom-row mg-t16">
+                <div *ngIf="data.isPrimaryControl" class="col-6-lg">
+                    <section class="full-widthRow">
+                        <label class="label">{{data?.PrimaryControlType?.label}}</label> 
+                        <mat-form-field appearance="outline" class='coloumn-lg-6  col-12-md datepicker-field'>
+                            <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY" formControlName='primaryControl'>
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </section>
+                </div>
+                <div *ngIf="data.isSecondryControl" class="col-6-lg">
+                    <section class="full-widthRow">
+                        <label class="label">{{data.SecondryControlType.label}}</label>
+                        <mat-form-field appearance="outline">
+                            <mat-select tabindex="5" placeholder='select' formControlName='secondryControl'>
+                                <mat-option *ngFor="let list of data.SecondryControlType.Value" [value]="list.TerminationReasonId">
+                                    {{list.TerminationReason}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </section>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div mat-dialog-actions class="align-right fixed-footer-bottem">
+        <div class="custom-row">
+            <div class=" col-12-lg">
+                <button mat-button mat-raised-button color="primary" cdkFocusInitial [mat-dialog-close]='dataPassing' [disabled]="data.otherData.isdisabled ||!data.otherData.isWritePermission">{{data.primaryButton}}</button>
+                <button mat-button mat-stroked-button [mat-dialog-close]='false'>{{data.secondryButton}}</button>
+            </div>
+        </div>
+    </div>
+</div>

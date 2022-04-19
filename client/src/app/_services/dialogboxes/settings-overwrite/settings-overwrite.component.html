@@ -1,0 +1,19 @@
+<div class="popup-header">
+  <h4 matDialogTitle>Overwrite Settings</h4><a class="close_icon" (click)='OnClosePopup()'></a>
+
+</div>
+<div mat-dialog-content>
+  <h4>Please select one of the following options to save incoming schedule</h4>
+  <mat-radio-group [(ngModel)]="defaultSelected">
+      <ul>
+          <li *ngFor="let Text of TextList">
+            <mat-radio-button class="example-radio-button" [value]="Text.key">{{Text.value}}</mat-radio-button>
+          </li>
+        </ul>
+  </mat-radio-group>
+</div>
+
+<div mat-dialog-actions class="align-right popup-footer">
+  <button mat-raised-button color="primary" class="mat-flat-button" [mat-dialog-close]='defaultSelected' >Save</button>
+  <button mat-button mat-stroked-button [mat-dialog-close]='false'>Cancel</button>
+</div>

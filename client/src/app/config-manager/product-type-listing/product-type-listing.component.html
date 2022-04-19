@@ -1,0 +1,110 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showLoader">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="main-content">
+  <div class="filter-outerbox filterContianer">
+    <div class="example-header data-filterSec padding-none full-widthForm">
+      <div class="divRow">
+        <div class="full-rowOuter space-between">
+          <h4 class="page-title">{{title}}</h4>
+
+          <div class="btn-section">
+            <!-- <span> -->
+            <button class="loader-svg pull-right create-button small-size" (click)='OnAddUpdateProduct("create","")' mat-flat-button [disabled]="isButtondisabled"
+              [ngClass]="{'btn-disable': isButtondisabled}">Create Product Type</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="divRow">
+    <div class="tabs-container">
+      <app-config-manager-left-navigation></app-config-manager-left-navigation>
+     
+      <div class="tabs-contentDiv">
+     
+          <div class="filter-outerbox filterContianer">
+            <div class="example-header data-filterSec padding-none">
+              <div class="divRow margin-left-none">
+                <div class="full-rowOuter flex-start padding-left-none less-height border-none">
+                    <div class="left-col">
+                      <label class="label">Payor:</label>
+                      <mat-form-field appearance="outline">
+                        <mat-select [formControl]='Payor' (selectionChange)='GetCarrierList()'>
+                          <mat-option *ngFor="let payor of payorList" [value]="payor.PayorID">
+                            {{payor.PayorName}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="left-col">
+                      <label class="label">Carrier:</label>
+                      <mat-form-field appearance="outline">
+                        <mat-select [formControl]='Carrier' (selectionChange)='OnChangingFilter("carrier")'>
+                          <mat-option *ngFor="let carrier of carrierList" [value]="carrier.CarrierId">
+                            {{carrier.NickName}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                     <div class="left-col">
+                      <label class="label">Product:</label>
+                      <mat-form-field appearance="outline">
+                        <mat-select [formControl]='Product' (selectionChange)='OnChangingFilter("Product")'>
+                          <mat-option *ngFor="let product of productsList" [value]="product.CoverageID">
+                            {{product.Name}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div> 
+                          <!-- <div class="search-div">
+                            <mat-form-field appearance="outline">
+                              <input matInput placeholder='Search: Carrier Name, Nickname' [(ngModel)]="searchData" (keydown.enter)="doSearch()">
+                            </mat-form-field>
+                            <div class="btn-outerDiv align-withsearchBox search-cancel-btn">
+                              <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="searchData='';handleSearchClear($event);" class="icon-cross"
+                                *ngIf="searchData">
+                                <mat-icon>close</mat-icon>
+                              </button>
+                              <button mat-raised-button class="loader-svg pull-left icon-button" mat-button mat-stroked-button (click)="doSearch()">
+                                <i class="img-icons search-icn"></i>
+                                <label>Search</label>
+                              </button>
+                            </div>
+                          </div> -->
+                      
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="normal-box tableData tablediv listing-table">
+          
+              <div class="col-12-lg col-12-md padding-none">
+                <!-- <div class="batch-manager">
+                  <div class="left-col">
+                    <h4 class="page-title mg-t0">Carriers ({{ this.carrierCount}})
+                    </h4>
+                  </div>
+                </div>   -->
+                <div class="tableStyle " *ngIf="isallValueSet">
+                  <app-mi-list [MiListProperties]='MiListProperties' (onMenuItemClick)='OnMenuItemClick($event)'></app-mi-list>
+                </div> 
+              </div>
+
+          
+
+          </div>
+       
+        
+        </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+       </div>
+  </div>
+  <!--*************************************************************************************************************-->

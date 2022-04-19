@@ -1,0 +1,19 @@
+<form class="example-form" [formGroup]='usersForm'>
+  <mat-form-field class="example-full-width"  appearance="outline">
+      <label class="img-icons search-icn"></label>
+    <input matInput [matAutocomplete]="auto" tabindex={{tabSequancing}} formControlName='userInput'
+    #userInput placeholder='Search address' aria-label="Search" [readonly]='isdisabled' id="userInput">
+    <!-- (blur)="myMethod() (blur)="initAutocomplete()"" -->
+  </mat-form-field>
+  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" >
+    <mat-option *ngIf="isLoading" class="is-loading">
+      <mat-spinner diameter="30"></mat-spinner>
+    </mat-option>
+    <ng-container *ngIf="!isLoading">
+      <mat-option *ngFor="let user of filteredUsers" [value]="user" (onSelectionChange)='openAutoComplete($event)'>
+        <span>{{ user.formattedName }}</span>
+      </mat-option>
+    </ng-container>
+  </mat-autocomplete>
+  <!-- <p *ngIf='notFoundAuto && hideNotFound'>{{notFoundMsg}}</p> -->
+</form>

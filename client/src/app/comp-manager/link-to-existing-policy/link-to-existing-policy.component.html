@@ -1,0 +1,91 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showloading">
+    <mat-spinner></mat-spinner>
+</div>
+<div class="main-content">
+    <app-breadcrumb [pageName]="pagename" [moduleName]="moduleName" (onPageRedirectionClick)="OnPageRedirection($event,'breadcrumbs')"></app-breadcrumb>
+    <div class="divRow margin-none">
+        <div class="filter-outerbox filterContianer">
+            <div class="example-header data-filterSec padding-none full-widthForm">
+                <div class="border-none  mrg-top25">
+                    <h4 class="title">Pending policies / Payments</h4>
+                </div>
+            </div>
+        </div>
+        <div class="policy-table">
+            <div class="normal-box tableData tablediv listing-table">
+                <app-comp-manager-list [CompManagerList]=selectedPolicy [accordionPanelList]='accordionPanelList' (OnCheckBoxClick)='OnCheckboxClicked($event)' (onMenuItemClick)="MenuItemClicked($event)" (AfterLoadingData)='AfterDataLoading()' [isaccordionPanelShow]='isaccordionPanelShow'
+                    (SelectAllCheckBoxes)='onSelectAll($event)' [isFieldSelected]=toggleSelect></app-comp-manager-list>
+            </div>
+        </div>
+        <div *ngIf='isdefaultPayorShown'>
+            <div class="custom-row mrg-top25">
+                <div class="col-3-lg">
+                    <h4 class="title">Link to existing policy </h4>
+                </div>
+                <form [formGroup]='filters'>
+                    <div class="col-9-lg ">
+                        <div class="existing-policy">
+
+                            <div class="left-col">
+                                <label class="label">Payor:</label>
+                                <mat-form-field appearance="outline">
+                                    <mat-select #select formControlName='Payor' placeholder='Select'>
+                                        <mat-option *ngFor="let payors of payorList" [value]="payors.PayorID" (click)='OnPayorChange()'>
+                                            {{payors.PayorName}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="left-col">
+                                <label class="label">Client:</label>
+                                <mat-form-field appearance="outline" class="select-box-UI">
+                                    <input type="text" aria-label="Number" matInput formControlName='ClientObject' placeholder="All"  
+                                     [matAutocomplete]="auto">
+                                     <!-- (keyup)="searchData($event)" -->
+
+                                     <!-- Enter client name -->
+
+                                    <!--improve autosuggestion of client name with formControlName ClientObject
+                                    (blur)="resetValue($event)"
+                                    //improve autosuggestion of client name with formControlName ClientObject-->
+
+                                    <!-- <mat-spinner [diameter]='20' *ngIf="isSearchLoading"></mat-spinner> -->
+                                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="OnClientChange($event)">
+                                        <mat-option *ngFor="let clientList of ClientListing|async "
+                                            [value]="clientList">
+                                            {{clientList.Name}}
+                                        </mat-option>
+                                        <mat-option *ngIf="(this.ClientListing | async)?.length === 0" [disabled]="true">
+                                            No Record Found
+                                        </mat-option>
+                                    </mat-autocomplete>
+                                    <!-- <mat-select formControlName='Client' placeholder='All'>
+                                        <mat-option *ngFor="let client of clients" [value]="client.ClientId" (click)='OnPayorChange()'>
+                                            {{client.Name}}
+                                        </mat-option>
+                                    </mat-select> -->
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="existing-policy-table">
+                <app-mi-list [MiListProperties]=MiListProperties (onMenuItemClick)="MenuItemClicked($event)"
+                (onPageChange)="disableButton()"></app-mi-list>
+            </div>
+
+            <div class="tabs-contentDiv mg-t5">
+                <div class="divRow">
+                    <section class="margin-top footer-area full-widthRow">
+                        <button type="submit" mat-raised-button color='primary' class="pull-left mat-flat-button mat-primary coloured-primary-button" (click)='DoLinkPolicy()' [disabled]='isLinkDisabled || !isPolicySelected'>Link</button>
+                        <button mat-stroked-button class="pull-right" (click)="OnCancelbuttonClick()">Cancel</button>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--*************************************************************************************************************-->

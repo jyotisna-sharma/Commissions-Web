@@ -1,0 +1,21 @@
+<div class="popup-header">
+  <h4 matDialogTitle>Email Report</h4>
+</div>
+<p class="error-section"*ngIf="isvalidationShown" >{{validationMsg}} <a class="close_icon" (click)='OnCloseValidationPopup()'></a></p>
+<mat-dialog-content class="mat-typography color-dark">
+  <p>Please enter the email address to recive the report, as it may take a while for the Report to be ready. 
+    Once available, we'll email you right away.</p>
+  <mat-form-field appearance="outline">
+    <textarea matInput placeholder="Email address" [formControl]='EmailIds' (blur)='OnButtonEnabled()'></textarea>
+  </mat-form-field>
+  <small class="note">Please use comma (,) to enter multiple email addresses. </small>
+</mat-dialog-content>
+<div mat-dialog-actions class="align-right popup-footer">
+  <button mat-raised-button color="primary" class="mat-flat-button" (click)='OnValidateEmails()'[disabled]='isbuttondisabled'>Ok, Send Email</button>
+  <button mat-button mat-stroked-button [mat-dialog-close]='false'>Cancel</button>
+</div>
+
+
+<!-- Copyright 2019 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

@@ -1,0 +1,131 @@
+@import '../../../../assets/css/global.scss';
+@import'../../../../assets/css/media-query.scss';
+
+h4.title {
+    margin-top: 5px;
+    margin-bottom: 8px;      
+}
+
+h5.title {
+    margin-top: 8px;
+    margin-bottom: 0px;
+    font-size: 13px;
+} 
+.dialog-content-container {
+     margin:0 auto;
+}
+.close_icon {
+    position: absolute;
+    right: 15px;
+    top: -8px;
+    width: 16px;
+    height: 16px;
+    opacity: 0.3;   
+  }
+  .close_icon:hover {
+    opacity: 1;
+  }
+  .close_icon:before, .close_icon:after {
+    position: absolute;
+    left: 6px;
+    content: ' ';
+    height: 16px;
+    width: 2px;
+    background-color: #252729;
+  }
+  .close_icon:before {
+    transform: rotate(45deg);
+  }
+  .close_icon:after {
+    transform: rotate(-45deg);
+  }
+
+  :host ::ng-deep .dialog-content-container .tableStyle .table-outerScroller {  
+    overflow: auto;
+    max-height:200px;    
+}
+:host ::ng-deep .dialog-content-container .normal-box.tableData .tableStyle table tr.mat-header-row .mat-header-cell p{
+    white-space: nowrap;    
+}
+:host ::ng-deep .existing-policy .normal-box.tableData .tableStyle table tr.mat-header-row .mat-header-cell p{
+    white-space: nowrap; 
+    
+}
+
+
+
+
+.mrg-top25{
+    margin-top:25px;
+}
+
+  .audit-report .left-col{
+    float:right;
+    margin-left:30px;
+         
+  }
+  .audit-report .left-col 
+  { 
+      label.label {    
+    font-size: 12px;
+    padding-right: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+    line-height: 34px;
+  }
+  .mat-form-field {
+    display: inline-block;  width: auto; 
+  }
+
+}
+  .audit-report .left-col form {
+    display:inline-block;     
+  }
+//   .audit-report .left-col {
+//       float:right;      
+//       @media screen and (max-width : 1024px) {        
+//       float: left;
+//       padding: 0px 16px 0px 0px;
+//       width: 20%;
+//     //  label  {
+//     //     min-width: 100%;
+//     //  }
+//     }
+//     }
+ :host ::ng-deep{
+      .mat-form-field-appearance-outline .mat-form-field-outline {
+        min-height: 30px; 
+        background:#fff;
+      }
+      mat-form-field.mat-form-field .mat-form-field-infix {
+        padding: 11px 0 4px 0;
+      } 
+
+    }
+    :host ::ng-deep .audit-report{
+      .left-col .mat-form-field-appearance-outline .mat-form-field-wrapper {
+        width:130px; 
+    }    
+   
+     
+    }
+
+  .audit-report .mat-form-field::after {
+      background: #e6e6e6;
+      height: 20px;
+      width: 1px;
+      content: '';
+      display: block;
+      z-index: 9;
+      position: absolute;
+      left: -55px;
+      top: 8px;
+}
+.audit-report .left-col:last-child .mat-form-field::after {
+  display:none;
+}
+

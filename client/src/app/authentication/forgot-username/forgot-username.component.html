@@ -1,0 +1,153 @@
+<!-- 
+ * @author: Rahul.
+ * @Name: forgot-username.component.html.
+ * @description: Provide the html for forgot-username flow.
+ * @dated: 10 nov, 2018.
+-->
+
+<div class="outer-container">
+  <main class="main-container">
+    <app-pre-login-header></app-pre-login-header>
+    <div class="center-align-div">
+<!-- 
+ * @author: Ankit.
+ * @description:this div shows when Email sent succesffuly with register email id.
+ * @dated: 10 nov, 2018.
+-->
+      <div class="form-BoxConatiner wide-width" *ngIf="isForgotPasswordPage">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title class="mg-b10 secondTitle">Email sent</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div _ngcontent-c1="" class="text-mainSec">
+              <h3 _ngcontent-c10="" class="confrmation-txt">We just sent a username to
+                <strong _ngcontent-c10="">{{this.emailFormControl.value}}</strong>
+              </h3>
+              <p>If you don't see the email after a few minutes, check your spam or junk folders too.</p>
+            </div>
+            <div class="row">
+              <div class="bottom-link">
+                <div class="half align-left">
+                  <a class="mat-button link" routerLink="{{authenUrl.PageRoute.loginPageRoute}}">Back to sign in</a>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+<!-- 
+ * @author: Ankit.
+ * @description:this div shows when user click on forgot username from sigin page .
+ * @dated: 10 nov, 2018.
+-->
+      <div class="form-BoxConatiner" *ngIf="isforgotUsername">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title class="mg-b10">Forgot username</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p class="pswd-txt">We will send an email with your username which you used during registration. Be sure to check your spam or junk
+              folders too.</p>
+            <form class="login-form">
+              <div class="ContentOuter-div">
+                <div class="field-outer">
+                  <label class="label">Email</label>
+                  <mat-form-field appearance="outline" [ngClass]="{'wrongSecurity': showInvalidEmailMsg}">
+                    <input matInput [formControl]="emailFormControl" #forgotInput shouldPlaceholderFloat="true">
+                    <mat-error *ngIf="emailFormControl.hasError('pattern')  && emailFormControl.dirty">
+                      {{messageObj.EmailValidationMessages.EmailValidate.pattern}}
+                    </mat-error>
+                    <mat-error *ngIf="emailFormControl.hasError('required') && emailFormControl.dirty ">
+                      {{messageObj.EmailValidationMessages.EmailValidate.required}}
+                    </mat-error>
+
+                  </mat-form-field>
+                  <p class="login-errorMsg mg-t5" *ngIf="showInvalidEmailMsg">
+                    {{messageObj.EmailValidationMessages.EmailValidate.patterns}}
+                  </p>
+                </div>
+                <div class="bottom-div">
+                  <div class="full-row mg-b70">
+                    <div class="half right">
+                      <button mat-flat-button class="pull-right loader-svg" color="primary" (click)="forgotUsername()">
+                        <span *ngIf="!showLoader">Submit</span>
+                        <mat-spinner [diameter]='20' *ngIf="showLoader"></mat-spinner>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bottom-div">
+                <div class="row">
+                  <div class="bottom-link">
+                    <div class="half align-left">
+                      <a class="mat-button link" routerLink="{{authenUrl.PageRoute.loginPageRoute}}">Back to sign in</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+<!-- 
+ * @author: Ankit.
+ * @description:this div shows when user click on forgot
+  username and after succesffully entered email 
+  id then security question page is shown to user .
+ * @dated: 10 nov, 2018.
+-->
+      <div class="form-BoxConatiner wide-width" *ngIf="issecurityquestion">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title class="mg-b10 secondTitle">Security question</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>            
+            <form class="login-form">
+              <div class="text-mainSec lessheightSecurity">
+                <div class="field-outer security-ques">
+                  <p>
+                    <label class="label question">Question</label>
+                    Name of The {{this.getsecurityquestion}}
+                  </p>
+                  <p>
+                    <label class="label">Answer</label>
+                  </p>
+                  <mat-form-field appearance="outline" [ngClass]="{'wrongSecurity': isSecurityAnswerCorrect}">
+                    <input matInput [formControl]="AnswerFormControl" #answer>
+                    <mat-error *ngIf="messageObj.ForgotUserName.AnswerValidate.required">
+                      {{messageObj.ForgotUserName.AnswerValidate.required}}
+                    </mat-error>
+                  </mat-form-field>                                
+                </div>              
+              <p class="error" *ngIf="isSecurityAnswerCorrect">The answer you entered did not match our records. Please try again.</p>    
+              <div class="full-row">
+                <div class="half right">
+                  <button mat-flat-button class="pull-right loader-svg" (click)="getUsername()" color="primary">
+                    <span *ngIf="!showLoader">Verify answer</span>
+                    <mat-spinner [diameter]='20' *ngIf="showLoader"></mat-spinner>
+                  </button>
+                </div>
+              </div>
+            </div>
+              <div class="bottom-div">
+                <div class="row">
+                  <div class="bottom-link">
+                    <div class="half align-left">
+                      <a class="mat-button link" routerLink="{{authenUrl.PageRoute.loginPageRoute}}">Back to sign in</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="copyright text-center">
+        <p>&copy; {{today | date:'yyyy'}} Commissions Dept. All Right Reserved</p>
+      </div>
+    </div>
+  </main>
+</div>

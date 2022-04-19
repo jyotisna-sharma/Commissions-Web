@@ -1,0 +1,38 @@
+<div class="popup-header">
+    <h4 matDialogTitle>Edit Statement Date</h4>
+    <a class="close_icon" (click)='OnclosePopup()'></a>
+</div>
+
+<form>
+    <div class="custom-row mg-t16">
+        <div class="col-6-lg">
+            <section>
+                <label class="label">Batch #: {{data.BatchDetails.BatchNumber}}</label>
+            </section>
+        </div>
+        <div class="col-6-lg">
+            <section>
+                <label class="label">Stmnt #: {{data.statementDetails.StatmentNumber}}</label>
+            </section>
+        </div>
+    </div>
+    <div class="custom-row mg-t20">
+        <div class="col-12-lg">
+            <div class=" btn-outer">
+                <section class="date-field">
+                    <label class="label">Statement Date: </label>
+                    <mat-form-field appearance="outline" class="datepicker-field">
+                        <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY" [formControl]='statementDate'>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker disabled="false"></mat-datepicker>
+                    </mat-form-field>
+
+                </section>
+            </div>
+        </div>
+    </div>
+</form>
+<div mat-dialog-actions class="align-right popup-footer">
+    <button mat-raised-button color="primary" class="mat-flat-button" (click)='OnUpdateStatementDate(statementDate.value)'>Update</button>
+    <button mat-button mat-stroked-button [mat-dialog-close]='false'>Cancel</button>
+</div>

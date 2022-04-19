@@ -1,0 +1,54 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showLoading">
+    <mat-spinner></mat-spinner>
+</div>
+
+<div class="popup-header">
+  <h4 matDialogTitle>{{name}}</h4><a class="close_icon" (click)='OnClosePopup()'></a>
+</div>
+
+<form >
+  <div class="custom-row mg-t16 p-b-8">
+    <div class="col-12-lg">
+      <div class="defaultStyle info-table">
+        <table>
+          <!-- <tr>
+            <th width="30%">Name</th>
+            <td width="70%">Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
+          </tr> -->
+          <tr>
+            <th width="30%">Date of birth</th>
+            <td width="70%">{{dob}}</td>
+          </tr>
+          <tr>
+            <th width="30%">Gender</th>
+            <td width="70%">{{gender}}</td>
+          </tr>
+          <tr>
+            <th width="30%">Marital Status</th>
+            <td width="70%">{{maritalStatus}}</td>
+          </tr>
+          <tr>
+            <th width="30%">SSN</th>
+            <td width="70%">{{ssn}}</td>
+          </tr>
+          <tr>
+            <th width="30%">Email</th>
+            <td width="70%">{{email}}</td>
+          </tr>
+          <tr>
+            <th width="30%">Address</th>
+            <td width="70%">{{address}}</td>
+          </tr>
+          <tr>
+            <th width="30%">Phone</th>
+            <td width="70%">{{phone}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</form>
+<!-- <div mat-dialog-actions class="align-right popup-footer">
+     <button mat-raised-button color="primary"  [mat-dialog-close]='this.ActivatePolicy.controls.ClientList.value' class="mat-flat-button"  [ngClass]="{'btn-disable': userDetails.Permissions[1].Permission === 1}" [disabled]='userDetails.Permissions[1].Permission === 1' >Activate Policy</button> 
+  <button mat-button mat-stroked-button [mat-dialog-close]='false'>Close</button> 
+  </div> -->

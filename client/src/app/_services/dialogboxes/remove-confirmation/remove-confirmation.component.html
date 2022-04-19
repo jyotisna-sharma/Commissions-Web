@@ -1,0 +1,10 @@
+<h4 matDialogTitle>{{data.headingTitle}}</h4>
+<p>{{data.subTitle}}</p>
+<div mat-dialog-actions class="align-right" *ngIf="!isOKbuttonshows">
+    <button mat-button   *ngIf="data.isExtraButtonShows"  mat-dialog-close='Yes' [ngClass]="{'btn-danger': data.isExtraButtonShows}">{{data.buttonText}}</button>
+  <button mat-button class="btn-danger" cdkFocusInitial [mat-dialog-close]='true'  >{{data.primaryButton}}</button>
+  <button mat-button mat-stroked-button [mat-dialog-close]='false'>No</button>
+</div>
+<div mat-dialog-actions class="align-right" *ngIf="isOKbuttonshows">
+  <button mat-button  class='mat-flat-button' color="primary" class="mat-flat-button mat-primary" [mat-dialog-close]=''>{{buttonText}}</button>
+</div>

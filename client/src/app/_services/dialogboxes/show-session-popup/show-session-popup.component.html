@@ -1,0 +1,9 @@
+
+
+<h4 mat-dialog-title>Session Timeout Warning</h4>
+<div mat-dialog-content><p>Your session will expire in {{timer}} seconds. Do you want keep working?</p>
+</div>
+<div mat-dialog-actions class="align-right">
+    <button mat-raised-button color="primary" class="mat-flat-button mat-primary"  (click)="Restoresession()" [mat-dialog-close]='true'>Keep working</button>
+     <button mat-button mat-stroked-button [mat-dialog-close]='false'>Logout now</button>
+</div>

@@ -1,0 +1,88 @@
+<!-- /**
+ * @author: Rahul.
+ * @Name: reset.username.component.html.
+ * @description: cthis will call when user comes first time after on web app after login successfully.
+ * @dated: 20 Aug, 2018. 
+**/ -->
+<app-pre-login-header></app-pre-login-header>
+<div class="outer-container">
+  <main class="main-container">
+    <app-pre-login-header></app-pre-login-header>
+    <div class="center-align-div">
+      <div class="form-BoxConatiner wide-width">
+        <mat-card class="example-card reset-card">
+          <mat-card-header>
+            <mat-card-title class="mg-b10">{{this.ispasswordChangetext}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p class="pswd-txt" *ngIf="!istextforUpdatedetails">You must change your password before logging on the first time. Please update your password or contact your system
+              administrator. </p>
+            <ul class="pswd-txt labelpadding" *ngIf="istextforUpdatedetails">
+              <li class=limargin>
+                Enter a valid email address. All notifications from the system will be sent to this address. The email address is not made
+                public and will only be used if you wish to reset password or retrieve username.
+              </li>
+              <li>
+                You must change your password before logging on the first time. Please update your password or contact your system administrator.
+              </li>
+            </ul>
+            <form class="login-form">
+              <div class="field-outer">
+                <label class="label">Email</label>
+                <mat-form-field appearance="outline" [ngClass]="{'wrongSecurity': IsEmailExist}">
+                  <input matInput [formControl]="emailFormControl" ng-disabled="isEmailFielddisabled">
+                  <!-- {{this.getData.Email}} -->
+                  <mat-error *ngIf="emailFormControl.hasError('required') && emailFormControl.dirty ">
+                    {{messageObj.EmailValidationMessages.EmailValidate.required}}
+                  </mat-error>
+                  <mat-error *ngIf="emailFormControl.hasError('pattern') && emailFormControl.dirty ">
+                    {{messageObj.EmailValidationMessages.EmailValidate.pattern}}
+                  </mat-error>
+
+                </mat-form-field>
+                <p class="match-error error" *ngIf="IsEmailExist"> {{messageObj.ForogotResetValidationMessages.forgotPassword.EmailIdAlreadyExist}}</p>
+              </div>
+              <div class="field-outer pass-field">
+                <label class="label">New password</label>
+                <mat-form-field appearance="outline">
+                  <input #pass matInput [formControl]="password" [type]="hide ? 'password' : 'text'">
+                  <mat-icon matSuffix (click)="hide = !hide">{{!hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+
+                  <mat-error *ngIf="password.hasError('required') && password.dirty ">
+                    {{messageObj.ResetPassswordValidationMessages.ResetPasswrd.required}}
+                  </mat-error>
+                  <mat-error *ngIf="password.hasError('pattern') && password.dirty ">
+                    {{messageObj.ResetPassswordValidationMessages.ResetPasswrd.pattern}}
+                  </mat-error>
+                </mat-form-field>
+
+                <ul class="charcter-list">
+                  <li [class.fade]="PasswordLabelsValidator.lowerCase">One lowercase character</li>
+                  <li [class.fade]="PasswordLabelsValidator.special">One special character (@, #, $)</li>
+                  <li [class.fade]="PasswordLabelsValidator.upperCase">One uppercase character</li>
+                  <li [class.fade]="PasswordLabelsValidator.minEight">8 characters minimum</li>
+                  <li [class.fade]="PasswordLabelsValidator.oneNumber">One number</li>
+                </ul>
+              </div>
+
+              <div class="bottom-div">
+                <div class="full-row">
+                  <div class="half right">
+                    <button mat-flat-button class="pull-right loader-svg" color="primary" (click)="ResetPassword()">
+                      <span *ngIf="!showLoader">
+                        Save </span>
+                      <mat-spinner [diameter]='20' *ngIf="showLoader"></mat-spinner>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="copyright text-center">
+        <p>&copy; {{today | date:'yyyy'}} Commissions Dept. All Right Reserved</p>
+      </div>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,147 @@
+@import'../../../assets/css/variable.scss';
+.payment {
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+.payment .page-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: $secondary-color;
+    text-transform: capitalize;
+}
+
+.table-scroll-data {
+    overflow: auto;
+    max-height: 258px !important;
+    height: 258px !important;
+}
+
+.outgoing-payment-header {
+    background: #f7f7f7;
+    border-top: 1px solid #e6e6e6;
+    border-right: 1px solid #e6e6e6;
+    border-left: 1px solid #e6e6e6;
+    float: left;
+    width: 100%;
+}
+
+.outgoing-payment-header .left-col {
+    float: left;
+    padding: 10px 5px 10px 13px;
+}
+
+.outgoing-payment-header .page-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: $secondary-color;
+    text-transform: capitalize;
+}
+
+.outgoing-payment-header .right-col {
+    float: right;
+    padding: 8px 13px 10px 13px;
+}
+
+.outgoing-payment-header .right-col label {
+    font-size: 12px;
+    padding-right: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+}
+
+.outgoing-payment-header .right-col form {
+    display: inline-block;
+}
+
+:host ::ng-deep {
+    .outgoing-payment-header .right-col form .mat-form-field-appearance-outline .mat-form-field-wrapper {
+        margin: 0px !important;
+        padding-bottom: 0px !important;
+        width: 150px;
+    }
+    .outgoing-payment-header .mat-form-field-appearance-outline .mat-form-field-outline-end,
+    .mat-form-field-appearance-outline .mat-form-field-outline-gap,
+    .mat-form-field-appearance-outline .mat-form-field-outline-start {
+        background: #fff;
+    }
+    .outgoing-payment-header form .mat-form-field-appearance-outline .mat-form-field-outline {
+        padding: 3px 0px 3px 0px;
+    }
+    .outgoing-payment-header .mat-select-trigger {
+        font-size: 12px;
+    }
+    div.tabs-contentDiv .listing-table .normal-box.tableData {
+        width: 100%;
+    }
+    .outgoing-payment-header .mat-select-arrow {
+        background-position: -114px -596px;
+    }
+    th.mat-header-cell.cdk-column-InvoiceDateString.mat-column-InvoiceDateString {
+        min-width: 130px;
+    }
+}
+
+p.error-section {
+    background: #f2dede;
+    padding: 10px 15px 12px 10px;
+    border-bottom: 1px solid #ebccd1;
+    margin-bottom: 5px;
+    color: #E03F3D;
+    font-size: 13px;
+    position: relative;
+    margin: 0px;
+    .close_icon {
+        position: absolute;
+        right: 13px;
+        top: 12px;
+        width: 16px;
+        height: 16px;
+        opacity: 0.3;
+    }
+    .close_icon:hover {
+        opacity: 1;
+    }
+    .close_icon:before,
+    .close_icon:after {
+        position: absolute;
+        left: 6px;
+        content: ' ';
+        height: 10px;
+        width: 2px;
+        background-color: #a94442;
+    }
+    .close_icon:before {
+        transform: rotate(45deg);
+    }
+    .close_icon:after {
+        transform: rotate(-45deg);
+    }
+}
+
+:host ::ng-deep .tableStyle.table-scroll-data .normal-box.tableData .tableStyle .table-outerScroller.table-scroll-mi-listing {
+    overflow: visible !important;
+    max-height: inherit !important;
+    height: inherit !important;
+}
+
+.table-scroll-data {
+    height: inherit !important;
+}
+
+:host ::ng-deep {
+    td.mat-cell.cdk-column-DollerPerUnit.mat-column-DollerPerUnit,
+    td.mat-cell.cdk-column-NumberOfUnits.mat-column-NumberOfUnits,
+    td.mat-cell.cdk-column-CommissionPercentage.mat-column-CommissionPercentage,
+    td.mat-cell.cdk-column-PaymentRecived.mat-column-PaymentRecived,
+    td.mat-cell.cdk-column-Fee.mat-column-Fee,
+    td.mat-cell.cdk-column-TotalPayment.mat-column-TotalPayment,
+    td.mat-cell.cdk-column-SplitPer.mat-column-SplitPer,
+    td.mat-cell.cdk-column-OutgoingPremium.mat-column-OutgoingPremium,
+    td.mat-cell.cdk-column-Payment.mat-column-Payment,
+    td.mat-cell.cdk-column-OutGoingPerUnit.mat-column-OutGoingPerUnit,
+    td.mat-cell.cdk-column-PaidAmount.mat-column-PaidAmount {
+        text-align: right;
+    }
+}

@@ -1,0 +1,87 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showloading">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="main-content">
+  <app-breadcrumb [showNickName]="showNickName"  [pageName]="pagename" [moduleName]="moduleName"
+    (onPageRedirectionClick)="OnPageRedirection($event)"></app-breadcrumb>
+  <div class="divRow">
+    <div class="tabs-container" [ngClass]="{' no-leftNavigation': true}">
+      <div class="tabs-contentDiv">
+        <div class="add-editContainer formDesignCustom">
+          <div class="divRow">
+            <div class="white-box">
+              <form class="example-form" [formGroup]="DEUserDetails">
+                <mat-card class="mat-card-style">
+                  <div class="column-container two-column-form">
+                    <div class="coloumn-lg-4">
+                      <div class="top-title">
+                        <h4>Personal information</h4>
+                        <p class="require-text">Required field *</p>
+                      </div>
+                      <section class="full-widthRow">
+                        <label class="label">First name </label>
+                        <mat-form-field appearance="outline">
+                          <input matInput formControlName='FirstName' autofocus>
+
+
+                        </mat-form-field>
+                      </section>
+                      <section class="full-widthRow">
+                        <label class="label">Last name</label>
+                        <mat-form-field appearance="outline">
+                          <input matInput formControlName='LastName'>
+                        </mat-form-field>
+                      </section>
+                    </div>
+                    <div class="coloumn-lg-4">
+                      <div class="top-title">
+                        <h4>Contact information </h4>
+                      </div>
+                      <section class="full-widthRow country-phonrCode">
+                        <label class="label">Username *</label>
+                        <mat-form-field appearance="outline" [ngClass]="{'wrongSecurity': userNameAlreadyExist}">
+                          <input matInput  formControlName="UserName" >
+                          <mat-error *ngIf="DEUserDetails.controls['UserName'].errors?.required &&  DEUserDetails.controls['UserName'].dirty">{{peoplemanagervalidation.CreateNewAgentErrors.UserName.required}}</mat-error>
+                          <mat-error *ngIf="(DEUserDetails.controls['UserName'].hasError('minlength') || DEUserDetails.controls['UserName'].hasError('maxlength')) && DEUserDetails.controls['UserName'].dirty">
+                            {{peoplemanagervalidation.CreateNewAgentErrors.Minlength.deUserName}}
+                          </mat-error>
+                          <p *ngIf="userNameAlreadyExist" class="error-Validation">{{peoplemanagervalidation.CreateNewAgentErrors.UserAlreadyExist.UserNameExist}}</p>
+                        </mat-form-field>
+
+                      </section>
+                      <section class="full-widthRow password-field">
+                        <label class="label">Password *</label>
+                        <mat-form-field appearance="outline">
+                          <input matInput [type]="hides ? 'password' : 'text'" formControlName="Password">
+                          <mat-icon matSuffix (click)="hides = !hides">{{hides ? 'visibility_off' : 'visibility'}}</mat-icon>
+                          <mat-error *ngIf="DEUserDetails.controls['Password'].errors?.required &&  DEUserDetails.controls['Password'].dirty">{{peoplemanagervalidation.CreateNewAgentErrors.Password.required}}</mat-error>
+                          <mat-error *ngIf="DEUserDetails.controls['Password'].hasError('pattern') && DEUserDetails.controls['Password'].dirty ">
+                            {{peoplemanagervalidation.CreateNewAgentErrors.Password.pattern}}
+                          </mat-error>
+                        </mat-form-field>
+                        <ul class="charcter-list">
+                          <li [class.fade]="PasswordLabelsValidator.lowerCase">One lowercase character</li>
+                          <li [class.fade]="PasswordLabelsValidator.special">One special character (@, #, $) </li>
+                          <li [class.fade]="PasswordLabelsValidator.upperCase">One uppercase character</li>
+                          <li [class.fade]="PasswordLabelsValidator.minEight">8 characters minimum</li>
+                          <li [class.fade]="PasswordLabelsValidator.oneNumber">One number</li>
+                        </ul>
+                      </section>
+                    </div>
+                  </div>
+                  <div class="divRow">
+                    <section class="margin-top footer-area full-widthRow">
+                      <button type="button" mat-stroked-button class="pull-right" (click)="OnPageRedirection('cancel')" tabindex="5">Cancel</button>
+                      <button type="submit" mat-raised-button color='primary' class="pull-right mat-flat-button mat-primary" (click)="AddUpdatedetails()">{{ButtonName}}</button>
+
+                    </section>
+                  </div>
+                </mat-card>
+              </form>
+              <div class="spinner-container">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

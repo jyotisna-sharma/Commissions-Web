@@ -1,0 +1,175 @@
+@mixin border-radious($topleft, $topright, $bottomright, $bottomleft) {
+    border-top-left-radius: $topleft !important;
+    border-top-right-radius: $topright !important;
+    border-bottom-right-radius: $bottomright !important;
+    border-bottom-left-radius: $bottomleft !important;
+    -webkit-border-top-left-radius: $topleft !important;
+    -webkit-border-top-right-radius: $topright !important;
+    -webkit-border-bottom-right-radius: $bottomright !important;
+    -webkit-border-bottom-left-radius: $bottomleft !important;
+    -moz-border-radius-topleft: $topleft !important;
+    -moz-border-radius-topright: $topright !important;
+    -moz-border-radius-bottomright: $bottomright !important;
+    -moz-border-radius-bottomleft: $bottomleft !important;
+}
+
+@mixin css-triangle($color, $direction, $size, $position: relative, $round: false) {
+    // @include pseudo($pos: $position);
+    // width: 0;
+    // height: 0;
+    border-width: $size / 2 !important;
+    @if $round {
+        border-radius: 3px;
+    }
+    @if $direction==down {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-top: $size solid $color;
+        margin-top: 0 - round($size / 2.5);
+    }
+    @else if $direction==up {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-bottom: $size solid $color;
+        margin-bottom: 0 - round($size / 2.5);
+    }
+    @else if $direction==right {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-left: $size solid $color;
+        margin-right: -$size;
+    }
+    @else if $direction==left {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-right: $size solid $color;
+        margin-left: -$size;
+    }
+    @else if $direction==rightNone {
+        border-top: $size solid $color;
+        border-bottom: $size solid $color;
+        border-right: $size solid transparent;
+        border-left: $size solid $color;
+    }
+    @else if $direction==leftNone {
+        border-top: $size solid $color;
+        border-bottom: $size solid $color;
+        border-right: $size solid $color;
+        border-left: $size solid transparent;
+    }
+    @else if $direction==upNone {
+        border-top: $size solid transparent;
+        border-bottom: $size solid $color;
+        border-right: $size solid $color;
+        border-left: $size solid $color;
+    }
+    @else if $direction==all {
+        border-top: $size solid $color;
+        border-bottom: $size solid $color;
+        border-right: $size solid $color;
+        border-left: $size solid $color;
+    }
+    @else if $direction==botNone {
+        border-top: $size solid $color;
+        border-bottom: $size solid transparent;
+        border-right: $size solid $color;
+        border-left: $size solid $color;
+    }
+    @else if $direction==dottedAll {
+        border: $size dashed $color;
+    }
+    @else if $direction==dottedBot {
+        border-bottom: $size dashed $color;
+    }
+    @else if $direction==dottedRight {
+        border-right: $size dashed $color;
+    }
+    @else if $direction==dottedLeft {
+        border-left: $size dashed $color;
+    }
+    @else if $direction==dottedTop {
+        border-top: $size dashed $color;
+    }
+}
+
+@mixin border-radious($topleft, $topright, $bottomright, $bottomleft) {
+    border-top-left-radius: $topleft !important;
+    border-top-right-radius: $topright !important;
+    border-bottom-right-radius: $bottomright !important;
+    border-bottom-left-radius: $bottomleft !important;
+    -webkit-border-top-left-radius: $topleft !important;
+    -webkit-border-top-right-radius: $topright !important;
+    -webkit-border-bottom-right-radius: $bottomright !important;
+    -webkit-border-bottom-left-radius: $bottomleft !important;
+    -moz-border-radius-topleft: $topleft !important;
+    -moz-border-radius-topright: $topright !important;
+    -moz-border-radius-bottomright: $bottomright !important;
+    -moz-border-radius-bottomleft: $bottomleft !important;
+}
+
+.border-all {
+    @include css-triangle($color, all, 1px, $position: relative, $round: false);
+}
+
+.border-line-top {
+    @include css-triangle($color, down, 1px, $position: relative, $round: false);
+    position: relative;
+}
+
+.border-line-bot {
+    @include css-triangle($color, up, 1px, $position: relative, $round: false);
+    position: relative;
+}
+
+.border-line-Right {
+    @include css-triangle($color, left, 1px, $position: relative, $round: false);
+    position: relative;
+}
+
+.border-line-left {
+    @include css-triangle($color, right, 1px, $position: relative, $round: false);
+    position: relative;
+}
+
+.border-dotted-all {
+    @include css-triangle($color, dottedAll, 1px, $position: relative, $round: false);
+    position: relative;
+}
+
+.border-dotted-top {
+    @include css-triangle($color, dottedTop, 1px, $position: relative, $round: false);
+    position: relative;
+}
+
+.border-dotted-bot {
+    @include css-triangle($color, dottedBot, 1px, $position: relative, $round: false);
+    position: relative;
+}
+
+.border-dotted-Right {
+    @include css-triangle($color, dottedRight, 1px, $position: relative, $round: false);
+    position: relative;
+}
+
+.border-dotted-left {
+    @include css-triangle($color, dottedLeft, 1px, $position: relative, $round: false);
+    position: relative;
+}
+
+.border-box {
+    @include css-triangle($color, all, 2px, $position: relative, $round: false);
+    @include border-radious(4px, 4px, 4px, 4px);
+    display: block;
+    float: left;
+    width: 100%;
+    background: #fff;
+    &.no-radious {
+        @include border-radious(0px, 0px, 0px, 0px);
+    }
+}
+
+.custom-seprator {
+    width: 100%;
+    float: left;
+    min-height: 1px;
+}

@@ -1,0 +1,119 @@
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+%border-radius {
+    border-radius: 2px !important;
+}
+
+@mixin transition($speed) {
+    -webkit-transition: all $speed ease;
+    -ms-transition: all $speed ease;
+    -moz-transition: all $speed ease;
+    -o-transition: all $speed ease;
+    transition: all $speed ease;
+}
+
+@mixin translate($transform) {
+    transform: translate3d($transform);
+    -webkit-transform: translate3d($transform);
+    -moz-transform: translate3d($transform);
+    -ms-transform: translate3d($transform);
+    -o-transform: translate3d($transform);
+}
+
+@mixin transform($translateY) {
+    -webkit-transform: translateY($translateY);
+    -moz-transform: translateY($translateY);
+    -o-transform: translateY($translateY);
+    -ms-transform: translateY($translateY);
+    transform: translateY($translateY);
+}
+
+// Box Shadow design mixins
+@mixin box_shadow ($level) {
+    @if $level==1 {
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.01), 0 2px 2px 0 rgba(0, 0, 0, .01), 0 1px 5px 0 rgba(0, 0, 0, .01);
+    }
+    @else if $level==2 {
+        background: #fff;
+        padding: 15px;
+        /*border: 1px solid #e6e6e6;*/
+        box-shadow: none;
+        @extend %border-radius;
+    }
+    // box shadow included for the navigation 
+    @else if $level==3 {
+        background: #fff;
+        box-shadow: 0 0px 15px 0 rgba(46, 61, 73, 0.12);
+        @extend %border-radius;
+    }
+    // box shadow included for the dropdown menu
+    @else if $level==4 {
+        background: #fff;
+        box-shadow: 0px 3px 5px rgba(20, 23, 28, 0.05);
+        @extend %border-radius;
+    }
+    @else if $level==5 {
+        background: #fff;
+        box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+        @extend %border-radius;
+    }
+    @else if $level==6 {
+        box-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
+        background-color: #fafafa;
+    }
+}
+
+// partiction border
+%border:after {
+    height: 1px;
+    float: left;
+    width: 100%;
+    background: $seprator-linecolor;
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+//  mixins for the full width row
+%full-rowOuter {
+    padding: 7.5px 24px;
+    border-bottom: 1px solid $seprator-linecolor;
+}
+
+// for white background
+%white-bg {
+    background: #fff;
+}
+
+// mixins border
+@mixin border-top {
+    border-top: 1px solid $seprator-linecolor;
+}
+
+@mixin fields-shadow {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .095) !important;
+}
+
+//  full border-layout
+@mixin style-border {
+    border: 1px solid $seprator-linecolor;
+}
+
+// coloumn-layouts styles
+@mixin coloumn-style {
+    padding-left: 15px;
+    padding-right: 15px;
+    float: left;
+}
+
+.border-top {
+    @include border-top;
+}

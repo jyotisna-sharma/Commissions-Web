@@ -1,0 +1,152 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showloading">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="main-content">
+  <app-breadcrumb [showNickName]="showNickName" [parentTab]="getrouteParamters?.parentTab"
+    (onPageRedirectionClick)="OnPageRedirection($event)" [pageName]="pagename" [moduleName]="moduleName">
+  </app-breadcrumb>
+  <div class="divRow">
+    <div class="tabs-container">
+      <app-people-manager-left-navigation></app-people-manager-left-navigation>
+      <div class="tabs-contentDiv">
+        <div class="filter-outerbox filterContianer">
+          <div class="example-header data-filterSec padding-none full-widthForm">
+            <div class="divRow">
+              <div class="full-rowOuter border-none flex-start">
+                <h4 class="HideMobileScreen">Permissions</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="ContentMobileview"> -->
+          <!-- <div class="user-info box-outer">
+            <h4>House Account</h4>
+            <p>BrendanTay01</p>
+            <p>
+              <mat-checkbox>Current house account</mat-checkbox>
+            </p>
+          </div> -->
+
+          <!-- <div class="permission-box box-outer">
+            <div class="top-title">
+              <h4>Permissions</h4>
+            </div>
+            <mat-form-field appearance="outline">
+              <mat-select placeholder="Select">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <input matInput placeholder="Favorite food">
+            </mat-form-field>
+          </div> -->
+        <!-- </div> -->
+        <div class="normal-box tableData tablediv listing-table">
+          <app-mi-list [MiListProperties]=MiListProperties (onMenuItemClick)='onMenuItemClick($event)'
+            [isButtonDisabled]='isButtonDisabled'></app-mi-list>
+        </div>
+        <div class="add-editContainer formDesignCustom">
+          <div class="divRow">
+            <div class="white-box">
+              <form class="example-form" [formGroup]='setting'>
+                <mat-card class="mat-card-style">
+                  <div class="column-container TwoColumnLayout "
+                    [ngClass]="{'OneColumnLayout' :isOutgoingDefaultShown}">
+                    <!-- ********************************************* Account default Section ****************************************** -->
+                    <div class="coloumn-lg-4">
+                      <div class="top-title">
+                        <h4>Account defaults</h4>
+                      </div>
+                      <div class="toggle-sec">
+                        <section class="full-widthRow" *ngIf="TextLabel === 'House Account'">
+                          <label>{{TextLabel}}<i class="tooltip-icon"
+                              matTooltip="House account cannot be set 'Off' and can only be transferred. If you want to change the house account, please select desired agent details and set his house account setting 'On'. "
+                              *ngIf="showToggleDisabled">i</i></label>
+                          <mat-slide-toggle formControlName="HouseAccount" [disabled]='showToggleDisabled'
+                            (change)="setHouseAccountvalue($event)">
+                          </mat-slide-toggle>
+                        </section>
+                        <section class="full-widthRow" *ngIf="TextLabel === 'Admin'">
+                          <label>{{TextLabel}}<i class="tooltip-icon"
+                              matTooltip="House account cannot be set 'Off' and can only be transferred. If you want to change the house account, please select desired agent details and set his house account setting 'On'. "
+                              *ngIf="showToggleDisabled">i</i></label>
+                          <mat-slide-toggle formControlName="Admin" [disabled]='showToggleDisabled'
+                            (change)="setAdminvalue($event)">
+                          </mat-slide-toggle>
+                        </section>
+                        <section class="full-widthRow">
+                          <label>Account Exec<i class="tooltip-icon"
+                              matTooltip="Account exec setting cannot be modified, as the agent has policies associated to him."
+                              *ngIf="isTooltipShown">i</i></label>
+                          <mat-slide-toggle class="example-margin" formControlName="AccountExec"
+                            (change)='ValueChange()' (click)='ValueChange()'>
+                          </mat-slide-toggle>
+                        </section>
+                      </div>
+                    </div>
+                    <!-- **************************************************************************************************************** -->
+                    <!-- ********************************************* Outgoing split defaults ****************************************** -->
+                    <!-- isOutgoingDefaultShown -->
+                    <div class="coloumn-lg-4" *ngIf="TextLabel=== 'House Account'">
+                      <div class="top-title">
+                        <h4>Outgoing split defaults</h4>
+                      </div>
+                      <section class="full-widthRow fieldwithIcon">
+                        <label>Disable agent % edit</label>
+                        <mat-slide-toggle class="example-margin" [checked]='AgentEditValueDisabled'
+                          formControlName="AgentEdit" (change)='ValueChange()'
+                          (click)='ValueChange()'>
+                        </mat-slide-toggle>
+                      </section>
+                      <section class="full-widthRow split-box">
+                        <div class="half-width extra-servce">
+                          <label class="label">First year % default</label>
+                          <mat-form-field appearance="outline">
+                            <label class="inline-box">%</label>
+                            <input matInput formControlName="FirstYear" numbersWithDecimal (blur)='ValueChange()'
+                              #firstyear appNumberFormat>
+                            <p *ngIf="isfirstYearMoreThanHundred" class="error-Validation">Percentage must be between 0
+                              to 100%. </p>
+                          </mat-form-field>
+                        </div>
+                        <div class="half-width extra-servce">
+                          <label class="label">Renewal % default</label>
+                          <mat-form-field appearance="outline">
+                            <label class="inline-box">%</label>
+                            <input matInput formControlName="RenewalYear" numbersWithDecimal appNumberFormat
+                              (blur)='ValueChange()'>
+                            <p *ngIf="isRenewalYearMoreThanHundred" class="error-Validation">Percentage must be between
+                              0 to 100%. </p>
+                          </mat-form-field>
+                        </div>
+                      </section>
+
+                    </div>
+                  </div>
+                  <div class="divRow">
+                    <section class="margin-top footer-area full-widthRow">
+                      <button type="submit" mat-raised-button color='primary'
+                        class="pull-left mat-flat-button mat-primary coloured-primary-button"
+                        (keydown.enter)="Updatedetails()" (click)='Updatedetails()'
+                        [disabled]="userdetail?.Permissions[0].Permission=== 1"
+                        [ngClass]="{'btn-disable': userdetail?.Permissions[0].Permission === 1}">Update</button>
+                      <button type="button" mat-stroked-button class="pull-right"
+                        (click)="OnbuttonCancel()">Cancel</button>
+                    </section>
+                  </div>
+                </mat-card>
+              </form>
+              <div class="spinner-container">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--*************************************************************************************************************-->

@@ -1,0 +1,35 @@
+<div class="popup-header">
+    <h4 matDialogTitle>{{data.title}}</h4>
+</div>
+
+<p class="error-section" *ngIf="isValidationShown">{{errorMsg}}
+    <a class="close_icon" (click)='isValidationShown=false'></a>
+</p>
+<form [formGroup]="payorToolForm">
+    <div class="custom-row mg-t16">
+
+        <div class="col-12-lg">
+            <section>
+                <label class="label">{{data.fieldName}}</label>
+                <mat-form-field appearance="outline">
+                    <input matInput formControlName='templateName'>
+                </mat-form-field>
+                <mat-error *ngIf="payorToolForm.controls['templateName'].errors?.required && payorToolForm.controls['templateName'].dirty">
+                    {{data.fieldName}} cannot be blank.
+                </mat-error>
+                <mat-error *ngIf="(payorToolForm.controls['templateName'].hasError('minlength') ||  payorToolForm.controls['templateName'].hasError('maxlength')) ">
+                    {{data.fieldName}} must be between 3 to 100 characters long.
+                </mat-error>
+
+            </section>
+            <section *ngIf="data.isForceImportShown">
+                <mat-checkbox formControlName='IsForceImport'>Force Import
+                </mat-checkbox>
+            </section>
+        </div>
+    </div>
+</form>
+<div mat-dialog-actions class="align-right popup-footer">
+    <button mat-raised-button color="primary" class="mat-flat-button" (click)='OnAddField()'>Save</button>
+    <button mat-button mat-stroked-button [mat-dialog-close]='false'>Cancel</button>
+</div>

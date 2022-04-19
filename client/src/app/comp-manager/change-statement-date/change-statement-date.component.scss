@@ -1,0 +1,28 @@
+:host ::ng-deep .date-field {
+    margin-top: 10px;
+}
+
+.align-right.mat-dialog-actions button {
+    margin-bottom: 0px;
+}
+
+:host ::ng-deep {
+    .btn-outer mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-disabled {
+        .mat-form-field-suffix {
+            top: 4.3px;
+            height: 32px;
+            overflow: hidden;
+            border-left: 1px solid #ccc;
+            background: #f7f7f7;
+            right: 1px;
+        }
+        .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-datepicker-toggle .mat-icon-button {
+            width: 38px;
+            height: 34px;
+            display: inline-block!important;
+        }
+        .mat-form-field-outline {
+            background-color: #f7f7f7 !important;
+        }
+    }
+}

@@ -1,0 +1,139 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showloading ">
+    <mat-spinner></mat-spinner>
+</div>
+<div class="main-content filterContianer">
+    <app-breadcrumb [parentTab]="getrouteParamters?.parentTab" [pageName]="pagename" [moduleName]="moduleName" (onPageRedirectionClick)='OnPageRedirection()'>
+    </app-breadcrumb>
+
+    <form [formGroup]='AdvanceSearch'>
+        <div class="divRow">
+            <p *ngIf="isValidationShown" class="error-section margin-none">Minimum one field input is required.
+                <a class="close_icon" (click)='OnCloseValidation()'></a>
+            </p>
+
+            <div class="AdvanceSearc-container pa-tp10 pa-b10">
+              <div class="col-12-lg">
+                <div class="col-2-lg">
+                    <section>
+                        <label class="label">Client</label>
+                        <mat-form-field appearance="outline" class="select-box-UI">
+                            <input type="text" aria-label="Number" matInput formControlName='Client' [matAutocomplete]="auto">
+                            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                                <mat-option *ngFor="let clientList of ClientListing |async " [value]="clientList.Name">
+                                    {{clientList.Name}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </section>
+                </div>
+                <div class="col-2-lg">
+                    <section>
+                        <label class="label">Insured / Division</label>
+                        <mat-form-field appearance="outline">
+                            <input matInput formControlName='Insured'>
+                        </mat-form-field>
+                    </section>
+                </div>
+                <div class="col-2-lg">
+                    <section>
+                        <label class="label">Policy #</label>
+                        <mat-form-field appearance="outline">
+                            <input matInput formControlName='PolicyNumber'>
+                        </mat-form-field>
+                    </section>
+                </div>
+                <div class="col-2-lg">
+                    <section>
+                        <label class="label">Payor</label>
+                        <mat-form-field appearance="outline" class="select-box-UI">
+                            <input type="text" aria-label="Number" matInput formControlName='Payor' [matAutocomplete]="autoPayor" (blur)='GetCarrierList()'>
+                            <mat-autocomplete autoActiveFirstOption #autoPayor="matAutocomplete" (optionSelected)='GetCarrierList()'>
+                                <mat-option *ngFor="let payorList of PayorListing |async " [value]="payorList.PayorName">
+                                    {{payorList.PayorName}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </section>
+                </div>
+                <div class="col-2-lg">
+                    <section>
+                        <label class="label">Carrier</label>
+                        <mat-form-field appearance="outline">
+                            <input type="text" aria-label="Number" matInput formControlName='Carrier' [matAutocomplete]="autoCarrier">
+                            <mat-autocomplete autoActiveFirstOption #autoCarrier="matAutocomplete">
+                                <mat-option *ngFor="let carrierList of CarrierListing |async " [value]="carrierList.NickName">
+                                    {{carrierList.NickName}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
+                    </section>
+                </div>
+              </div>
+              <div class="col-12-lg">
+                <div class="col-2-lg">
+                  <section>
+                      <label class="label">CD Policy Id</label>
+                      <mat-form-field appearance="outline">
+                          <input type="text" aria-label="Number" matInput formControlName='CDPolicyID'>
+                      </mat-form-field>
+                  </section>
+              </div>
+              <div class="col-2-lg">
+                <section>
+                    <label class="label">Policy Plan Id</label>
+                    <mat-form-field appearance="outline">
+                        <input type="text" aria-label="Number" matInput formControlName='PolicyPlanID'>
+                    </mat-form-field>
+                </section>
+            </div>
+            <div class="col-2-lg">
+              <section>
+                  <label class="label">Import Policy ID</label>
+                  <mat-form-field appearance="outline">
+                      <input type="text" aria-label="Number" matInput formControlName='ImportPolicyID'>
+                  </mat-form-field>
+              </section>
+            </div>
+                <!-- <div class="col-2-lg">
+            <section>
+                <label class="label">Status:</label>
+                <mat-form-field appearance="outline">
+                  <mat-select formControlName="Status">
+                    <mat-option *ngFor="let status of PolicyStatus" [value]="status.key">
+                      {{status.value}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+            </section>
+          </div> -->
+                <div class="col-2-lg action-btn">
+                    <section>
+                        <div class='search-button-top'>
+                            <button mat-raised-button color="primary" class="mat-flat-button" (click)=' OnsearchedBasedData()'>Search</button>
+                            <button mat-button mat-stroked-button (click)='OnResetFormValues()'>Reset</button>
+                            <button mat-icon-button aria-label="Example icon-button with a heart icon" class="pull-right close-btn" matTooltip="Go To Policy List" (click)='OnCloseSearchResult()'>
+                                <mat-icon>close</mat-icon>
+                              </button>
+                        </div>
+                    </section>
+                </div>
+              </div>
+
+                <div class="normal-box tableData tablediv listing-table">
+                    <div class="mat-elevation-z8 tableStyle" *ngIf="isListShown">
+                        <div class="table-outerScroller">
+                            <app-mi-list [MiListProperties]=MiListProperties (onMenuItemClick)='OnMenuItemClick($event)'></app-mi-list>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- <div class='search-button-top'>
+    <button mat-button mat-stroked-button>Close Search</button>
+  </div> -->
+
+</div>
+
+
+<!--*************************************************************************************************************-->

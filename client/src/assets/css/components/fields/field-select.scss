@@ -1,0 +1,96 @@
+/***** this is for 30px height selct box *********/
+%form-field-h-select-36 {
+  .mat-form-field-wrapper {
+    min-height: 30px !important;
+  }
+  .mat-form-field-infix {
+    padding: 7px 0 9px 0 !important;
+  }
+}
+
+/***** this is for 30px height selct box ends *********/
+.main-content {
+  .formfield-less-h {
+    .mat-form-field-type-mat-select {
+      @extend %form-field-h-select-36;
+    }
+  }
+
+  .mat-form-field-type-mat-select {
+    @extend %form-field-h-select-36;
+  }
+
+  .mat-form-field .mat-select {
+    padding-top: 2px;
+    .mat-select-trigger {
+      vertical-align: middle;
+      .mat-select-arrow-wrapper {
+        padding-top: 0px;
+      }
+      .mat-select-value {
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.mat-form-field-type-mat-select {
+  .mat-select-value {
+    vertical-align: middle;
+  }
+}
+.tabs-contentDiv {
+  .right-col {
+    .mat-form-field {
+      .mat-form-field-wrapper {
+        margin: 0px;
+      }
+      margin-bottom: 10px;
+    }
+  }
+}
+
+// .mat-autocomplete-panel.mat-autocomplete-visible {
+//   .mat-option ,
+//     .mat-option.mat-active {
+//       color: #495057;
+//     }
+// }
+
+mat-form-field {
+  &.select-box-UI {
+    .mat-form-field-infix
+      input.mat-input-element.mat-form-field-autofill-control {
+      height: 16px;
+      top: -2px;
+      font-size: 13px;
+    }
+  }
+}
+.AdvanceSearc-container {
+  mat-form-field.mat-form-field-type-mat-input.mat-form-field-appearance-outline {
+    .mat-form-field-wrapper {
+      .mat-form-field-infix {
+        .mat-form-field-flex {
+          input.mat-input-element.mat-form-field-autofill-control {
+            height: 17px;
+            top: 0px;
+          }
+        }
+      }
+    }
+  }
+  mat-form-field
+    .mat-form-field-infix
+    input.mat-input-element.mat-form-field-autofill-control {
+    height: 17px;
+    top: 0px;
+  }
+}
+
+mat-dialog-container {
+mat-form-field.select-box-UI .mat-form-field-infix input.mat-input-element.mat-form-field-autofill-control {
+  height: 18px;
+  top: -2px;
+}
+}  

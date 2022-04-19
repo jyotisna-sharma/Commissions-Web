@@ -1,0 +1,120 @@
+
+
+mat-dialog-container {
+.popup-header {
+    background: #f7f7f7;  
+    margin: -24px;
+    margin-bottom: 24px;
+    padding:10px 0px 0px 24px;
+    border-bottom:1px solid #e6e6e6;
+    position: relative;
+    
+}
+.mat-form-field-infix { 
+   padding-top: 0px !important;
+textarea {
+    position: relative !important;  color: $Grey-dark; min-height: 80px;
+}
+
+}
+
+.popup-footer {
+    margin: -24px;
+    border-top: 1px solid #e6e6e6;
+    padding-top: 15px;
+    padding-right: 24px;
+    padding-bottom: 8px;
+}
+
+
+
+
+
+  .align-middle {
+    display: table-cell;
+    width: 100%;
+    vertical-align: middle;
+  }
+
+  mat-form-field.mat-form-field.mat-form-field-type-mat-input .mat-form-field-wrapper {
+    min-height: 32.756px;
+}
+mat-radio-group {
+  mat-radio-button {
+    margin-right: 16px; margin-bottom: 8px;
+   .mat-radio-label-content {
+      color: $Grey-dark;
+    }
+  }
+  mat-radio-button:last-child {
+    margin-right: 0px; 
+  }
+}
+.mat-error, 
+.mat-form-field-wrapper .mat-error {
+  margin-top: -6px;
+  margin-bottom: 5px;
+  margin-left: 0px !important;
+}
+}
+
+.color-dark {
+   color: #252527 !important; 
+}
+
+
+
+
+/* dialog bix with action button */
+
+// .dialog-contaner-minHeight {
+// 	padding-bottom: 40px;
+//     display: block;
+//     position: relative;
+//     min-height: 60vh;
+// 	.fixed-footer-bottem {
+// 		position: absolute;
+// 		bottom: 5px;
+// 		right: 0px;
+// 		width: 100%;
+// 		padding: 10px 0px;
+// 	}
+// }
+
+
+
+/*    top section css starts */
+
+
+// .cdk-overlay-container .cdk-global-overlay-wrapper .search-div
+// {  	
+// 		padding-right: 0px;
+// 		max-width:330px;
+	
+// 	 input.mat-input-element {
+// 	    padding-right: 64px !important;
+// 	}
+
+// 	.search-icn {
+// 		background-position: -110px -314px !important;
+// 	}
+// .align-withsearchBox.search-cancel-btn {
+// 	top: 1px !important;
+// 	button  {
+// 		min-height: 28px;
+// 		border-top: 0px;
+// 		border-bottom: 0px;
+// 		border-right: 0px;
+// 	}
+
+// }
+
+// //For edge /
+// _:-ms-lang(x),  .align-withsearchBox.search-cancel-btn  {top: 0px !important;}
+
+// //For IE//
+// @media all and (-ms-high-contrast:none)
+//      {
+// 		.align-withsearchBox.search-cancel-btn  {top: 1px !important;}
+//      }
+// }

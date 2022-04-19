@@ -1,0 +1,21 @@
+<form [formGroup]="this.multipleCheckBox">
+    <mat-form-field appearance="outline">
+        <mat-select placeholder="Select" multiple formControlName="selectedOption" #SelectedOption>
+            <mat-select-trigger>
+                <span *ngIf="this.allSelectedRef && this.allSelectedRef.selected">
+                    All
+                  </span> {{( this.selectedDisplayAry && this.selectedDisplayAry.length && !this.allSelectedRef.selected) ? this.selectedDisplayAry[0] : ''}}
+                <span *ngIf=" this.selectedDisplayAry && this.selectedDisplayAry.length > 1 && this.allSelectedRef && !this.allSelectedRef.selected">
+                   (+{{this.selectedDisplayAry.length - 1}} {{this.selectedDisplayAry.length === 2 ? 'other' : 'others'}}) 
+                  </span>
+            </mat-select-trigger>
+            <div class="scrollMatOptionContainer">
+                <mat-option [value]="0" #allSelectedOptions (click)="this.toggleAllSelectedOptions()">All</mat-option>
+                <mat-option *ngFor="let options of this.DropDownList" [value]="options.Month" (click)="this.toggleSingleSelectedOption()">
+                    {{options.MonthName}}
+                </mat-option>
+            </div>
+            <button class="filterButton" (click)="this.SearchListingData()">Done</button>
+        </mat-select>
+    </mat-form-field>
+</form>

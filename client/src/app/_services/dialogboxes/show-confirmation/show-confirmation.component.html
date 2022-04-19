@@ -1,0 +1,8 @@
+<h4 mat-dialog-title>{{data.headingTitle}}</h4>
+<div mat-dialog-content><p>{{data.subTitle}}</p>
+    <p>{{data.extraText}} <a class='removelink'><strong> {{getHouseAccountName}}</strong></a></p>
+</div>
+<div mat-dialog-actions class="align-right">    
+    <button mat-raised-button color="primary" class="mat-flat-button mat-primary" (click)="GetFunctionName()" [mat-dialog-close]='true'>Yes, I Want</button>
+     <button mat-button mat-stroked-button [mat-dialog-close]='false'>No</button>
+</div>

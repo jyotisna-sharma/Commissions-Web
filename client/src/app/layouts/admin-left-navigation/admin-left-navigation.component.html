@@ -1,0 +1,64 @@
+<!-- <mat-drawer-container class="example-container dashboard-container">   
+  <mat-drawer #drawer class="example-sidenav sidebar-nav content"  id="content-1" appMyCustomScoller>
+    <section class="sidebar" > -->
+      <!-- Sidebar Menu-->
+      <!-- <ul class="sidebar-menu top-menu" [ngClass]="getClassForMainMenu()"> -->
+        <!-- Optionally, you can add icons to the links-->
+        <!-- <li class="nav-item dashboard_tab" class="nav-link" routerLinkActive="active"><a [routerLink]="moduleNavObj.moduleLinks.dashboard"  [matTooltipDisabled]="this.applicationlevelservices.showToolTipNav"  matTooltip="dashboard" [matTooltipPosition]="position.value"  matTooltipClass="tooltip-menu"><i class="icons dash"></i><span>Dashboard</span></a></li>
+        <li class="nav-item account_tab"  class="nav-link" routerLinkActive="active"><a [routerLink]="moduleNavObj.moduleLinks.accounts"  [matTooltipDisabled]="this.applicationlevelservices.showToolTipNav" matTooltip="Accounts" [matTooltipPosition]="position.value"  matTooltipClass="tooltip-menu"><i class="icons accnt"></i><span>Accounts</span></a></li>
+        <li class="nav-item delegate_tab"  class="nav-link" routerLinkActive="active"><a [routerLink]="moduleNavObj.moduleLinks.delegates" [matTooltipDisabled]="this.applicationlevelservices.showToolTipNav" matTooltip="Delegates" [matTooltipPosition]="position.value" matTooltipClass="tooltip-menu"><i class="icons deleg"></i><span>Delegates</span></a></li>
+        <li class="nav-item profile_tab"  class="nav-link" routerLinkActive="active"><a [routerLink]="moduleNavObj.moduleLinks.CommissionDeptList"  [matTooltipDisabled]="this.applicationlevelservices.showToolTipNav" matTooltip="Commission Dept Profiles" [matTooltipPosition]="position.value" matTooltipClass="tooltip-menu"><i class="icons prof"></i><span>Commission Dept Profiles</span></a></li>
+        <li class="nav-item vehicle_tab"><a [matTooltipDisabled]="this.applicationlevelservices.showToolTipNav" matTooltip="Book Commission Dept" [matTooltipPosition]="position.value" matTooltipClass="tooltip-menu"><i class="icons book"></i><span>Book Commission Dept</span></a></li>
+        <li class="nav-item getquote_tab"><a [matTooltipDisabled]="this.applicationlevelservices.showToolTipNav"  matTooltip="Get a Quote" [matTooltipPosition]="position.value" matTooltipClass="tooltip-menu"><i class="icons getqte"></i><span>Get a Quote
+            </span></a></li>
+        <li class="nav-item referral_tab" class="nav-link" routerLinkActive="active"><a  [routerLink]="moduleNavObj.moduleLinks.referral" [matTooltipDisabled]="this.applicationlevelservices.showToolTipNav" matTooltip="Referral" [matTooltipPosition]="position.value" matTooltipClass="tooltip-menu"><i class="icons refrl"></i><span>Referral</span></a></li>
+        <li class="nav-item event_tab" class="nav-link" routerLinkActive="active"><a [routerLink]="moduleNavObj.moduleLinks.event" [matTooltipDisabled]="this.applicationlevelservices.showToolTipNav" matTooltip="Events" [matTooltipPosition]="position.value" matTooltipClass="tooltip-menu"><i class="icons event"></i><span>Events</span></a></li>
+        <li class="nav-item chauffeur_tab" class="nav-link" routerLinkActive="active"><a [routerLink]="moduleNavObj.moduleLinks.chauffeurs" [matTooltipDisabled]="this.applicationlevelservices.showToolTipNav" matTooltip="Chauffeurs" [matTooltipPosition]="position.value" matTooltipClass="tooltip-menu"><i class="icons Chauff"></i><span>Chauffeurs</span></a></li>
+        <li class="nav-item unavailability_tab" routerLinkActive="active"><a [routerLink]="moduleNavObj.moduleLinks.chauffeurList" [matTooltipDisabled]="this.applicationlevelservices.showToolTipNav"  matTooltip="Unavailability" [matTooltipPosition]="position.value" matTooltipClass="tooltip-menu"><i class="icons Chauff"></i><span>Unavailability</span></a></li>
+        <li class="nav-item dispatch_tab"><a [matTooltipDisabled]="this.applicationlevelservices.showToolTipNav" matTooltip="Experience" [matTooltipPosition]="position.value" matTooltipClass="tooltip-menu"><i class="icons dispatch"></i><span>Experience</span></a></li>
+        <li class="nav-item reports_tab"><a [matTooltipDisabled]="this.applicationlevelservices.showToolTipNav" matTooltip="GPS Reports" [matTooltipPosition]="position.value" matTooltipClass="tooltip-menu"><i class="icons reports"></i><span>GPS
+     Reports
+            </span></a></li>
+        <li class="nav-item tracking_tab"><a [matTooltipDisabled]="this.applicationlevelservices.showToolTipNav" matTooltip="GPS Tracking" [matTooltipPosition]="position.value" matTooltipClass="tooltip-menu"><i class="icons tracking"></i><span>GPS
+              Tracking
+            </span></a></li>
+        <li class="nav-item accounting_tab" class="nav-link has-sub" ><a appToggleClass  [matTooltipDisabled]="this.applicationlevelservices.showToolTipNav" matTooltip="Accounting" [matTooltipPosition]="position.value" matTooltipClass="tooltip-menu"><i class="icons accounting"></i><span>Accounting</span></a>
+          <ul class="menu-content">
+            <li><a class="menu-item" [matTooltipDisabled]="this.applicationlevelservices.showToolTipNav" matTooltip="Pricing" [matTooltipPosition]="position.value" matTooltipClass="tooltip-menu"><i class="icons"></i> <span>Pricing</span></a>
+            </li>
+            <li  routerLinkActive="active"><a  [routerLink]="moduleNavObj.moduleLinks.promo" class="menu-item"  [matTooltipDisabled]="this.applicationlevelservices.showToolTipNav" matTooltip="Promo Codes" [matTooltipPosition]="position.value" matTooltipClass="tooltip-menu"><i class="icons"></i> <span>Promo Codes</span></a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item reporting_tab" class="nav-link" routerLinkActive="active"><a [routerLink] = "moduleNavObj.moduleLinks.reports" [matTooltipDisabled]="this.applicationlevelservices.showToolTipNav" matTooltip="Reporting" [matTooltipPosition]="position.value" matTooltipClass="tooltip-menu"><i class="icons reporting"></i><span>Reporting</span></a></li>
+
+        <li class="nav-item manage_tab" (click)="toggleVisibilityOfSettings()"><a [matTooltipDisabled]="this.applicationlevelservices.showToolTipNav"  matTooltip="Manage settings" [matTooltipPosition]="position.value" matTooltipClass="tooltip-menu"><i class="icons manage"></i><span>Manage settings
+            </span></a>
+        </li>
+      </ul>
+      <ul class="sidebar-menu manage-setting has-sub" [ngClass]="getClassForSettingsMenu()">
+        <div class="bot-box"><button mat-stroked-button color="primary" class="back-button" (click)="toggleVisibilityOfSettings()"><i
+              class="icons back"></i><span>Back</span></button>
+          <p class="label-title">Manage Setting</p>
+        </div>
+        <li class="nav-item account_tab" class="nav-link" routerLinkActive="active"><a [routerLink] = "moduleNavObj.moduleLinks.admin"  [matTooltipDisabled]="this.applicationlevelservices.showToolTipNav"  matTooltip="Admin" [matTooltipPosition]="position.value" matTooltipClass="tooltip-menu"><i class="icons admin"></i><span>Admin</span></a></li>
+        <li class="nav-item account_tab" class="nav-link" routerLinkActive="active"><a  [routerLink] = "moduleNavObj.moduleLinks.extraServiceList"  [matTooltipDisabled]="this.applicationlevelservices.showToolTipNav"  matTooltip="Extra Services" [matTooltipPosition]="position.value" matTooltipClass="tooltip-menu"><i class="icons circle"></i><span>Extra Services</span></a></li>
+        <li class="nav-item account_tab"><a [matTooltipDisabled]="this.applicationlevelservices.showToolTipNav"  matTooltip="Meet Point" [matTooltipPosition]="position.value"  matTooltipClass="tooltip-menu"><i class="icons circle"></i><span>Meet Point</span></a></li>
+        <li class="nav-item account_tab"  class="nav-link" routerLinkActive="active"><a [routerLink]="moduleNavObj.moduleLinks.vehicles" [matTooltipDisabled]="this.applicationlevelservices.showToolTipNav"  matTooltip="Vehicles" [matTooltipPosition]="position.value" matTooltipClass="tooltip-menu"><i class="icons Vehicles"></i><span>Vehicles</span></a></li>
+        <li class="nav-item account_tab"><a [matTooltipDisabled]="this.applicationlevelservices.showToolTipNav" matTooltip="Vehicle type" [matTooltipPosition]="position.value" matTooltipClass="tooltip-menu"><i class="icons circle"></i><span>Vehicle
+              type
+            </span></a></li>
+        <li class="nav-item account_tab"><a [matTooltipDisabled]="this.applicationlevelservices.showToolTipNav" matTooltip="Payment method" [matTooltipPosition]="position.value"><i class="icons circle"></i><span>Payment
+              method
+            </span></a></li>
+      </ul>
+      <p>Version: {{versionNo}}</p>
+    </section>
+  </mat-drawer>
+  <div class="example-sidenav-content">
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div (click)="toggleVisibilityOfOverlay();" class="mobile-overlay"></div>
+</mat-drawer-container>  -->

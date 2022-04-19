@@ -1,0 +1,97 @@
+// @font-face {
+//     font-family: "Helvetica-font";
+//     src: url("fonts/Helvetica-font.eot");
+//     /* IE9 Compat Modes */
+//     src: url("fonts/Helvetica-font.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+//     url("fonts/Helvetica-font.woff2") format("woff2"), /* Super Modern Browsers */
+//     url("fonts/Helvetica-font.woff") format("woff"), /* Pretty Modern Browsers */
+//     url("fonts/Helvetica-font.ttf") format("truetype"), /* Safari, Android, iOS */
+//     url("fonts/Helvetica-font.svg#svgFontName") format("svg");
+//     /* Legacy iOS */
+// }
+
+// @font-face {
+//     font-family: "Helvetica-bold";
+//     src: url("fonts/bold/Helvetica-bold.eot");
+//     src: url("fonts/bold/Helvetica-bold.eot?#iefix") format("embedded-opentype"), url("fonts/bold/Helvetica-bold.woff2") format("woff2"), url("fonts/bold/Helvetica-bold.woff") format("woff"), url("fonts/bold/Helvetica-bold.ttf") format("truetype"), url("fonts/bold/Helvetica-bold.svg#HelveticaConBQ-Bold") format("svg");
+//     font-weight: bold;
+//     font-style: normal;
+// }
+
+.font-weight-md {
+    font-weight: 500;
+}
+
+.font-w-b ,
+.font-weight-bold {
+    font-weight: 700 !important;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-cap {
+    text-transform: capitalize;
+}
+
+.greentext {
+    color: #008000 !important;
+}
+
+.redtext {
+    color: $Validation-warning !important;
+}
+
+.greytext {
+    color: $Grey-light !important;
+}
+
+.dim-gray {
+    color: $dim-gray !important;
+    font-weight: 500;
+}
+
+.f-s-12 {
+font-size: 12px !important;
+}
+.f-s-13 {
+    font-size: 13px !important; 
+}
+.f-s-14 {
+    font-size: 14px !important;   
+}
+.f-s-16 {
+    font-size: 16px !important;   
+}
+.f-s-18 {
+    font-size: 18px !important;  
+}
+
+
+
+
+.black80 { color: $black80 !important; }
+.black70 { color: $black70 !important; }
+.black60 { color: $black60 !important; }
+.black50 { color: $black50 !important; }
+.black40 { color: $black40 !important; }
+.black50 { color: $black30 !important; }
+.black40 { color: $black20 !important; }
+
+
+.text-left {
+    text-align: left;
+}
+.text-right
+{
+    text-align: right;
+}
+.text-center
+{
+    text-align: center;
+}
+
+.text-cap {
+    text-transform: capitalize;
+}

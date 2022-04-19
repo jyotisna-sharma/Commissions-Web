@@ -1,0 +1,158 @@
+@import'../../../assets/css/variable.scss';
+@import'../../../assets/css/sprite-image-bg.scss';
+.report-manager {
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.payee-manager {
+    margin-top: 11px;
+    margin-bottom: 16px;
+}
+
+.report-manager .page-title,
+.payee-manager .page-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: $secondary-color;
+    text-transform: capitalize;
+}
+
+.mr-top10 {
+    margin-top: 10px;
+}
+
+.margin-right-none {
+    margin-right: 0px;
+}
+
+.margin-right24 {
+    margin-right: -24px;
+}
+
+.batch-report .left-col {
+    float: left;
+}
+
+.batch-report .right-col {
+    float: right;
+}
+
+.batch-report .right-col label {
+    font-size: 12px;
+    padding-right: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+    display: inline-block;
+    float: none;
+    width: auto;
+    margin-left: 16px;
+}
+
+.batch-report .right-col form {
+    display: inline-block;
+}
+
+.batch-report .right-col {
+    float: right;
+}
+
+ :host ::ng-deep {
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+        min-height: 30px;
+        background: #fff;
+    }
+    mat-form-field.mat-form-field .mat-form-field-infix {
+        padding: 11px 0 4px 0;
+    }
+}
+
+ :host ::ng-deep .batch-report {
+    .right-col .mat-form-field-appearance-outline .mat-form-field-wrapper {
+        width: 130px;
+        padding: 0px !important;
+    }
+   
+}
+
+.batch-report .year-col label {
+    font-size: 12px;
+    padding-right: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+}
+
+.batch-report .year-col form {
+    display: inline-block;
+}
+
+.batch-report .year-col {
+    float: left;
+}
+
+ :host ::ng-deep {
+    .batch-report .year-col .mat-form-field-appearance-outline .mat-form-field-wrapper {
+        width: 130px;
+    }
+}
+
+.divider-right .checkbox-group mat-checkbox:last-child::after,
+.checkbox-group mat-checkbox:first-child::after {
+    background: #e6e6e6;
+    height: 20px;
+    width: 1px;
+    content: '';
+    display: block;
+    z-index: 9;
+    position: absolute;
+    right: 0px;
+    top: 8px;
+}
+
+.checkbox-group mat-checkbox {
+    padding-right: 16px;
+    position: relative;
+    margin-right: 16px;
+    float: left;
+    line-height: 30px;
+}
+
+:host ::ng-deep .table-outerScroller.table-scroll-mi-listing {
+    overflow: auto;
+    max-height: 190px !important;
+    min-height: unset !important;
+    overflow: visible;
+    td.mat-cell.cdk-column-Year.mat-column-Year ,
+    td.mat-cell.cdk-column-BatchNumber.mat-column-BatchNumber {
+        text-align: right;
+    }
+}
+
+:host ::ng-deep .normal-box.tableData.tablediv.listing-table.table-minHeight-160 {
+    .tableStyle {
+        min-height: 190px;
+        overflow: auto;
+    }
+    .tableStyle .table-outerScroller {
+        max-height: 163px !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .margin-right-none {
+        margin-right: -24px!important;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .margin-right-none {
+        margin-right: -15px;
+    }
+}
+
+.inline-block {
+    display: inline-block;
+    float: none;
+}

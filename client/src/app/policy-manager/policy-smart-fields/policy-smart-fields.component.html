@@ -1,0 +1,274 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showLoader">
+    <mat-spinner></mat-spinner>
+</div>
+<div class="main-content">
+    <app-breadcrumb [showNickName]="policyNumber" [pageName]="pagename" [moduleName]="moduleName" (onPageRedirectionClick)="onPageRedirection()"></app-breadcrumb>
+    <div class="divRow">
+        <div class="tabs-container">
+            <app-policy-manager-left-navigation [isParentHeader]='false' [isTabDisabled]='false'></app-policy-manager-left-navigation>
+            <div class="tabs-contentDiv">
+                <div class="filter-outerbox filterContianer">
+                    <!-- <div class="example-header sub-header">
+            <div class="divRow margin-left-none">
+              <div class="full-rowOuter flex-start padding-left-none">
+                <div class="sub-title">
+                  <label class="label">Client: </label>
+                  <form [formGroup]="client"  class="formfield-less-h">
+                      <mat-form-field appearance="outline">
+                        <mat-select formControlName='ClientList's>
+                          <mat-option *ngFor="let clients of clientList" [value]="clients.ClientId" >
+                            {{clients.Name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div> -->
+                    <div class="example-header data-filterSec padding-none full-widthForm">
+                        <div class="divRow margin-left-none">
+                            <div class="full-rowOuter flex-space-between  padding-left-none less-height">
+                                <div class="left-div">
+                                    <div class="select-boxouter select-client">
+                                        <label class="label">Client:</label>
+                                        <form [formGroup]="client" class="formfield-less-h">
+                                            <mat-form-field appearance="outline" class="select-box-UI validation-rightAlign-UI">
+                                                <!-- <mat-select formControlName='ClientList'>
+                                                    <mat-option *ngFor="let clients of clientList" [value]="clients.ClientId">
+                                                        {{clients.Name}}
+                                                    </mat-option>
+                                                </mat-select> -->
+                                                <input type="text" placeholder="Enter client name" aria-label="Number" matInput formControlName='ClientObject'  (blur)="checkEmptyClient()" [matAutocomplete]="auto" >
+                                                <mat-spinner [diameter]='20' *ngIf="isSearchLoading"></mat-spinner>
+                                                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="OnClientChange($event)">
+                                                    <mat-option *ngFor="let clients of ClientDropDown | async " [value]="clients" >
+                                                        {{clients.Name}}
+                                                    </mat-option>
+                                                    <mat-option *ngIf="(this.ClientDropDown | async)?.length === 0" [disabled]="true">
+                                                        No Record Found
+                                                    </mat-option>
+                                                </mat-autocomplete>
+                                                <mat-error *ngIf="client.controls['ClientObject'].errors?.required && client.controls['ClientObject'].dirty">
+                                                    {{validationMesaage.PolicyManagerValidation.client}}
+                                                  </mat-error>
+                                            </mat-form-field>
+                                            <!-- <p *ngIf="(this.ClientDropDown | async)?.length === 0">No Record Found</p> -->
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="left-div">
+                                    <div class="notes-header">
+                                        <div class="inline-block m-r-24">
+                                            <span class="label"> <b>{{this.modifiedData}}</b></span>
+                                        </div>
+                                        <!-- <div class="inline-block ">
+                                            <span class="label">Modified by: <span class="name-date"></span></span>
+                                        </div> -->
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="example-header padding-none" id="EnterDetailsForm">
+                        <div class="divRow">
+                            <div class="full-rowOuter add-editContainer formDesignCustom create-policyForm padding-bottom-none">
+                                <form class="example-form" [formGroup]="SmartFields">
+                                    <mat-card class="mat-card-style">
+                                        <div class="TwoColumnLayout style-border">
+                                            <div class="column-container">
+                                                <section class="full-widthRow"></section>
+                                                <div class="coloumn-lg-6  col-12-md ">
+                                                    <section class="full-widthRow">
+                                                        <label class="label">Insured / Division</label>
+                                                        <mat-form-field appearance="outline">
+                                                            <input matInput formControlName='Insured' #insured='matInput' maxlength="100" tabindex="1">
+                                                        </mat-form-field>
+                                                    </section>
+                                                    <section class="full-widthRow">
+                                                        <label class="label">Original effective date </label>
+                                                        <mat-form-field appearance="outline" class="outer-shadow">
+                                                            <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY" formControlName='OriginalEffectiveDate' (focus)="picker.open()" tabindex="3" (dateChange)='OnValidateDate($event)'>
+                                                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                            <mat-datepicker #picker></mat-datepicker>
+                                                        </mat-form-field>
+                                                    </section>
+                                                    <section class="full-widthRow">
+                                                        <label class="label">Mode</label>
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-select formControlName='PolicyModeId' tabindex="5">
+                                                                <mat-option *ngFor="let mode of modeList" [value]="mode.PolicyModeId">
+                                                                    {{mode.Value}}
+                                                                </mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
+                                                    </section>
+                                                    <section class="full-widthRow">
+                                                        <label class="label">PAC</label>
+                                                        <mat-form-field appearance="outline">
+                                                            <label _ngcontent-c9="" class="inline-box-dollar">$</label>
+                                                            <input matInput formControlName='PAC' class="dollar" appNumberFormat>
+                                                        </mat-form-field>
+                                                    </section>
+                                                    <section class="full-widthRow">
+                                                        <label class="label">Renewal</label>
+                                                        <mat-form-field appearance="outline">
+                                                            <input matInput formControlName='Renewal' numbersWithDecimal maxlength="100" tabindex="7" appNumberFormat>
+                                                        </mat-form-field>
+                                                    </section>
+                                                    <section class="full-widthRow">
+                                                        <div class="custom-row">
+                                                            <div class="col-6-lg">
+                                                                <label class="label">Enrolled</label>
+                                                                <mat-form-field appearance="outline">
+                                                                    <input matInput formControlName='Enrolled' numbers maxlength="50" tabindex="9">
+                                                                </mat-form-field>
+                                                            </div>
+                                                            <div class="col-6-lg ">
+                                                                <label class="label">Eligible</label>
+                                                                <mat-form-field appearance="outline">
+                                                                    <input matInput formControlName='Eligible' numbers maxlength="50" tabindex="10">
+                                                                </mat-form-field>
+                                                            </div>
+                                                        </div>
+                                                    </section>
+                                                    <section class="full-widthRow">
+                                                        <label class="label">Coverage</label>
+                                                        <mat-form-field appearance="outline">
+                                                            <input matInput formControlName='Coverage' maxlength="300" tabindex="12">
+                                                        </mat-form-field>
+                                                    </section>
+                                                    <section class="full-widthRow">
+                                                        <label class="label">Comp schedule</label>
+                                                        <mat-form-field appearance="outline">
+                                                            <input matInput formControlName='CompScheduleType' maxlength="100" tabindex="14">
+                                                        </mat-form-field>
+                                                    </section>
+                                                    <section class="full-widthRow">
+                                                        <label class="label">Policy id (Import)</label>
+                                                        <mat-form-field appearance="outline">
+                                                            <input matInput formControlName='ImportPolicyId'>
+                                                        </mat-form-field>
+                                                    </section>
+                                                    <section class="full-widthRow">
+                                                      <label class="label">CD Policy Id</label>
+                                                      <mat-form-field appearance="outline">
+                                                          <input matInput formControlName='cdPolicyId'>
+                                                      </mat-form-field>
+                                                  </section>
+                                                  <!-- <section class="full-widthRow">
+                                                    <label class="label">Policy plan ID</label>
+                                                    <mat-form-field appearance="outline">
+                                                        <input matInput formControlName='policyPlanId'>
+                                                    </mat-form-field>
+                                                </section> -->
+                                                </div>
+                                                <div class="coloumn-lg-6  col-12-md">
+                                                    <section class="full-widthRow">
+                                                        <label class="label">Policy #</label>
+                                                        <mat-form-field appearance="outline">
+                                                            <input matInput formControlName='PolicyNumber' maxlength="50" tabindex="2">
+                                                        </mat-form-field>
+                                                    </section>
+                                                    <section class="full-widthRow">
+                                                        <label class="label">Track from date</label>
+                                                        <mat-form-field appearance="outline">
+                                                            <input matInput [matDatepicker]="picker3" placeholder="MM/DD/YYYY" formControlName='TrackFromDate' (focus)="picker3.open()" tabindex="4">
+                                                            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                                                            <mat-datepicker #picker3></mat-datepicker>
+
+                                                        </mat-form-field>
+                                                    </section>
+                                                    <section class="full-widthRow">
+                                                        <label class="label">Carrier</label>
+                                                        <mat-form-field appearance="outline">
+                                                            <input matInput formControlName='Carrier' maxlength="300" tabindex="6">
+                                                        </mat-form-field>
+                                                    </section>
+                                                    <section class="full-widthRow">
+                                                        <label class="label">PMC</label>
+                                                        <mat-form-field appearance="outline">
+                                                            <label _ngcontent-c9="" class="inline-box-dollar">$</label>
+                                                            <input matInput formControlName='PMC' class="dollar" appNumberFormat>
+                                                        </mat-form-field>
+                                                    </section>
+                                                    <section class="full-widthRow">
+                                                        <label class="label">Modal avg premium</label>
+                                                        <mat-form-field appearance="outline">
+                                                            <label _ngcontent-c9="" class="inline-box-dollar">$</label>
+                                                            <input matInput formControlName='ModeAvgPremium' class="dollar" numbersWithDecimal maxlength="8" appNumberFormat tabindex="8">
+                                                        </mat-form-field>
+                                                    </section>
+                                                    <section class="full-widthRow">
+                                                        <label class="label">Auto term date</label>
+                                                        <mat-form-field appearance="outline" [ngClass]="{'wrongSecurity': isAutoTermDateVShown}">
+                                                            <input matInput [matDatepicker]="picker2" placeholder="MM/DD/YYYY" formControlName='PolicyTerminationDate' (focus)="picker2.open()" tabindex="11" (dateChange)='OnValidateDate($event)'>
+                                                            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                                            <mat-datepicker #picker2></mat-datepicker>
+                                                            <span *ngIf="isAutoTermDateVShown" class="error-Validation">{{validationMesaage.PolicyManagerValidation.autoTermNotGreaterDate}}</span>
+                                                        </mat-form-field>
+                                                    </section>
+                                                    <section class="full-widthRow">
+                                                        <label class="label">Payor sys Id</label>
+                                                        <mat-form-field appearance="outline">
+                                                            <input matInput formControlName='PayorSysId' tabindex="13">
+                                                        </mat-form-field>
+                                                    </section>
+                                                    <section class="full-widthRow">
+                                                        <label class="label">Comp Type</label>
+                                                        <mat-form-field appearance="outline">
+                                                            <mat-select formControlName='CompType' placeholder="Select" tabindex="15">
+                                                                <mat-option *ngFor="let CompList of CompTypeList" [value]="CompList.PaymentTypeId">
+                                                                    {{CompList.PaymenProcedureName}}
+                                                                </mat-option>
+                                                            </mat-select>
+                                                        </mat-form-field>
+                                                    </section>
+                                                    <section class="full-widthRow">
+                                                        <div class="custom-row">
+                                                            <div class="col-6-lg">
+                                                                <label class="label">Link 1</label>
+                                                                <mat-form-field appearance="outline">
+                                                                    <input matInput formControlName='Link1' maxlength="50" tabindex="16">
+                                                                </mat-form-field>
+                                                            </div>
+                                                            <div class="col-6-lg ">
+                                                                <label class="label">Link 2</label>
+                                                                <mat-form-field appearance="outline">
+                                                                    <input matInput formControlName='Link2' numbersWithDecimal maxlength="100" tabindex="17" appNumberFormat>
+                                                                </mat-form-field>
+                                                            </div>
+                                                        </div>
+                                                    </section>
+                                                    <section class="full-widthRow">
+                                                      <label class="label">Policy plan ID</label>
+                                                      <mat-form-field appearance="outline">
+                                                          <input matInput formControlName='PolicyPlanID'>
+                                                      </mat-form-field>
+                                                  </section>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="divRow">
+                                            <section class="margin-top footer-area full-widthRow">
+                                                <button type="submit" mat-raised-button color='primary' class="pull-left mat-flat-button mat-primary coloured-primary-button" (click)='OnUpdateSmartFields()' tabindex="17" [ngClass]="{'btn-disable': userdetails?.Permissions[1].Permission === 1}">Update</button>
+                                                <button type="button" mat-stroked-button class="pull-right" tabindex="18" (click)="onCancelClick()">Cancel</button>
+                                            </section>
+
+
+                                        </div>
+                                    </mat-card>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

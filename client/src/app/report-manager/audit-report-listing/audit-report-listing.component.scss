@@ -1,0 +1,195 @@
+
+@import'../../../assets/css/variable.scss';
+@import'../../../assets/css/sprite-image-bg.scss';
+.report-manager{
+    margin-top:6px;
+    margin-bottom:6px;     
+ }
+ h4.page-title.txt-trnsfrm-unset {
+  text-transform: unset !important;
+}
+.report-manager .page-title{
+    font-size:14px;
+    font-weight:500;
+    color:$secondary-color;
+    text-transform: capitalize;
+    }
+    .table-scroll-data{
+        overflow: auto;
+        height:165px;    
+  }
+ .mr-top10{
+    margin-top:10px;
+  }
+ .margin-right-none {
+    margin-right: 0px;
+  }
+ .margin-right24 {
+   margin-right: -24px;
+  }
+  .audit-report .left-col{
+    float:left;       
+  }
+  .audit-report .left-col label{    
+    font-size: 12px;
+    padding-right: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+  }
+  .audit-report .left-col form {
+    display:inline-block;
+    vertical-align: middle; 
+  }
+  .audit-report .left-col {
+      float:left;
+      padding:0px 30px 0px 0px; 
+      @media screen and (max-width : 1024px) {        
+      float: left;
+      padding: 0px 16px 0px 0px;
+      width: 20%;
+
+     label  {
+        min-width: 100%;
+     }
+    }
+    }
+ :host ::ng-deep{
+      .mat-form-field-appearance-outline .mat-form-field-outline {
+        min-height: 30px; 
+        background:#fff;
+      }
+      mat-form-field.mat-form-field .mat-form-field-infix {
+        padding: 11px 0 4px 0;
+      } 
+
+    }
+    :host ::ng-deep .audit-report{
+      .left-col .mat-form-field-appearance-outline .mat-form-field-wrapper {
+        width:130px; 
+    }    
+    
+  .mat-form-field-suffix {
+      top: 4px;
+      right: 1px;
+      position: absolute;
+    .mat-datepicker-toggle .mat-icon-button {
+      width: 34px;
+      height: 28px;
+            }
+        }
+        mat-form-field.mat-form-field-type-mat-input .mat-form-field-infix {
+          border-top: .7975em solid transparent;
+        }
+    }
+
+  .audit-report .mat-form-field::after {
+      background: #e6e6e6;
+      height: 20px;
+      width: 1px;
+      content: '';
+      display: block;
+      z-index: 9;
+      position: absolute;
+      right: -18px;
+      top: 8px;
+}
+.audit-report .left-col:last-child .mat-form-field::after {
+  display:none;
+}
+
+@media screen and (max-width : 1024px) {
+    .margin-right-none { margin-right:-15px; }
+    .margin-top22{
+      margin-top:22px;
+    }
+    
+    }
+    
+    .audit-report .full-col label.label {
+        width: 100%;
+        float: left;
+    }
+    :host ::ng-deep  .deafult-visible-filter {
+
+      label.label {
+        display: inline-block; width: auto; float: none;
+      }
+    }
+
+  :host ::ng-deep .inline-fields {
+    mat-form-field.mat-form-field  , label.label {
+      float: none; display: inline-block; width: auto;
+    }
+    label.label { 
+  padding: 0px 2%;
+    }
+    mat-form-field.mat-form-field {
+      width: auto;
+      min-width: 46%;     
+  }
+  mat-form-field.mat-form-field .mat-form-field-infix {
+    width: auto;
+}
+}
+
+
+@media screen and (max-width: 1024px) {  
+  .margin-right-none {
+    margin-right: -24px!important;
+  }
+  
+  .btn-full-width{
+    width:100%;
+    float:left;
+    margin-bottom:20px;
+  }
+  .audit-report .mat-form-field::after {
+    display:none;
+}
+.full-width-col {
+  width: 100%; float: left;
+  .toggle-link-button  {
+   padding: 0px;
+  }
+}
+  
+  }
+  @media screen and (max-width: 900px) {
+  .audit-report .left-col {
+    float:left;
+    width: 35%; 
+    padding:0px 0px 0px 0px; 
+    label.label{
+      width: 100%;
+    }
+  }
+}
+  // :host ::ng-deep  .filter-full-container {
+  //   @media screen and (max-width: 768px) {  
+  //     .left-col .mat-form-field-appearance-outline .mat-form-field-wrapper {
+  //       min-width:555px;
+  //     }
+  //   }
+
+  // }
+
+
+
+
+  .deafult-visible-filter {
+
+    .audit-report .left-col:nth-child(1) 
+    { 
+      padding: 0px 8px 0px 0px;
+      mat-form-field::after {
+      display: none !important;
+  }
+ 
+}
+  }
+
+
+  :host ::ng-deep .cdk-overlay-container mat-form-field.mat-form-field textarea  {
+    position: relative;
+}

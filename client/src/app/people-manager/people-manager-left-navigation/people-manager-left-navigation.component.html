@@ -1,0 +1,44 @@
+<div class="tabs_tab-bar" id="tablist" *ngIf="parentdiv">
+
+  <ul class="ul-tabs tab-links" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link " [routerLink]="[ '/people/Agentlisting','1','10','0' ]"
+      routerLinkActive='active'>Agent <span
+          class="total-no">{{agentCount}}</span></a>
+    </li>
+    <li class="nav-item" *ngIf="getUserDetails?.Role=== 2|| getUserDetails?.Role=== 1 ||isUserTabEnabled">
+      <a class="nav-link" [routerLink]="[ '/people/Userlisting','2','10','0' ]"
+      routerLinkActive='active'>User <span
+          class="total-no">{{userCount}}</span></a>
+    </li>
+    <li class="nav-item" *ngIf="getUserDetails?.Role=== 1">
+      <a class="nav-link" [routerLink]="[ '/people/DataEntryUserList','3','10','0' ]"
+      routerLinkActive='active'>Data Entry User <span class="total-no">{{dataEntryUserCount}}</span></a>
+    </li>
+  </ul>
+</div>
+<div class="tabs_tab-bar" id="tablist" *ngIf="childdiv">
+  <ul class="ul-tabs tab-links" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" role="tab"
+        [routerLink]="['/people/AddEditAgent',getrouteParamters.parentTab,'1',getrouteParamters.userCredentialId,getrouteParamters.pageSize,getrouteParamters.pageIndex]"
+        routerLinkActive='active'>Profile
+        <span class="total-no"></span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " data-toggle="tab" role="tab"
+        [routerLink]="['/people/EditSettings',getrouteParamters.parentTab,'2',getrouteParamters.userCredentialId,getrouteParamters.pageSize,getrouteParamters.pageIndex]"
+        routerLinkActive='active'>Settings
+        <span class="total-no"></span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" role="tab"
+        [routerLink]="['/people/UserMapping',getrouteParamters.parentTab,'3',getrouteParamters.userCredentialId,getrouteParamters.pageSize,getrouteParamters.pageIndex]"
+        routerLinkActive='active'>User mapping
+      </a>
+    </li>
+  </ul>
+
+</div>

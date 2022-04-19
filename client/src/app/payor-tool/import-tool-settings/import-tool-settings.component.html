@@ -1,0 +1,123 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showloading">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="main-content">
+  <div class="filter-outerbox filterContianer">
+    <div class="example-header data-filterSec padding-none full-widthForm">
+      <div class="divRow">
+        <div class="full-rowOuter  space-between formfield-less-h p-t-0 p-b-0">
+          <app-breadcrumb [showNickName]="payorName" [moduleName]="moduleName" (onPageRedirectionClick)="OnPageRedirection('breadCrumb')"></app-breadcrumb>
+          <!-- <div class="left-col">
+                    <label class="label">PayorName : {{this.payorName}}</label>
+                </div>-->
+          <div class="left-col p-l-16">
+            <label class="label">Template</label>
+            <mat-form-field appearance="outline">
+              <mat-select [(ngModel)]='selectedTemplateId' (selectionChange)='OnChangeTemplate()'>
+                <mat-option *ngFor="let templateData of templateList" [value]="templateData.TemplateID">
+                  {{templateData.TemplateName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="divRow">
+
+      <mat-tab-group style="display: block; float: left; width: 100%;" [selectedIndex]=selectedTabIndex mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4"
+        (selectedTabChange)='OnTabChange($event)'>
+        <mat-tab label="Payor Template">
+          <form [formGroup]='payorTemplate' class="p-l-9 p-r-9">
+            <div class='col-lg-12 p-b-70'>
+              <div class="custom-row m-x-0">
+                <div class="create-newDelegate  m-t-10 ">
+                  <div class='col-12-lg m-b-10'>
+                    <button class="loader-svg  pull-right create-button small-size" mat-flat-button (click)='AddEditPhraseDialogBox("")'>
+                      Add phrase
+                    </button>
+                  </div>
+                  <div class='col-12-lg'>
+                    <div class="table-outerScroller" *ngIf="this.templateList.length>0">
+                      <app-mi-list [MiListProperties]=MiListProperties (onMenuItemClick)="OnActionButtonClick($event)"></app-mi-list>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="divRow m-x-0">
+
+                <section class="margin-top footer-area full-widthRow fixed-bottom-footer border-top">
+
+                  <div class='col-3-lg'>
+                    <div class='format-type width-100 p-x-0'>
+
+                      <label class="label p-t-12 p-r-8">File Type</label>
+                      <mat-form-field appearance="outline">
+                        <mat-select formControlName='fileType'>
+                          <mat-option *ngFor="let fileType of fileTypeList" [value]="fileType">
+                            {{fileType}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+                    </div>
+                  </div>
+                  <div class='col-3-lg'>
+                    <div class='format-type width-100 p-x-0'>
+
+                      <label class="label p-t-12 p-r-8">Format</label>
+                      <mat-form-field appearance="outline">
+                        <mat-select formControlName='formatType'>
+                          <mat-option *ngFor="let formatType of format" [value]="formatType">
+                            {{formatType}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+                    </div>
+                  </div>
+                  <div class='col-6-lg'>
+                    <button type="submit" mat-raised-button color='primary' class="pull-left mat-flat-button mat-primary coloured-primary-button"
+                      (click)="SavePayorTemplateDetails('')">Save</button>
+                    <button type="submit" mat-raised-button color='primary' class="pull-left mat-flat-button mat-primary coloured-primary-button"
+                      (click)="SavePayorTemplateDetails('saveNextClicked')" *ngIf="isFirstTimeListLoad && isSaveNextButtonShown">Save & Next</button>
+                    <button mat-stroked-button class="pull-right" (click)='OnPageRedirection("")'>Cancel</button>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </form>
+        </mat-tab>
+        <!-- End of Payor Template -->
+
+        <mat-tab label="Statement Data" [disabled]="(isSaveNextButtonShown && (selectedTabIndex==0||selectedTabIndex==1))">
+
+          <div *ngIf="this.templateList.length>0">
+            <section class="full-widthRow m-t-8 m-b-4 p-b-70">
+              <app-import-tool-statment-list [ImportToolStatmentList]=statementDataListProperties [matSelectList]="this.statementDataListProperties.miDataSource.getResponse && this.statementDataListProperties.miDataSource.getResponse['EndDataList']"></app-import-tool-statment-list>
+            </section>
+
+            <div class="divRow m-x-0">
+              <section class="margin-top footer-area full-widthRow fixed-bottom-footer border-top">
+                <div class='col-12-lg'>
+                  <button type="submit" mat-raised-button color='primary' class="pull-left mat-flat-button mat-primary coloured-primary-button"
+                    (click)="ImportStatemntListSave('')">Save</button>
+                  <button type="submit" mat-raised-button color='primary' class="pull-left mat-flat-button mat-primary coloured-primary-button"
+                    (click)='ImportStatemntListSave("saveNextClicked")' *ngIf="isFirstTimeListLoad && isSaveNextButtonShown">Save & Next</button>
+                  <button mat-stroked-button class="pull-right" (click)='OnPageRedirection("")'>Cancel</button>
+
+                </div>
+              </section>
+            </div>
+          </div>
+
+        </mat-tab>
+        <mat-tab label="Payment Data" [disabled]="isSaveNextButtonShown">
+          <div>
+
+            <app-import-payment-data [isTemplateChange]=isTemplateChange [templateId]=this.selectedTemplateId [isSaveFinishButtonShown]=isSaveNextButtonShown></app-import-payment-data>
+          </div>
+        </mat-tab>
+
+      </mat-tab-group>
+    </div>

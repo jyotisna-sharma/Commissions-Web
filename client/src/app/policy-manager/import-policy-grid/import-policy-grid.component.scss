@@ -1,0 +1,37 @@
+@import'../../../assets/css/global.scss';
+
+
+:host ::ng-deep     .normal-box.tableData .tableStyle
+{ 
+   table 
+   { 
+      p.validation-error
+    {
+background: #f2dede;   color: $Validation-warning; padding: 3px 6px;
+ 
+}
+mat-form-field.validation-error {
+   .mat-form-field-outline {
+      background: $Validation-warning;
+   }
+   input {
+      color: #fff;
+   }
+}
+   }
+}
+
+
+:host ::ng-deep .table-scroll-mi-listing { 
+table  {
+   tr {
+      td {
+         .mat-form-field-appearance-outline .mat-form-field-wrapper {
+            margin: .25em 0 9px;
+            padding-bottom: 0px;
+            margin-bottom: .25em;
+        }
+      }
+   }
+}
+}

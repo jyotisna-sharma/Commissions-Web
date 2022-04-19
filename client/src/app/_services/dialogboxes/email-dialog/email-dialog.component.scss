@@ -1,0 +1,49 @@
+
+ p.error-section {   
+    background: #f2dede;
+    padding: 10px 15px 10px 24px;
+    margin: -24px;  
+    border-bottom: 1px solid #ebccd1;  
+    margin-bottom:5px;
+    color:#E03F3D;   
+    font-size:13px;
+    position: relative;
+    .close_icon {
+      position: absolute;
+      right: 20px;
+      top: 14px;
+      width: 16px;
+      height: 16px;
+      opacity: 0.3;
+    }
+    .close_icon:hover {
+      opacity: 1;
+    }
+    .close_icon:before, .close_icon:after {
+      position: absolute;
+      left: 6px;
+      content: ' ';
+      height: 10px;
+      width: 2px;
+      background-color: #a94442;
+    }
+    .close_icon:before {
+      transform: rotate(45deg);
+    }
+    .close_icon:after {
+      transform: rotate(-45deg);
+    }
+  }
+
+
+ :host ::ng-deep .mat-form-field-appearance-outline
+ { 
+    .mat-form-field-wrapper {
+    padding-bottom: 0px;
+  }
+  .mat-form-field-infix {
+    textarea {
+    min-height: 59px;
+}
+}
+}

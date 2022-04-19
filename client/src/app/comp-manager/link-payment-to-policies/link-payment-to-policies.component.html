@@ -1,0 +1,48 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showloading">
+    <mat-spinner></mat-spinner>
+</div>
+<div class="main-content">
+    <div class="filter-outerbox filterContianer">
+        <div class="example-header data-filterSec padding-none full-widthForm">
+            <div class="divRow">
+                <div class="full-rowOuter">
+                    <h4 class="page-title">Comp Manager</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="divRow">
+        <div class="tabs-container">
+            <app-comp-manager-left-navigation></app-comp-manager-left-navigation>
+            <div class="tabs-contentDiv">
+                <div class="filter-outerbox filterContianer">
+                    <div class="example-header data-filterSec padding-none full-widthForm">
+                        <div class="divRow">
+                            <div class="full-rowOuter space-between border-none">
+                                <h4 class="title">Pending policies / Payments</h4>
+                                <div class="search-div">
+                                    <mat-form-field appearance="outline">
+                                        <input matInput placeholder='Search: Policy #, Insured, Payor, Carrier, Product' [(ngModel)]="searchData" (keydown.enter)="doSearch()">
+                                    </mat-form-field>
+                                    <div class="btn-outerDiv align-withsearchBox search-cancel-btn">
+                                        <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="searchData='';handleSearchClear($event);" class="icon-cross" *ngIf="searchData">
+                        <mat-icon>close</mat-icon>
+                      </button>
+                                        <button mat-raised-button class="loader-svg pull-left icon-button" mat-button mat-stroked-button (click)="doSearch()">
+                        <i class="img-icons search-icn"></i>
+                        <label>Search</label>
+                      </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="normal-box tableData tablediv listing-table">
+                    <app-comp-manager-list [CompManagerList]='pendingPolicy' (onPageChange)='OnPageinationChange($event)' (onMenuItemClick)='OnLinkedPoliciesMenuItemClick($event)' [accordionPanelList]='accordionPanelList' [isaccordionPanelShow]='isaccordionPanelShow'></app-comp-manager-list>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--*************************************************************************************************************-->

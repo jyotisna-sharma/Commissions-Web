@@ -1,0 +1,54 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showloading||!ispolicyDataShown ">
+    <mat-spinner></mat-spinner>
+</div>
+<div class="main-content">
+    <app-breadcrumb [showNickName]="policyNumber" [pageName]="pagename" [moduleName]="moduleName" (onPageRedirectionClick)="OnPageRedirection()"></app-breadcrumb>
+    <div class="divRow">
+        <div class="tabs-container">
+            <app-policy-manager-left-navigation [isParentHeader]='false' [isTabDisabled]='isTabDisable'></app-policy-manager-left-navigation>
+            <div class="tabs-contentDiv">
+                <div class="filter-outerbox filterContianer">
+                    <div class="example-header sub-header">
+                        <div class="divRow margin-left-none">
+                            <div class="full-rowOuter space-between padding-left-none">
+                                <div class="sub-title">
+                                    <label class="label">Commission Dashboard: </label>
+                                    <span class="policy-name">Payment Details</span>
+                                </div>
+                                <div class="btn-section">
+                                    <!-- <span [matTooltip]='matToolTiptext' [matTooltipDisabled]="!isButtonDisabled">
+                    <button class="loader-svg pull-left coloured-primary-button create-button small-size"
+                      mat-flat-button (click)='AddNewIncomingPayment()' [disabled]='!isButtonDisabled||!isUserHavePermission' [ngClass]="{'btn-disable': !isButtonDisabled||!isUserHavePermission}">Add
+                      New</button></span> -->
+                                    <div>
+                                        <button class="export-button" mat-flat-button (click)="ExportToExcel()" [disabled]='this.userdetails.Permissions[1].Permission === 1'>Export</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="payment mrg-bottom">
+                                <h4 class="page-title">Incoming payments ({{miIncomingPaymentList.miDataSource.pageLength}})</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="normal-box tableData tablediv listing-table">
+                    <div class="tableStyle table-scroll-data mg-b20" *ngIf="ispolicyDataShown">
+                        <app-commission-dashboard-list [commissionDashboardList]='miIncomingPaymentList' (onMenuItemClick)="OnIncomingMenuItemClicked($event)"></app-commission-dashboard-list>
+                    </div>
+                    <div class="outgoing-payment-header" *ngIf="isOutgoingdivShown">
+                        <div class="left-col">
+                            <h4 class="page-title">Outgoing payments ({{showCount}})</h4>
+                        </div>
+                    </div>
+                    <div class="tableStyle table-scroll-data mg-b20" *ngIf="isOutgoingdivShown && ispolicyDataShown">
+                        <app-commission-dashboard-list [commissionDashboardList]='miOutgoingPaymentList' (onMenuItemClick)="OnOutgoingMenuItemClicked($event)" [isValidationShown]='validationErrorObject'></app-commission-dashboard-list>
+                        <div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- <div>
+    <button  (click)='openConfirmDialogBox()'>Add new </button>
+  </div> -->
+        </div>

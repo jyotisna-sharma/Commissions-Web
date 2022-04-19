@@ -1,0 +1,88 @@
+
+.refresh-txt{
+  font-size:12px;
+  color:#495057;
+}
+.table-scroll-data{
+  overflow: auto;
+  max-height:500px;    
+}
+:host ::ng-deep div.tabs-contentDiv .listing-table .normal-box.tableData {
+  width: 100%;
+}
+.issue-header .left-col{
+  float:left;
+  padding:10px 0px;
+}
+.issue-header .page-title{
+  font-size:14px;
+  font-weight:500;
+  text-transform: capitalize;
+}
+.issue-header .right-col{
+  float:right;
+  padding:8px 0px 10px 0px;
+  margin-right:20px; 
+}
+.issue-header .right-col label{    
+  font-size: 12px;
+  padding-right: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+ .issue-header .right-col form {
+   display:inline-block;  
+ }
+:host ::ng-deep {
+.issue-header .right-col form .mat-form-field-appearance-outline .mat-form-field-wrapper {
+  margin: 0px !important;
+  padding-bottom: 0px !important;  
+  width:150px;   
+}
+.issue-header form .mat-form-field-appearance-outline .mat-form-field-outline {  
+ padding: 3px 0px 3px 0px;
+}
+.issue-header .mat-select-trigger{
+  font-size:12px;
+}
+.issue-header .mat-select-arrow {
+    background-position: -114px -596px;
+    
+   }
+}
+.issue-header .mat-select-trigger {
+    font-size: 4px;
+}
+
+button.btn-refresh {
+  width: 28px;
+  height: 28px;
+  line-height:28px !important;
+  border:1px solid transparent;
+  border-radius: 50% !important;
+  cursor: pointer;	
+  top:8px;
+  margin-right:-10px;
+}
+
+button.btn-refresh:hover {
+  border: 0px;
+  background: rgb(255, 243, 218);
+  box-shadow: none;
+  outline: none;
+  cursor: pointer; border-radius: 50% !important;	
+  border: 1px solid transparent; 
+}
+
+button.btn-refresh-disable {
+  width: 28px;
+  height: 28px;
+  line-height:28px !important;
+  border:1px solid transparent;
+  border-radius: 50% !important;
+  pointer-events: none;	
+  top:8px;
+  margin-right:-10px;
+}
+
+

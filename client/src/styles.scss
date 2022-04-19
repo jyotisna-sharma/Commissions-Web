@@ -1,0 +1,3520 @@
+    /*
+    * ========= IMPRT SCSS FILES =========
+    */
+
+    @import 'assets/css/global.scss';
+    @import 'assets/css/tabs.scss';
+    @import 'intl-tel-input/build/css/intlTelInput.css';
+    @import '~ngx-toastr/toastr.css';
+    /*
+    * ========= IMPRT SCSS FILES ENDS=========
+    */
+
+    .toast-top-center{
+      top: 10px;
+      margin: 0 auto;
+      
+    }
+
+    .toast {
+      margin-top: 45px !important;
+    }
+
+    .table-search .mat-input-prefix .mat-icon {
+      position: relative !important;
+    }
+
+    .table-search .material-icons-search {
+      position: absolute !important;
+      bottom: 0;
+    }
+
+    .right-search input {
+      background-color: #fff;
+      background-position: 98% 11px;
+      background-repeat: no-repeat;
+      padding-right: 30px !important;
+    }
+
+    .expection-input-control .search-icon {
+      width: 28px;
+      height: 29px;
+      background: #fff;
+      top: 37px;
+      right: 7px;
+      position: absolute;
+    }
+
+    .expection-input-control .cross-icon-custom {
+      position: absolute;
+      top: 35px;
+      z-index: 1;
+      left: inherit;
+      font-size: 25px !important;
+    }
+
+    .list-control-search .cross-icon-custom {
+      top: 8px !important;
+    }
+
+    mat-form-field.placeholder-666-imp span.mat-input-placeholder-wrapper label.mat-input-placeholder {
+      color: #666 !important
+    }
+
+    .padding-10border-red {
+      border: 1px solid red;
+      padding: 10px
+    }
+
+    .list-control-search .mat-input-infix {
+      margin: 0 !important;
+      padding: 0 !important;
+      border-top: 0 !important;
+    }
+
+    .list-control-search .mat-form-field-placeholder-wrapper {
+      top: -11px !important;
+      height: 100% !important;
+    }
+
+    .list-control-search .mat-input-wrapper {
+      padding-bottom: 0 !important;
+    }
+
+    .mat-chip.mat-standard-chip.mat-chip-selected.mat-accent .mat-chip-remove,
+    .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) .mat-option-text,
+    .mat-accent .mat-slider-thumb-label-text,
+    .mat-badge-accent .mat-badge-content,
+    .mat-fab.mat-warn .mat-button-wrapper .mat-tab-group.mat-background-accent .mat-tab-label,
+    .mat-tab-group.mat-background-accent .mat-tab-link,
+    .mat-tab-nav-bar.mat-background-accent .mat-tab-label,
+    .mat-tab-nav-bar.mat-background-accent .mat-tab-link,
+    .mat-fab.mat-accent,
+    .mat-flat-button.mat-accent,
+    .mat-mini-fab.mat-accent,
+    .mat-raised-button.mat-accent {
+      color: $white-color;
+      /*box-shadow:$dialog-shadow;*/
+    }
+
+    .mat-dialog-container {
+      color: $white-color;
+      box-shadow: $dialog-shadow;
+    }
+
+    .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick,
+    .mat-icon.mat-primary,
+    .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+      color: $Primary-Color
+    }
+
+    .mat-option.mat-option-disabled,
+    .mat-input-element::placeholder,
+    .mat-input-element::-moz-placeholder,
+    .mat-input-element::-webkit-input-placeholder,
+    .mat-input-element:-ms-input-placeholder {
+      color: $Grey-light
+    }
+
+    .mat-form-field.mat-focused .mat-form-field-label.mat-warn,
+    .mat-form-field.mat-focused .mat-form-field-ripple.mat-warn,
+    .mat-form-field.mat-form-field-invalid .mat-form-field-label,
+    .mat-form-field.mat-form-field-invalid .mat-form-field-label .mat-form-field-required-marker,
+    .mat-form-field.mat-form-field-invalid .mat-form-field-label.mat-accent,
+    .mat-form-field-appearance-outline.mat-focused.mat-warn .mat-form-field-outline-thick,
+    .mat-icon.mat-warn,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick,
+    .mat-error,
+    .mat-datepicker-toggle-active.mat-warn,
+    .mat-warn .mat-option.mat-selected:not(.mat-option-disabled),
+    .mat-button.mat-warn,
+    .mat-icon-button.mat-warn,
+    .mat-stroked-button.mat-warn {
+      color: $Validation-warning
+    }
+
+    .mat-paginator-page-size-select .mat-form-field.mat-focused .mat-form-field-ripple,
+    .mat-primary .mat-pseudo-checkbox-checked,
+    .mat-primary .mat-pseudo-checkbox-indeterminate,
+    .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb,
+    .mat-tab-group.mat-primary .mat-ink-bar,
+    .mat-tab-nav-bar.mat-primary .mat-ink-bar,
+    .mat-progress-bar-fill::after,
+    .mat-radio-button.mat-primary .mat-radio-inner-circle {
+      background: $Primary-Color;
+    }
+
+    .mat-warn .mat-pseudo-checkbox-checked,
+    .mat-warn .mat-pseudo-checkbox-indeterminate,
+    .mat-badge-warn .mat-badge-content,
+    .mat-fab.mat-warn,
+    .mat-flat-button.mat-warn,
+    .mat-mini-fab.mat-warn,
+    .mat-raised-button.mat-warn,
+    .mat-slide-toggle.mat-warn.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb,
+    .mat-tab-group.mat-warn .mat-ink-bar,
+    .mat-tab-nav-bar.mat-warn .mat-ink-bar,
+    .mat-tab-group.mat-background-warn .mat-tab-header,
+    .mat-tab-group.mat-background-warn .mat-tab-links,
+    .mat-tab-nav-bar.mat-background-warn .mat-tab-header,
+    .mat-tab-nav-bar.mat-background-warn .mat-tab-links,
+    .mat-toolbar.mat-warn,
+    .mat-warn .mat-slider-thumb,
+    .mat-warn .mat-slider-thumb-label,
+    .mat-warn .mat-slider-track-fill,
+    .mat-radio-button.mat-warn .mat-radio-inner-circle,
+    .mat-progress-bar.mat-warn .mat-progress-bar-fill::after {
+      background: $Validation-warning;
+      color: $white-color;
+    }
+
+    .mat-menu-content .mat-menu-item,
+    .mat-autocomplete-panel .mat-option.mat-selected:not(.mat-active):not(:hover),
+    .mat-bottom-sheet-container,
+    .mat-fab,
+    .mat-flat-button,
+    .mat-mini-fab,
+    .mat-raised-button,
+    .mat-menu-panel,
+    .mat-paginator,
+    .mat-table {
+      background: $white-color
+    }
+
+    .mat-autocomplete-panel .mat-option.mat-selected:not(.mat-active):not(:hover):not(.mat-option-disabled),
+    .mat-bottom-sheet-container,
+    .mat-fab,
+    .mat-flat-button,
+    .mat-mini-fab,
+    .mat-raised-button,
+    .mat-select-value {
+      color: $Grey-dark
+    }
+
+    .mat-option.mat-active {
+      background: $highlight-colorBox;
+    }
+
+    .mat-checkbox:not(.mat-checkbox-disabled).mat-primary .mat-checkbox-ripple .mat-ripple-element,
+    .mat-button.mat-warn .mat-button-focus-overlay,
+    .mat-icon-button.mat-warn .mat-button-focus-overlay,
+    .mat-stroked-button.mat-warn .mat-button-focus-overlay {
+      background-color: $Primary-ColorOpacity
+    }
+
+    .mat-form-field.mat-focused .mat-form-field-ripple,
+    .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple),
+    .mat-fab.mat-primary,
+    .mat-flat-button.mat-primary,
+    .mat-mini-fab.mat-primary,
+    .mat-raised-button.mat-primary,
+    .mat-checkbox-checked.mat-primary .mat-checkbox-background,
+    .mat-checkbox-indeterminate.mat-primary .mat-checkbox-background,
+    .mat-chip.mat-standard-chip.mat-chip-selected.mat-primary {
+      background-color: $Primary-Color !important;
+      border: 1px solid $primary-border-color;
+    }
+
+    .mat-fab.mat-accent[disabled],
+    .mat-fab.mat-primary[disabled],
+    .mat-fab.mat-warn[disabled],
+    .mat-fab[disabled][disabled],
+    .mat-flat-button.mat-accent[disabled],
+    .mat-flat-button.mat-primary[disabled],
+    .mat-flat-button.mat-warn[disabled],
+    .mat-flat-button[disabled][disabled],
+    .mat-mini-fab.mat-accent[disabled],
+    .mat-mini-fab.mat-primary[disabled],
+    .mat-mini-fab.mat-warn[disabled],
+    .mat-mini-fab[disabled][disabled],
+    .mat-raised-button.mat-accent[disabled],
+    .mat-raised-button.mat-primary[disabled],
+    .mat-raised-button.mat-warn[disabled],
+    .mat-raised-button[disabled][disabled] {
+      background-color: $inputfield-color
+    }
+
+    .mat-tab-label,
+    .mat-tab-link,
+    .mat-tab-label.mat-tab-disabled,
+    .mat-tab-link.mat-tab-disabled {
+      color: $Grey-light
+    }
+
+    .mat-fab.mat-accent .mat-ripple-element,
+    .mat-flat-button.mat-accent .mat-ripple-element,
+    .mat-mini-fab.mat-accent .mat-ripple-element,
+    .mat-raised-button.mat-accent .mat-ripple-element {
+      background-color: $body-color
+    }
+
+    .mat-icon-button.mat-primary .mat-ripple-element {
+      background-color: rgba(63, 81, 181, .2)
+    }
+
+    .mat-button-toggle {
+      color: $Grey-light
+    }
+
+    .mat-button-toggle .mat-button-toggle-focus-overlay {
+      background-color: $inputfield-color
+    }
+
+    .mat-button-toggle-checked {
+      background-color: $inputfield-color;
+      color: $Grey-light
+    }
+
+    .mat-button-toggle-disabled {
+      background-color: $inputfield-color;
+      color: $Grey-light
+    }
+
+    .mat-button-toggle-disabled.mat-button-toggle-checked {
+      background-color: $inputfield-color
+    }
+
+    .mat-card {
+      background: $white-color;
+      color: $Grey-dark
+    }
+
+    .mat-checkbox-frame {
+      border-color: $checkbox-radio-color
+    }
+
+    .mat-checkbox-checkmark {
+      fill: $body-color
+    }
+
+    .mat-checkbox-checkmark-path {
+      stroke: $body-color !important
+    }
+
+    .mat-checkbox-mixedmark {
+      background-color: $body-color
+    }
+
+    .mat-checkbox-checked.mat-warn .mat-checkbox-background,
+    .mat-checkbox-indeterminate.mat-warn .mat-checkbox-background,
+    .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+    .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+    .mat-chip.mat-standard-chip.mat-chip-selected.mat-warn,
+    .mat-form-field.mat-form-field-invalid .mat-form-field-ripple,
+    .mat-form-field.mat-form-field-invalid .mat-form-field-ripple.mat-accent,
+    .mat-form-field.mat-focused .mat-form-field-ripple.mat-warn,
+    .mat-datepicker-content.mat-warn .mat-calendar-body-selected {
+      background-color: $Validation-warning
+    }
+
+    .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+    .mat-radio-button.mat-accent .mat-radio-inner-circle {
+      background-color: $Primary-Color;
+    }
+
+    .mat-checkbox-disabled.mat-checkbox-checked .mat-checkbox-background,
+    .mat-checkbox-disabled.mat-checkbox-indeterminate .mat-checkbox-background {
+      background-color: $inputfield-color
+    }
+
+    .mat-checkbox-disabled:not(.mat-checkbox-checked) .mat-checkbox-frame {
+      border-color: $inputfield-color
+    }
+
+    .mat-checkbox-disabled .mat-checkbox-label {
+      color: $inputfield-color
+    }
+
+    .mat-chip.mat-standard-chip {
+      background-color: $inputfield-color;
+      color: $Grey-dark
+    }
+
+    .mat-chip.mat-standard-chip .mat-chip-remove {
+      color: $Grey-dark;
+    }
+
+    mat-footer-row,
+    mat-header-row,
+    mat-row,
+    td.mat-cell,
+    td.mat-footer-cell,
+    th.mat-header-cell {
+      border-bottom-color: $inputfield-color
+    }
+
+    .mat-calendar-body-disabled>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .mat-calendar-body-label,
+    .mat-calendar-table-header,
+    .mat-header-cell,
+    .mat-cell,
+    .mat-footer-cell,
+    .mat-calendar-arrow,
+    .mat-datepicker-content .mat-calendar-next-button,
+    .mat-datepicker-content .mat-calendar-previous-button,
+    .mat-datepicker-toggle {
+      color: $Grey-light
+    }
+
+    .mat-datepicker-content .mat-calendar {
+      box-shadow: $calendar-shadow;
+    }
+
+    .mat-calendar-table-header-divider::after {
+      background: $inputfield-color
+    }
+
+    .mat-calendar-body-cell-content {
+      color: $Grey-dark;
+      border-color: transparent
+    }
+
+    .cdk-keyboard-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .cdk-program-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .mat-form-field-appearance-fill .mat-form-field-flex,
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]).cdk-keyboard-focused,
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]).cdk-program-focused,
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]):hover {
+      background: $highlight-colorBox
+    }
+
+    .mat-calendar-body-today:not(.mat-calendar-body-selected) {
+      border-color: $highlight-color;
+    }
+
+    .mat-calendar-body-disabled>.mat-calendar-body-today:not(.mat-calendar-body-selected) {
+      border-color: $inputfield-color
+    }
+
+    .mat-calendar-body-selected {
+      background-color: $Primary-Color;
+      color: $white-color
+    }
+
+    .mat-calendar-body-disabled>.mat-calendar-body-selected {
+      background-color: rgba(63, 81, 181, .4)
+    }
+
+    .mat-datepicker-content,
+    .mat-expansion-panel {
+      background-color: $white-color;
+      color: $Grey-dark
+    }
+
+    .mat-action-row {
+      border-top-color: $inputfield-color
+    }
+
+    .mat-expansion-panel-header-title,
+    .mat-form-field-label,
+    .mat-hint,
+    .mat-form-field-appearance-outline .mat-form-field-outline-thick,
+    .mat-list .mat-list-item,
+    .mat-nav-list .mat-list-item,
+    .mat-selection-list .mat-list-item,
+    .mat-list .mat-list-option,
+    .mat-nav-list .mat-list-option,
+    .mat-selection-list .mat-list-option,
+    .mat-menu-item {
+      color: $Grey-dark
+    }
+
+    .mat-form-field-ripple {
+      background-color: $Grey-dark
+    }
+
+    .mat-input-element {
+      caret-color: $Primary-Color
+    }
+
+    .mat-form-field-invalid .mat-input-element,
+    .mat-warn .mat-input-element {
+      caret-color: $Validation-warning
+    }
+
+    .mat-list-item-disabled {
+      background-color: $inputfield-color
+    }
+
+    .mat-list-option.mat-list-item-focus,
+    .mat-list-option:hover,
+    .mat-nav-list .mat-list-item.mat-list-item-focus,
+    .mat-nav-list .mat-list-item:hover {
+      background: $body-color
+    }
+
+    .mat-select-content .mat-option:focus:not(.mat-option-disabled),
+    .mat-select-content .mat-option:hover:not(.mat-option-disabled),
+    .mat-menu-item-highlighted:not([disabled]),
+    .mat-menu-item.cdk-keyboard-focused:not([disabled]),
+    .mat-menu-item.cdk-program-focused:not([disabled]),
+    .mat-menu-item:hover:not([disabled]) {
+      background: $highlight-colorBox !important;
+    }
+
+    .mat-paginator-decrement,
+    .mat-paginator-increment {
+      border-top: 2px solid $inputfield-color;
+      border-right: 2px solid $inputfield-color
+    }
+
+    .mat-paginator-first,
+    .mat-paginator-last {
+      border-top: 2px solid $inputfield-color
+    }
+
+    .mat-icon-button[disabled] .mat-paginator-decrement,
+    .mat-icon-button[disabled] .mat-paginator-first,
+    .mat-icon-button[disabled] .mat-paginator-increment,
+    .mat-icon-button[disabled] .mat-paginator-last {
+      border-color: $inputfield-color
+    }
+
+    .mat-progress-bar-background,
+    .mat-progress-bar-buffer {
+      fill: $Grey-light
+    }
+
+    .mat-progress-spinner circle,
+    .mat-spinner circle {
+      stroke: $Primary-Color
+    }
+
+    .mat-progress-spinner.mat-warn circle,
+    .mat-spinner.mat-warn circle {
+      stroke: $Validation-warning
+    }
+
+    .mat-radio-outer-circle {
+      border-color: $checkbox-radio-color
+    }
+
+    .mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle,
+    .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+      border-color: $Primary-Color
+    }
+
+    .mat-radio-button.mat-primary .mat-radio-ripple .mat-ripple-element,
+    .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element,
+    .mat-radio-button.mat-warn .mat-radio-ripple .mat-ripple-element {
+      background-color: $Primary-ColorOpacity
+    }
+
+    .mat-radio-button.mat-warn.mat-radio-checked .mat-radio-outer-circle {
+      border-color: $Validation-warning
+    }
+
+    .mat-radio-button.mat-radio-disabled .mat-radio-outer-circle,
+    .mat-radio-button.mat-radio-disabled.mat-radio-checked .mat-radio-outer-circle {
+      border-color: $checkbox-radio-color
+    }
+
+    .mat-radio-button.mat-radio-disabled .mat-radio-inner-circle,
+    .mat-radio-button.mat-radio-disabled .mat-radio-ripple .mat-ripple-element,
+    .mat-slide-toggle-bar,
+    .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
+      background-color: $disabled !important;
+    }
+
+    .mat-slide-toggle-bar {
+      background-color: $Grey-light
+    }
+
+    .mat-radio-button.mat-radio-disabled .mat-radio-label-content,
+    .mat-form-field .mat-select.mat-select-disabled .mat-select-arrow {
+      color: $Grey-light;
+    }
+
+    .mat-dialog-container,
+    .mat-drawer.mat-drawer-push,
+    .mat-drawer,
+    .mat-stepper-horizontal,
+    .mat-stepper-vertical,
+    .mat-tab-group.mat-accent.mat-background-accent .mat-ink-bar,
+    .mat-tab-nav-bar.mat-accent.mat-background-accent .mat-ink-bar,
+    .mat-select-content,
+    .mat-select-panel-done-animating {
+      background-color: $white-color
+    }
+
+    .mat-form-field .mat-select.mat-select-invalid .mat-select-arrow,
+    .mat-form-field.mat-focused.mat-warn .mat-select-arrow {
+      color: $Validation-warning
+    }
+
+    .mat-drawer-container,
+    .mat-option:focus:not(.mat-option-disabled),
+    .mat-option:hover:not(.mat-option-disabled),
+    .main-content tr.example-element-row[_ngcontent-c18]:not(.example-expanded-row):active,
+    .main-content table tr.mat-row.ng-star-inserted:hover {
+      background-color: $hover-color;
+      background: $hover-color !important;
+    }
+
+    .mat-drawer-backdrop.mat-drawer-shown {
+      background-color: $Grey-dark
+    }
+
+    .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron,
+    .mat-tab-header-pagination-chevron {
+      border-color: $Grey-dark
+    }
+
+    .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+      background: $Primary-ColorOpacity
+    }
+
+    form .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
+      color: $inputfield-color;
+    }
+
+    .mat-slide-toggle .mat-ripple-element {
+      background-color: $Primary-ColorOpacity
+    }
+
+    .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple):hover,
+    .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple):focus {
+      background-color: $Primary-Color !important;
+    }
+
+    /*====== VALIDATION CSS STARTS ======== */
+
+    .mat-form-field-invalid .mat-input-element,
+    .mat-warn .mat-input-element {
+      caret-color: $Primary-Color;
+    }
+
+    mat-form-field.mat-form-field.mat-form-field-type-mat-input.mat-form-field-appearance-outline.ng-touched.ng-dirty.mat-form-field-invalid.ng-invalid .mat-form-field-outline-thick {
+      color: $Validation-warning;
+    }
+
+    .mat-form-field-appearance-outline.mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-focused .mat-form-field-suffix.ng-star-inserted,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+      color: $Primary-Color;
+    }
+
+    .mat-error,
+    .mat-form-field.mat-primary.mat-form-field-appearance-outline.mat-form-field-can-float.ng-invalid.ng-dirty.mat-form-field-invalid .mat-form-field-outline-thick,
+    .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+      color: $Validation-warning;
+    }
+
+    mat-form-field.example-full-width.mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+      color: $Validation-warning;
+    }
+
+    .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+      color: $inputfield-color;
+    }
+
+    .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched.mat-focused .mat-form-field-outline-thick {
+      color: $Primary-Color;
+    }
+
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-select-arrow,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid.mat-focused .mat-form-field-outline-thick,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid.mat-focused .mat-select-arrow,
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+      color: $inputfield-color;
+    }
+
+    /* check box hover circel color css starts */
+
+    .mat-checkbox:not(.mat-checkbox-disabled).mat-primary .mat-checkbox-ripple .mat-ripple-element,
+    .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+      background-color: $Primary-ColorOpacity
+    }
+
+    .ng-trigger.ng-trigger-transformPanel.mat-select-panel.mat-primary {
+      @include box_shadow (5);
+    }
+
+    /*==== VALIDATION CSS ENDS ========= */
+
+    div .mat-form-field-appearance-outline .mat-form-field-flex {
+      padding: 0 0 0 0
+    }
+
+    .mat-form-field-appearance-outline .mat-form-field-outline-end,
+    .mat-form-field-appearance-outline .mat-form-field-outline-gap,
+    .mat-form-field-appearance-outline .mat-form-field-outline-start {
+      border-width: 1px !important;
+    }
+
+    .mat-form-field-wrapper {
+      padding-bottom: 1.44375em;
+    }
+
+    ::-webkit-input-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    ::-moz-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    :-ms-input-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    :-moz-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    value .mat-button-toggle-checked {
+      background-color: $inputfield-color;
+      color: $Grey-light
+    }
+
+    .mat-button-toggle-disabled {
+      background-color: $inputfield-color;
+      color: $Grey-light
+    }
+
+    .mat-button-toggle-disabled.mat-button-toggle-checked {
+      background-color: $inputfield-color
+    }
+
+    .mat-card {
+      background: $white-color;
+      color: $Grey-dark
+    }
+
+    .mat-checkbox-frame {
+      border-color: $checkbox-radio-color
+    }
+
+    .mat-checkbox-checkmark {
+      fill: $body-color
+    }
+
+    .mat-checkbox-checkmark-path {
+      stroke: $body-color !important
+    }
+
+    .mat-checkbox-mixedmark {
+      background-color: $body-color
+    }
+
+    .mat-checkbox-checked.mat-warn .mat-checkbox-background,
+    .mat-checkbox-indeterminate.mat-warn .mat-checkbox-background,
+    .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+    .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+    .mat-chip.mat-standard-chip.mat-chip-selected.mat-warn,
+    .mat-form-field.mat-form-field-invalid .mat-form-field-ripple,
+    .mat-form-field.mat-form-field-invalid .mat-form-field-ripple.mat-accent,
+    .mat-form-field.mat-focused .mat-form-field-ripple.mat-warn,
+    .mat-datepicker-content.mat-warn .mat-calendar-body-selected {
+      background-color: $Validation-warning
+    }
+
+    .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+    .mat-radio-button.mat-accent .mat-radio-inner-circle {
+      background-color: $Primary-Color;
+    }
+
+    .mat-checkbox-disabled.mat-checkbox-checked .mat-checkbox-background,
+    .mat-checkbox-disabled.mat-checkbox-indeterminate .mat-checkbox-background {
+      background-color: $inputfield-color
+    }
+
+    .mat-checkbox-disabled:not(.mat-checkbox-checked) .mat-checkbox-frame {
+      border-color: $inputfield-color
+    }
+
+    .mat-checkbox-disabled .mat-checkbox-label {
+      color: $inputfield-color
+    }
+
+    .mat-chip.mat-standard-chip {
+      background-color: $inputfield-color;
+      color: $Grey-dark
+    }
+
+    .mat-chip.mat-standard-chip .mat-chip-remove {
+      color: $Grey-dark;
+    }
+
+    mat-footer-row,
+    mat-header-row,
+    mat-row,
+    td.mat-cell,
+    td.mat-footer-cell,
+    th.mat-header-cell {
+      border-bottom-color: $inputfield-color
+    }
+
+    .mat-calendar-body-disabled>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .mat-calendar-body-label,
+    .mat-calendar-table-header,
+    .mat-header-cell,
+    .mat-cell,
+    .mat-footer-cell,
+    .mat-calendar-arrow,
+    .mat-datepicker-content .mat-calendar-next-button,
+    .mat-datepicker-content .mat-calendar-previous-button,
+    .mat-datepicker-toggle {
+      color: $Grey-light
+    }
+
+    .mat-datepicker-content .mat-calendar {
+      box-shadow: $calendar-shadow;
+    }
+
+    .mat-calendar-table-header-divider::after {
+      background: $inputfield-color
+    }
+
+    .mat-calendar-body-cell-content {
+      color: $Grey-dark;
+      border-color: transparent
+    }
+
+    .cdk-keyboard-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .cdk-program-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .mat-form-field-appearance-fill .mat-form-field-flex,
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]).cdk-keyboard-focused,
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]).cdk-program-focused,
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]):hover {
+      background: $highlight-colorBox
+    }
+
+    .mat-calendar-body-today:not(.mat-calendar-body-selected) {
+      border-color: $highlight-color;
+    }
+
+    .mat-calendar-body-disabled>.mat-calendar-body-today:not(.mat-calendar-body-selected) {
+      border-color: $inputfield-color
+    }
+
+    .mat-calendar-body-selected {
+      background-color: $Primary-Color;
+      color: $white-color
+    }
+
+    .mat-calendar-body-disabled>.mat-calendar-body-selected {
+      background-color: rgba(63, 81, 181, .4)
+    }
+
+    .mat-datepicker-content,
+    .mat-expansion-panel {
+      background-color: $white-color;
+      color: $Grey-dark
+    }
+
+    .mat-action-row {
+      border-top-color: $inputfield-color
+    }
+
+    .mat-expansion-panel-header-title,
+    .mat-form-field-label,
+    .mat-hint,
+    .mat-form-field-appearance-outline .mat-form-field-outline-thick,
+    .mat-list .mat-list-item,
+    .mat-nav-list .mat-list-item,
+    .mat-selection-list .mat-list-item,
+    .mat-list .mat-list-option,
+    .mat-nav-list .mat-list-option,
+    .mat-selection-list .mat-list-option,
+    .mat-menu-item {
+      color: $Grey-dark
+    }
+
+    .mat-form-field-ripple {
+      background-color: $Grey-dark
+    }
+
+    .mat-input-element {
+      caret-color: $Primary-Color
+    }
+
+    .mat-form-field-invalid .mat-input-element,
+    .mat-warn .mat-input-element {
+      caret-color: $Validation-warning
+    }
+
+    .mat-list-item-disabled {
+      background-color: $inputfield-color
+    }
+
+    .mat-list-option.mat-list-item-focus,
+    .mat-list-option:hover,
+    .mat-nav-list .mat-list-item.mat-list-item-focus,
+    .mat-nav-list .mat-list-item:hover {
+      background: $body-color
+    }
+
+    .mat-select-content .mat-option:focus:not(.mat-option-disabled),
+    .mat-select-content .mat-option:hover:not(.mat-option-disabled),
+    .mat-menu-item-highlighted:not([disabled]),
+    .mat-menu-item.cdk-keyboard-focused:not([disabled]),
+    .mat-menu-item.cdk-program-focused:not([disabled]),
+    .mat-menu-item:hover:not([disabled]) {
+      background: $highlight-colorBox !important;
+    }
+
+    .mat-paginator-decrement,
+    .mat-paginator-increment {
+      border-top: 2px solid $inputfield-color;
+      border-right: 2px solid $inputfield-color
+    }
+
+    .mat-paginator-first,
+    .mat-paginator-last {
+      border-top: 2px solid $inputfield-color
+    }
+
+    .mat-icon-button[disabled] .mat-paginator-decrement,
+    .mat-icon-button[disabled] .mat-paginator-first,
+    .mat-icon-button[disabled] .mat-paginator-increment,
+    .mat-icon-button[disabled] .mat-paginator-last {
+      border-color: $inputfield-color
+    }
+
+    .mat-progress-bar-background,
+    .mat-progress-bar-buffer {
+      fill: $Grey-light
+    }
+
+    .mat-progress-spinner circle,
+    .mat-spinner circle {
+      stroke: $Primary-Color
+    }
+
+    .mat-progress-spinner.mat-warn circle,
+    .mat-spinner.mat-warn circle {
+      stroke: $Validation-warning
+    }
+
+    .mat-radio-outer-circle {
+      border-color: $checkbox-radio-color
+    }
+
+    .mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle,
+    .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+      border-color: $Primary-Color
+    }
+
+    .mat-radio-button.mat-primary .mat-radio-ripple .mat-ripple-element,
+    .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element,
+    .mat-radio-button.mat-warn .mat-radio-ripple .mat-ripple-element {
+      background-color: $Primary-ColorOpacity
+    }
+
+    .mat-radio-button.mat-warn.mat-radio-checked .mat-radio-outer-circle {
+      border-color: $Validation-warning
+    }
+
+    .mat-radio-button.mat-radio-disabled .mat-radio-outer-circle,
+    .mat-radio-button.mat-radio-disabled.mat-radio-checked .mat-radio-outer-circle {
+      border-color: $checkbox-radio-color
+    }
+
+    .mat-radio-button.mat-radio-disabled .mat-radio-inner-circle,
+    .mat-radio-button.mat-radio-disabled .mat-radio-ripple .mat-ripple-element,
+    .mat-slide-toggle-bar,
+    .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
+      background-color: $disabled !important;
+    }
+
+    .mat-slide-toggle-bar {
+      background-color: $Grey-light
+    }
+
+    .mat-radio-button.mat-radio-disabled .mat-radio-label-content,
+    .mat-form-field .mat-select.mat-select-disabled .mat-select-arrow {
+      color: $Grey-light;
+    }
+
+    .mat-dialog-container,
+    .mat-drawer.mat-drawer-push,
+    .mat-drawer,
+    .mat-stepper-horizontal,
+    .mat-stepper-vertical,
+    .mat-tab-group.mat-accent.mat-background-accent .mat-ink-bar,
+    .mat-tab-nav-bar.mat-accent.mat-background-accent .mat-ink-bar,
+    .mat-select-content,
+    .mat-select-panel-done-animating {
+      background-color: $white-color
+    }
+
+    .mat-form-field .mat-select.mat-select-invalid .mat-select-arrow,
+    .mat-form-field.mat-focused.mat-warn .mat-select-arrow {
+      color: $Validation-warning
+    }
+
+    .mat-drawer-container,
+    .mat-option:focus:not(.mat-option-disabled),
+    .mat-option:hover:not(.mat-option-disabled),
+    .main-content tr.example-element-row[_ngcontent-c18]:not(.example-expanded-row):active,
+    .main-content table tr.mat-row.ng-star-inserted:hover {
+      background-color: $hover-color;
+      background: $hover-color !important;
+    }
+
+    .mat-drawer-backdrop.mat-drawer-shown {
+      background-color: $Grey-dark
+    }
+
+    .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron,
+    .mat-tab-header-pagination-chevron {
+      border-color: $Grey-dark
+    }
+
+    .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+      background: $Primary-ColorOpacity
+    }
+
+    form .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
+      color: $inputfield-color;
+    }
+
+    .mat-slide-toggle .mat-ripple-element {
+      background-color: $Primary-ColorOpacity
+    }
+
+    .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple):hover,
+    .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple):focus {
+      background-color: $Primary-Color !important;
+    }
+
+    /*====== VALIDATION CSS STARTS ======== */
+
+    .mat-form-field-invalid .mat-input-element,
+    .mat-warn .mat-input-element {
+      caret-color: $Primary-Color;
+    }
+
+    mat-form-field.mat-form-field.mat-form-field-type-mat-input.mat-form-field-appearance-outline.ng-touched.ng-dirty.mat-form-field-invalid.ng-invalid .mat-form-field-outline-thick {
+      color: $Validation-warning;
+    }
+
+    .mat-form-field-appearance-outline.mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-focused .mat-form-field-suffix.ng-star-inserted,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+      color: $Primary-Color;
+    }
+
+    .mat-error,
+    .mat-form-field.mat-primary.mat-form-field-appearance-outline.mat-form-field-can-float.ng-invalid.ng-dirty.mat-form-field-invalid .mat-form-field-outline-thick,
+    .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+      color: $Validation-warning;
+    }
+
+    mat-form-field.example-full-width.mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+      color: $Validation-warning;
+    }
+
+    .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+      color: $inputfield-color;
+    }
+
+    .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched.mat-focused .mat-form-field-outline-thick {
+      color: $Primary-Color;
+    }
+
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-select-arrow,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid.mat-focused .mat-form-field-outline-thick,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid.mat-focused .mat-select-arrow,
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+      color: $inputfield-color;
+    }
+
+    /* check box hover circel color css starts */
+
+    .mat-checkbox:not(.mat-checkbox-disabled).mat-primary .mat-checkbox-ripple .mat-ripple-element,
+    .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+      background-color: $Primary-ColorOpacity
+    }
+
+    .ng-trigger.ng-trigger-transformPanel.mat-select-panel.mat-primary {
+      @include box_shadow (5);
+    }
+
+    /*==== VALIDATION CSS ENDS ========= */
+
+    div .mat-form-field-appearance-outline .mat-form-field-flex {
+      padding: 0 0 0 0
+    }
+
+    .mat-form-field-appearance-outline .mat-form-field-outline-end,
+    .mat-form-field-appearance-outline .mat-form-field-outline-gap,
+    .mat-form-field-appearance-outline .mat-form-field-outline-start {
+      border-width: 1px !important;
+    }
+
+    .mat-form-field-wrapper {
+      padding-bottom: 1.44375em;
+    }
+
+    ::-webkit-input-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    ::-moz-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    :-ms-input-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    :-moz-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    value .mat-button-toggle-checked {
+      background-color: $inputfield-color;
+      color: $Grey-light
+    }
+
+    .mat-button-toggle-disabled {
+      background-color: $inputfield-color;
+      color: $Grey-light
+    }
+
+    .mat-button-toggle-disabled.mat-button-toggle-checked {
+      background-color: $inputfield-color
+    }
+
+    .mat-card {
+      background: $white-color;
+      color: $Grey-dark
+    }
+
+    .mat-checkbox-frame {
+      border-color: $checkbox-radio-color
+    }
+
+    .mat-checkbox-checkmark {
+      fill: $body-color
+    }
+
+    .mat-checkbox-checkmark-path {
+      stroke: $body-color !important
+    }
+
+    .mat-checkbox-mixedmark {
+      background-color: $body-color
+    }
+
+    .mat-checkbox-checked.mat-warn .mat-checkbox-background,
+    .mat-checkbox-indeterminate.mat-warn .mat-checkbox-background,
+    .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+    .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+    .mat-chip.mat-standard-chip.mat-chip-selected.mat-warn,
+    .mat-form-field.mat-form-field-invalid .mat-form-field-ripple,
+    .mat-form-field.mat-form-field-invalid .mat-form-field-ripple.mat-accent,
+    .mat-form-field.mat-focused .mat-form-field-ripple.mat-warn,
+    .mat-datepicker-content.mat-warn .mat-calendar-body-selected {
+      background-color: $Validation-warning
+    }
+
+    .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+    .mat-radio-button.mat-accent .mat-radio-inner-circle {
+      background-color: $Primary-Color;
+    }
+
+    .mat-checkbox-disabled.mat-checkbox-checked .mat-checkbox-background,
+    .mat-checkbox-disabled.mat-checkbox-indeterminate .mat-checkbox-background {
+      background-color: $inputfield-color
+    }
+
+    .mat-checkbox-disabled:not(.mat-checkbox-checked) .mat-checkbox-frame {
+      border-color: $inputfield-color
+    }
+
+    .mat-checkbox-disabled .mat-checkbox-label {
+      color: $inputfield-color
+    }
+
+    .mat-chip.mat-standard-chip {
+      background-color: $inputfield-color;
+      color: $Grey-dark
+    }
+
+    .mat-chip.mat-standard-chip .mat-chip-remove {
+      color: $Grey-dark;
+    }
+
+    mat-footer-row,
+    mat-header-row,
+    mat-row,
+    td.mat-cell,
+    td.mat-footer-cell,
+    th.mat-header-cell {
+      border-bottom-color: $inputfield-color
+    }
+
+    .mat-calendar-body-disabled>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .mat-calendar-body-label,
+    .mat-calendar-table-header,
+    .mat-header-cell,
+    .mat-cell,
+    .mat-footer-cell,
+    .mat-calendar-arrow,
+    .mat-datepicker-content .mat-calendar-next-button,
+    .mat-datepicker-content .mat-calendar-previous-button,
+    .mat-datepicker-toggle {
+      color: $Grey-light
+    }
+
+    .mat-datepicker-content .mat-calendar {
+      box-shadow: $calendar-shadow;
+    }
+
+    .mat-calendar-table-header-divider::after {
+      background: $inputfield-color
+    }
+
+    .mat-calendar-body-cell-content {
+      color: $Grey-dark;
+      border-color: transparent
+    }
+
+    .cdk-keyboard-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .cdk-program-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .mat-form-field-appearance-fill .mat-form-field-flex,
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]).cdk-keyboard-focused,
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]).cdk-program-focused,
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]):hover {
+      background: $highlight-colorBox
+    }
+
+    .mat-calendar-body-today:not(.mat-calendar-body-selected) {
+      border-color: $highlight-color;
+    }
+
+    .mat-calendar-body-disabled>.mat-calendar-body-today:not(.mat-calendar-body-selected) {
+      border-color: $inputfield-color
+    }
+
+    .mat-calendar-body-selected {
+      background-color: $Primary-Color;
+      color: $white-color
+    }
+
+    .mat-calendar-body-disabled>.mat-calendar-body-selected {
+      background-color: rgba(63, 81, 181, .4)
+    }
+
+    .mat-datepicker-content,
+    .mat-expansion-panel {
+      background-color: $white-color;
+      color: $Grey-dark
+    }
+
+    .mat-action-row {
+      border-top-color: $inputfield-color
+    }
+
+    .mat-expansion-panel-header-title,
+    .mat-form-field-label,
+    .mat-hint,
+    .mat-form-field-appearance-outline .mat-form-field-outline-thick,
+    .mat-list .mat-list-item,
+    .mat-nav-list .mat-list-item,
+    .mat-selection-list .mat-list-item,
+    .mat-list .mat-list-option,
+    .mat-nav-list .mat-list-option,
+    .mat-selection-list .mat-list-option,
+    .mat-menu-item {
+      color: $Grey-dark
+    }
+
+    .mat-form-field-ripple {
+      background-color: $Grey-dark
+    }
+
+    .mat-input-element {
+      caret-color: $Primary-Color
+    }
+
+    .mat-form-field-invalid .mat-input-element,
+    .mat-warn .mat-input-element {
+      caret-color: $Validation-warning
+    }
+
+    .mat-list-item-disabled {
+      background-color: $inputfield-color
+    }
+
+    .mat-list-option.mat-list-item-focus,
+    .mat-list-option:hover,
+    .mat-nav-list .mat-list-item.mat-list-item-focus,
+    .mat-nav-list .mat-list-item:hover {
+      background: $body-color
+    }
+
+    .mat-select-content .mat-option:focus:not(.mat-option-disabled),
+    .mat-select-content .mat-option:hover:not(.mat-option-disabled),
+    .mat-menu-item-highlighted:not([disabled]),
+    .mat-menu-item.cdk-keyboard-focused:not([disabled]),
+    .mat-menu-item.cdk-program-focused:not([disabled]),
+    .mat-menu-item:hover:not([disabled]) {
+      background: $highlight-colorBox !important;
+    }
+
+    .mat-paginator-decrement,
+    .mat-paginator-increment {
+      border-top: 2px solid $inputfield-color;
+      border-right: 2px solid $inputfield-color
+    }
+
+    .mat-paginator-first,
+    .mat-paginator-last {
+      border-top: 2px solid $inputfield-color
+    }
+
+    .mat-icon-button[disabled] .mat-paginator-decrement,
+    .mat-icon-button[disabled] .mat-paginator-first,
+    .mat-icon-button[disabled] .mat-paginator-increment,
+    .mat-icon-button[disabled] .mat-paginator-last {
+      border-color: $inputfield-color
+    }
+
+    .mat-progress-bar-background,
+    .mat-progress-bar-buffer {
+      fill: $Grey-light
+    }
+
+    .mat-progress-spinner circle,
+    .mat-spinner circle {
+      stroke: $Primary-Color
+    }
+
+    .mat-progress-spinner.mat-warn circle,
+    .mat-spinner.mat-warn circle {
+      stroke: $Validation-warning
+    }
+
+    .mat-radio-outer-circle {
+      border-color: $checkbox-radio-color
+    }
+
+    .mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle,
+    .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+      border-color: $Primary-Color
+    }
+
+    .mat-radio-button.mat-primary .mat-radio-ripple .mat-ripple-element,
+    .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element,
+    .mat-radio-button.mat-warn .mat-radio-ripple .mat-ripple-element {
+      background-color: $Primary-ColorOpacity
+    }
+
+    .mat-radio-button.mat-warn.mat-radio-checked .mat-radio-outer-circle {
+      border-color: $Validation-warning
+    }
+
+    .mat-radio-button.mat-radio-disabled .mat-radio-outer-circle,
+    .mat-radio-button.mat-radio-disabled.mat-radio-checked .mat-radio-outer-circle {
+      border-color: $checkbox-radio-color
+    }
+
+    .mat-radio-button.mat-radio-disabled .mat-radio-inner-circle,
+    .mat-radio-button.mat-radio-disabled .mat-radio-ripple .mat-ripple-element,
+    .mat-slide-toggle-bar,
+    .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
+      background-color: $disabled !important;
+    }
+
+    .mat-slide-toggle-bar {
+      background-color: $Grey-light
+    }
+
+    .mat-radio-button.mat-radio-disabled .mat-radio-label-content,
+    .mat-form-field .mat-select.mat-select-disabled .mat-select-arrow {
+      color: $Grey-light;
+    }
+
+    .mat-dialog-container,
+    .mat-drawer.mat-drawer-push,
+    .mat-drawer,
+    .mat-stepper-horizontal,
+    .mat-stepper-vertical,
+    .mat-tab-group.mat-accent.mat-background-accent .mat-ink-bar,
+    .mat-tab-nav-bar.mat-accent.mat-background-accent .mat-ink-bar,
+    .mat-select-content,
+    .mat-select-panel-done-animating {
+      background-color: $white-color
+    }
+
+    .mat-form-field .mat-select.mat-select-invalid .mat-select-arrow,
+    .mat-form-field.mat-focused.mat-warn .mat-select-arrow {
+      color: $Validation-warning
+    }
+
+    .mat-drawer-container,
+    .mat-option:focus:not(.mat-option-disabled),
+    .mat-option:hover:not(.mat-option-disabled),
+    .main-content tr.example-element-row[_ngcontent-c18]:not(.example-expanded-row):active,
+    .main-content table tr.mat-row.ng-star-inserted:hover {
+      background-color: $hover-color;
+      background: $hover-color !important;
+    }
+
+    .mat-drawer-backdrop.mat-drawer-shown {
+      background-color: $Grey-dark
+    }
+
+    .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron,
+    .mat-tab-header-pagination-chevron {
+      border-color: $Grey-dark
+    }
+
+    .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+      background: $Primary-ColorOpacity
+    }
+
+    form .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
+      color: $inputfield-color;
+    }
+
+    .mat-slide-toggle .mat-ripple-element {
+      background-color: $Primary-ColorOpacity
+    }
+
+    .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple):hover,
+    .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple):focus {
+      background-color: $Primary-Color !important;
+    }
+
+    /*====== VALIDATION CSS STARTS ======== */
+
+    .mat-form-field-invalid .mat-input-element,
+    .mat-warn .mat-input-element {
+      caret-color: $Primary-Color;
+    }
+
+    mat-form-field.mat-form-field.mat-form-field-type-mat-input.mat-form-field-appearance-outline.ng-touched.ng-dirty.mat-form-field-invalid.ng-invalid .mat-form-field-outline-thick {
+      color: $Validation-warning;
+    }
+
+    .mat-form-field-appearance-outline.mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-focused .mat-form-field-suffix.ng-star-inserted,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+      color: $Primary-Color;
+    }
+
+    .mat-error,
+    .mat-form-field.mat-primary.mat-form-field-appearance-outline.mat-form-field-can-float.ng-invalid.ng-dirty.mat-form-field-invalid .mat-form-field-outline-thick,
+    .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+      color: $Validation-warning;
+    }
+
+    mat-form-field.example-full-width.mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+      color: $Validation-warning;
+    }
+
+    .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+      color: $inputfield-color;
+    }
+
+    .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched.mat-focused .mat-form-field-outline-thick {
+      color: $Primary-Color;
+    }
+
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-select-arrow,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid.mat-focused .mat-form-field-outline-thick,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid.mat-focused .mat-select-arrow,
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+      color: $inputfield-color;
+    }
+
+    /* check box hover circel color css starts */
+
+    .mat-checkbox:not(.mat-checkbox-disabled).mat-primary .mat-checkbox-ripple .mat-ripple-element,
+    .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+      background-color: $Primary-ColorOpacity
+    }
+
+    .ng-trigger.ng-trigger-transformPanel.mat-select-panel.mat-primary {
+      @include box_shadow (5);
+    }
+
+    /*==== VALIDATION CSS ENDS ========= */
+
+    div .mat-form-field-appearance-outline .mat-form-field-flex {
+      padding: 0 0 0 0
+    }
+
+    .mat-form-field-appearance-outline .mat-form-field-outline-end,
+    .mat-form-field-appearance-outline .mat-form-field-outline-gap,
+    .mat-form-field-appearance-outline .mat-form-field-outline-start {
+      border-width: 1px !important;
+    }
+
+    .mat-form-field-wrapper {
+      padding-bottom: 1.44375em;
+    }
+
+    ::-webkit-input-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    ::-moz-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    :-ms-input-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    :-moz-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    value .mat-button-toggle-checked {
+      background-color: $inputfield-color;
+      color: $Grey-light
+    }
+
+    .mat-button-toggle-disabled {
+      background-color: $inputfield-color;
+      color: $Grey-light
+    }
+
+    .mat-button-toggle-disabled.mat-button-toggle-checked {
+      background-color: $inputfield-color
+    }
+
+    .mat-card {
+      background: $white-color;
+      color: $Grey-dark
+    }
+
+    .mat-checkbox-frame {
+      border-color: $checkbox-radio-color
+    }
+
+    .mat-checkbox-checkmark {
+      fill: $body-color
+    }
+
+    .mat-checkbox-checkmark-path {
+      stroke: $body-color !important
+    }
+
+    .mat-checkbox-mixedmark {
+      background-color: $body-color
+    }
+
+    .mat-checkbox-checked.mat-warn .mat-checkbox-background,
+    .mat-checkbox-indeterminate.mat-warn .mat-checkbox-background,
+    .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+    .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+    .mat-chip.mat-standard-chip.mat-chip-selected.mat-warn,
+    .mat-form-field.mat-form-field-invalid .mat-form-field-ripple,
+    .mat-form-field.mat-form-field-invalid .mat-form-field-ripple.mat-accent,
+    .mat-form-field.mat-focused .mat-form-field-ripple.mat-warn,
+    .mat-datepicker-content.mat-warn .mat-calendar-body-selected {
+      background-color: $Validation-warning
+    }
+
+    .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+    .mat-radio-button.mat-accent .mat-radio-inner-circle {
+      background-color: $Primary-Color;
+    }
+
+    .mat-checkbox-disabled.mat-checkbox-checked .mat-checkbox-background,
+    .mat-checkbox-disabled.mat-checkbox-indeterminate .mat-checkbox-background {
+      background-color: $inputfield-color
+    }
+
+    .mat-checkbox-disabled:not(.mat-checkbox-checked) .mat-checkbox-frame {
+      border-color: $inputfield-color
+    }
+
+    .mat-checkbox-disabled .mat-checkbox-label {
+      color: $inputfield-color
+    }
+
+    .mat-chip.mat-standard-chip {
+      background-color: $inputfield-color;
+      color: $Grey-dark
+    }
+
+    .mat-chip.mat-standard-chip .mat-chip-remove {
+      color: $Grey-dark;
+    }
+
+    mat-footer-row,
+    mat-header-row,
+    mat-row,
+    td.mat-cell,
+    td.mat-footer-cell,
+    th.mat-header-cell {
+      border-bottom-color: $inputfield-color
+    }
+
+    .mat-calendar-body-disabled>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .mat-calendar-body-label,
+    .mat-calendar-table-header,
+    .mat-header-cell,
+    .mat-cell,
+    .mat-footer-cell,
+    .mat-calendar-arrow,
+    .mat-datepicker-content .mat-calendar-next-button,
+    .mat-datepicker-content .mat-calendar-previous-button,
+    .mat-datepicker-toggle {
+      color: $Grey-light
+    }
+
+    .mat-datepicker-content .mat-calendar {
+      box-shadow: $calendar-shadow;
+    }
+
+    .mat-calendar-table-header-divider::after {
+      background: $inputfield-color
+    }
+
+    .mat-calendar-body-cell-content {
+      color: $Grey-dark;
+      border-color: transparent
+    }
+
+    .cdk-keyboard-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .cdk-program-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .mat-form-field-appearance-fill .mat-form-field-flex,
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]).cdk-keyboard-focused,
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]).cdk-program-focused,
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]):hover {
+      background: $highlight-colorBox
+    }
+
+    .mat-calendar-body-today:not(.mat-calendar-body-selected) {
+      border-color: $highlight-color;
+    }
+
+    .mat-calendar-body-disabled>.mat-calendar-body-today:not(.mat-calendar-body-selected) {
+      border-color: $inputfield-color
+    }
+
+    .mat-calendar-body-selected {
+      background-color: $Primary-Color;
+      color: $white-color
+    }
+
+    .mat-calendar-body-disabled>.mat-calendar-body-selected {
+      background-color: rgba(63, 81, 181, .4)
+    }
+
+    .mat-datepicker-content,
+    .mat-expansion-panel {
+      background-color: $white-color;
+      color: $Grey-dark
+    }
+
+    .mat-action-row {
+      border-top-color: $inputfield-color
+    }
+
+    .mat-expansion-panel-header-title,
+    .mat-form-field-label,
+    .mat-hint,
+    .mat-form-field-appearance-outline .mat-form-field-outline-thick,
+    .mat-list .mat-list-item,
+    .mat-nav-list .mat-list-item,
+    .mat-selection-list .mat-list-item,
+    .mat-list .mat-list-option,
+    .mat-nav-list .mat-list-option,
+    .mat-selection-list .mat-list-option,
+    .mat-menu-item {
+      color: $Grey-dark
+    }
+
+    .mat-form-field-ripple {
+      background-color: $Grey-dark
+    }
+
+    .mat-input-element {
+      caret-color: $Primary-Color
+    }
+
+    .mat-form-field-invalid .mat-input-element,
+    .mat-warn .mat-input-element {
+      caret-color: $Validation-warning
+    }
+
+    .mat-list-item-disabled {
+      background-color: $inputfield-color
+    }
+
+    .mat-list-option.mat-list-item-focus,
+    .mat-list-option:hover,
+    .mat-nav-list .mat-list-item.mat-list-item-focus,
+    .mat-nav-list .mat-list-item:hover {
+      background: $body-color
+    }
+
+    .mat-select-content .mat-option:focus:not(.mat-option-disabled),
+    .mat-select-content .mat-option:hover:not(.mat-option-disabled),
+    .mat-menu-item-highlighted:not([disabled]),
+    .mat-menu-item.cdk-keyboard-focused:not([disabled]),
+    .mat-menu-item.cdk-program-focused:not([disabled]),
+    .mat-menu-item:hover:not([disabled]) {
+      background: $highlight-colorBox !important;
+    }
+
+    .mat-paginator-decrement,
+    .mat-paginator-increment {
+      border-top: 2px solid $inputfield-color;
+      border-right: 2px solid $inputfield-color
+    }
+
+    .mat-paginator-first,
+    .mat-paginator-last {
+      border-top: 2px solid $inputfield-color
+    }
+
+    .mat-icon-button[disabled] .mat-paginator-decrement,
+    .mat-icon-button[disabled] .mat-paginator-first,
+    .mat-icon-button[disabled] .mat-paginator-increment,
+    .mat-icon-button[disabled] .mat-paginator-last {
+      border-color: $inputfield-color
+    }
+
+    .mat-progress-bar-background,
+    .mat-progress-bar-buffer {
+      fill: $Grey-light
+    }
+
+    .mat-progress-spinner circle,
+    .mat-spinner circle {
+      stroke: $Primary-Color
+    }
+
+    .mat-progress-spinner.mat-warn circle,
+    .mat-spinner.mat-warn circle {
+      stroke: $Validation-warning
+    }
+
+    .mat-radio-outer-circle {
+      border-color: $checkbox-radio-color
+    }
+
+    .mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle,
+    .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+      border-color: $Primary-Color
+    }
+
+    .mat-radio-button.mat-primary .mat-radio-ripple .mat-ripple-element,
+    .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element,
+    .mat-radio-button.mat-warn .mat-radio-ripple .mat-ripple-element {
+      background-color: $Primary-ColorOpacity
+    }
+
+    .mat-radio-button.mat-warn.mat-radio-checked .mat-radio-outer-circle {
+      border-color: $Validation-warning
+    }
+
+    .mat-radio-button.mat-radio-disabled .mat-radio-outer-circle,
+    .mat-radio-button.mat-radio-disabled.mat-radio-checked .mat-radio-outer-circle {
+      border-color: $checkbox-radio-color
+    }
+
+    .mat-radio-button.mat-radio-disabled .mat-radio-inner-circle,
+    .mat-radio-button.mat-radio-disabled .mat-radio-ripple .mat-ripple-element,
+    .mat-slide-toggle-bar,
+    .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
+      background-color: $disabled !important;
+    }
+
+    .mat-slide-toggle-bar {
+      background-color: $Grey-light
+    }
+
+    .mat-radio-button.mat-radio-disabled .mat-radio-label-content,
+    .mat-form-field .mat-select.mat-select-disabled .mat-select-arrow {
+      color: $Grey-light;
+    }
+
+    .mat-dialog-container,
+    .mat-drawer.mat-drawer-push,
+    .mat-drawer,
+    .mat-stepper-horizontal,
+    .mat-stepper-vertical,
+    .mat-tab-group.mat-accent.mat-background-accent .mat-ink-bar,
+    .mat-tab-nav-bar.mat-accent.mat-background-accent .mat-ink-bar,
+    .mat-select-content,
+    .mat-select-panel-done-animating {
+      background-color: $white-color
+    }
+
+    .mat-form-field .mat-select.mat-select-invalid .mat-select-arrow,
+    .mat-form-field.mat-focused.mat-warn .mat-select-arrow {
+      color: $Validation-warning
+    }
+
+    .mat-drawer-container,
+    .mat-option:focus:not(.mat-option-disabled),
+    .mat-option:hover:not(.mat-option-disabled),
+    .main-content tr.example-element-row[_ngcontent-c18]:not(.example-expanded-row):active,
+    .main-content table tr.mat-row.ng-star-inserted:hover {
+      background-color: $hover-color;
+      background: $hover-color !important;
+    }
+
+    .mat-drawer-backdrop.mat-drawer-shown {
+      background-color: $Grey-dark
+    }
+
+    .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron,
+    .mat-tab-header-pagination-chevron {
+      border-color: $Grey-dark
+    }
+
+    .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+      background: $Primary-ColorOpacity
+    }
+
+    form .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
+      color: $inputfield-color;
+    }
+
+    .mat-slide-toggle .mat-ripple-element {
+      background-color: $Primary-ColorOpacity
+    }
+
+    .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple):hover,
+    .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple):focus {
+      background-color: $Primary-Color !important;
+    }
+
+    /*====== VALIDATION CSS STARTS ======== */
+
+    .mat-form-field-invalid .mat-input-element,
+    .mat-warn .mat-input-element {
+      caret-color: $Primary-Color;
+    }
+
+    mat-form-field.mat-form-field.mat-form-field-type-mat-input.mat-form-field-appearance-outline.ng-touched.ng-dirty.mat-form-field-invalid.ng-invalid .mat-form-field-outline-thick {
+      color: $Validation-warning;
+    }
+
+    .mat-form-field-appearance-outline.mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-focused .mat-form-field-suffix.ng-star-inserted,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+      color: $Primary-Color;
+    }
+
+    .mat-error,
+    .mat-form-field.mat-primary.mat-form-field-appearance-outline.mat-form-field-can-float.ng-invalid.ng-dirty.mat-form-field-invalid .mat-form-field-outline-thick,
+    .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+      color: $Validation-warning;
+    }
+
+    mat-form-field.example-full-width.mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+      color: $Validation-warning;
+    }
+
+    .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+      color: $inputfield-color;
+    }
+
+    .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched.mat-focused .mat-form-field-outline-thick {
+      color: $Primary-Color;
+    }
+
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-select-arrow,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid.mat-focused .mat-form-field-outline-thick,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid.mat-focused .mat-select-arrow,
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+      color: $inputfield-color;
+    }
+
+    /* check box hover circel color css starts */
+
+    .mat-checkbox:not(.mat-checkbox-disabled).mat-primary .mat-checkbox-ripple .mat-ripple-element,
+    .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+      background-color: $Primary-ColorOpacity
+    }
+
+    .ng-trigger.ng-trigger-transformPanel.mat-select-panel.mat-primary {
+      @include box_shadow (5);
+    }
+
+    /*==== VALIDATION CSS ENDS ========= */
+
+    div .mat-form-field-appearance-outline .mat-form-field-flex {
+      padding: 0 0 0 0
+    }
+
+    .mat-form-field-appearance-outline .mat-form-field-outline-end,
+    .mat-form-field-appearance-outline .mat-form-field-outline-gap,
+    .mat-form-field-appearance-outline .mat-form-field-outline-start {
+      border-width: 1px !important;
+    }
+
+    .mat-form-field-wrapper {
+      padding-bottom: 1.44375em;
+    }
+
+    ::-webkit-input-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    ::-moz-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    :-ms-input-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    :-moz-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    value .mat-button-toggle-checked {
+      background-color: $inputfield-color;
+      color: $Grey-light
+    }
+
+    .mat-button-toggle-disabled {
+      background-color: $inputfield-color;
+      color: $Grey-light
+    }
+
+    .mat-button-toggle-disabled.mat-button-toggle-checked {
+      background-color: $inputfield-color
+    }
+
+    .mat-card {
+      background: $white-color;
+      color: $Grey-dark
+    }
+
+    .mat-checkbox-frame {
+      border-color: $checkbox-radio-color
+    }
+
+    .mat-checkbox-checkmark {
+      fill: $body-color
+    }
+
+    .mat-checkbox-checkmark-path {
+      stroke: $body-color !important
+    }
+
+    .mat-checkbox-mixedmark {
+      background-color: $body-color
+    }
+
+    .mat-checkbox-checked.mat-warn .mat-checkbox-background,
+    .mat-checkbox-indeterminate.mat-warn .mat-checkbox-background,
+    .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+    .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+    .mat-chip.mat-standard-chip.mat-chip-selected.mat-warn,
+    .mat-form-field.mat-form-field-invalid .mat-form-field-ripple,
+    .mat-form-field.mat-form-field-invalid .mat-form-field-ripple.mat-accent,
+    .mat-form-field.mat-focused .mat-form-field-ripple.mat-warn,
+    .mat-datepicker-content.mat-warn .mat-calendar-body-selected {
+      background-color: $Validation-warning
+    }
+
+    .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+    .mat-radio-button.mat-accent .mat-radio-inner-circle {
+      background-color: $Primary-Color;
+    }
+
+    .mat-checkbox-disabled.mat-checkbox-checked .mat-checkbox-background,
+    .mat-checkbox-disabled.mat-checkbox-indeterminate .mat-checkbox-background {
+      background-color: $inputfield-color
+    }
+
+    .mat-checkbox-disabled:not(.mat-checkbox-checked) .mat-checkbox-frame {
+      border-color: $inputfield-color
+    }
+
+    .mat-checkbox-disabled .mat-checkbox-label {
+      color: $inputfield-color
+    }
+
+    .mat-chip.mat-standard-chip {
+      background-color: $inputfield-color;
+      color: $Grey-dark
+    }
+
+    .mat-chip.mat-standard-chip .mat-chip-remove {
+      color: $Grey-dark;
+    }
+
+    mat-footer-row,
+    mat-header-row,
+    mat-row,
+    td.mat-cell,
+    td.mat-footer-cell,
+    th.mat-header-cell {
+      border-bottom-color: $inputfield-color
+    }
+
+    .mat-calendar-body-disabled>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .mat-calendar-body-label,
+    .mat-calendar-table-header,
+    .mat-header-cell,
+    .mat-cell,
+    .mat-footer-cell,
+    .mat-calendar-arrow,
+    .mat-datepicker-content .mat-calendar-next-button,
+    .mat-datepicker-content .mat-calendar-previous-button,
+    .mat-datepicker-toggle {
+      color: $Grey-light
+    }
+
+    .mat-datepicker-content .mat-calendar {
+      box-shadow: $calendar-shadow;
+    }
+
+    .mat-calendar-table-header-divider::after {
+      background: $inputfield-color
+    }
+
+    .mat-calendar-body-cell-content {
+      color: $Grey-dark;
+      border-color: transparent
+    }
+
+    .cdk-keyboard-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .cdk-program-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .mat-form-field-appearance-fill .mat-form-field-flex,
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]).cdk-keyboard-focused,
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]).cdk-program-focused,
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]):hover {
+      background: $highlight-colorBox
+    }
+
+    .mat-calendar-body-today:not(.mat-calendar-body-selected) {
+      border-color: $highlight-color;
+    }
+
+    .mat-calendar-body-disabled>.mat-calendar-body-today:not(.mat-calendar-body-selected) {
+      border-color: $inputfield-color
+    }
+
+    .mat-calendar-body-selected {
+      background-color: $Primary-Color;
+      color: $white-color
+    }
+
+    .mat-calendar-body-disabled>.mat-calendar-body-selected {
+      background-color: rgba(63, 81, 181, .4)
+    }
+
+    .mat-datepicker-content,
+    .mat-expansion-panel {
+      background-color: $white-color;
+      color: $Grey-dark
+    }
+
+    .mat-action-row {
+      border-top-color: $inputfield-color
+    }
+
+    .mat-expansion-panel-header-title,
+    .mat-form-field-label,
+    .mat-hint,
+    .mat-form-field-appearance-outline .mat-form-field-outline-thick,
+    .mat-list .mat-list-item,
+    .mat-nav-list .mat-list-item,
+    .mat-selection-list .mat-list-item,
+    .mat-list .mat-list-option,
+    .mat-nav-list .mat-list-option,
+    .mat-selection-list .mat-list-option,
+    .mat-menu-item {
+      color: $Grey-dark
+    }
+
+    .mat-form-field-ripple {
+      background-color: $Grey-dark
+    }
+
+    .mat-input-element {
+      caret-color: $Primary-Color
+    }
+
+    .mat-form-field-invalid .mat-input-element,
+    .mat-warn .mat-input-element {
+      caret-color: $Validation-warning
+    }
+
+    .mat-list-item-disabled {
+      background-color: $inputfield-color
+    }
+
+    .mat-list-option.mat-list-item-focus,
+    .mat-list-option:hover,
+    .mat-nav-list .mat-list-item.mat-list-item-focus,
+    .mat-nav-list .mat-list-item:hover {
+      background: $body-color
+    }
+
+    .mat-select-content .mat-option:focus:not(.mat-option-disabled),
+    .mat-select-content .mat-option:hover:not(.mat-option-disabled),
+    .mat-menu-item-highlighted:not([disabled]),
+    .mat-menu-item.cdk-keyboard-focused:not([disabled]),
+    .mat-menu-item.cdk-program-focused:not([disabled]),
+    .mat-menu-item:hover:not([disabled]) {
+      background: $highlight-colorBox !important;
+    }
+
+    .mat-paginator-decrement,
+    .mat-paginator-increment {
+      border-top: 2px solid $inputfield-color;
+      border-right: 2px solid $inputfield-color
+    }
+
+    .mat-paginator-first,
+    .mat-paginator-last {
+      border-top: 2px solid $inputfield-color
+    }
+
+    .mat-icon-button[disabled] .mat-paginator-decrement,
+    .mat-icon-button[disabled] .mat-paginator-first,
+    .mat-icon-button[disabled] .mat-paginator-increment,
+    .mat-icon-button[disabled] .mat-paginator-last {
+      border-color: $inputfield-color
+    }
+
+    .mat-progress-bar-background,
+    .mat-progress-bar-buffer {
+      fill: $Grey-light
+    }
+
+    .mat-progress-spinner circle,
+    .mat-spinner circle {
+      stroke: $Primary-Color
+    }
+
+    .mat-progress-spinner.mat-warn circle,
+    .mat-spinner.mat-warn circle {
+      stroke: $Validation-warning
+    }
+
+    .mat-radio-outer-circle {
+      border-color: $checkbox-radio-color
+    }
+
+    .mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle,
+    .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+      border-color: $Primary-Color
+    }
+
+    .mat-radio-button.mat-primary .mat-radio-ripple .mat-ripple-element,
+    .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element,
+    .mat-radio-button.mat-warn .mat-radio-ripple .mat-ripple-element {
+      background-color: $Primary-ColorOpacity
+    }
+
+    .mat-radio-button.mat-warn.mat-radio-checked .mat-radio-outer-circle {
+      border-color: $Validation-warning
+    }
+
+    .mat-radio-button.mat-radio-disabled .mat-radio-outer-circle,
+    .mat-radio-button.mat-radio-disabled.mat-radio-checked .mat-radio-outer-circle {
+      border-color: $checkbox-radio-color
+    }
+
+    .mat-radio-button.mat-radio-disabled .mat-radio-inner-circle,
+    .mat-radio-button.mat-radio-disabled .mat-radio-ripple .mat-ripple-element,
+    .mat-slide-toggle-bar,
+    .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
+      background-color: $disabled !important;
+    }
+
+    .mat-slide-toggle-bar {
+      background-color: $Grey-light
+    }
+
+    .mat-radio-button.mat-radio-disabled .mat-radio-label-content,
+    .mat-form-field .mat-select.mat-select-disabled .mat-select-arrow {
+      color: $Grey-light;
+    }
+
+    .mat-dialog-container,
+    .mat-drawer.mat-drawer-push,
+    .mat-drawer,
+    .mat-stepper-horizontal,
+    .mat-stepper-vertical,
+    .mat-tab-group.mat-accent.mat-background-accent .mat-ink-bar,
+    .mat-tab-nav-bar.mat-accent.mat-background-accent .mat-ink-bar,
+    .mat-select-content,
+    .mat-select-panel-done-animating {
+      background-color: $white-color
+    }
+
+    .mat-form-field .mat-select.mat-select-invalid .mat-select-arrow,
+    .mat-form-field.mat-focused.mat-warn .mat-select-arrow {
+      color: $Validation-warning
+    }
+
+    .mat-drawer-container,
+    .mat-option:focus:not(.mat-option-disabled),
+    .mat-option:hover:not(.mat-option-disabled),
+    .main-content tr.example-element-row[_ngcontent-c18]:not(.example-expanded-row):active,
+    .main-content table tr.mat-row.ng-star-inserted:hover {
+      background-color: $hover-color;
+      background: $hover-color !important;
+    }
+
+    .mat-drawer-backdrop.mat-drawer-shown {
+      background-color: $Grey-dark
+    }
+
+    .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron,
+    .mat-tab-header-pagination-chevron {
+      border-color: $Grey-dark
+    }
+
+    .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+      background: $Primary-ColorOpacity
+    }
+
+    form .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
+      color: $inputfield-color;
+    }
+
+    .mat-slide-toggle .mat-ripple-element {
+      background-color: $Primary-ColorOpacity
+    }
+
+    .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple):hover,
+    .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple):focus {
+      background-color: $Primary-Color !important;
+    }
+
+    /*====== VALIDATION CSS STARTS ======== */
+
+    .mat-form-field-invalid .mat-input-element,
+    .mat-warn .mat-input-element {
+      caret-color: $Primary-Color;
+    }
+
+    mat-form-field.mat-form-field.mat-form-field-type-mat-input.mat-form-field-appearance-outline.ng-touched.ng-dirty.mat-form-field-invalid.ng-invalid .mat-form-field-outline-thick {
+      color: $Validation-warning;
+    }
+
+    .mat-form-field-appearance-outline.mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-focused .mat-form-field-suffix.ng-star-inserted,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+      color: $Primary-Color;
+    }
+
+    .mat-error,
+    .mat-form-field.mat-primary.mat-form-field-appearance-outline.mat-form-field-can-float.ng-invalid.ng-dirty.mat-form-field-invalid .mat-form-field-outline-thick,
+    .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+      color: $Validation-warning;
+    }
+
+    mat-form-field.example-full-width.mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+      color: $Validation-warning;
+    }
+
+    .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+      color: $inputfield-color;
+    }
+
+    .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched.mat-focused .mat-form-field-outline-thick {
+      color: $Primary-Color;
+    }
+
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-select-arrow,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid.mat-focused .mat-form-field-outline-thick,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid.mat-focused .mat-select-arrow,
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+      color: $inputfield-color;
+    }
+
+    /* check box hover circel color css starts */
+
+    .mat-checkbox:not(.mat-checkbox-disabled).mat-primary .mat-checkbox-ripple .mat-ripple-element,
+    .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+      background-color: $Primary-ColorOpacity
+    }
+
+    .ng-trigger.ng-trigger-transformPanel.mat-select-panel.mat-primary {
+      @include box_shadow (5);
+    }
+
+    /*==== VALIDATION CSS ENDS ========= */
+
+    div .mat-form-field-appearance-outline .mat-form-field-flex {
+      padding: 0 0 0 0
+    }
+
+    .mat-form-field-appearance-outline .mat-form-field-outline-end,
+    .mat-form-field-appearance-outline .mat-form-field-outline-gap,
+    .mat-form-field-appearance-outline .mat-form-field-outline-start {
+      border-width: 1px !important;
+    }
+
+    .mat-form-field-wrapper {
+      padding-bottom: 1.44375em;
+    }
+
+    ::-webkit-input-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    ::-moz-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    :-ms-input-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    :-moz-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    value .mat-button-toggle-checked {
+      background-color: $inputfield-color;
+      color: $Grey-light
+    }
+
+    .mat-button-toggle-disabled {
+      background-color: $inputfield-color;
+      color: $Grey-light
+    }
+
+    .mat-button-toggle-disabled.mat-button-toggle-checked {
+      background-color: $inputfield-color
+    }
+
+    .mat-card {
+      background: $white-color;
+      color: $Grey-dark
+    }
+
+    .mat-checkbox-frame {
+      border-color: $checkbox-radio-color
+    }
+
+    .mat-checkbox-checkmark {
+      fill: $body-color
+    }
+
+    .mat-checkbox-checkmark-path {
+      stroke: $body-color !important
+    }
+
+    .mat-checkbox-mixedmark {
+      background-color: $body-color
+    }
+
+    .mat-checkbox-checked.mat-warn .mat-checkbox-background,
+    .mat-checkbox-indeterminate.mat-warn .mat-checkbox-background,
+    .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+    .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+    .mat-chip.mat-standard-chip.mat-chip-selected.mat-warn,
+    .mat-form-field.mat-form-field-invalid .mat-form-field-ripple,
+    .mat-form-field.mat-form-field-invalid .mat-form-field-ripple.mat-accent,
+    .mat-form-field.mat-focused .mat-form-field-ripple.mat-warn,
+    .mat-datepicker-content.mat-warn .mat-calendar-body-selected {
+      background-color: $Validation-warning
+    }
+
+    .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+    .mat-radio-button.mat-accent .mat-radio-inner-circle {
+      background-color: $Primary-Color;
+    }
+
+    .mat-checkbox-disabled.mat-checkbox-checked .mat-checkbox-background,
+    .mat-checkbox-disabled.mat-checkbox-indeterminate .mat-checkbox-background {
+      background-color: $inputfield-color
+    }
+
+    .mat-checkbox-disabled:not(.mat-checkbox-checked) .mat-checkbox-frame {
+      border-color: $inputfield-color
+    }
+
+    .mat-checkbox-disabled .mat-checkbox-label {
+      color: $inputfield-color
+    }
+
+    .mat-chip.mat-standard-chip {
+      background-color: $inputfield-color;
+      color: $Grey-dark
+    }
+
+    .mat-chip.mat-standard-chip .mat-chip-remove {
+      color: $Grey-dark;
+    }
+
+    mat-footer-row,
+    mat-header-row,
+    mat-row,
+    td.mat-cell,
+    td.mat-footer-cell,
+    th.mat-header-cell {
+      border-bottom-color: $inputfield-color
+    }
+
+    .mat-calendar-body-disabled>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .mat-calendar-body-label,
+    .mat-calendar-table-header,
+    .mat-header-cell,
+    .mat-cell,
+    .mat-footer-cell,
+    .mat-calendar-arrow,
+    .mat-datepicker-content .mat-calendar-next-button,
+    .mat-datepicker-content .mat-calendar-previous-button,
+    .mat-datepicker-toggle {
+      color: $Grey-light
+    }
+
+    .mat-datepicker-content .mat-calendar {
+      box-shadow: $calendar-shadow;
+    }
+
+    .mat-calendar-table-header-divider::after {
+      background: $inputfield-color
+    }
+
+    .mat-calendar-body-cell-content {
+      color: $Grey-dark;
+      border-color: transparent
+    }
+
+    .cdk-keyboard-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .cdk-program-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .mat-form-field-appearance-fill .mat-form-field-flex,
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]).cdk-keyboard-focused,
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]).cdk-program-focused,
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]):hover {
+      background: $highlight-colorBox
+    }
+
+    .mat-calendar-body-today:not(.mat-calendar-body-selected) {
+      border-color: $highlight-color;
+    }
+
+    .mat-calendar-body-disabled>.mat-calendar-body-today:not(.mat-calendar-body-selected) {
+      border-color: $inputfield-color
+    }
+
+    .mat-calendar-body-selected {
+      background-color: $Primary-Color;
+      color: $white-color
+    }
+
+    .mat-calendar-body-disabled>.mat-calendar-body-selected {
+      background-color: rgba(63, 81, 181, .4)
+    }
+
+    .mat-datepicker-content,
+    .mat-expansion-panel {
+      background-color: $white-color;
+      color: $Grey-dark
+    }
+
+    .mat-action-row {
+      border-top-color: $inputfield-color
+    }
+
+    .mat-expansion-panel-header-title,
+    .mat-form-field-label,
+    .mat-hint,
+    .mat-form-field-appearance-outline .mat-form-field-outline-thick,
+    .mat-list .mat-list-item,
+    .mat-nav-list .mat-list-item,
+    .mat-selection-list .mat-list-item,
+    .mat-list .mat-list-option,
+    .mat-nav-list .mat-list-option,
+    .mat-selection-list .mat-list-option,
+    .mat-menu-item {
+      color: $Grey-dark
+    }
+
+    .mat-form-field-ripple {
+      background-color: $Grey-dark
+    }
+
+    .mat-input-element {
+      caret-color: $Primary-Color
+    }
+
+    .mat-form-field-invalid .mat-input-element,
+    .mat-warn .mat-input-element {
+      caret-color: $Validation-warning
+    }
+
+    .mat-list-item-disabled {
+      background-color: $inputfield-color
+    }
+
+    .mat-list-option.mat-list-item-focus,
+    .mat-list-option:hover,
+    .mat-nav-list .mat-list-item.mat-list-item-focus,
+    .mat-nav-list .mat-list-item:hover {
+      background: $body-color
+    }
+
+    .mat-select-content .mat-option:focus:not(.mat-option-disabled),
+    .mat-select-content .mat-option:hover:not(.mat-option-disabled),
+    .mat-menu-item-highlighted:not([disabled]),
+    .mat-menu-item.cdk-keyboard-focused:not([disabled]),
+    .mat-menu-item.cdk-program-focused:not([disabled]),
+    .mat-menu-item:hover:not([disabled]) {
+      background: $highlight-colorBox !important;
+    }
+
+    .mat-paginator-decrement,
+    .mat-paginator-increment {
+      border-top: 2px solid $inputfield-color;
+      border-right: 2px solid $inputfield-color
+    }
+
+    .mat-paginator-first,
+    .mat-paginator-last {
+      border-top: 2px solid $inputfield-color
+    }
+
+    .mat-icon-button[disabled] .mat-paginator-decrement,
+    .mat-icon-button[disabled] .mat-paginator-first,
+    .mat-icon-button[disabled] .mat-paginator-increment,
+    .mat-icon-button[disabled] .mat-paginator-last {
+      border-color: $inputfield-color
+    }
+
+    .mat-progress-bar-background,
+    .mat-progress-bar-buffer {
+      fill: $Grey-light
+    }
+
+    .mat-progress-spinner circle,
+    .mat-spinner circle {
+      stroke: $Primary-Color
+    }
+
+    .mat-progress-spinner.mat-warn circle,
+    .mat-spinner.mat-warn circle {
+      stroke: $Validation-warning
+    }
+
+    .mat-radio-outer-circle {
+      border-color: $checkbox-radio-color
+    }
+
+    .mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle,
+    .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+      border-color: $Primary-Color
+    }
+
+    .mat-radio-button.mat-primary .mat-radio-ripple .mat-ripple-element,
+    .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element,
+    .mat-radio-button.mat-warn .mat-radio-ripple .mat-ripple-element {
+      background-color: $Primary-ColorOpacity
+    }
+
+    .mat-radio-button.mat-warn.mat-radio-checked .mat-radio-outer-circle {
+      border-color: $Validation-warning
+    }
+
+    .mat-radio-button.mat-radio-disabled .mat-radio-outer-circle,
+    .mat-radio-button.mat-radio-disabled.mat-radio-checked .mat-radio-outer-circle {
+      border-color: $checkbox-radio-color
+    }
+
+    .mat-radio-button.mat-radio-disabled .mat-radio-inner-circle,
+    .mat-radio-button.mat-radio-disabled .mat-radio-ripple .mat-ripple-element,
+    .mat-slide-toggle-bar,
+    .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
+      background-color: $disabled !important;
+    }
+
+    .mat-slide-toggle-bar {
+      background-color: $Grey-light
+    }
+
+    .mat-radio-button.mat-radio-disabled .mat-radio-label-content,
+    .mat-form-field .mat-select.mat-select-disabled .mat-select-arrow {
+      color: $Grey-light;
+    }
+
+    .mat-dialog-container,
+    .mat-drawer.mat-drawer-push,
+    .mat-drawer,
+    .mat-stepper-horizontal,
+    .mat-stepper-vertical,
+    .mat-tab-group.mat-accent.mat-background-accent .mat-ink-bar,
+    .mat-tab-nav-bar.mat-accent.mat-background-accent .mat-ink-bar,
+    .mat-select-content,
+    .mat-select-panel-done-animating {
+      background-color: $white-color
+    }
+
+    .mat-form-field .mat-select.mat-select-invalid .mat-select-arrow,
+    .mat-form-field.mat-focused.mat-warn .mat-select-arrow {
+      color: $Validation-warning
+    }
+
+    .mat-drawer-container,
+    .mat-option:focus:not(.mat-option-disabled),
+    .mat-option:hover:not(.mat-option-disabled),
+    .main-content tr.example-element-row[_ngcontent-c18]:not(.example-expanded-row):active,
+    .main-content table tr.mat-row.ng-star-inserted:hover {
+      background-color: $hover-color;
+      background: $hover-color !important;
+    }
+
+    .mat-drawer-backdrop.mat-drawer-shown {
+      background-color: $Grey-dark
+    }
+
+    .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron,
+    .mat-tab-header-pagination-chevron {
+      border-color: $Grey-dark
+    }
+
+    .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+      background: $Primary-ColorOpacity
+    }
+
+    form .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
+      color: $inputfield-color;
+    }
+
+    .mat-slide-toggle .mat-ripple-element {
+      background-color: $Primary-ColorOpacity
+    }
+
+    .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple):hover,
+    .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple):focus {
+      background-color: $Primary-Color !important;
+    }
+
+    /*====== VALIDATION CSS STARTS ======== */
+
+    .mat-form-field-invalid .mat-input-element,
+    .mat-warn .mat-input-element {
+      caret-color: $Primary-Color;
+    }
+
+    mat-form-field.mat-form-field.mat-form-field-type-mat-input.mat-form-field-appearance-outline.ng-touched.ng-dirty.mat-form-field-invalid.ng-invalid .mat-form-field-outline-thick {
+      color: $Validation-warning;
+    }
+
+    .mat-form-field-appearance-outline.mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-focused .mat-form-field-suffix.ng-star-inserted,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+      color: $Primary-Color;
+    }
+
+    .mat-error,
+    .mat-form-field.mat-primary.mat-form-field-appearance-outline.mat-form-field-can-float.ng-invalid.ng-dirty.mat-form-field-invalid .mat-form-field-outline-thick,
+    .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+      color: $Validation-warning;
+    }
+
+    mat-form-field.example-full-width.mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+      color: $Validation-warning;
+    }
+
+    .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+      color: $inputfield-color;
+    }
+
+    .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched.mat-focused .mat-form-field-outline-thick {
+      color: $Primary-Color;
+    }
+
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-select-arrow,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid.mat-focused .mat-form-field-outline-thick,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid.mat-focused .mat-select-arrow,
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+      color: $inputfield-color;
+    }
+
+    /* check box hover circel color css starts */
+
+    .mat-checkbox:not(.mat-checkbox-disabled).mat-primary .mat-checkbox-ripple .mat-ripple-element,
+    .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+      background-color: $Primary-ColorOpacity
+    }
+
+    .ng-trigger.ng-trigger-transformPanel.mat-select-panel.mat-primary {
+      @include box_shadow (5);
+    }
+
+    /*==== VALIDATION CSS ENDS ========= */
+
+    div .mat-form-field-appearance-outline .mat-form-field-flex {
+      padding: 0 0 0 0
+    }
+
+    .mat-form-field-appearance-outline .mat-form-field-outline-end,
+    .mat-form-field-appearance-outline .mat-form-field-outline-gap,
+    .mat-form-field-appearance-outline .mat-form-field-outline-start {
+      border-width: 1px !important;
+    }
+
+    .mat-form-field-wrapper {
+      padding-bottom: 1.44375em;
+    }
+
+    ::-webkit-input-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    ::-moz-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    :-ms-input-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    :-moz-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    value .mat-button-toggle-checked {
+      background-color: $inputfield-color;
+      color: $Grey-light
+    }
+
+    .mat-button-toggle-disabled {
+      background-color: $inputfield-color;
+      color: $Grey-light
+    }
+
+    .mat-button-toggle-disabled.mat-button-toggle-checked {
+      background-color: $inputfield-color
+    }
+
+    .mat-card {
+      background: $white-color;
+      color: $Grey-dark
+    }
+
+    .mat-checkbox-frame {
+      border-color: $checkbox-radio-color
+    }
+
+    .mat-checkbox-checkmark {
+      fill: $body-color
+    }
+
+    .mat-checkbox-checkmark-path {
+      stroke: $body-color !important
+    }
+
+    .mat-checkbox-mixedmark {
+      background-color: $body-color
+    }
+
+    .mat-checkbox-checked.mat-warn .mat-checkbox-background,
+    .mat-checkbox-indeterminate.mat-warn .mat-checkbox-background,
+    .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+    .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+    .mat-chip.mat-standard-chip.mat-chip-selected.mat-warn,
+    .mat-form-field.mat-form-field-invalid .mat-form-field-ripple,
+    .mat-form-field.mat-form-field-invalid .mat-form-field-ripple.mat-accent,
+    .mat-form-field.mat-focused .mat-form-field-ripple.mat-warn,
+    .mat-datepicker-content.mat-warn .mat-calendar-body-selected {
+      background-color: $Validation-warning
+    }
+
+    .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+    .mat-radio-button.mat-accent .mat-radio-inner-circle {
+      background-color: $Primary-Color;
+    }
+
+    .mat-checkbox-disabled.mat-checkbox-checked .mat-checkbox-background,
+    .mat-checkbox-disabled.mat-checkbox-indeterminate .mat-checkbox-background {
+      background-color: $inputfield-color
+    }
+
+    .mat-checkbox-disabled:not(.mat-checkbox-checked) .mat-checkbox-frame {
+      border-color: $inputfield-color
+    }
+
+    .mat-checkbox-disabled .mat-checkbox-label {
+      color: $inputfield-color
+    }
+
+    .mat-chip.mat-standard-chip {
+      background-color: $inputfield-color;
+      color: $Grey-dark
+    }
+
+    .mat-chip.mat-standard-chip .mat-chip-remove {
+      color: $Grey-dark;
+    }
+
+    mat-footer-row,
+    mat-header-row,
+    mat-row,
+    td.mat-cell,
+    td.mat-footer-cell,
+    th.mat-header-cell {
+      border-bottom-color: $inputfield-color
+    }
+
+    .mat-calendar-body-disabled>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .mat-calendar-body-label,
+    .mat-calendar-table-header,
+    .mat-header-cell,
+    .mat-cell,
+    .mat-footer-cell,
+    .mat-calendar-arrow,
+    .mat-datepicker-content .mat-calendar-next-button,
+    .mat-datepicker-content .mat-calendar-previous-button,
+    .mat-datepicker-toggle {
+      color: $Grey-light
+    }
+
+    .mat-datepicker-content .mat-calendar {
+      box-shadow: $calendar-shadow;
+    }
+
+    .mat-calendar-table-header-divider::after {
+      background: $inputfield-color
+    }
+
+    .mat-calendar-body-cell-content {
+      color: $Grey-dark;
+      border-color: transparent
+    }
+
+    .cdk-keyboard-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .cdk-program-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .mat-form-field-appearance-fill .mat-form-field-flex,
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]).cdk-keyboard-focused,
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]).cdk-program-focused,
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]):hover {
+      background: $highlight-colorBox
+    }
+
+    .mat-calendar-body-today:not(.mat-calendar-body-selected) {
+      border-color: $highlight-color;
+    }
+
+    .mat-calendar-body-disabled>.mat-calendar-body-today:not(.mat-calendar-body-selected) {
+      border-color: $inputfield-color
+    }
+
+    .mat-calendar-body-selected {
+      background-color: $Primary-Color;
+      color: $white-color
+    }
+
+    .mat-calendar-body-disabled>.mat-calendar-body-selected {
+      background-color: rgba(63, 81, 181, .4)
+    }
+
+    .mat-datepicker-content,
+    .mat-expansion-panel {
+      background-color: $white-color;
+      color: $Grey-dark
+    }
+
+    .mat-action-row {
+      border-top-color: $inputfield-color
+    }
+
+    .mat-expansion-panel-header-title,
+    .mat-form-field-label,
+    .mat-hint,
+    .mat-form-field-appearance-outline .mat-form-field-outline-thick,
+    .mat-list .mat-list-item,
+    .mat-nav-list .mat-list-item,
+    .mat-selection-list .mat-list-item,
+    .mat-list .mat-list-option,
+    .mat-nav-list .mat-list-option,
+    .mat-selection-list .mat-list-option,
+    .mat-menu-item {
+      color: $Grey-dark
+    }
+
+    .mat-form-field-ripple {
+      background-color: $Grey-dark
+    }
+
+    .mat-input-element {
+      caret-color: $Primary-Color
+    }
+
+    .mat-form-field-invalid .mat-input-element,
+    .mat-warn .mat-input-element {
+      caret-color: $Validation-warning
+    }
+
+    .mat-list-item-disabled {
+      background-color: $inputfield-color
+    }
+
+    .mat-list-option.mat-list-item-focus,
+    .mat-list-option:hover,
+    .mat-nav-list .mat-list-item.mat-list-item-focus,
+    .mat-nav-list .mat-list-item:hover {
+      background: $body-color
+    }
+
+    .mat-select-content .mat-option:focus:not(.mat-option-disabled),
+    .mat-select-content .mat-option:hover:not(.mat-option-disabled),
+    .mat-menu-item-highlighted:not([disabled]),
+    .mat-menu-item.cdk-keyboard-focused:not([disabled]),
+    .mat-menu-item.cdk-program-focused:not([disabled]),
+    .mat-menu-item:hover:not([disabled]) {
+      background: $highlight-colorBox !important;
+    }
+
+    .mat-paginator-decrement,
+    .mat-paginator-increment {
+      border-top: 2px solid $inputfield-color;
+      border-right: 2px solid $inputfield-color
+    }
+
+    .mat-paginator-first,
+    .mat-paginator-last {
+      border-top: 2px solid $inputfield-color
+    }
+
+    .mat-icon-button[disabled] .mat-paginator-decrement,
+    .mat-icon-button[disabled] .mat-paginator-first,
+    .mat-icon-button[disabled] .mat-paginator-increment,
+    .mat-icon-button[disabled] .mat-paginator-last {
+      border-color: $inputfield-color
+    }
+
+    .mat-progress-bar-background,
+    .mat-progress-bar-buffer {
+      fill: $Grey-light
+    }
+
+    .mat-progress-spinner circle,
+    .mat-spinner circle {
+      stroke: $Primary-Color
+    }
+
+    .mat-progress-spinner.mat-warn circle,
+    .mat-spinner.mat-warn circle {
+      stroke: $Validation-warning
+    }
+
+    .mat-radio-outer-circle {
+      border-color: $checkbox-radio-color
+    }
+
+    .mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle,
+    .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+      border-color: $Primary-Color
+    }
+
+    .mat-radio-button.mat-primary .mat-radio-ripple .mat-ripple-element,
+    .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element,
+    .mat-radio-button.mat-warn .mat-radio-ripple .mat-ripple-element {
+      background-color: $Primary-ColorOpacity
+    }
+
+    .mat-radio-button.mat-warn.mat-radio-checked .mat-radio-outer-circle {
+      border-color: $Validation-warning
+    }
+
+    .mat-radio-button.mat-radio-disabled .mat-radio-outer-circle,
+    .mat-radio-button.mat-radio-disabled.mat-radio-checked .mat-radio-outer-circle {
+      border-color: $checkbox-radio-color
+    }
+
+    .mat-radio-button.mat-radio-disabled .mat-radio-inner-circle,
+    .mat-radio-button.mat-radio-disabled .mat-radio-ripple .mat-ripple-element,
+    .mat-slide-toggle-bar,
+    .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
+      background-color: $disabled !important;
+    }
+
+    .mat-slide-toggle-bar {
+      background-color: $Grey-light
+    }
+
+    .mat-radio-button.mat-radio-disabled .mat-radio-label-content,
+    .mat-form-field .mat-select.mat-select-disabled .mat-select-arrow {
+      color: $Grey-light;
+    }
+
+    .mat-dialog-container,
+    .mat-drawer.mat-drawer-push,
+    .mat-drawer,
+    .mat-stepper-horizontal,
+    .mat-stepper-vertical,
+    .mat-tab-group.mat-accent.mat-background-accent .mat-ink-bar,
+    .mat-tab-nav-bar.mat-accent.mat-background-accent .mat-ink-bar,
+    .mat-select-content,
+    .mat-select-panel-done-animating {
+      background-color: $white-color
+    }
+
+    .mat-form-field .mat-select.mat-select-invalid .mat-select-arrow,
+    .mat-form-field.mat-focused.mat-warn .mat-select-arrow {
+      color: $Validation-warning
+    }
+
+    .mat-drawer-container,
+    .mat-option:focus:not(.mat-option-disabled),
+    .mat-option:hover:not(.mat-option-disabled),
+    .main-content tr.example-element-row[_ngcontent-c18]:not(.example-expanded-row):active,
+    .main-content table tr.mat-row.ng-star-inserted:hover {
+      background-color: $hover-color;
+      background: $hover-color !important;
+    }
+
+    .mat-drawer-backdrop.mat-drawer-shown {
+      background-color: $Grey-dark
+    }
+
+    .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron,
+    .mat-tab-header-pagination-chevron {
+      border-color: $Grey-dark
+    }
+
+    .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+      background: $Primary-ColorOpacity
+    }
+
+    form .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
+      color: $inputfield-color;
+    }
+
+    .mat-slide-toggle .mat-ripple-element {
+      background-color: $Primary-ColorOpacity
+    }
+
+    .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple):hover,
+    .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple):focus {
+      background-color: $Primary-Color !important;
+    }
+
+    /*====== VALIDATION CSS STARTS ======== */
+
+    .mat-form-field-invalid .mat-input-element,
+    .mat-warn .mat-input-element {
+      caret-color: $Primary-Color;
+    }
+
+    mat-form-field.mat-form-field.mat-form-field-type-mat-input.mat-form-field-appearance-outline.ng-touched.ng-dirty.mat-form-field-invalid.ng-invalid .mat-form-field-outline-thick {
+      color: $Validation-warning;
+    }
+
+    .mat-form-field-appearance-outline.mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-focused .mat-form-field-suffix.ng-star-inserted,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+      color: $Primary-Color;
+    }
+
+    .mat-error,
+    .mat-form-field.mat-primary.mat-form-field-appearance-outline.mat-form-field-can-float.ng-invalid.ng-dirty.mat-form-field-invalid .mat-form-field-outline-thick,
+    .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+      color: $Validation-warning;
+    }
+
+    mat-form-field.example-full-width.mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+      color: $Validation-warning;
+    }
+
+    .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+      color: $inputfield-color;
+    }
+
+    .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched.mat-focused .mat-form-field-outline-thick {
+      color: $Primary-Color;
+    }
+
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-select-arrow,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid.mat-focused .mat-form-field-outline-thick,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid.mat-focused .mat-select-arrow,
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+      color: $inputfield-color;
+    }
+
+    /* check box hover circel color css starts */
+
+    .mat-checkbox:not(.mat-checkbox-disabled).mat-primary .mat-checkbox-ripple .mat-ripple-element,
+    .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+      background-color: $Primary-ColorOpacity
+    }
+
+    .ng-trigger.ng-trigger-transformPanel.mat-select-panel.mat-primary {
+      @include box_shadow (5);
+    }
+
+    /*==== VALIDATION CSS ENDS ========= */
+
+    div .mat-form-field-appearance-outline .mat-form-field-flex {
+      padding: 0 0 0 0
+    }
+
+    .mat-form-field-appearance-outline .mat-form-field-outline-end,
+    .mat-form-field-appearance-outline .mat-form-field-outline-gap,
+    .mat-form-field-appearance-outline .mat-form-field-outline-start {
+      border-width: 1px !important;
+    }
+
+    .mat-form-field-wrapper {
+      padding-bottom: 1.44375em;
+    }
+
+    ::-webkit-input-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    ::-moz-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    :-ms-input-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    :-moz-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    value .mat-button-toggle-checked {
+      background-color: $inputfield-color;
+      color: $Grey-light
+    }
+
+    .mat-button-toggle-disabled {
+      background-color: $inputfield-color;
+      color: $Grey-light
+    }
+
+    .mat-button-toggle-disabled.mat-button-toggle-checked {
+      background-color: $inputfield-color
+    }
+
+    .mat-card {
+      background: $white-color;
+      color: $Grey-dark
+    }
+
+    .mat-checkbox-frame {
+      border-color: $checkbox-radio-color
+    }
+
+    .mat-checkbox-checkmark {
+      fill: $body-color
+    }
+
+    .mat-checkbox-checkmark-path {
+      stroke: $body-color !important
+    }
+
+    .mat-checkbox-mixedmark {
+      background-color: $body-color
+    }
+
+    .mat-checkbox-checked.mat-warn .mat-checkbox-background,
+    .mat-checkbox-indeterminate.mat-warn .mat-checkbox-background,
+    .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+    .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+    .mat-chip.mat-standard-chip.mat-chip-selected.mat-warn,
+    .mat-form-field.mat-form-field-invalid .mat-form-field-ripple,
+    .mat-form-field.mat-form-field-invalid .mat-form-field-ripple.mat-accent,
+    .mat-form-field.mat-focused .mat-form-field-ripple.mat-warn,
+    .mat-datepicker-content.mat-warn .mat-calendar-body-selected {
+      background-color: $Validation-warning
+    }
+
+    .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+    .mat-radio-button.mat-accent .mat-radio-inner-circle {
+      background-color: $Primary-Color;
+    }
+
+    .mat-checkbox-disabled.mat-checkbox-checked .mat-checkbox-background,
+    .mat-checkbox-disabled.mat-checkbox-indeterminate .mat-checkbox-background {
+      background-color: $inputfield-color
+    }
+
+    .mat-checkbox-disabled:not(.mat-checkbox-checked) .mat-checkbox-frame {
+      border-color: $inputfield-color
+    }
+
+    .mat-checkbox-disabled .mat-checkbox-label {
+      color: $inputfield-color
+    }
+
+    .mat-chip.mat-standard-chip {
+      background-color: $inputfield-color;
+      color: $Grey-dark
+    }
+
+    .mat-chip.mat-standard-chip .mat-chip-remove {
+      color: $Grey-dark;
+    }
+
+    mat-footer-row,
+    mat-header-row,
+    mat-row,
+    td.mat-cell,
+    td.mat-footer-cell,
+    th.mat-header-cell {
+      border-bottom-color: $inputfield-color
+    }
+
+    .mat-calendar-body-disabled>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .mat-calendar-body-label,
+    .mat-calendar-table-header,
+    .mat-header-cell,
+    .mat-cell,
+    .mat-footer-cell,
+    .mat-calendar-arrow,
+    .mat-datepicker-content .mat-calendar-next-button,
+    .mat-datepicker-content .mat-calendar-previous-button,
+    .mat-datepicker-toggle {
+      color: $Grey-light
+    }
+
+    .mat-datepicker-content .mat-calendar {
+      box-shadow: $calendar-shadow;
+    }
+
+    .mat-calendar-table-header-divider::after {
+      background: $inputfield-color
+    }
+
+    .mat-calendar-body-cell-content {
+      color: $Grey-dark;
+      border-color: transparent
+    }
+
+    .cdk-keyboard-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .cdk-program-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+    .mat-form-field-appearance-fill .mat-form-field-flex,
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]).cdk-keyboard-focused,
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]).cdk-program-focused,
+    .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]):hover {
+      background: $highlight-colorBox
+    }
+
+    .mat-calendar-body-today:not(.mat-calendar-body-selected) {
+      border-color: $highlight-color;
+    }
+
+    .mat-calendar-body-disabled>.mat-calendar-body-today:not(.mat-calendar-body-selected) {
+      border-color: $inputfield-color
+    }
+
+    .mat-calendar-body-selected {
+      background-color: $Primary-Color;
+      color: $white-color
+    }
+
+    .mat-calendar-body-disabled>.mat-calendar-body-selected {
+      background-color: rgba(63, 81, 181, .4)
+    }
+
+    .mat-datepicker-content,
+    .mat-expansion-panel {
+      background-color: $white-color;
+      color: $Grey-dark
+    }
+
+    .mat-action-row {
+      border-top-color: $inputfield-color
+    }
+
+    .mat-expansion-panel-header-title,
+    .mat-form-field-label,
+    .mat-hint,
+    .mat-form-field-appearance-outline .mat-form-field-outline-thick,
+    .mat-list .mat-list-item,
+    .mat-nav-list .mat-list-item,
+    .mat-selection-list .mat-list-item,
+    .mat-list .mat-list-option,
+    .mat-nav-list .mat-list-option,
+    .mat-selection-list .mat-list-option,
+    .mat-menu-item {
+      color: $Grey-dark
+    }
+
+    .mat-form-field-ripple {
+      background-color: $Grey-dark
+    }
+
+    .mat-input-element {
+      caret-color: $Primary-Color
+    }
+
+    .mat-form-field-invalid .mat-input-element,
+    .mat-warn .mat-input-element {
+      caret-color: $Validation-warning
+    }
+
+    .mat-list-item-disabled {
+      background-color: $inputfield-color
+    }
+
+    .mat-list-option.mat-list-item-focus,
+    .mat-list-option:hover,
+    .mat-nav-list .mat-list-item.mat-list-item-focus,
+    .mat-nav-list .mat-list-item:hover {
+      background: $body-color
+    }
+
+    .mat-select-content .mat-option:focus:not(.mat-option-disabled),
+    .mat-select-content .mat-option:hover:not(.mat-option-disabled),
+    .mat-menu-item-highlighted:not([disabled]),
+    .mat-menu-item.cdk-keyboard-focused:not([disabled]),
+    .mat-menu-item.cdk-program-focused:not([disabled]),
+    .mat-menu-item:hover:not([disabled]) {
+      background: $highlight-colorBox !important;
+    }
+
+    .mat-paginator-decrement,
+    .mat-paginator-increment {
+      border-top: 2px solid $inputfield-color;
+      border-right: 2px solid $inputfield-color
+    }
+
+    .mat-paginator-first,
+    .mat-paginator-last {
+      border-top: 2px solid $inputfield-color
+    }
+
+    .mat-icon-button[disabled] .mat-paginator-decrement,
+    .mat-icon-button[disabled] .mat-paginator-first,
+    .mat-icon-button[disabled] .mat-paginator-increment,
+    .mat-icon-button[disabled] .mat-paginator-last {
+      border-color: $inputfield-color
+    }
+
+    .mat-progress-bar-background,
+    .mat-progress-bar-buffer {
+      fill: $Grey-light
+    }
+
+    .mat-progress-spinner circle,
+    .mat-spinner circle {
+      stroke: $Primary-Color
+    }
+
+    .mat-progress-spinner.mat-warn circle,
+    .mat-spinner.mat-warn circle {
+      stroke: $Validation-warning
+    }
+
+    .mat-radio-outer-circle {
+      border-color: $checkbox-radio-color
+    }
+
+    .mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle,
+    .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+      border-color: $Primary-Color
+    }
+
+    .mat-radio-button.mat-primary .mat-radio-ripple .mat-ripple-element,
+    .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element,
+    .mat-radio-button.mat-warn .mat-radio-ripple .mat-ripple-element {
+      background-color: $Primary-ColorOpacity
+    }
+
+    .mat-radio-button.mat-warn.mat-radio-checked .mat-radio-outer-circle {
+      border-color: $Validation-warning
+    }
+
+    .mat-radio-button.mat-radio-disabled .mat-radio-outer-circle,
+    .mat-radio-button.mat-radio-disabled.mat-radio-checked .mat-radio-outer-circle {
+      border-color: $checkbox-radio-color
+    }
+
+    .mat-radio-button.mat-radio-disabled .mat-radio-inner-circle,
+    .mat-radio-button.mat-radio-disabled .mat-radio-ripple .mat-ripple-element,
+    .mat-slide-toggle-bar,
+    .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
+      background-color: $disabled !important;
+    }
+
+    .mat-slide-toggle-bar {
+      background-color: $Grey-light
+    }
+
+    .mat-radio-button.mat-radio-disabled .mat-radio-label-content,
+    .mat-form-field .mat-select.mat-select-disabled .mat-select-arrow {
+      color: $Grey-light;
+    }
+
+    .mat-dialog-container,
+    .mat-drawer.mat-drawer-push,
+    .mat-drawer,
+    .mat-stepper-horizontal,
+    .mat-stepper-vertical,
+    .mat-tab-group.mat-accent.mat-background-accent .mat-ink-bar,
+    .mat-tab-nav-bar.mat-accent.mat-background-accent .mat-ink-bar,
+    .mat-select-content,
+    .mat-select-panel-done-animating {
+      background-color: $white-color
+    }
+
+    .mat-form-field .mat-select.mat-select-invalid .mat-select-arrow,
+    .mat-form-field.mat-focused.mat-warn .mat-select-arrow {
+      color: $Validation-warning
+    }
+
+    .mat-drawer-container,
+    .mat-option:focus:not(.mat-option-disabled),
+    .mat-option:hover:not(.mat-option-disabled),
+    .main-content tr.example-element-row[_ngcontent-c18]:not(.example-expanded-row):active,
+    .main-content table tr.mat-row.ng-star-inserted:hover {
+      background-color: $hover-color;
+      background: $hover-color !important;
+    }
+
+    .mat-drawer-backdrop.mat-drawer-shown {
+      background-color: $Grey-dark
+    }
+
+    .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron,
+    .mat-tab-header-pagination-chevron {
+      border-color: $Grey-dark
+    }
+
+    .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+      background: $Primary-ColorOpacity
+    }
+
+    form .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
+      color: $inputfield-color;
+    }
+
+    .mat-slide-toggle .mat-ripple-element {
+      background-color: $Primary-ColorOpacity
+    }
+
+    .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple):hover,
+    .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple):focus {
+      background-color: $Primary-Color !important;
+    }
+
+    /*====== VALIDATION CSS STARTS ======== */
+
+    .mat-form-field-invalid .mat-input-element,
+    .mat-warn .mat-input-element {
+      caret-color: $Primary-Color;
+    }
+
+    mat-form-field.mat-form-field.mat-form-field-type-mat-input.mat-form-field-appearance-outline.ng-touched.ng-dirty.mat-form-field-invalid.ng-invalid .mat-form-field-outline-thick {
+      color: $Validation-warning;
+    }
+
+    .mat-form-field-appearance-outline.mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-focused .mat-form-field-suffix.ng-star-inserted,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick {
+      color: $Primary-Color;
+    }
+
+    .mat-error,
+    .mat-form-field.mat-primary.mat-form-field-appearance-outline.mat-form-field-can-float.ng-invalid.ng-dirty.mat-form-field-invalid .mat-form-field-outline-thick,
+    .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+      color: $Validation-warning;
+    }
+
+    mat-form-field.example-full-width.mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+      color: $Validation-warning;
+    }
+
+    .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched .mat-form-field-outline-thick {
+      color: $inputfield-color;
+    }
+
+    .mat-form-field.mat-primary.mat-form-field-type-mat-input.mat-form-field-appearance-outline.mat-form-field-can-float.ng-pristine.ng-invalid.mat-form-field-invalid.ng-touched.mat-focused .mat-form-field-outline-thick {
+      color: $Primary-Color;
+    }
+
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-select-arrow,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid.mat-focused .mat-form-field-outline-thick,
+    .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid.mat-focused .mat-select-arrow,
+    .mat-form-field-appearance-outline .mat-form-field-outline {
+      color: $inputfield-color;
+    }
+
+    /* check box hover circel color css starts */
+
+    .mat-checkbox:not(.mat-checkbox-disabled).mat-primary .mat-checkbox-ripple .mat-ripple-element,
+    .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+      background-color: $Primary-ColorOpacity
+    }
+
+    .ng-trigger.ng-trigger-transformPanel.mat-select-panel.mat-primary {
+      @include box_shadow (5);
+    }
+
+    /*==== VALIDATION CSS ENDS ========= */
+
+    div .mat-form-field-appearance-outline .mat-form-field-flex {
+      padding: 0 0 0 0
+    }
+
+    .mat-form-field-appearance-outline .mat-form-field-outline-end,
+    .mat-form-field-appearance-outline .mat-form-field-outline-gap,
+    .mat-form-field-appearance-outline .mat-form-field-outline-start {
+      border-width: 1px !important;
+    }
+
+    .mat-form-field-wrapper {
+      padding-bottom: 1.44375em;
+    }
+
+    ::-webkit-input-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    ::-moz-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    :-ms-input-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    }
+
+    :-moz-placeholder {
+      color: $Grey-light !important;
+      opacity: 1 important;
+    } // .highcharts-credits {
+    //     color: #fff !important;
+    //     fill: #fefbfb !important;
+    // }

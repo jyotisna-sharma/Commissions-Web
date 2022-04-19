@@ -1,0 +1,93 @@
+@import'../../../assets/css/variable.scss';
+@import'../../../assets/css/sprite-image-bg.scss';
+.batch-manager .page-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: $secondary-color;
+    text-transform: capitalize;
+    margin-top: 10px;
+}
+
+ :host ::ng-deep .tableStyle.table-scroll-data .normal-box.tableData .tableStyle .table-outerScroller {
+    max-height: 206px !important;
+}
+
+.table-scroll-data {
+    overflow: auto;
+    height: 210px;
+}
+
+.mr-top10 {
+    margin-top: 10px;
+}
+
+.batch-manager .left-col {
+    float: left;
+}
+
+
+ :host ::ng-deep {
+    div.tabs-contentDiv .listing-table .normal-box.tableData {
+        margin-right: 0px;
+    }
+    .tableStyle.batchListing .table-outerScroller.table-scroll-mi-listing {
+        max-height: 220px !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .margin-right-none {
+        margin-right: -24px!important;
+    }
+    .batch-manager .left-col {
+        float: left;
+        width: 122px;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .margin-right-none {
+        margin-right: -15px;
+    }
+}
+
+::ng-deep button.filterButton {
+    width: 80%;
+    padding: 9px 10px;
+    background: #3455A5;
+    border: 0px;
+    color: #fff;
+    /* max-width: 144px; */
+    margin: 10px auto !important;
+    float: none;
+    display: inline-block;
+    margin-left: 10% !important;
+}
+
+.inline-block {
+    display: inline-block;
+    float: none;
+}
+
+.search-div .btn-outerDiv.align-withsearchBox {
+    right: 1px;
+}
+
+:host ::ng-deep {
+    td.mat-cell.cdk-column-BatchNumber.mat-column-BatchNumber,
+    td.mat-cell.cdk-column-Balance.mat-column-Balance,
+    td.mat-cell.cdk-column-StatmentNumber.mat-column-StatmentNumber,
+    td.mat-cell.cdk-column-CheckAmountString.mat-column-CheckAmountString,
+    td.mat-cell.cdk-column-HouseString.mat-column-HouseString,
+    td.mat-cell.cdk-column-RemainingString.mat-column-RemainingString,
+    td.mat-cell.cdk-column-DonePerString.mat-column-DonePerString,
+    td.mat-cell.cdk-column-Entries.mat-column-Entries,
+    td.mat-footer-cell.cdk-column-CheckAmountString.mat-column-CheckAmountString,
+    td.mat-footer-cell.cdk-column-HouseString.mat-column-HouseString,
+    td.mat-footer-cell.cdk-column-RemainingString.mat-column-RemainingString,
+    td.mat-footer-cell.cdk-column-DonePerString.mat-column-DonePerString,
+    td.mat-footer-cell.cdk-column-Entries.mat-column-Entries {
+        text-align: right;
+    }
+}

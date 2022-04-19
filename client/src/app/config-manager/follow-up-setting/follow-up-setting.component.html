@@ -1,0 +1,66 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showloading">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="main-content">
+  <div class="filter-outerbox filterContianer">
+    <div class="example-header data-filterSec padding-none full-widthForm">
+      <div class="divRow">
+        <div class="full-rowOuter">
+          <h4 class="page-title">{{title}}</h4>
+          <h4 class="page-title"></h4>
+          <span> </span>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="divRow">
+    <div class="tabs-container">
+      <app-config-manager-left-navigation></app-config-manager-left-navigation>
+      <div class="tabs-contentDiv">
+
+        <div class="filter-outerbox filterContianer">
+          <div class="example-header data-filterSec padding-none">
+
+            <form class="example-form" [formGroup]='FollowUpDetails'>
+              <div class="divRow margin-left-none">
+                <div class="full-rowOuter flex-start padding-left-none less-height border-none">
+                  <div class="alignCenter">
+                    <div class="left-col" >
+                      <label class="label inline-label" style='text-transform: initial;'>Number of Days</label>
+                      <mat-form-field appearance="outline" [ngClass]="{'wrongSecurity': isValidationShown}">
+                        <input matInput formControlName='days' autofocus numbers  onkeypress="return event.charCode != 45">
+                        <mat-error *ngIf="FollowUpDetails.controls['days'].errors?.required && FollowUpDetails.controls['days'].dirty">
+                          Please enter number of days.
+                        </mat-error>
+                        <mat-error *ngIf="FollowUpDetails.controls['days'].errors?.maxlength&& FollowUpDetails.controls['days'].dirty">
+                          Number of days must not exceed 3 digits.
+                        </mat-error>
+                      </mat-form-field>
+                      <p *ngIf="isValidationShown" class="error-Validation">{{validationMessage}} </p>
+                    </div>
+
+                    <mat-radio-group aria-label="Select an option" formControlName='Status'>
+                      <mat-radio-button value="Running">Start Service</mat-radio-button>
+                      <mat-radio-button value="Stop">Stop Service</mat-radio-button>
+                    </mat-radio-group>
+                  </div>
+                </div>
+
+              </div>
+              <div class="divRow">
+                <section class="margin-top footer-area full-widthRow">
+                  <button type="submit"  color='primary' class="pull-left mat-flat-button mat-primary coloured-primary-button " (click)="OnSavedetails()">Save</button>
+                  <button mat-stroked-button class="pull-right" (click)="OnResetValues()">Cancel</button>
+                 
+                </section>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!--*************************************************************************************************************-->

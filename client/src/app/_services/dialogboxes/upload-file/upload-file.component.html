@@ -1,0 +1,31 @@
+<div class="popup-header">
+    <h4 matDialogTitle>{{data.Title}}</h4>
+</div>
+
+<p class="error-section" *ngIf="isValidationShown">{{validationMessage}} <a class="close_icon"(click)='OnDisabledValidation()'></a></p>
+<div class="upload-container" *ngIf="!fileUploadingStart">
+    <div class="btn-upload-container">
+        <label>
+            Upload File
+            <input type="file" name="photo" (change)="UploadAndProgress($event)" />
+        </label>
+        <p>Supported formats: .pdf, excel(.xls)</p>
+        <p>Upload limit: 40MB.</p>
+    </div>
+</div>
+<div id="bar-container" *ngIf="fileUploadingStart && !serverUploadingDone">
+    <div class="align-middle">
+        <mat-progress-bar mode="determinate" [value]="percentDone"></mat-progress-bar>
+        <p>Uploading ({{percentDone}} %)</p>
+    </div>
+</div>
+<div id="bar-container" *ngIf="serverUploadingDone && fileUploadingStart">
+    <div class="align-middle">
+        <mat-progress-bar mode="determinate" [value]="percentDone"></mat-progress-bar>
+        <p>We are creating batch file on server.</p>
+    </div>
+</div>
+<div mat-dialog-actions class="align-right popup-footer">
+    <!-- <button mat-raised-button class="mat-flat-button mat-primary" [mat-dialog-close]='true'>{{data.primaryButton}}</button> -->
+    <button mat-button mat-stroked-button [mat-dialog-close]='false' *ngIf="!isButtonHide">{{data.secondaryButton}}</button>
+</div>

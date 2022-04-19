@@ -1,0 +1,56 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showLoading">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="main-content">
+  <div class="filter-outerbox filterContianer">
+    <div class="example-header data-filterSec padding-none full-widthForm">
+      <div class="divRow">
+        <div class="full-rowOuter">
+            <h4 class="page-title">{{title}}</h4>
+          <h4 class="page-title"></h4>
+          <span> </span>
+          <div class="create-newDelegate" matTooltip="This action is disabled as it requires 'Write' access for this module."
+          [matTooltipDisabled]="userdetail?.Permissions[0].Permission === 2">
+              <button class="loader-svg pull-right create-button small-size" (click)='OnCreateClick()' mat-flat-button [disabled]="userdetail?.Permissions[1].Permission === 1" [ngClass]="{'btn-disable': userdetail?.Permissions[1].Permission === 1}" >
+                Add New 
+              </button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="divRow">
+    <div class="tabs-container"> 
+     <app-setting-left-navigation></app-setting-left-navigation>
+     <div class="tabs-contentDiv">
+        <div class="filter-outerbox filterContianer">
+          <div class="example-header data-filterSec padding-none full-widthForm">
+            <div class="divRow">
+              <div class="full-rowOuter border-none">
+                <div class="search-div">
+                  <mat-form-field appearance="outline">
+                    <input matInput placeholder='Search: Payor, Carrier, Product, Product Type, Payment Type'  [(ngModel)]="searchData" (keydown.enter)="doSearch()" >
+                  </mat-form-field>
+                  <div class="btn-outerDiv align-withsearchBox search-cancel-btn">
+                      <button mat-button  matSuffix mat-icon-button aria-label="Clear" (click)="searchData='';handleSearchClear($event);" class="icon-cross" *ngIf="searchData">
+                          <mat-icon>close</mat-icon>
+                        </button>
+                    <button mat-raised-button class="loader-svg pull-left icon-button" mat-button mat-stroked-button  (click)="doSearch()" >
+                      <i class="img-icons search-icn"></i>
+                      <label>Search</label>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="normal-box tableData tablediv listing-table">
+              <app-mi-list [MiListProperties]=MiListProperties  (onMenuItemClick)='OnMenuItemClicked($event)'></app-mi-list> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <!--*************************************************************************************************************-->

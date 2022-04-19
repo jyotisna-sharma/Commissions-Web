@@ -1,0 +1,123 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showloading">
+    <mat-spinner></mat-spinner>
+</div>
+<div class="main-content">
+    <app-breadcrumb [pageName]="textShown" [moduleName]="ModuleName" (onPageRedirectionClick)="OnPageRedirection('breadcrumb')"></app-breadcrumb>
+    <div class="divRow">
+        <div class="tabs-container padding-left-none">
+            <div class="tabs-contentDiv">
+                <div class="add-editContainer formDesignCustom">
+                    <div class="divRow">
+                        <div class="white-box">
+                            <form class="example-form" [formGroup]='PayorContactDetails'>
+                                <mat-card class="mat-card-style">
+                                    <div class="column-container">
+                                        <div class="coloumn-lg-4">
+                                            <div class="top-title">
+                                                <h4>Personal information</h4>
+                                                <p class="require-text">Required field *</p>
+                                            </div>
+                                            <section class="full-widthRow">
+                                                <label class="label">First Name *</label>
+                                                <mat-form-field appearance="outline">
+                                                    <input matInput formControlName='FirstName' autofocus #firstnameref='matInput'>
+                                                    <mat-error *ngIf="PayorContactDetails.controls['FirstName'].errors?.required && PayorContactDetails.controls['FirstName'].dirty">
+                                                        Please enter First name.
+                                                    </mat-error>
+                                                    <mat-error *ngIf="(PayorContactDetails.controls['FirstName'].hasError('minlength') || PayorContactDetails.controls['FirstName'].hasError('maxlength')) && PayorContactDetails.controls['FirstName'].dirty">
+                                                        First name must be between 3 to 50 characters long.
+                                                    </mat-error>
+                                                </mat-form-field>
+
+                                            </section>
+                                            <section class="full-widthRow">
+                                                <label class="label">Last Name *</label>
+                                                <mat-form-field appearance="outline">
+                                                    <input matInput formControlName='LastName'>
+                                                    <mat-error *ngIf="PayorContactDetails.controls['LastName'].errors?.required && PayorContactDetails.controls['LastName'].dirty"> Please enter Last name.</mat-error>
+                                                    <mat-error *ngIf="(PayorContactDetails.controls['LastName'].hasError('minlength') || PayorContactDetails.controls['LastName'].hasError('maxlength')) && PayorContactDetails.controls['LastName'].dirty">
+                                                        Last name must be between 3 to 50 characters long.
+                                                    </mat-error>
+                                                </mat-form-field>
+
+                                            </section>
+                                        </div>
+                                        <div class="coloumn-lg-4">
+                                            <div class="top-title">
+                                                <h4>Preference</h4>
+
+                                            </div>
+                                            <section class="full-widthRow">
+                                                <label class="label">Contact Preference</label>
+                                                <mat-form-field appearance="outline">
+                                                    <mat-select formControlName="ContactPref">
+                                                        <mat-option *ngFor="let list of contactPrefList" [value]="list.key">
+                                                            {{list.Value}}</mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </section>
+                                            <section class="full-widthRow">
+                                                <label class="label">Priority</label>
+                                                <mat-form-field appearance="outline">
+                                                    <mat-select formControlName="Priority">
+                                                        <mat-option *ngFor="let priorityList of priorityList" [value]="priorityList.key">
+                                                            {{priorityList.value}}</mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </section>
+                                        </div>
+                                        <div class="coloumn-lg-4">
+
+                                            <div class="top-title">
+                                                <h4>Contact information </h4>
+                                            </div>
+                                            <section class="full-widthRow fieldwithIcon ">
+                                                <label class="label">Address</label>
+                                                <mat-form-field appearance="outline" class='hidden '>
+                                                    <label class="img-icons search-icn"></label>
+                                                    <input matInput placeholder="Search address" formControlName='Address'>
+                                                </mat-form-field>
+                                                <app-mi-autocomplete class="search-icn"
+                                                [postData]="Searchforstring" 
+                                                (textBoxValue)='getValue($event)'
+                                                (selAutoData)='GetSelectedAccount($event)' 
+                                                [editSelValue]='PayorContactDetails?.controls?.Address?.value' *ngIf="isPayordetailsfound">
+                                                </app-mi-autocomplete>
+                                                <!-- [dataURL]="url"  -->
+                                            </section>
+                                            <section class="full-widthRow">
+                                                <label class="label">Email</label>
+                                                <mat-form-field appearance="outline">
+                                                    <input matInput formControlName="EmailAddress">
+                                                    <mat-error *ngIf="PayorContactDetails.controls['EmailAddress'].errors?.pattern && PayorContactDetails.controls['EmailAddress'].dirty">
+                                                        Please enter valid email address.
+                                                    </mat-error>
+                                                    <p *ngIf="isEmailAlreadyExist" class="error-Validation">Entered email address already exists. Please try with different email address. </p>
+                                                </mat-form-field>
+
+                                            </section>
+                                            <app-phone-input labelName='office phone number' *ngIf='isPayordetailsfound'  [formGroupData]=this.PayorContactDetails.controls.OfficePhoneNumber>
+                                            </app-phone-input>
+                                            <!-- {{this?.faxNumber}} -->
+                                            <app-phone-input labelName='fax number' [formGroupData]=this.PayorContactDetails.controls.FaxNumber>
+                                            </app-phone-input>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="divRow">
+                                        <section class="margin-top footer-area full-widthRow">
+                                            <button type="submit" color='primary' class="pull-left mat-flat-button mat-primary coloured-primary-button " (click)="Oncreate()">{{ButtonName}}</button>
+                                            <button mat-stroked-button class="pull-right" (click)="OnPageRedirection('Cancel')">Cancel</button>
+                                        </section>
+                                    </div>
+                                </mat-card>
+                            </form>
+                            <div class="spinner-container">
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>

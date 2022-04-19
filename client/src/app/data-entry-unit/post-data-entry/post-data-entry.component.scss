@@ -1,0 +1,512 @@
+.statementDate {
+  width: 56%;
+  margin-left: 113px !important;
+}
+
+.clr-0A9F8C {
+  color: #0A9F8C;
+}
+
+.statement-info {
+  font-weight: 600;
+  background-color: #f7f7f7 !important;
+}
+
+.StatementInfoGroupBox {
+  min-height: 188px;
+}
+
+.field-witk-label .table-cell:first-child {
+  min-width: 99px;
+  width: 99px;
+  max-width: 99px;
+}
+
+.deu-post-entry {
+  width: 100%;
+  /* position: absolute; */
+  display: inline-block;
+  margin: 0 auto;
+  vertical-align: middle;
+  border: 1px solid #e6e6e6;
+  margin-top: 8px;
+  padding: 8px;
+}
+
+:host ::ng-deep {
+  .minimized-pageContent {
+    .fullBoxContainerMain {
+      float: left;
+      width: 100%;
+      padding-left: 10px;
+      padding-right: 10px;
+      .mat-tab-body-wrapper .mat-tab-body-content .tableStyle {
+        .table-outerScroller.table-scroll-mi-listing {
+          height: 186px !important;
+          p.noDataFound {
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            margin-top: 10px;
+        }
+        }
+      }
+      .minimize-height {
+        .table-outerScroller.table-scroll-mi-listing {
+          max-height: 86px !important;
+        }
+      }
+      .minimize-height-5 {
+        .table-outerScroller.table-scroll-mi-listing {
+          max-height: 127px !important;
+        }
+      }
+      .StatementInfoGroupBox {
+        .full-widthRow {
+          min-height: 24px;
+          margin-bottom: 4px;
+        }
+        label.label-inline {
+          min-width: 85px;
+          display: inline-block;
+        }
+        .width-auto {
+          width: auto !important;
+          .table-cell {
+            padding-right: 6px;
+          }
+          label.label-inline {
+            min-width: 98px;
+          }
+          span,
+          label {
+            display: table-cell !important;
+            vertical-align: top;
+          }
+          span {
+            word-break: break-all;
+          }
+          span+label {
+            padding-left: 5px;
+          }
+        }
+      }
+      a.link {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      .policy-no-product {
+        width: 305px;
+        height: 176px;
+        display: inline-block;
+        vertical-align: middle;
+        border: 1px solid #e6e6e6;
+        margin-left: -1px;
+        vertical-align: middle;
+        padding: 8px 16px;
+        ul {
+          font-size: 12px;
+          margin-top: 10px;
+          padding: 0px;
+          list-style: none;
+        }
+        ul li {
+          font-size: 12px;
+          margin-right: 7px;
+          padding-right: 7px;
+          position: relative;
+          display: inline-block;
+          a {
+            text-decoration: underline;
+          }
+          &::after {
+            height: 8px;
+            width: 1px;
+            display: block;
+            background-color: #ccc;
+            content: '';
+            position: absolute;
+            right: 1px;
+            top: 4px;
+          }
+          &:last-child::after {
+            display: none;
+          }
+        }
+        h4 {
+          font-size: 14px;
+          font-weight: 400;
+          margin-top: 8px;
+          margin-bottom: 2px;
+        }
+      }
+      span.no-count {
+        color: #3455A5;
+        display: inline-block;
+      }
+      .input-box input {
+        margin-left: -11px !important;
+      }
+    }
+    .mat-tab-labels {
+      .mat-tab-label {
+        height: 28px;
+        line-height: 28px;
+        font-size: 12px;
+      }
+    }
+    .statement-info {
+      float: left;
+    }
+    div .mat-form-field-appearance-outline .mat-form-field-wrapper {
+      margin: 0 0 0px !important;
+      padding-bottom: 0px;
+      min-height: 24px;
+      .mat-form-field-outline {
+        min-height: 24px !important;
+      }
+      input {
+        font-size: 12px;
+      }
+    }
+    .mat-form-field-type-mat-select {
+      .mat-form-field-wrapper {
+        min-height: 24px !important;
+      }
+      .mat-form-field-infix {
+        padding: 1px 0 0px 0 !important;
+        .mat-select-arrow-wrapper {
+          padding-top: 0px;
+          padding-bottom: 0px;
+          vertical-align: middle;
+        }
+        .mat-datepicker-toggle .mat-button-wrapper {
+          background-position: -108px -110px;
+        }
+      }
+    }
+    .field-witk-label {
+      position: relative;
+      font-size: 12px;
+      .mat-form-field {
+        width: calc(100% - 80px);
+        margin-left: 80px;
+      }
+    }
+    .statnmt-links {
+      a.links {
+        font-size: 11px;
+        margin-right: 10px;
+        padding-right: 10px;
+        text-decoration: underline;
+        position: relative;
+        &::after {
+          height: 12px;
+          width: 1px;
+          background: #e6e6e6;
+          display: inline-block;
+          position: absolute;
+          right: 0px;
+          content: "";
+          top: 4px;
+        }
+        &:last-child::after {
+          display: none;
+        }
+      }
+    }
+    mat-form-field {
+      .mat-select-trigger {
+        font-size: 11px;
+      }
+    }
+    .payor-row {
+      .display-table {
+        mat-form-field.mat-form-field.mat-form-field-type-mat-input {
+          @media screen and (min-width: 1024px) {
+            min-width: 100px;
+          }
+        }
+      }
+    }
+    .display-table {
+      display: table;
+      width: 100%;
+      .table-cell {
+        display: table-cell;
+        vertical-align: middle;
+        .statement-info-label {
+          left: inherit;
+          margin-right: 10px;
+          position: relative;
+          min-width: 93px;
+        }
+        .mat-form-field {
+          width: 100%;
+          margin-left: 0px !important;
+          min-width: 75px;
+          .mat-form-field-infix {
+            width: 100%;
+          }
+        }
+      }
+    }
+    .normal-box.tableData .tableStyle {
+      table tr.mat-header-row .mat-sort-header-button {
+        font-size: 11px;
+      }
+      tr.mat-header-row {
+        height: 20px;
+        th::before {
+          display: none;
+        }
+        .mat-sort-header-container {
+          button {
+            font-weight: 600;
+          }
+        }
+        th {
+          padding-left: 6px;
+          padding-right: 6px;
+        }
+      }
+      tr.mat-footer-row,
+      tr.mat-row {
+        height: 22px;
+        cursor: pointer;
+        td.mat-cell {
+          cursor: pointer;
+        }
+      }
+      td.mat-cell.cdk-column-LicenseeName.mat-column-LicenseeName {
+        max-width: 160px;
+        width: 160px;
+      }
+      .active td {
+        background-color: #f2dede !important;
+        color: #E03F3D;
+          p {
+            color: #E03F3D;
+          }
+      }
+     .highlighted-row {
+        background: #cbdaff !important;
+        td {
+          background: #cbdaff !important;
+          color: #495057;
+          p {
+            color: #495057;
+          }
+        }
+      }
+      td {
+        text-align: left;
+      }
+      td.mat-column-CheckAmountString,
+      td.cdk-column-CreatedDateString,
+      td.cdk-column-LastModifiedDateString,
+      td.cdk-column-PaymentReceived,
+      td.cdk-column-CommissionPercentage,
+      td.cdk-column-Units,
+      td.cdk-column-Fee,
+      td.cdk-column-SplitPercentage,
+      td.cdk-column-CommissionTotal,
+      td.cdk-column-StatementNumber,
+      td.cdk-column-BatchNumber,
+      td.cdk-column-PaymentMode {
+        text-align: right;
+      }
+      p.noDataFound {
+        font-size: 12px;
+        font-weight: 600;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+      }
+    }
+    .field-witk-label:first-child .table-cell:first-child {
+      width: 93px;
+      min-width: 93px;
+      max-width: 93px;
+    }
+    .post-entrySectionContainer {
+      width: 778px;
+      display: inline-block;
+      vertical-align: middle;
+      border-left: 1px solid #e6e6e6;
+      border-top: 1px solid #e6e6e6;
+      border-right: 1px solid #e6e6e6;
+      border-bottom: 1px solid #e6e6e6;
+      height: 176px;
+      .btns-rows {
+        border-top: 1px solid #e6e6e6;
+      }
+      .input-box input {
+       margin-left: -10px !important; 
+     }
+    }
+    .post-entrySection {
+      height: 135px;
+      background: #ffffff;
+      width: 100%;
+      position: relative;
+      display: block;
+      padding: 10px;
+      background-size: 100% 100%;
+      .input-box {
+        position: absolute;
+        padding-top: 14px;
+        label.label.no-wrap {
+          position: absolute;
+          margin-top: -12px;
+          float: left;
+          margin-left: -10px !important;
+          
+        }
+      }
+    }
+    .tableStyle table td,
+    .normal-box.tableData .tableStyle table td {
+      position: relative;
+      font-size: 11px;
+      padding-left: 6px;
+      padding-right: 6px;
+    }
+    .page-title {
+      font-size: 12px;
+      color: #000;
+      font-weight: 600;
+      float: left;
+    }
+    .help-txt {
+      color: #3455A5;
+      font-weight: 700;
+      padding-left: 26px;
+      position: relative;
+      i {
+        position: absolute;
+        left: 0px;
+        font-size: 20px;
+        top: -2px;
+      }
+    }
+    label.label-middle {
+      font-size: 12px;
+      font-weight: 700;
+      span.no-count {
+        margin: 7px 5px 0px 7px;
+        padding: 0px 4px;
+        position: relative;
+        line-height: 17px;
+        vertical-align: middle;
+        &::after {
+          display: block;
+          content: "";
+          height: 11px;
+          background: #ccc;
+          position: absolute;
+          right: -5px;
+          top: 3px;
+          width: 1px;
+        }
+      }
+      span.no-count.error::after {
+        display: none;
+      }
+    }
+    .no-image-label {
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .no-image-bg {
+      background: url(/assets/images/no-image.png);
+      height: 60px;
+      width: 60px;
+      margin: 0 auto;
+      display: inline-block;
+      float: none;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
+
+.white-bg {
+  background-color: #fff !important;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.errorMessage {
+  font-size: 12px;
+  color: red;
+  font-weight: 600;
+  float: right;
+}
+
+:host ::ng-deep .data-entry-unit-page {
+  position: relative;
+  .popup-header {
+    position: absolute;
+    top: -4px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    padding-left: 16px;
+  }
+}
+
+.disabled {
+  color: currentColor;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+  pointer-events: none;
+}
+
+@media only screen and (max-width: 1200px) {
+  .batch-statmnts-col {
+    width: 45%;
+  }
+  .statment-col {
+    width: 55%;
+  }
+}
+
+/* Chrome, Safari, Edge, Opera */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+.fontText{
+    line-height: 30px;
+    height: 30px;
+    padding: 0 16px;
+    font-size: 11px;
+}

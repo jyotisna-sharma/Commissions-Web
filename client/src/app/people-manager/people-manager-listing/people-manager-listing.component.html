@@ -1,0 +1,53 @@
+<div class="spinner-container loader-svgContainer" *ngIf="showloading">
+    <mat-spinner></mat-spinner>
+</div>
+<div class="main-content">
+    <div class="filter-outerbox filterContianer">
+        <div class="example-header data-filterSec padding-none full-widthForm">
+            <div class="divRow">
+                <div class="full-rowOuter">
+                    <h4 class="page-title">People manager</h4>
+                    <div class="create-newDelegate" matTooltip="This action is disabled as it requires 'Write' access for this module." [matTooltipDisabled]="userdetail?.Permissions[0].Permission === 2">
+                        <button class="loader-svg pull-right create-button small-size" mat-flat-button routerLink='/people/CreateNewAgent/1' [disabled]="userdetail?.Permissions[0].Permission === 1" [ngClass]="{'btn-disable': userdetail?.Permissions[0].Permission === 1}">
+              Create New Agent
+            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="divRow">
+        <div class="tabs-container">
+
+            <app-people-manager-left-navigation [agentCount]="agentCount" [userCount]="userCount" [dataEntryUserCount]='dataEntryUserCount'></app-people-manager-left-navigation>
+            <div class="tabs-contentDiv">
+                <div class="filter-outerbox filterContianer">
+                    <div class="example-header data-filterSec padding-none full-widthForm">
+                        <div class="divRow">
+                            <div class="full-rowOuter border-none">
+                                <div class="search-div">
+                                    <mat-form-field appearance="outline">
+                                        <input matInput placeholder="Search: Username, Nickname, Email, First and Last name" [(ngModel)]="searchData" (keydown.enter)="DataSearch()">
+                                    </mat-form-field>
+                                    <div class="btn-outerDiv align-withsearchBox search-cancel-btn">
+                                        <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="searchData='';handleSearchClear($event);" class="icon-cross" *ngIf="searchData">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                                        <button mat-raised-button class="loader-svg pull-left icon-button" mat-button mat-stroked-button (click)="DataSearch()">
+                      <i class="img-icons search-icn"></i>
+                      <label>Search</label>
+                    </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="normal-box tableData tablediv listing-table">
+                    <app-mi-list [MiListProperties]=MiListProperties (onMenuItemClick)="onMenuItemClick($event)" (onAfterDataLoaded)="GetMiListResponse($event)" (onPageChange)='OnPageinationChange($event)' [isButtonDisabled]='isRadiobuttonDisabled'></app-mi-list>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--*************************************************************************************************************-->

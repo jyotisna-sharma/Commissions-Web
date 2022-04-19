@@ -1,0 +1,221 @@
+@mixin button-style-default {
+    font-size: 13px;
+    font-weight: 700 !important;
+    .mat-button, .mat-flat-button, .mat-icon-button, .mat-stroked-button {
+        box-sizing: border-box;
+        min-width: 88px;
+        line-height: 36px;
+        padding: 0 16px;
+        overflow: visible;
+    }
+    &:hover, &:focus {
+        background-color: $button-hover !important;;
+        box-shadow: none !important;;
+     }
+     &:active {
+        box-shadow: none ;
+     }
+  }
+.mat-flat-button.mat-primary .mat-button-wrapper .ng-star-inserted{
+    vertical-align: top !important;
+}
+@mixin button-style-small {
+    font-size: 11px;
+    line-height: 30px !important;
+  }
+
+  @mixin button-danger
+    {
+        background: $btn-danger; color: $white-color; border:1px solid #E03F3D !important;      
+    }
+
+    @mixin button-danger-hover
+    {
+        background: $btn-danger-hover; color: $white-color; border:1px solid #E03F3D;       
+    }
+
+    .btn-danger{@include button-danger}
+    .btn-danger:hover,btn-danger:focus{@include button-danger-hover}
+
+    @mixin button-disable
+    {
+        background: $disabled-button !important; color:#969696 !important; pointer-events: none; border-color: $disabled-button !important;    
+    }
+ 
+    .mat-raised-button[disabled][disabled],
+     .mat-flat-button.btn-disable{@include button-disable}
+
+    /* toggel button csss */
+
+    .mat-slide-toggle-thumb
+    {
+        @include box_shadow (6);
+    }
+
+  
+    /*  icons butun small */
+
+ @mixin button-style-icon-small {
+        min-height: 30px;
+        text-align: center;
+        max-width: 34px;
+        padding: 0px 5px;
+        background: #f7f7f7;
+    }
+    .search-cancel-btn {
+        button {
+            @include button-style-icon-small;
+        }
+    }
+
+
+    @mixin highligted-button {
+    background-color: #ffcf70 !important;
+    border-color: #ffcf70 !important;
+    }
+
+    .highligted-button {
+        @include highligted-button;
+    }
+
+/*  button with iocns */
+
+/* small */
+
+@mixin button-with-icon-small  {
+    padding-left: 36px !important;
+    line-height: 30px !important;
+    min-height: 30px;
+    background: url(/assets/images/sprite-icons.png) !important;
+    background-repeat: no-repeat;
+    background-position: 4px 3px !important;
+}
+
+
+.button-with-icon-sm {
+    @include button-with-icon-small; 
+}
+
+
+/*   select box with image */
+@mixin select-button-with-icon {
+    max-width: 108px;
+    margin-left: 16px;
+    margin-right: 16px;
+    /* padding-left: 30px; */
+
+    .mat-select.mat-select {
+        padding-left: 32px !important;
+    }
+}
+
+.select-box-width-icon {
+    @include select-button-with-icon; 
+}
+
+    /****/
+
+    .mat-dialog-actions .mat-flat-button.btn-disable {
+      @include button-disable;
+    }
+
+    .button-with-icon-sm {
+        @include button-with-icon-small;  
+    }
+
+   .btn-disable::after{
+       opacity:0.5;
+   }
+
+    /*     */
+
+    .icon-button::after {
+        content: ''; top: 4px; position: absolute; left: 15px; font-size: 16px;  vertical-align: middle;  line-height: 27px;
+        background: url(/assets/images/sprite-icons.png); height: 20px; width: 20px;  content: ''; 
+        /* background-color: gainsboro; */
+    }
+ .excel-icon::after {
+        background-position: -156px 117px;
+    }
+    .pdf-icon::after {
+        background-position: -156px 146px;  
+    }
+    
+
+
+    /***************************/
+
+/* Yellow Color Button */
+
+@mixin higlighted-button {
+    background-color: #FFD069 !important;
+    color: #252729;
+    margin-left: 16px;
+    text-transform: capitalize;
+    button.hover ,     button.focus {
+        background-color: #ffc654 !important;
+    }
+}
+
+::ng-deep a.add-btnLink  {
+    color: #3455A5 !important;
+    .mat-button-focus-overlay {
+        background-color: rgb(52, 85, 165) !important;
+    }
+}
+
+
+button.roundedIconButton.mat-icon-button {
+    width: 36px;
+    height: 36px;
+    border-radius: 50% !important;
+    overflow: hidden;
+    line-height: 36px !important;
+    vertical-align: middle;
+}
+
+button.mat-stroked-button[color="primary"] {
+    color: $Primary-Color;
+}
+
+    button.btn-sm {
+        min-height: 26px;
+        max-height: 26px;
+        line-height: 24px !important;
+        border-radius: 4px;
+        font-size: 11px !important;
+    }
+    button.mat-stroked-button {
+        border-radius: 4px !important;
+    }
+
+    a.mat-focus-indicator.mat-button.mat-button-base.mat-primary {
+        text-decoration: underline;
+        color: $Primary-Color;
+        text-transform: capitalize;
+    }
+
+    button.mat-raised-button.mat-button-base.mat-primary[color="primary"]
+    {
+        &:hover, &:focus {
+        background-color: $button-hover !important;
+    }
+}
+
+
+.post-entrySectionContainer
+ { 
+    button.mat-stroked-button[color=primary] ,
+      button.mat-raised-button.mat-button-base.mat-primary[color="primary"]
+      {
+        line-height: 22px !important;
+      }
+    
+    button.mat-stroked-button[color=primary]:hover ,
+    button.mat-stroked-button[color=primary]:focus ,
+    button.mat-raised-button.mat-button-base.mat-primary[color="primary"]:hover ,
+      button.mat-raised-button.mat-button-base.mat-primary[color="primary"]:focus {
+         border: 2px solid #092d84 !important;
+         line-height: 22px !important;
+}
+}

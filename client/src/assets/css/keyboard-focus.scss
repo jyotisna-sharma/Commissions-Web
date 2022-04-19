@@ -1,0 +1,108 @@
+// a:focus ,   button.mat-flat-button.mat-primary:focus
+//  {
+//    outline: 5px auto #99c6f3;
+//    box-sizing: border-box; 
+//   }
+
+//   /****************************/
+//   button.mat-flat-button.mat-primary:focus
+// {
+    
+//     -webkit-box-shadow:  0px 0px 0px 2px #a0d1fa;
+//     box-shadow:  0px 0px 0px 2px #a0d1fa;
+//     box-sizing: border-box;
+//   }
+
+
+ 
+//  :focus {
+//     outline: -webkit-focus-ring-color auto 5px;
+// }
+// button:focus, input:focus {
+//     outline: -webkit-focus-ring-color auto 0px;
+// }
+// a:-webkit-any-link:active {
+//     color: -webkit-activelink;
+// }
+
+// a:-webkit-any-link {
+//     color: -webkit-link;
+//     cursor: pointer;
+// }
+// :focus {
+//     outline: -webkit-focus-ring-color auto 5px;
+// }
+// button.mat-raised-button:focus ,
+// button.mat-stroked-button:focus {
+//  opacity: .6;
+// }
+
+// .main-content .create-newDelegate button.create-button:focus {
+//     opacity: .8;
+// }
+// .mat-icon-button:focus{
+// background: rgba(0, 0, 0, .1)
+// }
+// .header-menu.user-notification 
+// { 
+   
+//     button:focus
+//   {
+//     background: rgba(255, 255, 255, .2);
+//     box-sizing: border-box; 
+//  }
+// }
+
+// @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+//     button:focus {
+//         outline: focus-ring-color auto 0px;
+//     }  
+//  }
+
+//  /* css added for not working in IE browser  */
+
+
+//  @supports not (-ms-high-contrast: none) {
+//     a:focus ,   button.mat-flat-button.mat-primary:focus
+//     {
+//       outline: 5px auto #99c6f3;
+//       box-sizing: border-box; 
+//      }
+   
+//      /****************************/
+//      button.mat-flat-button.mat-primary:focus
+//    {
+       
+//        -webkit-box-shadow:  0px 0px 0px 2px #a0d1fa;
+//        box-shadow:  0px 0px 0px 2px #a0d1fa;
+//        box-sizing: border-box;
+//      }
+   
+   
+    
+//     :focus {
+//        outline: -webkit-focus-ring-color auto 5px;
+//    }
+//    button:focus, input:focus {
+//        outline: -webkit-focus-ring-color auto 0px;
+//    }
+//    a:-webkit-any-link:active {
+//        color: -webkit-activelink;
+//    }
+   
+//    a:-webkit-any-link {
+//        color: -webkit-link;
+//        cursor: pointer;
+//    }
+//    :focus {
+//        outline: -webkit-focus-ring-color auto 5px;
+//    }
+//    button.mat-raised-button:focus ,
+//    button.mat-stroked-button:focus {
+//     opacity: .6;
+//    }
+   
+//    .main-content .create-newDelegate button.create-button:focus {
+//        opacity: .8;
+//    }
+//   }

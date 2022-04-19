@@ -1,0 +1,37 @@
+<div class="popup-header">
+  <h4 mat-dialog-title>{{data.headingTitle}}</h4><a class="close_icon" (click)='OnClosePopup()'></a>
+</div>
+<div class="batch-container">
+  <div class="sub-txt">{{data.subTitle}}</div>
+
+  <table border="0" width="100%" cellpadding="0" cellspacing="0" align="center">
+    <thead>
+      <tr class="header-bg">
+        <td>Total Count</td>
+        <td>Count of Success</td>
+        <td>Count of Failure</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{data.totalcount}}</td>
+        <td>{{data.successCount}}</td>
+        <td>{{data.failedBatchCount}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="failed-count" *ngIf="data.failedBatchCount > 0">
+    <span><strong>Failed Batches: </strong></span><span>{{failedBatches}}</span>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div mat-dialog-actions class="align-right popup-footer">
+  <button mat-button class='mat-flat-button' color="primary" class="mat-flat-button mat-primary" [mat-dialog-close]=''>Ok</button>
+</div>

@@ -1,0 +1,612 @@
+.main-content .mat-stroked-button {
+    font-size: 12px;
+    font-weight: 600;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px !important;
+    text-decoration: none;
+    line-height: 32px !important;
+    margin-top: 2px;
+}
+
+.main-content .mat-stroked-button:hover {
+    background: rgba(153, 153, 153, 0.1);
+}
+
+.create-newDelegate span {
+    width: auto;
+    float: left;
+}
+
+p.hint-txt {
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    font-size: 11px;
+}
+
+:host ::ng-deep {
+    .main-content .create-newDelegate button.create-button,
+    .main-content .create-newDelegate button.export,
+    .main-content .create-newDelegate .upload,
+    .main-content .btn-section button.create-button,
+    .main-content .btn-section button.export,
+    .main-content .btn-section .upload {
+        margin-left: 8px !important;
+        margin-right: 8px !important;
+    }
+    .main-content .filterContianer .data-filterSec .mat-form-field-appearance-outline .mat-form-field-outline {
+        min-height: 34px;
+    }
+}
+
+:host ::ng-deep div.right-alignBtns {
+    .mat-form-field-appearance-outline .mat-form-field-wrapper {
+        padding-bottom: 8px;
+        margin-bottom: 4px;
+    }
+    button.small-size.mat-raised-button {
+        line-height: 30px;
+        height: 34px;
+        margin-left: 0px !important;
+    }
+}
+
+span.span_to {
+    width: 17px;
+    display: inline-block;
+    line-height: 36px;
+}
+
+:host ::ng-deep .btn-outer {
+    display: inline-block;
+    vertical-align: top;
+    max-width: 280px;
+    mat-form-field .mat-form-field-wrapper {
+        margin-top: 0px !important;
+    }
+    mat-form-field.mat-primary.mat-form-field-type-mat-input .mat-form-field-suffix {
+        top: 4.3px;
+        height: 32px;
+        overflow: hidden;
+        border-left: 1px solid #ccc;
+        background: #f7f7f7;
+        right: 1px;
+    }
+}
+
+.text-right {
+    text-align: right;
+}
+
+.tabs-data-dashboard {
+    float: left;
+    width: 100%;
+    display: none;
+}
+
+.graph-outer {
+    position: relative;
+}
+
+.graph-outer::after {
+    display: block;
+    content: "";
+    width: 1px;
+    height: 100%;
+    background: #e6e6e6;
+    position: absolute;
+    right: -22px;
+    top: 0px;
+}
+
+.border-box .custom-row .col-6-lg:last-child .graph-outer::after {
+    display: none;
+}
+
+:host ::ng-deep .tabs-data-dashboard .mat-expansion-panel-content {
+    border-top: 1px solid #e6e6e6;
+    .border-box {
+        border: 0px !important;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        h3.border-line-bot {
+            display: none;
+        }
+    }
+}
+
+:host ::ng-deep {
+    .netRevenue-tab {
+        .GrossRevenue {
+            display: none;
+        }
+    }
+    .grossRevenue-tab {
+        .NetRevenue {
+            display: none;
+        }
+    }
+    mat-accordion .full-width-tab {
+        width: 100%;
+    }
+    @media only screen and (min-width: 1024px) {
+        .GrossRevenue,
+        .NetRevenue {
+            .border-box {
+                min-height: 200px;
+            }
+        }
+        .RevenueLoc-Agents {
+            .border-box {
+                min-height: 345px;
+            }
+            .full-med-screen:last-child {
+                .border-box {
+                    .normal-box.tableData.min-record .tableStyle {
+                        min-height: 230px;
+                    }
+                }
+            }
+        }
+        .tableData.min-record {
+            .tableStyle {
+                min-height: 260px;
+            }
+        }
+        .normal-box.tableData.min-record.max-record {
+            .tableStyle {
+                min-height: 220px;
+            }
+        }
+    }
+}
+
+:host ::ng-deep {
+    .tabs-data-dashboard {
+        .cdk-keyboard-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+        .cdk-program-focused .mat-calendar-body-active>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+        .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+        .mat-form-field-appearance-fill .mat-form-field-flex,
+        .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled="true"]).cdk-keyboard-focused,
+        .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled="true"]).cdk-program-focused,
+        .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled="true"]):hover {
+            background: #fff !important;
+        }
+    }
+}
+
+// :host ::ng-deep .normal-box.tableData .table-outerScroller.table-scroll-mi-listing {
+//     max-height: 31vh !important;
+// }
+//   ***************** MEDIA QUERY ***************** //
+@media only screen and (max-width: 1023px) {
+    .graph-outer::after {
+        display: none;
+    }
+    div.right-alignBtns {
+        .custom-row {
+            display: table;
+            width: 100%;
+            button.small-size.mat-raised-button {
+                display: table-cell;
+                min-width: 88%;
+            }
+            .btn-outer {
+                float: none;
+                display: table-cell;
+                padding-right: 8px;
+                padding-left: 8px;
+                .mat-form-field {
+                    width: 100%;
+                }
+            }
+            span.span_to {
+                float: none;
+                display: table-cell;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1023px) {
+    .desktop-data-dashboard {
+        display: none;
+    }
+    .tabs-data-dashboard {
+        display: block !important;
+        .right-alignBtns {
+            .btn-outer {
+                max-width: 170px;
+            }
+            .import-icon::after {
+                left: 23px;
+            }
+        }
+    }
+}
+
+:host ::ng-deep {
+    .tabs-data-dashboard .mat-accordion {
+        .full-width-tab.GrossRevenue,
+        .full-width-tab.NetRevenue {
+            margin-top: 0px !important;
+            margin-bottom: 0px !important;
+            margin-left: -15px !important;
+        }
+    }
+}
+
+h3 {
+    font-size: 18px;
+}
+
+.tabs-data-dashboard .mat-expansion-panel-spacing {
+    margin: 0px 0;
+}
+
+:host ::ng-deep .desktop-data-dashboard {
+    .table-outerScroller.table-scroll-mi-listing {
+        max-height: 227px !important;
+    }
+    .btn-outer.apply-Btn {
+        padding-right: 60px !important;
+        position: relative;
+    }
+    .RenewalList .table-outerScroller.table-scroll-mi-listing {
+        max-height: 260px !important;
+    }
+}
+
+:host ::ng-deep mat-form-field.datepicker-field.mat-form-field-disabled .mat-form-field-wrapper .mat-form-field-outline {
+    background: #f7f7f7 !important;
+}
+
+:host ::ng-deep {
+    @media only screen and (max-width: 700px) {
+        .tabs-data-dashboard {
+            .mat-accordion {
+                .custom-row {
+                    .col-4-lg {
+                        width: 100%;
+                    }
+                }
+                div.right-alignBtns {
+                    padding-bottom: 8px;
+                    .custom-row {
+                        display: block;
+                        width: 100%;
+                        margin: 0px;
+                        margin-bottom: 13px;
+                        .btn-outer {
+                            width: 100%;
+                            min-width: 100%;
+                            display: block;
+                            padding: 0px !important;
+                            margin-left: 0px;
+                            margin-right: 0px;
+                            margin-top: 0px;
+                            margin-bottom: 2px;
+                        }
+                        span.span_to {
+                            float: none;
+                            display: block;
+                            text-align: center;
+                            width: 100%;
+                            line-height: 20px;
+                            margin-bottom: 4px;
+                        }
+                        button.small-size.mat-raised-button {
+                            display: block;
+                            min-width: 100%;
+                            margin: 0px !important;
+                        }
+                        .btn-outer.import-icon {
+                            max-width: 55px;
+                            min-width: 55px;
+                            float: right;
+                            margin-top: -35px;
+                            &::after {
+                                left: 13px;
+                            }
+                            button.mat-icon-button {
+                                width: 32px;
+                                height: 32px;
+                            }
+                        }
+                        .btn-outer.apply-Btn {
+                            padding-right: 60px !important;
+                            position: relative;
+                        }
+                    }
+                    .mat-form-field-appearance-outline .mat-form-field-wrapper {
+                        padding-bottom: 4px;
+                        margin-bottom: 4px;
+                    }
+                }
+                .Revenue-by-LOC,
+                .top-agents {
+                    div.right-alignBtns {
+                        padding-left: 0px;
+                        padding-right: 0px;
+                    }
+                }
+                .Revenue-trends div.right-alignBtns {
+                    padding-bottom: 20px;
+                    padding-top: 20px !important;
+                }
+                .Revenue-trends .mat-expansion-panel-content .mat-expansion-panel-body>.custom-row {
+                    margin-left: -16px !important;
+                    margin-right: -16px !important;
+                }
+                .tableStyle {
+                    .table-outerScroller.table-scroll-mi-listing {
+                        max-height: 227px;
+                        table {
+                            tr.mat-header-row .mat-header-cell,
+                            .mat-sort-header-button {
+                                line-height: 13px;
+                            }
+                        }
+                    }
+                }
+                .Receivables-tab {
+                    div.right-alignBtns {
+                        padding-left: 0px;
+                        padding-right: 0px;
+                    }
+                }
+                .Revenue-trends {
+                    .right-alignBtns {
+                        .btn-outer {
+                            margin-left: 0px !important;
+                        }
+                    }
+                }
+                .normal-box .tableStyle {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+    @media only screen and (max-width: 700px) {
+        .data-filterSec .full-rowOuter>div {
+            width: 100%;
+        }
+        .main-content .create-newDelegate button.create-button,
+        .main-content .create-newDelegate button.export,
+        .main-content .create-newDelegate .upload {
+            margin: 0px !important;
+        }
+        .main-content .create-newDelegate button.create-button,
+        .main-content .create-newDelegate button.export {
+            width: 100%;
+            float: left;
+        }
+        .main-content .create-newDelegate {
+            &>span {
+                width: 50%;
+                &:first-child {
+                    padding-right: 1px;
+                }
+                &:last-child {
+                    padding-left: 1px;
+                }
+            }
+        }
+        .main-content .btn-section button.create-button,
+        .main-content .btn-section button.export,
+        .main-content .btn-section .upload {
+            margin-left: 8px !important;
+            margin-right: 5px !important;
+        }
+        .create-newDelegate {
+            position: fixed;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            z-index: 9;
+            background: #fff;
+            border-top: 1px solid #e6e6e6;
+            /* padding-bottom: 12px; */
+            /* padding-top: 4px; */
+            margin-top: 50px;
+            padding: 10px 12px;
+            .mat-flat-button {
+                font-size: 10.5px;
+                &::after {
+                    left: 0px;
+                    right: 100px;
+                    margin: 0 auto;
+                }
+            }
+        }
+        .tabs-data-dashboard {
+            padding-bottom: 58px;
+        }
+        .data-filterSec.full-widthForm .full-rowOuter>div {
+            width: auto;
+        }
+    }
+    @media only screen and (max-width: 460px) {
+        .reset-timeContainer {
+            width: 100% !important;
+            .reset-time {
+                max-width: 100% !important;
+                padding-left: 12px;
+                padding-top: 4px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1280px) {
+    .col-12-md {
+        width: 100% !important;
+    }
+}
+
+:host ::ng-deep .desktop-data-dashboard {
+    h3 {
+        font-size: 16px;
+    }
+    @media only screen and (max-width: 1380px) {
+        mat-form-field.datepicker-field .mat-form-field-flex .mat-form-field-infix {
+            width: 120px;
+        }
+        .right-alignBtns .btn-outer .mat-form-field-wrapper .mat-form-field-infix {
+            width: 120px;
+        }
+        .right-alignBtns .btn-outer .mat-form-field-type-mat-select .mat-form-field-wrapper .mat-form-field-infix {
+            width: 100px;
+        }
+    }
+    @media only screen and (max-width: 1279px) {
+        .full-med-screen {
+            width: 100% !important;
+        }
+    }
+}
+
+:host ::ng-deep .tabs-data-dashboard .mat-accordion {
+    .table-outerScroller {
+        max-height: 400px !important;
+    }
+}
+
+.import-icon {
+    position: relative;
+    margin-left: 14px;
+    .mat-icon-button {
+        padding: 0;
+        min-width: 0;
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        line-height: 40px;
+        border-radius: 50% !important;
+        .img-icons {
+            opacity: 0.6;
+            height: 34px;
+        }
+        mat-icon.mat-icon.material-icons {
+            height: 30px;
+            width: 18px;
+        }
+    }
+    &::after {
+        display: block;
+        content: "";
+        height: 24px;
+        width: 1px;
+        background: #ccc;
+        position: absolute;
+        top: 6px;
+        left: -2px;
+    }
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+:host ::ng-deep .desktop-data-dashboard .RevenueLoc-Agents {
+    .full-med-screen {
+        &:first-child {
+            .normal-box.tableData.min-record {
+                .table-outerScroller.table-scroll-mi-listing {
+                    max-height: 258px !important;
+                }
+            }
+        }
+    }
+}
+
+.full-width {
+    width: 100%;
+    mat-form-field {
+        width: 100%;
+    }
+}
+
+.reset-timeContainer {
+    display: flex;
+    align-items: center;
+    .reset-time {
+        font-size: 12px;
+        max-width: 130px;
+        display: inline-block;
+        border-left: 1px solid #ccc;
+        padding-left: 8px;
+        @media only screen and (max-width: 460px) {
+            border-left: 0px;
+        }
+        label {
+            width: 100%;
+            float: left;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+    }
+}
+
+.btn-width-100 {
+    width: 100% !important;
+    max-width: 100% !important;
+    .btn-outer,
+    button {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+:host ::ng-deep {
+    .btn-outer {
+        mat-form-field.datepicker-field {
+            .mat-form-field-suffix {
+                background: #fff !important;
+            }
+        }
+    }
+    th.mat-header-cell.cdk-column-AnnualizedRevenue.mat-column-AnnualizedRevenue.mat-table-sticky,
+    td.mat-cell.cdk-column-AnnualizedRevenue.mat-column-AnnualizedRevenue {
+        max-width: 160px;
+        width: 160px;
+        min-width: 160px;
+        text-align: right;
+    }
+    td.mat-cell.cdk-column-PAC.mat-column-PAC,
+    td.mat-cell.cdk-column-GrossRevenue.mat-column-GrossRevenue,
+    td.mat-cell.cdk-column-NetRevenue.mat-column-NetRevenue,
+    td.cdk-column-NetRevenue.mat-column-NetRevenue.mat-column-NetRevenu,
+    td.mat-cell.cdk-column-TotalPercentage.mat-column-TotalPercentage {
+        text-align: right;
+        padding-right: 30px;
+    }
+    th.mat-header-cell.cdk-column-PAC.mat-column-PAC.mat-table-sticky,
+    th.mat-header-cell.cdk-column-GrossRevenue.mat-column-GrossRevenue.mat-table-sticky,
+    th.mat-header-cell.cdk-column-NetRevenue.mat-column-NetRevenue.mat-table-sticky,
+    th.mat-header-cell.cdk-column-TotalPercentage.mat-column-TotalPercentage,
+    th.mat-header-cell.cdk-column-AnnualizedRevenue.mat-column-AnnualizedRevenue.mat-table-sticky {
+        .mat-sort-header-container {
+            justify-content: flex-end;
+            display: flex;
+            cursor: pointer;
+            align-items: flex-end;
+            text-align: right;
+            /* margin-right: -10px; */
+        }
+    }
+    td.mat-cell.cdk-column-AnnualizedRevenue.mat-column-AnnualizedRevenue {
+        padding-right: 30px;
+    }
+    td.mat-cell.cdk-column-TotalPercentage.mat-column-TotalPercentage {
+        max-width: 100px;
+        width: 100px;
+    }
+}

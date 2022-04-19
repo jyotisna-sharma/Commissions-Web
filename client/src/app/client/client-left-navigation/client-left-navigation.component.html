@@ -1,0 +1,30 @@
+<div class="tabs_tab-bar" id="tablist">
+  <ul class="ul-tabs tab-links" role="tablist" *ngIf='getrouteParamters'>
+    <li class="nav-item">
+      <a class="nav-link " (click)='NavigateToUrl(3)' [routerLink]="[ '/client/clientListing','3','10','0' ]" [ngClass]="{'active': this?.getrouteParamters?.parentTab === '3'}">Total clients
+        <span class="total-no">{{totalCount}}</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)='NavigateToUrl(0)' [routerLink]="[ '/client/clientListing','0','10','0' ]" [ngClass]="{'active': this?.getrouteParamters?.parentTab === '0'}">Active policies
+        <span class="total-no">{{activeCount}}</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)='NavigateToUrl(2)' [routerLink]="[ '/client/clientListing',2,10,0 ]" [ngClass]="{'active': this?.getrouteParamters?.parentTab === '2'}">Pending policies
+        <span class="total-no">{{pendingCount}}</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)='NavigateToUrl(1)' [routerLink]="[ '/client/clientListing',1,10,0 ]" [ngClass]="{'active': this?.getrouteParamters?.parentTab === '1'}">Terminated policies
+        <span class="total-no">{{inactiveCount}}</span>
+      </a>
+    </li>
+    <li class="nav-item" *ngIf="isWithOutTabShown">
+      <a class="nav-link" (click)='NavigateToUrl(4)' [routerLink]="[ '/client/clientListing',4,10,0 ]" [ngClass]="{'active': this?.getrouteParamters?.parentTab === '4'}">Without policies
+        <span class="total-no">{{zeroCount}}</span>
+      </a>
+    </li>
+  </ul>
+
+</div>

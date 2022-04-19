@@ -1,0 +1,100 @@
+
+@import '../../../assets/css/global.scss';
+@import '../../../assets/css/variable.scss';
+@import '../../../assets/css/media-variable.scss';
+
+#notes {
+     .label-inline{
+    display: inline-block;
+    width: auto;
+    float:none;}
+
+    .nots-seprater {
+    border-top: 1px solid #e6e6e6;   
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+h5 {
+    padding:0px;
+    margin-bottom:10px;   
+}
+h5.title {
+    color:$Grey-dark;
+    font-size:$label-font-size;
+    font-weight:600;    
+}
+.notes-col {
+    width:100%;   
+    margin-bottom:2px;
+    border: 1px solid $seprator-linecolor;
+}
+.scrollbar{
+    max-height: 269px;
+    overflow: auto;
+    }
+.notes-header{
+    background: $light;
+    padding:10px 15px;
+    border-bottom: 1px solid $seprator-linecolor;
+}
+.notes-header .block{
+    margin-right:24px;
+    display: inline-block;
+}
+.notes-header a.edit{
+    float:right;
+    font-size:$small-font-size;
+    font-weight:600;  
+    margin-left:20px;  
+}
+.notes-header .disable{
+    float:right;
+    font-size:$small-font-size;
+    font-weight:600;
+    color:$nav-disabled;
+    cursor: pointer;
+}
+.notes-header .block .label{
+   color:$Grey-dark;
+   font-size:12px;
+   font-weight: 600;
+}
+.notes-header .block .name-date{
+    color:$page-title;
+    font-size:12px;
+    font-weight: 600;
+ }
+.notes-content p{
+    padding:0px 15px;
+    font-size:$label-font-size;
+    line-height:16px;
+    color:$Grey-dark;
+    word-break: break-all;
+    
+}
+
+}
+#notes{
+@media screen and (max-width : $Break-Medium) {    
+    .col-12-md { width:100% !important;}   
+    }
+    @media screen and (max-width : $Break-Small) {  
+       
+        .notes-header .block{
+            min-width:70%;  
+        }
+        }
+
+}
+   
+a.edit.disable
+{
+    pointer-events: none;
+}
+
+.notes-content   {
+.block  {
+display: inline-block;
+width: 80%;
+}
+}

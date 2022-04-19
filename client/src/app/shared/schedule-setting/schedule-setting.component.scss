@@ -1,0 +1,12 @@
+@import '../../../assets/css/global.scss';
+:host ::ng-deep {
+    .table-outerScroller.table-scroll-mi-listing {
+        max-height: 174px !important;
+    }
+    mat-form-field input.percentage.mat-input-element {
+        padding-right: 40px !important;
+    }
+    button.add-btnLink.pull-right.link-blue.mat-button .mat-button-wrapper {
+        color: #3455A5;
+    }
+}
