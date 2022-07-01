@@ -91,7 +91,7 @@
               <!-- <div class="tableStyle table-scroll-data"> -->
                   
                 <!-- //IsArison check of radiobutton to uncomment -->
-                 <ng-template [ngIf] = "isArison === false">
+                 <!-- <ng-template [ngIf] = "isArison === false"> -->
                   <!-- //IsArison check of radiobutton to uncomment -->
                     
                   <div class="tableStyle table-scroll-data">
@@ -102,16 +102,16 @@
                   </div>
 
                 <!-- //IsArison check of radiobutton to uncomment -->
-                  </ng-template> 
+                  <!-- </ng-template>  -->
                 <!-- //IsArison check of radiobutton to uncomment -->
 
                 <!-- //IsArison check of radiobutton to uncomment -->
-                  <ng-template [ngIf] = "isArison === true">
+                  <!-- <ng-template [ngIf] = "isArison === true">
                   <div class="tableStyle table-scroll-data">
                       <app-mi-list [MiListProperties]=ReportNameProperties
                       (onMenuItemClick)='OnReportNameRbtnClicked($event)'></app-mi-list>
                   </div>
-              </ng-template> 
+              </ng-template>  -->
                     <!-- //IsArison check of radiobutton to uncomment -->
 
             </div>
@@ -178,7 +178,7 @@
                       [ngClass]="{'btn-disable':!isReportSelected || !isPayorSelected || !isPayeeSelected||!isSegmentSelected||!isCarrierSelected||!isProductSelected || !isformValid||userdetails?.Permissions[6].Permission === 1}" 
                       (click)='OnExportButtonClick()'>Export</button>
                     <mat-menu #menu2="matMenu" class="user-menu">
-                      <button mat-menu-item (click)='PrintReport("PDF")' [disabled]='isEcrReportSelected || isArison'
+                      <button mat-menu-item (click)='PrintReport("PDF")' [disabled]='isEcrReportSelected'
                         class="pdf-icon icon-button">
                         PDF
                       </button>

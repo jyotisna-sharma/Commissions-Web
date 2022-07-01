@@ -25,7 +25,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ManagementReportListingComponent implements OnInit {
 
-  isArison: boolean = JSON.parse(localStorage.getItem('loggedUser')).LicenseeId == CONSTANTS.arisonId;
+  //isArison: boolean = JSON.parse(localStorage.getItem('loggedUser')).LicenseeId == CONSTANTS.arisonId;
   title: any;
   isMRECRReportSlct: Boolean = false;
   PayorsListProperties: MiProperties = new MiProperties();
@@ -371,33 +371,33 @@ export class ManagementReportListingComponent implements OnInit {
     this.ReportNameProperties.miDataSource = new TableDataSource(this.reportManagersvc);
 
     //to comment if IsArison check is used
-    //this.ReportNameProperties.displayedColumns = ['Checkbox', 'Name', 'Description'];
+    this.ReportNameProperties.displayedColumns = ['Checkbox', 'Name', 'Description'];
     //to comment if IsArison check is used
     
     //IsArison check of radiobutton to uncomment
-    if(this.isArison === false)
-    {
-      this.ReportNameProperties.displayedColumns = ['Checkbox', 'Name', 'Description'];
-    }
-    else
-    {
-      this.ReportNameProperties.displayedColumns = ['Radiobutton', 'Name', 'Description'];
-    }
+    // if(this.isArison === false)
+    // {
+    //   this.ReportNameProperties.displayedColumns = ['Checkbox', 'Name', 'Description'];
+    // }
+    // else
+    // {
+    //   this.ReportNameProperties.displayedColumns = ['Radiobutton', 'Name', 'Description'];
+    // }
     //IsArison check of radiobutton to uncomment
 
     //to comment if IsArison check is used
-    //this.ReportNameProperties.columnLabels = ['Checkbox', 'Name', 'Details'];
+    this.ReportNameProperties.columnLabels = ['Checkbox', 'Name', 'Details'];
     //to comment if IsArison check is used
 
     //IsArison check of radiobutton to uncomment
-    if(this.isArison === false)
-    {
-      this.ReportNameProperties.columnLabels = ['Checkbox', 'Name', 'Details'];
-    }
-    else
-    {
-      this.ReportNameProperties.columnLabels = ['', 'Name', 'Details'];
-    }
+    // if(this.isArison === false)
+    // {
+    //   this.ReportNameProperties.columnLabels = ['Checkbox', 'Name', 'Details'];
+    // }
+    // else
+    // {
+    //   this.ReportNameProperties.columnLabels = ['', 'Name', 'Details'];
+    // }
     //IsArison check of radiobutton to uncomment
 
     this.ReportNameProperties.columnIsSortable = ['false', 'true', 'true'];
@@ -412,25 +412,25 @@ export class ManagementReportListingComponent implements OnInit {
     this.ReportNameProperties.clientSideSearch = this.searchList;
 
     //to comment if IsArison check is used
-    // this.ReportNameProperties.fieldType = {
-    //   'Checkbox': new MiListFieldType('', 'Checkbox', '', '', 'check-box', '', '', false, null, '', '', ''),
-    // }
+    this.ReportNameProperties.fieldType = {
+      'Checkbox': new MiListFieldType('', 'Checkbox', '', '', 'check-box', '', '', false, null, '', '', ''),
+    }
     //to comment if IsArison check is used
 
     //IsArison check of radiobutton to uncomment
-    if(this.isArison === false)
-    {
-      this.ReportNameProperties.fieldType = {
-        'Checkbox': new MiListFieldType('', 'Checkbox', '', '', 'check-box', '', '', false, null, '', '', ''),
-      }
-    }
-    else
-    {
-      //alert("in1");
-      this.ReportNameProperties.fieldType = {
-        'Radiobutton': new MiListFieldType('', '', '', '', 'radio-button', '', '', false, null, '', '', ''),
-      }
-    }
+    // if(this.isArison === false)
+    // {
+    //   this.ReportNameProperties.fieldType = {
+    //     'Checkbox': new MiListFieldType('', 'Checkbox', '', '', 'check-box', '', '', false, null, '', '', ''),
+    //   }
+    // }
+    // else
+    // {
+    //   //alert("in1");
+    //   this.ReportNameProperties.fieldType = {
+    //     'Radiobutton': new MiListFieldType('', '', '', '', 'radio-button', '', '', false, null, '', '', ''),
+    //   }
+    // }
     //IsArison check of radiobutton to uncomment
 
     this.ReportNameProperties.miDataSource.dataSubject.subscribe(isloadingDone => {
@@ -1124,7 +1124,7 @@ export class ManagementReportListingComponent implements OnInit {
     this.OnValidateECRReport()
     if (this.isValidationShown === false) {
       //if (this.isMRECRReportSlct === true) {
-        if (this.isArison === true || this.isMRECRReportSlct === true) {
+        if (this.isMRECRReportSlct === true) {
           //alert("in");
         this.openEmailDialog(format);
       } else {
@@ -1134,7 +1134,7 @@ export class ManagementReportListingComponent implements OnInit {
 
     }
   }
-  SaveReport(format) {
+  SaveReport(format) { debugger;
     this.GetReportListData();
     //alert("this.payor="+this.payor);
     //alert("this.payees="+this.payees);
@@ -1179,7 +1179,7 @@ export class ManagementReportListingComponent implements OnInit {
       'userCredentialId': this.userdetails.UserCredentialID
     };
     //if (this.isMRECRReportSlct === false) {
-    if(this.isArison === false && this.isMRECRReportSlct === false) {
+    if(this.isMRECRReportSlct === false) {
       //alert("in2");//
       this.showLoader = true;
     }
@@ -1216,7 +1216,7 @@ export class ManagementReportListingComponent implements OnInit {
           this.showLoader = false;
         }*/
 
-        if(this.isArison === true || this.isMRECRReportSlct === true) 
+        if(this.isMRECRReportSlct === true) 
         {
             //alert("in3");
             this.showLoader = false;

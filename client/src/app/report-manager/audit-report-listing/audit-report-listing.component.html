@@ -59,7 +59,7 @@
               <div class="report-manager">
                 <h4 class="page-title">Reports ({{ReportCount}})</h4>
               </div>
-              <ng-template [ngIf] = "isPayeeListfound && isArison === false">
+              <ng-template [ngIf] = "isPayeeListfound">
                 
                 <!-- //IsArison check of radiobutton to uncomment
                   && isArison === false 
@@ -74,12 +74,12 @@
                 </div>
               </ng-template>
               <!-- //IsArison check of radiobutton to uncomment -->
-                <ng-template [ngIf] = "isPayeeListfound && isArison === true">
+                <!-- <ng-template [ngIf] = "isPayeeListfound && isArison === true">
                 <div class="tableStyle table-scroll-data">
                     <app-mi-list [MiListProperties]=ReportNameProperties
                     (onMenuItemClick)='OnReportNameRbtnClicked($event)'></app-mi-list>
                 </div>
-            </ng-template> 
+            </ng-template>  -->
                 <!-- //IsArison check of radiobutton to uncomment -->
             </div>
 
@@ -141,7 +141,7 @@
                       [ngClass]="{'btn-disable':!isReportSelected||!isPayeeSelected||!isSegmentSelected||!isPayorSelected||isValidationShown||this.userdetails.Permissions[6].Permission==1} ">Export</button>
                      
                       <mat-menu #menu2="matMenu" class="user-menu">
-                        <button mat-menu-item (click)='PrintReport("PDF")' [disabled]='isArison' class="pdf-icon icon-button">
+                        <button mat-menu-item (click)='PrintReport("PDF")' class="pdf-icon icon-button">
                           PDF
                         </button>
                         <button mat-menu-item (click)='PrintReport("Excel")' class="excel-icon icon-button" [disabled]='isFollowUpSlctd' >
