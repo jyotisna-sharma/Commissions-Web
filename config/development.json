@@ -1,6 +1,6 @@
 {
     "API": {
-       "BaseURL":"http://localhost:5203/MavService.svc/"
+       "BaseURL":"http://localhost:81/Test_Service_2100/MavService.svc/"
     },
     "RunServerWithCluster":false
 }

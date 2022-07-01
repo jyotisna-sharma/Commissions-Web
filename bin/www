@@ -10,7 +10,7 @@ var http = require('http');
 var config = require('config');
 //-------------------------used for clustering-------------------------------------------
 var RunServerWithCluster = config.get('RunServerWithCluster') || false
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '82');
 app.set('port', port)
 
 /**
