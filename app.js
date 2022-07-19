@@ -31,6 +31,9 @@ var cors = require('cors');
 // Create redis client
 redisClient = redis.createClient()
 redisClient.set("a", "123456");
+redisClient.on('error', (err) => {
+    appLogger.debug('Not Intialize redis session !' + err);
+})
 
 app = express()
 app.use(bodyParser.json({ limit: '500mb' }))
