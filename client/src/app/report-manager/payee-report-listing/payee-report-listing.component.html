@@ -54,13 +54,6 @@
                                 <h4 class="page-title">Payees ({{PayeeCount}})</h4>
                             </div>
                             <div *ngIf="isBatchListfound">
-                                <!-- isBatchListfound = false or no value found for
-                                isBatchListfound comes into effect when //responseObject comes = null; in ReportManagerRouter.js
-                                and isBatchListfound is always = true because from C# code every time responseObject
-                                is intialised either with list count  = 0 (in this case it is initialised with message = "No data found"
-                                and code = "404")
-                                or list count > 0 (in this case it is initialised with list values, message = "Data found successfully"
-                                and code = "200") -->
                                 <app-mi-list [MiListProperties]=PayeeListProperties (OnCheckBoxClick)='OnPayeeListChkBoxClicked($event)' (SelectAllCheckBoxes)='OnPayeeListSlctAllCheckBoxes($event)' [isFieldSelected]=payeeAllCheckBoxSelect (AfterLoadingData)='AfterPayeeDataLoading()'></app-mi-list>
                             </div>
                         </div>
@@ -71,13 +64,6 @@
                                 <h4 class="page-title">Segments ({{SegmentCount}})</h4>
                             </div>
                             <div *ngIf="isBatchListfound">
-                                <!-- isBatchListfound = false or no value found for
-                                isBatchListfound comes into effect when //responseObject comes = null; in ReportManagerRouter.js
-                                and isBatchListfound is always = true because from C# code every time responseObject
-                                is intialised either with list count  = 0 (in this case it is initialised with message = "No data found"
-                                and code = "404")
-                                or list count > 0 (in this case it is initialised with list values, message = "Data found successfully"
-                                and code = "200") -->
                                 <app-mi-list [MiListProperties]=SegmentListProperties 
                                 (OnCheckBoxClick)='OnSegmentListChkBoxClicked($event)' 
                                 (SelectAllCheckBoxes)='OnSegmentListSlctAllCheckBoxes($event)' 
@@ -93,27 +79,13 @@
                             <div class="report-manager">
                                 <h4 class="page-title">Reports ({{ReportCount}})</h4>
                             </div>
-                            <!-- <div *ngIf="isPayeeListfound && isArison === false; then thenBlock else elseBlock"></div> -->
-
                              <ng-template [ngIf] = "isPayeeListfound">
-                                 <!-- //IsArison check of radiobutton to uncomment
-                                    && isArison === false with ng-template
-                                        //IsArison check of radiobutton to uncomment    -->
                                 <div class="tableStyle table-scroll-data">
                                     <app-mi-list [MiListProperties]=ReportNameProperties (OnCheckBoxClick)='OnReportNameChkBoxClicked($event)' 
                                     (SelectAllCheckBoxes)='OnReportListSlctAllCheckBoxes($event)' [isFieldSelected]=reportAllCheckBoxSelect 
                                     (AfterLoadingData)='AfterReportDataLoading()'></app-mi-list>
                                 </div>
                             </ng-template>
-
-                            <!-- IsArison check of radiobutton to uncomment -->
-                                <!-- <ng-template [ngIf] = "isPayeeListfound && isArison === true">
-                                <div class="tableStyle table-scroll-data">
-                                    <app-mi-list [MiListProperties]=ReportNameProperties
-                                    (onMenuItemClick)='OnReportNameRbtnClicked($event)'></app-mi-list>
-                                </div>
-                            </ng-template>  -->
-                                <!-- IsArison check of radiobutton to uncomment -->
                         </div>
 
                     </div>
@@ -140,19 +112,6 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- IsArison check of radiobutton to uncomment -->
-                        <!-- <div class="col-1-lg" *ngIf="isArison">
-                        <div class="btn-section pull-right">
-                            <span matTooltip="This action is disabled as it requires 'Write' access for this module." [matTooltipDisabled]="userdetails?.Permissions[6].Permission === 2">
-                                <button class="loader-svg pull-left coloured-primary-button export small-size" mat-flat-button
-                                [disabled]="!isBatchPaid || !isBatchSelected || !isPayeeSelected"
-                                [ngClass]="{'btn-disable': !isBatchPaid || !isBatchSelected || !isPayeeSelected}"
-                                (click) = "SetBatchMarkAsPaid()">Mark Paid</button>
-                            </span>
-                        </div>
-                    </div>   -->
-                    <!-- IsArison check of radiobutton to uncomment -->
 
                     <div class="col-2-lg">
                         <div class="btn-section pull-right">
@@ -170,8 +129,6 @@
                   </button>
                 </mat-menu>
               </span>
-                            <!-- <button class="loader-svg email-button" mat-flat-button [disabled]='!isBatchSelected || !isPayeeSelected ||!isReportSelected'
-                [ngClass]="{'btn-disable': !isBatchSelected || !isPayeeSelected||!isReportSelected}">Email</button> -->
                         </div>
                     </div>
                 </div>

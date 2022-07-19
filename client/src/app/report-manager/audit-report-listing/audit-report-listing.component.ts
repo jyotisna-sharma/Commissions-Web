@@ -21,8 +21,6 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class AuditReportListingComponent implements OnInit {
 
-
-  //isArison: boolean = JSON.parse(localStorage.getItem('loggedUser')).LicenseeId == CONSTANTS.arisonId;
   title: any;
   PayorsListProperties: MiProperties = new MiProperties();
   PayeeListProperties: MiProperties = new MiProperties();
@@ -237,37 +235,8 @@ export class AuditReportListingComponent implements OnInit {
     this.url = this.reportManagerURLSvc.payeeStatementReport.GetReportNameListing;
     this.ReportNameProperties.url = this.url
     this.ReportNameProperties.miDataSource = new TableDataSource(this.reportManagersvc);
-
-    //to comment if IsArison check is used
     this.ReportNameProperties.displayedColumns = ['Checkbox', 'Name', 'Description'];
-    //to comment if IsArison check is used
-
-    //IsArison check of radiobutton to uncomment
-    // if(this.isArison === false)
-    // {
-    //   this.ReportNameProperties.displayedColumns = ['Checkbox', 'Name', 'Description'];
-    // }
-    // else
-    // {
-    //   this.ReportNameProperties.displayedColumns = ['Radiobutton', 'Name', 'Description'];
-    // }
-    //IsArison check of radiobutton to uncomment
-
-    //to comment if IsArison check is used
     this.ReportNameProperties.columnLabels = ['Checkbox', 'Name', 'Details'];
-    //to comment if IsArison check is used
-
-    //IsArison check of radiobutton to uncomment
-    // if(this.isArison === false)
-    // {
-    //   this.ReportNameProperties.columnLabels = ['Checkbox', 'Name', 'Details'];
-    // }
-    // else
-    // {
-    //   this.ReportNameProperties.columnLabels = ['', 'Name', 'Details'];
-    // }
-    //IsArison check of radiobutton to uncomment
-
     this.ReportNameProperties.columnIsSortable = ['false', 'true', 'true'];
     this.ReportNameProperties.refreshHandler = this.needReportNameRefresh;
     this.ReportNameProperties.resetPagingHandler = this.needPageReset;
@@ -278,28 +247,9 @@ export class AuditReportListingComponent implements OnInit {
     this.ReportNameProperties.isEditablegrid = true;
     this.ReportNameProperties.isClientSideList = true;
     this.ReportNameProperties.clientSideSearch = this.searchList;
-
-    //to comment if IsArison check is used
     this.ReportNameProperties.fieldType = {
       'Checkbox': new MiListFieldType('', 'Checkbox', '', '', 'check-box', '', '', false, null, '', '', ''),
     }
-    //to comment if IsArison check is used
-
-    //IsArison check of radiobutton to uncomment
-    // if(this.isArison === false)
-    // {
-    //   this.ReportNameProperties.fieldType = {
-    //     'Checkbox': new MiListFieldType('', 'Checkbox', '', '', 'check-box', '', '', false, null, '', '', ''),
-    //   }
-    // }
-    // else
-    // {
-    //   //alert("in1");
-    //   this.ReportNameProperties.fieldType = {
-    //     'Radiobutton': new MiListFieldType('', '', '', '', 'radio-button', '', '', false, null, '', '', ''),
-    //   }
-    // }
-    //IsArison check of radiobutton to uncomment
 
     this.ReportNameProperties.miDataSource.dataSubject.subscribe(isloadingDone => {
       if (isloadingDone && isloadingDone.length > 0) {
@@ -355,17 +305,14 @@ export class AuditReportListingComponent implements OnInit {
     {
       value.data.Checked = !value.data.Checked
     }
-    //this.IsAllCheckboxSlected();
 
     for (const ReportName of this.ReportNameProperties.miDataSource.tableData) {
       if(ReportName.Code === value.data.Code)
       {
-        //alert("inE");
         ReportName.Checked = true;
       }
       else
       {
-        //alert("inE1");
         ReportName.Checked = false;
       }
     }
@@ -606,7 +553,6 @@ export class AuditReportListingComponent implements OnInit {
         }
       }
       this.segments = segments.substring(0, segments.length - 1);
-      //const segmentList = this.segments.substring(0, segments.length - 1);
       if (this.segments) {
         const segmentCount = this.segments.split(',').length;
         if (segmentCount === this.SegmentListProperties.miDataSource.tableData.length) {
@@ -614,19 +560,13 @@ export class AuditReportListingComponent implements OnInit {
         }
         else if (segmentCount === 1) {
           let id = this.segments.replace(',', '');
-          //alert("id="+id);
-          //alert("Guid.createEmpty().toJSON().value="+Guid.createEmpty().toJSON().value);
           this.segments = (id === Guid.createEmpty().toJSON().value) ? this.segments + ',' + 'OnlyBlank' : this.segments + ',' + 'OnlyIDs';
         }
         else {
           var segArr = [];
           var emptyCount = 0;
-          //alert("segArr="+segArr);
           segArr = this.segments.split(',');
-          //alert("segArr1="+segArr);
           segArr.some(function(value, index, _aryFunc) {
-             //alert(index + ": " + value);
-          //   //return value.indexOf("Script") > -1;
             if(value === "00000000-0000-0000-0000-000000000000")
             {
               emptyCount = 1;
@@ -640,8 +580,6 @@ export class AuditReportListingComponent implements OnInit {
           {
             this.segments = this.segments + ',' + 'OnlyIDs';
           }
-
-          //this.segments = this.segments + ',' + 'OnlyIDs';
         }
       }
     }
@@ -667,32 +605,19 @@ export class AuditReportListingComponent implements OnInit {
     }
   }
   PrintReport(format) {
-    // 
     this.CalculateInvoiceFromDate();
     this.calculateInvoiceToDate();
 
     if (!this.ToDate.valid) {
-      // 
       this.isValidationShown = true;
       return;
     }
-
-    // if (this.isArison) 
-    // {
-    //   //alert("in");
-    //   this.openEmailDialog(format);
-    // } 
-    // else 
-    // {
-      //alert("in1A");
       this.showLoader = true;
       this.SaveReport(format);
-   // }
   }
 
   SaveReport(format) {
     this.GetReportListData(format);
-    //alert("this.segments="+this.segments);
     this.postdata = {
       'report':
       {
@@ -713,15 +638,6 @@ export class AuditReportListingComponent implements OnInit {
     };
     this.showLoader = true;
 
-    //if(this.isArison === false) {
-      //alert("in2");//
-     // this.showLoader = true;
-    //}
-    /*else
-    {
-      alert("in2A");
-    }*/
-
     const url = this.reportManagerURLSvc.AuditReport.SaveAuditReport;
    
     this.reportManagersvc.SaveReportDetails(this.postdata, url).subscribe(response => {
@@ -731,12 +647,9 @@ export class AuditReportListingComponent implements OnInit {
         const anchor = document.createElement('a');
         const fileExt = element.FileName.slice((element.FileName.lastIndexOf(".") - 1 >>> 0) + 2);
         if (fileExt) {
-         
-		          anchor.href = ServerURLS.ReportURL + element.FileName;
-		          //anchor.href = "../../../assets/" + element.FileName;
+		      anchor.href = ServerURLS.ReportURL + element.FileName;
 		  
           if (fileExt.toLowerCase() === 'pdf') {
-            //anchor.href = ServerURLS.ReportURL_PDF + element.FileName;
             anchor.target = '_blank';
             anchor.download = element.FileName;
           }
@@ -757,10 +670,8 @@ export class AuditReportListingComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (!result) {
-        //alert("in2");
-        //this.showLoader = false;
+
       } else {
-        //alert("in3");
         this.EmailIds = result;
         this.SaveReport(format);
       }
@@ -769,11 +680,9 @@ export class AuditReportListingComponent implements OnInit {
   }
 
   CalculateInvoiceFromDate() {
-    // 
     if (this.FromDate.value) {
       this.invoiceFromDate = this.FirstDayOfMonthFromDateTime(new Date(this.FromDate.value));
     } else if (!this.FromDate.value && !this.ToDate.value) {
-      // 
       let todayDate;
       todayDate = new Date()
       todayDate.setDate(todayDate.getDate() - 63);
@@ -783,7 +692,7 @@ export class AuditReportListingComponent implements OnInit {
       todayDate.setDate(todayDate.getDate() + 1);
       this.invoiceFromDate = todayDate;
     } else if (!this.FromDate.value && this.ToDate.value) {
-      // 
+      
       let toDate;
       toDate = new Date(this.ToDate.value);
       toDate = this.LastDayOfMonthFromDateTime(new Date(toDate));
@@ -794,9 +703,9 @@ export class AuditReportListingComponent implements OnInit {
     this.invoiceFromDate = this.setDateFormat(new Date(this.invoiceFromDate));
   }
   setDateFormat = (dateObj: Date): string => {
-    // 
+    
     if (dateObj) {
-      // 
+      
       return ((dateObj.getFullYear() + '-' + (dateObj.getMonth() + 1) + '-' + dateObj.getDate()) || '');
     }
   }
@@ -839,26 +748,14 @@ export class AuditReportListingComponent implements OnInit {
     }
   }
   IsValidDateRange() {
-    // 
+     
     this.isValidationShown = false;
     if (this.FromDate.value && this.ToDate.value) {
-      // 
+      
       this.isValidationShown =
         new Date(this.FromDate.value).setHours(0, 0, 0, 0) > new Date(this.ToDate.value).setHours(0, 0, 0, 0);
-      // !this.ToDate.valid;
     }
-
-    /*
-    if (!this.ToDate.valid) {
-      this.isValidationShown = true;
-    }
-    else{
-      this.isValidationShown = false;
-    }*/
   }
-
   //   Email Dialog Box 
-
-
 
 }

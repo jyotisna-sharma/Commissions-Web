@@ -60,12 +60,6 @@
                 <h4 class="page-title">Reports ({{ReportCount}})</h4>
               </div>
               <ng-template [ngIf] = "isPayeeListfound">
-                
-                <!-- //IsArison check of radiobutton to uncomment
-                  && isArison === false 
-                //IsArison check of radiobutton to uncomment -->
-
-              <!-- <div class="tableStyle table-scroll-data" *ngIf="isPayeeListfound"> -->
 
                 <div class="tableStyle table-scroll-data"> 
                   <app-mi-list [MiListProperties]=ReportNameProperties (OnCheckBoxClick)='OnReportNameChkBoxClicked($event)'
@@ -73,19 +67,10 @@
                     (AfterLoadingData)='AfterReportDataLoading()'></app-mi-list>
                 </div>
               </ng-template>
-              <!-- //IsArison check of radiobutton to uncomment -->
-                <!-- <ng-template [ngIf] = "isPayeeListfound && isArison === true">
-                <div class="tableStyle table-scroll-data">
-                    <app-mi-list [MiListProperties]=ReportNameProperties
-                    (onMenuItemClick)='OnReportNameRbtnClicked($event)'></app-mi-list>
-                </div>
-            </ng-template>  -->
-                <!-- //IsArison check of radiobutton to uncomment -->
             </div>
 
           </div>
         </div>
-
 
         <form>
        
@@ -149,8 +134,6 @@
                         </button>
                       </mat-menu>
                     </span>
-                    <!-- <button class="loader-svg email-button" mat-flat-button [disabled]='!isPayorSelected || !isPayeeSelected ||!isReportSelected'
-                    [ngClass]="{'btn-disable': !isPayorSelected || !isPayeeSelected||!isReportSelected}">Email</button> -->
                   </div>
 
                   

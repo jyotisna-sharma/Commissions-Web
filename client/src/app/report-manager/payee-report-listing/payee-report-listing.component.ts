@@ -32,7 +32,6 @@ import { Observable, forkJoin } from 'rxjs';
   styleUrls: ['./payee-report-listing.component.scss']
 })
 export class PayeeReportListingComponent implements OnInit {
-  //isArison: boolean = JSON.parse(localStorage.getItem('loggedUser')).LicenseeId == CONSTANTS.arisonId;
   title: any = 'Report Manager';
   showLoader = false;
   BatchDetailsListProperties: MiProperties = new MiProperties();
@@ -46,7 +45,6 @@ export class PayeeReportListingComponent implements OnInit {
   needPageReset: Subject<boolean> = new Subject();
   searchList: Subject<boolean> = new Subject();
   isYearChange:  Subject<boolean> = new Subject();
-  //Subject<boolean> = new Subject();
   url: any;
   EmailIds: any;
   userdetails: any;
@@ -82,9 +80,6 @@ export class PayeeReportListingComponent implements OnInit {
     mainFilter: new FormControl('Unpaid', [])
   });
   selectedMonth: any;
-  // isFilterChange: Subject<boolean> = new Subject();
-
-  // searchDataFilter: any = 'All';
   isZero = new FormControl(false, []);
   isSubTotal = new FormControl(false, []);
   statusFilters = [
@@ -132,7 +127,6 @@ export class PayeeReportListingComponent implements OnInit {
     this.userdetails.Permissions[6].Permission === 1;
     this.GetReportNameListing();
     this.ReportNameListingPrmtrs();
-    //this.isBatchPaid = false;
   }
 
 
@@ -182,9 +176,6 @@ export class PayeeReportListingComponent implements OnInit {
     }
     this.BatchDetailsListProperties.miDataSource.dataSubject.subscribe(isloadingDone => {
       if (isloadingDone && isloadingDone.length > 0 || (this.BatchDetailsListProperties.miDataSource.getResponse && this.BatchDetailsListProperties.miDataSource.getResponse.TotalLength == 0)) {
-        //alert("in");
-        //alert("isloadingDone.length="+isloadingDone.length);
-        //alert("this.BatchDetailsListProperties.miDataSource.getResponse.TotalLength="+this.BatchDetailsListProperties.miDataSource.getResponse.TotalLength);
         this.isBatchListfound = true;
         this.batchList = this.BatchDetailsListProperties.miDataSource.getResponse.TotalRecords;
         this.batchCount = this.BatchDetailsListProperties.miDataSource.getResponse.TotalLength;
@@ -262,49 +253,16 @@ export class PayeeReportListingComponent implements OnInit {
         this.isSegmentListfound = true;
       }
     });
-    // this.GetBatchesListing();
-    // this.GetBatchListPrmtrs();
   }
   // ###############################################################################################################################
 
 
   GetReportNameListing() {
-    //alert("in");
-    //debugger;
     this.url = this.reportManagerURLSvc.payeeStatementReport.GetReportNameListing;
     this.ReportNameProperties.url = this.url
     this.ReportNameProperties.miDataSource = new TableDataSource(this.reportManagersvc);
-
-    //to comment if IsArison check is used
     this.ReportNameProperties.displayedColumns = ['Checkbox', 'Name', 'Description'];
-    //to comment if IsArison check is used
-
-    //IsArison check of radiobutton to uncomment
-    // if(this.isArison === false)
-    // {
-    //   this.ReportNameProperties.displayedColumns = ['Checkbox', 'Name', 'Description'];
-    // }
-    // else
-    // {
-    //   this.ReportNameProperties.displayedColumns = ['Radiobutton', 'Name', 'Description'];
-    // }
-    //IsArison check of radiobutton to uncomment
-
-    //to comment if IsArison check is used
     this.ReportNameProperties.columnLabels = ['Checkbox', 'Name', 'Details'];
-    //to comment if IsArison check is used
-
-    //IsArison check of radiobutton to uncomment
-    // if(this.isArison === false)
-    // {
-    //   this.ReportNameProperties.columnLabels = ['Checkbox', 'Name', 'Details'];
-    // }
-    // else
-    // {
-    //   this.ReportNameProperties.columnLabels = ['', 'Name', 'Details'];
-    // }
-    //IsArison check of radiobutton to uncomment
-
     this.ReportNameProperties.columnIsSortable = ['false', 'true', 'true'];
     this.ReportNameProperties.refreshHandler = this.needReportNameRefresh;
     this.ReportNameProperties.resetPagingHandler = this.needPageReset;
@@ -315,30 +273,9 @@ export class PayeeReportListingComponent implements OnInit {
     this.ReportNameProperties.isEditablegrid = true;
     this.ReportNameProperties.isClientSideList = true;
     this.ReportNameProperties.clientSideSearch = this.searchList;
-
-    //to comment if IsArison check is used
     this.ReportNameProperties.fieldType = {
       'Checkbox': new MiListFieldType('', 'Checkbox', '', '', 'check-box', '', '', false, null, '', '', ''),
     }
-    //to comment if IsArison check is used
-
-    //IsArison check of radiobutton to uncomment
-    // if(this.isArison === false)
-    // {
-    //   //alert("in");
-    //   this.ReportNameProperties.fieldType = {
-    //     'Checkbox': new MiListFieldType('', 'Checkbox', '', '', 'check-box', '', '', false, null, '', '', ''),
-    //   }
-    // }
-    // else
-    // {
-    //   //alert("in1");
-    //   this.ReportNameProperties.fieldType = {
-    //     'Radiobutton': new MiListFieldType('', '', '', '', 'radio-button', '', '', false, null, '', '', ''),
-    //   }
-    // }
-    //IsArison check of radiobutton to uncomment
-
     this.ReportNameProperties.miDataSource.dataSubject.subscribe(isloadingDone => {
       if (isloadingDone && isloadingDone.length > 0) {
         this.ReportCount = this.ReportNameProperties.miDataSource.tableData.length;
@@ -385,81 +322,42 @@ export class PayeeReportListingComponent implements OnInit {
     }
   }
   OnReportNameRbtnClicked(value) {
-     //alert("inaaaa");
-    
-    //  if(value.name === "radio-button")
-    //  {
-    //   value.data.Checked = false;
-    //  }
-    
-     
-     //alert("value.data.Checked="+value.data.Checked);
-     //alert("value.data.Code="+value.data.Code);
-     //alert("value.name="+value.name);
      
      if(value.name === "radio-button")
      {
-       //alert("in2aaaa");
       value.data.Checked = !value.data.Checked;
      }
-     
-    //alert("value.data.Checked2="+value.data.Checked);
-
-     ////this.IsAllCheckboxSlected();
 
      for (const ReportName of this.ReportNameProperties.miDataSource.tableData) {
-      //alert("in1EA");
-      //alert("ReportName.Checked="+ReportName.Checked);
-      //alert("ReportName.Code="+ReportName.Code);
       if(ReportName.Code === value.data.Code)
       {
-        //alert("inE");
         ReportName.Checked = true;
       }
       else
       {
-        //alert("inE1");
         ReportName.Checked = false;
       }
     }
 
      if (value.data.Code === 'PS' && value.data.Checked === true) {
-       //alert("in1");
-
-       //this.isSubTotal.setValue(true);
        this.isBatchPaid = true;
        this.isSubTotal.enable();
      } else {
-       //alert("in2");
-
        this.isBatchPaid = false;
        this.isSubTotal.setValue(false);
        this.isSubTotal.disable();
      }
-
-     //alert("this.ReportNameProperties.miDataSource.tableData="+this.ReportNameProperties.miDataSource.tableData.length);
-     //alert("j="+JSON.stringify(this.ReportNameProperties.miDataSource.tableData));
      if (this.ReportNameProperties.miDataSource.tableData.filter(x =>
        x.Checked === true).length > 0) {
-         //alert("in3");
        this.isReportSelected = true;
        return;
      } else {
-       //alert("in4");
        this.isReportSelected = false;
      }
-    //this.isReportSelected = true;
   }
   // ###############################################################################################################################
   OnReportNameChkBoxClicked(value) {
-    //alert("in1");
-    
-    //alert("value.data.Checked="+value.data.Checked);
-    
     value.data.Checked = !value.data.Checked
-    
-    //alert("value.data.Checked2="+value.data.Checked);
-    
     this.IsAllCheckboxSlected();
     if (value.data.Code === 'PS' && value.data.Checked === true) {
       this.isSubTotal.enable();
@@ -476,14 +374,10 @@ export class PayeeReportListingComponent implements OnInit {
   }
   // ####################################################################################################################################
   IsAllCheckboxSlected() {
-    // tslint:disable-next-line:max-line-length
-    //alert("in2");
     if (this.ReportNameProperties.miDataSource.tableData.filter(x =>
       x.Checked === true).length === this.ReportNameProperties.miDataSource.tableData.length) {
-        //alert("in3");
       this.reportAllCheckBoxSelect = true;
     } else {
-      //alert("in4");
       this.reportAllCheckBoxSelect = false;
     }
     if (this.PayeeListProperties.miDataSource.tableData.filter(x =>
@@ -700,28 +594,6 @@ export class PayeeReportListingComponent implements OnInit {
           this.segments = this.segments + ',' + 'Both'
         }
         else {
-          // var segArr = [];
-          // var emptyCount = 0;
-          // //alert("segArr="+segArr);
-          // segArr = this.segments.split(',');
-          // //alert("segArr1="+segArr);
-          // segArr.some(function(value, index, _aryFunc) {
-             // //alert(index + ": " + value);
-          // //   //return value.indexOf("Script") > -1;
-            // if(value === "00000000-0000-0000-0000-000000000000")
-            // {
-              // emptyCount = 1;
-            // }
-          // });
-          // if(emptyCount === 1)
-          // {
-            // this.segments = this.segments + ',' + 'All';
-          // }
-          // else
-          // {
-            // this.segments = this.segments + ',' + 'OnlyIDs';
-          // }
-
           this.segments = this.segments + ',' + 'OnlyIDs';
         }
       }
@@ -742,17 +614,12 @@ export class PayeeReportListingComponent implements OnInit {
       }
     }
     if (this.ReportNameProperties.miDataSource.tableData && this.ReportNameProperties.miDataSource.tableData.length > 0) {
-      //alert("inA");
       for (const ReportName of this.ReportNameProperties.miDataSource.tableData) {
-        //alert("in1A");
-        //alert("ReportName.Checked="+ReportName.Checked);
-        //alert("ReportName.Code="+ReportName.Code);
         if (ReportName.Checked === true) {
-          //alert("in2A");
           reportName += ReportName.Code + ',';
         }
       }
-      this.reportName = reportName; // reportName.substring(0, reportName.length - 1);
+      this.reportName = reportName;
       const reports = this.reportName.substring(0, reportName.length - 1)
       if (reports) {
         const reportCount = reports.split(',').length;
@@ -767,18 +634,6 @@ export class PayeeReportListingComponent implements OnInit {
     this.showLoader = true;//ask to use to not
 
     this.SaveReport(format);
-
-    /*if (this.isArison) 
-    {
-      //alert("in");
-    this.openEmailDialog(format);
-    } 
-    else 
-    {
-      //alert("in1A");
-      this.showLoader = true;
-      this.SaveReport(format);
-    }*/
   }
   // ###############################################################################################################################
   SetBatchMarkAsPaid() {
@@ -841,11 +696,7 @@ export class PayeeReportListingComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (!result) {
-        //alert("in2");
-        //this.showLoader = false;
-        //this.isMRECRReportSlct = false;//ask to use or not
       } else {
-        //alert("in3");
         this.EmailIds = result;
         this.SaveReport(format);
       }
@@ -854,11 +705,7 @@ export class PayeeReportListingComponent implements OnInit {
   }
 
   SaveReport(format) {
-    //alert("in1");
-    //alert("this.batches="+this.batches);
-	
     this.GetReportListData();
-    //alert("this.segments="+this.segments);
     this.postdata = {
       'report': {
         'BatcheIds': this.batches,
@@ -900,22 +747,11 @@ export class PayeeReportListingComponent implements OnInit {
           if (ispayeeStatementslct) {
             this.SetBatchMarkAsPaid();
           }
-          
-		        anchor.href = ServerURLS.ReportURL + element.FileName;
-		        //anchor.href = "../../../assets/" + element.FileName;
+		      anchor.href = ServerURLS.ReportURL + element.FileName;
           if (fileExt.toLowerCase() === 'pdf') {
-			  //alert("in");
-			  //alert("ServerURLS.ReportURL_PDF="+ServerURLS.ReportURL_PDF);
-            //anchor.href = ServerURLS.ReportURL_PDF + element.FileName;
             anchor.target = '_blank';
             anchor.download = element.FileName;
           }
-		  // else{
-			  // //alert("in1");
-			  // //alert("ServerURLS.ReportURL_XLS="+ServerURLS.ReportURL_XLS);
-			  // //anchor.href = ServerURLS.ReportURL_XLS + element.FileName;
-		  // }
-         
           document.body.appendChild(anchor);
           anchor.click();
           document.body.removeChild(anchor);
@@ -978,31 +814,6 @@ export class PayeeReportListingComponent implements OnInit {
     this.selectedMonth = this.OnSetAllSelectedMonths(selectedValues.Month);
 
     this.GetBatchListPrmtrs();
-    // let arr = [];
-    // this.monthsFilters.filter(element => {
-    //   if (selectedValues.Month.includes(element.Month)) {
-    //     arr.push(element.MonthName);
-    //   }
-    // });
-    // if (arr.length == 12) {
-    //   this.GetBatchListPrmtrs();
-    //   this.BatchDetailsListProperties.refreshHandler.next(true);
-    // } else {
-    //   let listForSearching = [];
-    //   listForSearching = Object.assign([], this.batchList);
-    //   const newList = [];
-    //   const sortingColumn = 'CreatedDateString';
-    //   arr.filter(item => {
-    //     listForSearching.filter(element => {
-    //       if (element[sortingColumn].includes(item) && element[sortingColumn].includes(this.ListFilters.controls.mainFilter.value)) {
-    //         newList.push(element);
-    //       }
-    //     });
-    //   });
-    //   this.batchCount = newList.length;
-    //   this.BatchDetailsListProperties.cachedList = newList.sort(this.sortFunction);
-    //   this.BatchDetailsListProperties.refreshHandler.next(true);
-    // }
   }
 
   // ###############################################################################################################################

@@ -87,33 +87,12 @@
               <div class="report-manager">
                 <h4 class="page-title">Reports ({{ReportCount}})</h4>
               </div>
-
-              <!-- <div class="tableStyle table-scroll-data"> -->
-                  
-                <!-- //IsArison check of radiobutton to uncomment -->
-                 <!-- <ng-template [ngIf] = "isArison === false"> -->
-                  <!-- //IsArison check of radiobutton to uncomment -->
-                    
                   <div class="tableStyle table-scroll-data">
                     <app-mi-list [MiListProperties]=ReportNameProperties
                       (OnCheckBoxClick)='OnReportNameChkBoxClicked($event)'
                       (SelectAllCheckBoxes)='OnReportListSlctAllCheckBoxes($event)'
                       [isFieldSelected]=reportAllCheckBoxSelect (AfterLoadingData)='AfterReportDataLoading()'></app-mi-list>
                   </div>
-
-                <!-- //IsArison check of radiobutton to uncomment -->
-                  <!-- </ng-template>  -->
-                <!-- //IsArison check of radiobutton to uncomment -->
-
-                <!-- //IsArison check of radiobutton to uncomment -->
-                  <!-- <ng-template [ngIf] = "isArison === true">
-                  <div class="tableStyle table-scroll-data">
-                      <app-mi-list [MiListProperties]=ReportNameProperties
-                      (onMenuItemClick)='OnReportNameRbtnClicked($event)'></app-mi-list>
-                  </div>
-              </ng-template>  -->
-                    <!-- //IsArison check of radiobutton to uncomment -->
-
             </div>
           </div>
         </div>

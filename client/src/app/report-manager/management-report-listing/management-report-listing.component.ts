@@ -132,8 +132,6 @@ export class ManagementReportListingComponent implements OnInit {
   ngOnInit() {
     this.title = 'Report Manager';
     this.userdetails = JSON.parse(localStorage.getItem('loggedUser'));
-    // this.GetPayorListing();
-    // this.GetPayorListPrmtrs();
     this.GetPayeeListing();
     this.GetPayeeListprmtrs();
     this.filterText = '+ More filters'
@@ -185,9 +183,6 @@ export class ManagementReportListingComponent implements OnInit {
         this.PayorCount = this.PayorsListProperties.miDataSource.tableData.length;
       }
     });
-    // this.GetPayeeListing();
-    // this.GetPayeeListprmtrs();
-
   }
   GetCarrierListing() {
     this.url = this.reportManagerURLSvc.ManagementReport.GetCarrierList;
@@ -224,13 +219,6 @@ export class ManagementReportListingComponent implements OnInit {
         }
         this.isCarrierListfound = true;
       }
-      // if (isloadingDone && isloadingDone.length > 0) {
-      //   this.carrierCount = this.CarrierListProperties.miDataSource.tableData.length;
-      //   this.isCarrierListfound = true;
-      // } else if (this.CarrierListProperties.miDataSource.pageLength >= 0) {
-      //   this.isCarrierListfound = true;
-      //   this.carrierCount = this.CarrierListProperties.miDataSource.tableData.length;
-      // }
     });
 
   }
@@ -270,15 +258,6 @@ export class ManagementReportListingComponent implements OnInit {
         }
         this.isProductListfound = true;
       }
-      // if (isloadingDone &&  this.ProductListProperties.miDataSource.getResponse) {
-      //   this.isProductListfound = true;
-      //   this.productCount = this.ProductListProperties.miDataSource.tableData.length;
-      // } 
-      // else if (this.ProductListProperties.miDataSource.pageLength >= 0) {
-      //   this.isProductListfound = true;
-      //   this.productCount = this.ProductListProperties.miDataSource.tableData.length;
-      // }
-
     });
 
   }
@@ -317,11 +296,6 @@ export class ManagementReportListingComponent implements OnInit {
         }
         this.isPayeeListfound = true;
       }
-
-      // else if (this.PayeeListProperties.miDataSource.pageLength >= 0) {
-      //   this.PayeeCount = this.PayeeListProperties.miDataSource.tableData.length;
-      //   this.isPayeeListfound = true;
-      // }
     });
     this.GetPayorListing();
     this.GetPayorListPrmtrs();
@@ -350,17 +324,9 @@ export class ManagementReportListingComponent implements OnInit {
     }
     this.SegmentListProperties.miDataSource.dataSubject.subscribe(isloadingDone => {
       if (isloadingDone && this.SegmentListProperties.miDataSource.getResponse) {
-        //if (!this.sortChange) {
-          // this.SegmentListProperties.miDataSource.getResponse.TotalRecords.push({
-          //   Checked: true,
-          //   PayeeName: 'blank',
-          //   UserCredentialId: Guid.createEmpty().toJSON().value
-          // });
           this.SegmentCount = this.SegmentListProperties.miDataSource.getResponse.TotalLength;
           this.SegmentListProperties.miDataSource.getResponse.TotalLength =
             this.SegmentListProperties.miDataSource.getResponse.TotalLength + 1;
-        //}
-        //this.isSegmentListfound = true;
       }
     });
   }
@@ -369,37 +335,8 @@ export class ManagementReportListingComponent implements OnInit {
     this.url = this.reportManagerURLSvc.payeeStatementReport.GetReportNameListing;
     this.ReportNameProperties.url = this.url
     this.ReportNameProperties.miDataSource = new TableDataSource(this.reportManagersvc);
-
-    //to comment if IsArison check is used
     this.ReportNameProperties.displayedColumns = ['Checkbox', 'Name', 'Description'];
-    //to comment if IsArison check is used
-    
-    //IsArison check of radiobutton to uncomment
-    // if(this.isArison === false)
-    // {
-    //   this.ReportNameProperties.displayedColumns = ['Checkbox', 'Name', 'Description'];
-    // }
-    // else
-    // {
-    //   this.ReportNameProperties.displayedColumns = ['Radiobutton', 'Name', 'Description'];
-    // }
-    //IsArison check of radiobutton to uncomment
-
-    //to comment if IsArison check is used
     this.ReportNameProperties.columnLabels = ['Checkbox', 'Name', 'Details'];
-    //to comment if IsArison check is used
-
-    //IsArison check of radiobutton to uncomment
-    // if(this.isArison === false)
-    // {
-    //   this.ReportNameProperties.columnLabels = ['Checkbox', 'Name', 'Details'];
-    // }
-    // else
-    // {
-    //   this.ReportNameProperties.columnLabels = ['', 'Name', 'Details'];
-    // }
-    //IsArison check of radiobutton to uncomment
-
     this.ReportNameProperties.columnIsSortable = ['false', 'true', 'true'];
     this.ReportNameProperties.refreshHandler = this.needReportNameRefresh;
     this.ReportNameProperties.resetPagingHandler = this.needPageReset;
@@ -410,28 +347,9 @@ export class ManagementReportListingComponent implements OnInit {
     this.ReportNameProperties.isEditablegrid = true;
     this.ReportNameProperties.isClientSideList = true;
     this.ReportNameProperties.clientSideSearch = this.searchList;
-
-    //to comment if IsArison check is used
     this.ReportNameProperties.fieldType = {
       'Checkbox': new MiListFieldType('', 'Checkbox', '', '', 'check-box', '', '', false, null, '', '', ''),
     }
-    //to comment if IsArison check is used
-
-    //IsArison check of radiobutton to uncomment
-    // if(this.isArison === false)
-    // {
-    //   this.ReportNameProperties.fieldType = {
-    //     'Checkbox': new MiListFieldType('', 'Checkbox', '', '', 'check-box', '', '', false, null, '', '', ''),
-    //   }
-    // }
-    // else
-    // {
-    //   //alert("in1");
-    //   this.ReportNameProperties.fieldType = {
-    //     'Radiobutton': new MiListFieldType('', '', '', '', 'radio-button', '', '', false, null, '', '', ''),
-    //   }
-    // }
-    //IsArison check of radiobutton to uncomment
 
     this.ReportNameProperties.miDataSource.dataSubject.subscribe(isloadingDone => {
       if (isloadingDone && isloadingDone.length > 0) {
@@ -498,26 +416,17 @@ export class ManagementReportListingComponent implements OnInit {
     for (const ReportName of this.ReportNameProperties.miDataSource.tableData) {
       if(ReportName.Code === value.data.Code)
       {
-        //alert("inE");
         ReportName.Checked = true;
       }
       else
       {
-        //alert("inE1");
         ReportName.Checked = false;
       }
     }
-
-    //this.IsAllCheckboxSlected();
     
     if (this.ReportNameProperties.miDataSource.tableData.filter(x =>
       x.Checked === true).length > 0) {
       this.isReportSelected = true;
-      // if ((value.data.Code === 'MRECR' || value.data.Code === 'MROS') && value.data.Checked === true) {
-      //   this.isEcrReportSelected = true;
-      // } else {
-      //   this.isEcrReportSelected = false;
-      // }
       return;
     } else {
       this.isReportSelected = false;
@@ -543,8 +452,6 @@ export class ManagementReportListingComponent implements OnInit {
       x.Checked === true).length > 0) {
       this.isReportSelected = true;
       if ((value.data.Code === 'MRECR' || value.data.Code === 'MROS') && value.data.Checked === true) {
-        //alert("in");
-        //alert("value.data.Code="+value.data.Code);
         this.isEcrReportSelected = true;
       } else {
         this.isEcrReportSelected = false;
@@ -710,7 +617,6 @@ export class ManagementReportListingComponent implements OnInit {
     if (this.CarrierListProperties.miDataSource.tableData.filter(x =>
       x.Checked === true).length > 0) {
       this.isCarrierSelected = true;
-      // this.Type.enable();
       return;
     } else {
       this.isCarrierSelected = false;
@@ -727,7 +633,6 @@ export class ManagementReportListingComponent implements OnInit {
     if (this.ProductListProperties.miDataSource.tableData.filter(x =>
       x.Checked === true).length > 0) {
       this.isProductSelected = true;
-      // this.Type.enable();
       return;
     } else {
       this.isProductSelected = false;
@@ -748,7 +653,6 @@ export class ManagementReportListingComponent implements OnInit {
       x.Checked === true).length > 0) {
       this.isReportSelected = true;
       this.isEcrReportSelected = true;
-      // this.Type.enable();
       return;
     } else {
       this.isReportSelected = false;
@@ -845,7 +749,6 @@ export class ManagementReportListingComponent implements OnInit {
     };
     this.PayeeListProperties.requestPostData = this.postdata;
     this.PayeeListProperties.refreshHandler.next(true);
-    //this.GetSegmentListing();
     this.GetReportNameListing();
     this.ReportNameListingPrmtrs();
   }
@@ -908,7 +811,6 @@ export class ManagementReportListingComponent implements OnInit {
             {
               this.payor = this.payor + 'OnlyIDs';
             }
-          //this.payor = this.payor + 'OnlyIDs';
         }
       }
     }
@@ -947,7 +849,6 @@ export class ManagementReportListingComponent implements OnInit {
             {
               this.payees = this.payees + 'OnlyIDs';
             }
-          //this.payees = this.payees + 'OnlyIDs';
         }
       }
     }
@@ -1038,7 +939,6 @@ export class ManagementReportListingComponent implements OnInit {
             {
               this.checkedCarriers = this.checkedCarriers + 'OnlyIDs';
             }
-          //this.checkedCarriers = this.checkedCarriers + 'OnlyIDs'
         }
       }
     }
@@ -1078,7 +978,6 @@ export class ManagementReportListingComponent implements OnInit {
             {
               this.checkProductList = this.checkProductList + 'OnlyIDs';
             }
-          //this.checkProductList = this.checkProductList + 'OnlyIDs'
         }
       }
     }
@@ -1123,12 +1022,9 @@ export class ManagementReportListingComponent implements OnInit {
   PrintReport(format) {
     this.OnValidateECRReport()
     if (this.isValidationShown === false) {
-      //if (this.isMRECRReportSlct === true) {
         if (this.isMRECRReportSlct === true) {
-          //alert("in");
         this.openEmailDialog(format);
       } else {
-        //alert("in1");
         this.SaveReport(format);
       }
 
@@ -1136,11 +1032,6 @@ export class ManagementReportListingComponent implements OnInit {
   }
   SaveReport(format) { debugger;
     this.GetReportListData();
-    //alert("this.payor="+this.payor);
-    //alert("this.payees="+this.payees);
-    //alert("this.checkProductList="+this.checkProductList);
-    //alert("this.checkedCarriers="+this.checkedCarriers);
-    //alert("this.segments="+this.segments);
     this.postdata = {
       'report':
         {
@@ -1178,53 +1069,19 @@ export class ManagementReportListingComponent implements OnInit {
         },
       'userCredentialId': this.userdetails.UserCredentialID
     };
-    //if (this.isMRECRReportSlct === false) {
     if(this.isMRECRReportSlct === false) {
-      //alert("in2");//
       this.showLoader = true;
     }
-    /*else
-    {
-      alert("in2A");
-    }*/
     const url = this.reportManagerURLSvc.ManagementReport.SaveManagementReport;
     
     this.reportManagersvc.SaveReportDetails(this.postdata, url).subscribe(response => {
-      //alert("this.postdata="+JSON.stringify(this.postdata));
-      //alert("response.ResponseCode="+response.ResponseCode);
       if (response.ResponseCode === ResponseCode.SUCCESS) {
-        //if (this.isMRECRReportSlct === false) {//original first line
-
-          /*if(this.isArison === false || this.isMRECRReportSlct === false) {
-            alert("in3");
-          this.showLoader = false;
-          const element = response.ReportObject;
-          const anchor = document.createElement('a');
-          const fileExt = element.FileName.slice((element.FileName.lastIndexOf('.') - 1 >>> 0) + 2);
-          if (fileExt) {
-            anchor.href = ServerURLS.ReportURL + element.FileName;
-            if (fileExt.toLowerCase() === 'pdf') {
-              anchor.target = '_blank';
-              anchor.download = element.FileName;
-            }
-            document.body.appendChild(anchor);
-            anchor.click();
-            document.body.removeChild(anchor);
-          }
-        } else {
-          alert("in4");
-          this.showLoader = false;
-        }*/
-
         if(this.isMRECRReportSlct === true) 
         {
-            //alert("in3");
             this.showLoader = false;
         }
         else 
         {
-          //alert("in4");
-		  		  
           this.showLoader = false;
           const element = response.ReportObject;
           const anchor = document.createElement('a');
@@ -1233,21 +1090,13 @@ export class ManagementReportListingComponent implements OnInit {
           {
             anchor.href = ServerURLS.ReportURL + element.FileName;
 			
-			      //anchor.href = "../../../assets/" + element.FileName;
-			
-			      //alert("anchor.href="+anchor.href);
             if (fileExt.toLowerCase() === 'pdf') 
-
             {
-              //anchor.href = ServerURLS.ReportURL_PDF + element.FileName;
-			  
               anchor.target = '_blank';
               anchor.download = element.FileName;
             }
 			
             document.body.appendChild(anchor);
-			
-			      //alert("");
 			
             anchor.click();
             document.body.removeChild(anchor);
@@ -1285,5 +1134,3 @@ export class ManagementReportListingComponent implements OnInit {
     this.sortChange = value.result;
   }
 }
-
-// }
